@@ -1,0 +1,71 @@
+#rating-tabs .hide-if-no-js,
+#rating-adder {
+	display: none;
+}
+
+#book-authordiv,
+#illustratordiv,
+#ratingdiv,
+#tagsdiv-reading-level,
+#seriesdiv {
+	min-width: 255px;
+	width: calc( 20% - 1.5em );
+	float: left;
+	margin-right: 1.5em;
+}
+#ratingdiv {
+	margin-right: 0;
+}
+#book-reviews-meta {
+	clear: left;
+}
+#book-reviews-meta .inside {
+	padding: 10px auto;
+	min-height: 35px;
+}
+.in-stock-box {
+	float: left;
+	margin-right: 20px;
+}
+.awards img {
+	max-width: 95%;
+}
+
+#menu-posts-book-review .wp-menu-image {
+	background: none!important;
+}
+#menu-posts-book-review .wp-menu-image:before {
+	font-family: 'Genericons'!important;
+	content: '\f444';
+	font-size: 20px;
+	position: relative;
+	left: 5px;
+	top: 4px;
+	text-shadow: 1px 1px 0px #eee;
+	color: #aaa;
+}
+#menu-posts-book-review:hover .wp-menu-image:before, .wp-has-current-submenu#menu-posts-book-review .wp-menu-image:before {
+	color: #21759b;
+}
+.wp-has-current-submenu#menu-posts-book-review .wp-menu-image:before {
+	text-shadow: 1px 1px 0px #555;
+}
+div#icon-edit.icon32-posts-book-review {
+	background-image: none;
+}
+div#icon-edit.icon32-posts-book-review:after {
+	font-family: 'Genericons'!important;
+	content: '\f444';
+	color: #555;
+	font-size: 32px;
+	position: relative;
+	top: -5px;
+}
+
+.branch-3-8 #adminmenu #menu-posts-book-review div.wp-menu-image:before {
+	font-family: 'Genericons'!important;
+	content: '\f444';
+	left: 0;
+	top: 0;
+	text-shadow: none;
+}

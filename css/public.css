@@ -1,0 +1,14 @@
+.book-review-wrapper {
+	clear: both;
+	margin: 10px 0 20px;
+	display: block;
+}
+.book-review-sc.content {
+	float: left;
+}
+.book-review-sc .thumbnail {
+	margin-right: 20px;
+}
+.book-review-wrapper .post-meta {
+	clear: both;
+}
