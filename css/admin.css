@@ -3,15 +3,27 @@
 	display: none;
 }
 
-#book-authordiv,
-#illustratordiv,
-#ratingdiv,
-#tagsdiv-reading-level,
-#seriesdiv {
-	min-width: 255px;
-	width: calc( 20% - 1.5em );
+#book-authordiv .tabs-panel,
+#illustratordiv .tabs-panel,
+#ratingdiv .tabs-panel,
+#tagsdiv-reading-level .tabs-panel,
+#seriesdiv .tabs-panel {
+	padding-bottom: 10px;
+}
+
+#book-authordiv .tabs-panel li,
+#illustratordiv .tabs-panel li,
+#ratingdiv .tabs-panel li,
+#tagsdiv-reading-level .tabs-panel li,
+#seriesdiv .tabs-panel li {
 	float: left;
-	margin-right: 1.5em;
+}
+#book-authordiv .tabs-panel li .selectit,
+#illustratordiv .tabs-panel li .selectit,
+#ratingdiv .tabs-panel li .selectit,
+#tagsdiv-reading-level .tabs-panel li .selectit,
+#seriesdiv .tabs-panel li .selectit {
+	margin-left: 10px;
 }
 #ratingdiv {
 	margin-right: 0;
