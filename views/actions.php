@@ -77,7 +77,8 @@
 		add_action( 'plugins_loaded', array( $this, 'setup_i18n' ) );
 
 		// flush the rewrite rules
-		add_action( 'init', array( $this, 'flush_rewrites' ) );
+		add_action( 'activate-book-review-library.php', array( $this, 'flush_rewrites' ) );
+		add_action( 'deactivate-book-review-library.php', array( $this, 'flush_rewrites' ) );
 
 		// remove the settings menu for librarians
 		add_action ( 'admin_menu', array( $this, 'remove_menu_for_librarians' ) );
