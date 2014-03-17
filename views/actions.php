@@ -47,9 +47,8 @@
 		// Move metaboxes around
 		add_action( 'add_meta_boxes', array( $this, 'move_meta_boxes' ) );
 
-		// add new meta box
-		if ( (isset($options['awards']) && ($options['awards']  == true)) || (isset($options['stock']) && ($options['stock']  == true)) )
-			add_action( 'add_meta_boxes', array( $this, 'book_reviews_meta_box' ) );
+		// add additional information meta box
+		add_action( 'add_meta_boxes', array( $this, 'book_reviews_meta_box' ) );
 
 		// Register the options
 		add_action( 'admin_init' , array( $this, 'settings_init' ) );
