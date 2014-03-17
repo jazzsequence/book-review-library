@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
 Tested up to: 3.8
-Stable tag: 1.4.7
+Stable tag: 1.4.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -37,6 +37,7 @@ Translators can collectively help work on translating this plugin at http://tran
 * *Italian translation* by [tristano-ajmone](http://wordpress.org/support/profile/tristano-ajmone)
 * *Hungarian translation* by Ignácz József
 * *French translation* by claire idrac
+* *Russian translation* by [Diana Kononova](http://wordpress.org/support/profile/diana-kononova) **New in 1.4.8!!**
 
 = About this plugin =
 
@@ -145,6 +146,12 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 * 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library
 
 == Changelog ==
+
+= 1.4.8 =
+* fixed a conflict with other plugins that use post types which prevented single posts of other post types from displaying
+* added Russian language file
+* Additional Information box always displays
+* Changed the display of the taxonomy boxes so they don't do weird things when you move them (see: http://wordpress.org/support/topic/edit-post-screen-elements-go-wonky-when-rearranged?replies=4)
 
 = 1.4.7 =
 * added new option to display the book author on a separate line than the title
