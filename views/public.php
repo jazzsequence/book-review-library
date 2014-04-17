@@ -300,7 +300,8 @@ function filter_book_review_excerpt( $content ) {
 function filter_book_review_title( $title ) {
 	global $post;
 
-	if ( has_term('','book-author') && 'book-review' == get_post_type() && in_the_loop() && $title == $post->post_title ) {
+
+	if ( has_term('','book-author') && 'book-review' == get_post_type() && in_the_loop() ) {
 		$new_title = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $title . '</a>', get_book_author() );
 		return $new_title;
 	} else {
@@ -317,7 +318,7 @@ function filter_book_review_title( $title ) {
 function filter_book_review_title_newline( $title ) {
 	global $post;
 
-	if ( has_term('','book-author') && 'book-review' == get_post_type() && in_the_loop() && $title == $post->post_title ) {
+	if ( has_term('','book-author') && 'book-review' == get_post_type() && in_the_loop() ) {
 		$new_title = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $title . '</a><br /><div class="book-author">', get_book_author() . '</div>' );
 		return $new_title;
 	} else {
