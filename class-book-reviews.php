@@ -1425,8 +1425,8 @@ class Book_Reviews {
 		} else {
 			$count = -1;
 		}
-		if ( isset($atts['covers']) ) {
-			$covers = $atts['covers'];
+		if ( isset($atts['covers']) && 'true' == $atts['covers'] ) {
+			$covers = true;
 		} else {
 			$covers = false;
 		}
@@ -1511,7 +1511,7 @@ class Book_Reviews {
 			$query = new WP_Query( $args );
 			ob_start();
 			if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-			<div class="book-review-wrapper" id="book-review-<?php echo get_the_ID(); ?>">
+			<div class="book-review-wrapper orderedby-<?php echo esc_attr( $orderby ); ?>" id="book-review-<?php echo get_the_ID(); ?>">
 				<?php if ( has_term('','book-author') && ( isset($options['title-filter']) && $options['title-filter'] ) ) {
 					/* translators: 1: title, 2: author */
 					echo sprintf( __('%1$s'), '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
@@ -1520,7 +1520,7 @@ class Book_Reviews {
 				} ?>
 
 				<div <?php post_class( 'book-review-sc' ); ?>>
-					<?php if ( ($covers == 'true') && has_post_thumbnail() ) { ?>
+					<?php if ( ($covers == true) && has_post_thumbnail() ) { ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
 							<?php the_post_thumbnail('thumbnail'); ?>
 						</a>
@@ -1613,7 +1613,7 @@ class Book_Reviews {
 					$query = new WP_Query( $args );
 					ob_start();
 					if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-					<div class="book-review" id="book-review-<?php echo get_the_ID(); ?>">
+					<div class="book-review-wrapper orderedby-<?php echo esc_attr( $orderby ); ?>" id="book-review-<?php echo get_the_ID(); ?>">
 						<?php if ( has_term('','book-author') && ( isset($options['title-filter']) && $options['title-filter'] ) ) {
 							echo sprintf( __('%1$s'), '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
 						} else {
@@ -1621,7 +1621,7 @@ class Book_Reviews {
 						} ?>
 
 						<div <?php post_class( 'book-review-sc' ); ?>>
-							<?php if ( ($covers == 'true') && has_post_thumbnail() ) { ?>
+							<?php if ( ($covers == true) && has_post_thumbnail() ) { ?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
 									<?php the_post_thumbnail('thumbnail'); ?>
 								</a>
