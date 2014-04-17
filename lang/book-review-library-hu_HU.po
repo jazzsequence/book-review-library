@@ -2,328 +2,343 @@
 # This file is distributed under the same license as the Book Review Library package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2013-11-29 17:49-0700\n"
+"PO-Revision-Date: 2014-04-17 12:02-0700\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.4\n"
 "Project-Id-Version: Book Review Library\n"
 "POT-Creation-Date: \n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
-"Language-Team: Ignácz József <chris@arcanepalette.com>\n"
-"Language: hu_HU\n"
+"Language-Team: Ignácz József <joco1114@gmail.com>\n"
+"Language: hu\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n;_x;_ex\n"
 
-#: ../class-book-reviews.php:1477 ../class-book-reviews.php:1578
+#: ../inc/func.php:436
+msgid "With the title"
+msgstr ""
+
+#: ../inc/func.php:440
+msgid "On a new line"
+msgstr ""
+
+#: ../views/setup-options.php:258
+msgid ""
+"<strong>With the title</strong> displays the author on the same line as the "
+"book title. <strong>On a new line</strong> adds a line break before "
+"displaying the author. <strong>Disabled</strong> removes the author from the "
+"title entirely."
+msgstr ""
+
+#: ../class-book-reviews.php:1517 ../class-book-reviews.php:1618
 msgid "%1$s"
 msgstr "%1$s"
 
 #: ../inc/widgets.php:82 ../inc/widgets.php:127 ../inc/widgets.php:225
-#: ../views/public.php:266
+#: ../views/public.php:304 ../views/public.php:321
 msgid "%1$s by %2$s"
 msgstr "%2$s: %1$s"
 
-#: ../class-book-reviews.php:666
+#: ../class-book-reviews.php:683
 msgid "Add or remove Illustrators"
 msgstr "Illusztrátorok hozzáadása vagy eltávolítása"
 
-#: ../class-book-reviews.php:667
+#: ../class-book-reviews.php:684
 msgid "Choose from the most used Illustrators"
 msgstr "Választás az illusztrátorok közül"
 
-#: ../class-book-reviews.php:699 ../class-book-reviews.php:701
-#: ../class-book-reviews.php:715 ../class-book-reviews.php:1031
+#: ../class-book-reviews.php:716 ../class-book-reviews.php:718
+#: ../class-book-reviews.php:732 ../class-book-reviews.php:1048
 #: ../views/setup-options.php:135
 msgid "Awards"
 msgstr "Díjak"
 
-#: ../class-book-reviews.php:702
+#: ../class-book-reviews.php:719
 msgid "Award"
 msgstr "Díj"
 
-#: ../class-book-reviews.php:703
+#: ../class-book-reviews.php:720
 msgid "Search Awards"
 msgstr "Díj keresése"
 
-#: ../class-book-reviews.php:704
+#: ../class-book-reviews.php:721
 msgid "Popular Awards"
 msgstr "Népszerű díjak"
 
-#: ../class-book-reviews.php:705
+#: ../class-book-reviews.php:722
 msgid "All Awards"
 msgstr "Minden díj"
 
-#: ../class-book-reviews.php:708
+#: ../class-book-reviews.php:725
 msgid "Edit Award"
 msgstr "Díjak szerkesztése"
 
-#: ../class-book-reviews.php:709
+#: ../class-book-reviews.php:726
 msgid "Update Award"
 msgstr "Díj frissítése"
 
-#: ../class-book-reviews.php:710
+#: ../class-book-reviews.php:727
 msgid "Add New Award"
 msgstr "Új díj"
 
-#: ../class-book-reviews.php:711
+#: ../class-book-reviews.php:728
 msgid "New Award Name"
 msgstr "Új díj megnevezése"
 
-#: ../class-book-reviews.php:712
+#: ../class-book-reviews.php:729
 msgid "Separate Awards with commas"
 msgstr "Díjak elválasztása vesszővel"
 
-#: ../class-book-reviews.php:713
+#: ../class-book-reviews.php:730
 msgid "Add or remove Awards"
 msgstr "Díjak hozzáadása vagy eltávolítása"
 
-#: ../class-book-reviews.php:714
+#: ../class-book-reviews.php:731
 msgid "Choose from the most used Awards"
 msgstr "Választás az eddigi díjak közül"
 
-#: ../class-book-reviews.php:746 ../class-book-reviews.php:748
-#: ../class-book-reviews.php:749 ../class-book-reviews.php:762
-#: ../class-book-reviews.php:903 ../class-book-reviews.php:1015
+#: ../class-book-reviews.php:763 ../class-book-reviews.php:765
+#: ../class-book-reviews.php:766 ../class-book-reviews.php:779
+#: ../class-book-reviews.php:920 ../class-book-reviews.php:1032
 #: ../views/setup-options.php:163
 msgid "Series"
 msgstr "Sorozatok"
 
-#: ../class-book-reviews.php:750
+#: ../class-book-reviews.php:767
 msgid "Search Series"
 msgstr "Sorozatok keresése"
 
-#: ../class-book-reviews.php:751
+#: ../class-book-reviews.php:768
 msgid "Popular Series"
 msgstr "Népszerű sorozatok"
 
-#: ../class-book-reviews.php:752
+#: ../class-book-reviews.php:769
 msgid "All Series"
 msgstr "Minden sorozat"
 
-#: ../class-book-reviews.php:755
+#: ../class-book-reviews.php:772
 msgid "Edit Series"
 msgstr "Sorozatok szerkesztése"
 
-#: ../class-book-reviews.php:756
+#: ../class-book-reviews.php:773
 msgid "Update Series"
 msgstr "Sorozatok frissítése"
 
-#: ../class-book-reviews.php:757
+#: ../class-book-reviews.php:774
 msgid "Add New Series"
 msgstr "Új sorozat hozzáadása"
 
-#: ../class-book-reviews.php:758
+#: ../class-book-reviews.php:775
 msgid "New Series Name"
 msgstr "Új sorozat megnevezése"
 
-#: ../class-book-reviews.php:759
+#: ../class-book-reviews.php:776
 msgid "Separate Series with commas"
 msgstr "Sorozatok elválasztása vesszővel"
 
-#: ../class-book-reviews.php:760
+#: ../class-book-reviews.php:777
 msgid "Add or remove Series"
 msgstr "Sorozat hozzáadása vagy eltávolítása"
 
-#: ../class-book-reviews.php:761
+#: ../class-book-reviews.php:778
 msgid "Choose from the most used Series"
 msgstr "Választás a legtöbbet használt sorozatokból"
 
-#: ../class-book-reviews.php:793 ../class-book-reviews.php:795
-#: ../class-book-reviews.php:809
+#: ../class-book-reviews.php:810 ../class-book-reviews.php:812
+#: ../class-book-reviews.php:826
 msgid "Star Ratings"
 msgstr "Értékelés"
 
-#: ../class-book-reviews.php:796
+#: ../class-book-reviews.php:813
 msgid "Star"
 msgstr "Pontozás"
 
-#: ../class-book-reviews.php:797
+#: ../class-book-reviews.php:814
 msgid "Search Ratings"
 msgstr "Értékelés keresése"
 
-#: ../class-book-reviews.php:798
+#: ../class-book-reviews.php:815
 msgid "Popular Ratings"
 msgstr "Népszerű értékelések"
 
-#: ../class-book-reviews.php:799
+#: ../class-book-reviews.php:816
 msgid "Stars"
 msgstr "Pontozás"
 
-#: ../class-book-reviews.php:802
+#: ../class-book-reviews.php:819
 msgid "Edit Rating"
 msgstr "Értékelés szerkesztése"
 
-#: ../class-book-reviews.php:803
+#: ../class-book-reviews.php:820
 msgid "Update Rating"
 msgstr "Értékelés frissítése"
 
-#: ../class-book-reviews.php:804
+#: ../class-book-reviews.php:821
 msgid "Add New Rating"
 msgstr "Új értékelés hozzáadása"
 
-#: ../class-book-reviews.php:805
+#: ../class-book-reviews.php:822
 msgid "New Rating Name"
 msgstr "Új értékelés neve"
 
-#: ../class-book-reviews.php:806
+#: ../class-book-reviews.php:823
 msgid "Separate Star Ratings with commas"
 msgstr "Értékelések vesszővel elválasztva"
 
-#: ../class-book-reviews.php:807
+#: ../class-book-reviews.php:824
 msgid "Add or remove Star Ratings"
 msgstr "Értékelés hozzáadása vagy eltávolítása"
 
-#: ../class-book-reviews.php:808
+#: ../class-book-reviews.php:825
 msgid "Choose from the most used Star Ratings"
 msgstr "Választás az eddigi értékelésekből"
 
-#: ../class-book-reviews.php:840 ../inc/func.php:221
+#: ../class-book-reviews.php:857 ../inc/func.php:221
 msgid "Zero stars"
 msgstr "Nulla pont"
 
-#: ../class-book-reviews.php:844
+#: ../class-book-reviews.php:861
 msgid "One star"
 msgstr "Egy pont"
 
-#: ../class-book-reviews.php:848
+#: ../class-book-reviews.php:865
 msgid "Two stars"
 msgstr "Két pont"
 
-#: ../class-book-reviews.php:852
+#: ../class-book-reviews.php:869
 msgid "Three stars"
 msgstr "Három pont"
 
-#: ../class-book-reviews.php:856
+#: ../class-book-reviews.php:873
 msgid "Four stars"
 msgstr "Négy pont"
 
-#: ../class-book-reviews.php:860
+#: ../class-book-reviews.php:877
 msgid "Five stars"
 msgstr "Öt pont"
 
-#: ../class-book-reviews.php:894
+#: ../class-book-reviews.php:911
 msgid "Book Author"
 msgstr "Könyv szerzője"
 
-#: ../class-book-reviews.php:913
+#: ../class-book-reviews.php:930
 msgid "Star Rating"
 msgstr "Értékelés"
 
-#: ../class-book-reviews.php:917
+#: ../class-book-reviews.php:934
 msgid "Book Cover"
 msgstr "Könyv borítója"
 
-#: ../class-book-reviews.php:927
+#: ../class-book-reviews.php:944
 msgid "Additional Information"
 msgstr "További információk"
 
-#: ../class-book-reviews.php:946
+#: ../class-book-reviews.php:963
 msgid "ISBN:"
 msgstr "ISBN"
 
-#: ../class-book-reviews.php:952
+#: ../class-book-reviews.php:969
 msgid "In stock?"
 msgstr "Raktáron?"
 
-#: ../class-book-reviews.php:955
+#: ../class-book-reviews.php:972
 msgid "Book is in stock"
 msgstr "A könyv raktáron van"
 
-#: ../class-book-reviews.php:956
+#: ../class-book-reviews.php:973
 msgid "Book out of stock"
 msgstr "A könyv elfogyott"
 
-#: ../class-book-reviews.php:963
+#: ../class-book-reviews.php:980
 msgid "Upload Award Image"
 msgstr "Díj képének feltöltése"
 
-#: ../class-book-reviews.php:996
+#: ../class-book-reviews.php:1013
 msgid "Set featured image"
 msgstr "Kimelet kép beállítása"
 
-#: ../class-book-reviews.php:996
+#: ../class-book-reviews.php:1013
 msgid "Select Book Cover"
 msgstr "Könyv borítójának kiválasztása"
 
-#: ../class-book-reviews.php:1009
+#: ../class-book-reviews.php:1026
 msgid "Title"
 msgstr "Cím"
 
-#: ../class-book-reviews.php:1035
+#: ../class-book-reviews.php:1052
 msgid "Rating"
 msgstr "Értékelés"
 
-#: ../class-book-reviews.php:1075
+#: ../class-book-reviews.php:1092
 msgid "No authors found"
 msgstr "Nem találtam szerzőt"
 
-#: ../class-book-reviews.php:1129
+#: ../class-book-reviews.php:1146
 msgid "No series found"
 msgstr "Nem találtam sorozatot"
 
-#: ../class-book-reviews.php:1156
+#: ../class-book-reviews.php:1173
 msgid "No illustrators found"
 msgstr "Nem találtam illusztrátort"
 
-#: ../class-book-reviews.php:1183
+#: ../class-book-reviews.php:1200
 msgid "No subjects found"
 msgstr "Nem találtam témát"
 
-#: ../class-book-reviews.php:1210
+#: ../class-book-reviews.php:1227
 msgid "No reading level found"
 msgstr "Nem találtam olvasási szintet"
 
-#: ../class-book-reviews.php:1237
+#: ../class-book-reviews.php:1254
 msgid "No awards found"
 msgstr "Nem találtam díjat"
 
-#: ../class-book-reviews.php:1269 ../class-book-reviews.php:1282
+#: ../class-book-reviews.php:1286 ../class-book-reviews.php:1299
 msgid "No rating found"
 msgstr "Nem találtam értékelést"
 
-#: ../class-book-reviews.php:1515 ../class-book-reviews.php:1616
-#: ../views/public.php:125 ../views/public.php:206
+#: ../class-book-reviews.php:1555 ../class-book-reviews.php:1656
+#: ../views/public.php:163 ../views/public.php:244
 msgid "Review by %s"
 msgstr "Áttekintés: %s"
 
-#: ../class-book-reviews.php:1520 ../class-book-reviews.php:1621
-#: ../views/public.php:130 ../views/public.php:211
+#: ../class-book-reviews.php:1560 ../class-book-reviews.php:1661
+#: ../views/public.php:168 ../views/public.php:249
 msgid "Reading Level: %s"
 msgstr "Korhatár: %s"
 
-#: ../class-book-reviews.php:1526 ../class-book-reviews.php:1627
-#: ../views/public.php:136 ../views/public.php:217
+#: ../class-book-reviews.php:1566 ../class-book-reviews.php:1667
+#: ../views/public.php:174 ../views/public.php:255
 msgid "This book is <strong>in stock</strong>"
 msgstr "A könyv <strong>raktáron van</strong>"
 
-#: ../class-book-reviews.php:1530 ../class-book-reviews.php:1631
-#: ../views/public.php:140 ../views/public.php:221
+#: ../class-book-reviews.php:1570 ../class-book-reviews.php:1671
+#: ../views/public.php:178 ../views/public.php:259
 msgid "This book is <strong>currently checked out</strong>"
 msgstr "A könyv <strong>előjegyzés alatt van</strong>"
 
-#: ../class-book-reviews.php:1537 ../class-book-reviews.php:1638
+#: ../class-book-reviews.php:1577 ../class-book-reviews.php:1678
 msgid "<strong>Author:</strong> %s"
 msgstr "<strong>Szerző:</strong> %s"
 
-#: ../class-book-reviews.php:1540 ../class-book-reviews.php:1641
-#: ../views/public.php:155 ../views/public.php:236
+#: ../class-book-reviews.php:1580 ../class-book-reviews.php:1681
+#: ../views/public.php:193 ../views/public.php:274
 msgid "<strong>Genre:</strong> %s"
 msgstr "<strong>Műfaj:</strong> %s"
 
-#: ../class-book-reviews.php:1543 ../class-book-reviews.php:1644
-#: ../views/public.php:158 ../views/public.php:239
+#: ../class-book-reviews.php:1583 ../class-book-reviews.php:1684
+#: ../views/public.php:196 ../views/public.php:277
 msgid "<strong>Series:</strong> %s | "
 msgstr "<strong>Sorozat:</strong> %s | "
 
-#: ../class-book-reviews.php:1546 ../class-book-reviews.php:1647
-#: ../views/public.php:161 ../views/public.php:242
+#: ../class-book-reviews.php:1586 ../class-book-reviews.php:1687
+#: ../views/public.php:199 ../views/public.php:280
 msgid "<strong>Subjects:</strong> %s"
 msgstr "<strong>Téma:</strong> %s"
 
-#: ../class-book-reviews.php:1549 ../class-book-reviews.php:1650
-#: ../views/public.php:164 ../views/public.php:245
+#: ../class-book-reviews.php:1589 ../class-book-reviews.php:1690
+#: ../views/public.php:202 ../views/public.php:283
 msgid "<strong>Illustrated by</strong> %s"
 msgstr "<strong>Illusztrátor: </strong> %s"
 
@@ -331,7 +346,7 @@ msgstr "<strong>Illusztrátor: </strong> %s"
 msgid "Enabled"
 msgstr "Engedélyezve"
 
-#: ../inc/func.php:417
+#: ../inc/func.php:417 ../inc/func.php:444
 msgid "Disabled"
 msgstr "Tiltva"
 
@@ -403,7 +418,7 @@ msgstr "Könyvtár beállításai mentve"
 msgid "Save Options"
 msgstr "Beállítások mentése"
 
-#: ../views/public.php:150 ../views/public.php:231
+#: ../views/public.php:188 ../views/public.php:269
 msgid "Author:"
 msgstr "Szerző:"
 
@@ -456,14 +471,6 @@ msgstr "Engedélyezd a \"Raktáron/Elfogyott\" információk megjelenítéséhez
 msgid "Display author with title"
 msgstr "Szerző megjelenítése címmel"
 
-#: ../views/setup-options.php:258
-msgid ""
-"This disables the \"by {Author Name}\" link next to the book title. Disable "
-"this if getting HTML/formatting issues in your theme."
-msgstr ""
-"Az opció letiltja a \"{Szerző neve}\" linket a könyv címe melett. Tiltsd le, "
-"ha HTML/formázási gondok merültek fel."
-
 #: ../views/setup-options.php:275
 msgid "Comments on book reviews"
 msgstr "Hozzászólások engedélyezése"
@@ -476,346 +483,346 @@ msgstr "Engedélyezd, ha bekapcsolod a hozzászólásokat."
 msgid "Librarian"
 msgstr "Könyvtár"
 
-#: ../class-book-reviews.php:128
+#: ../class-book-reviews.php:129
 msgid "Book Reviewer"
 msgstr "Könyv értékelője"
 
-#: ../class-book-reviews.php:320
+#: ../class-book-reviews.php:337
 msgid "Book Reviews Options"
 msgstr "Könyvtár beállításai"
 
-#: ../class-book-reviews.php:321
+#: ../class-book-reviews.php:338
 msgid "Options"
 msgstr "Beállítások"
 
-#: ../class-book-reviews.php:372 ../class-book-reviews.php:382
+#: ../class-book-reviews.php:389 ../class-book-reviews.php:399
 msgid "Book Reviews"
 msgstr "Könyvtár"
 
-#: ../class-book-reviews.php:373
+#: ../class-book-reviews.php:390
 msgid "Book Review"
 msgstr "Könyvtár"
 
-#: ../class-book-reviews.php:374
+#: ../class-book-reviews.php:391
 msgid "Add New"
 msgstr "Új könyv"
 
-#: ../class-book-reviews.php:375
+#: ../class-book-reviews.php:392
 msgid "Add New Book Review"
 msgstr "Új könyv hozzáadása"
 
-#: ../class-book-reviews.php:376
+#: ../class-book-reviews.php:393
 msgid "Edit Review"
 msgstr "Értékelés szerkesztése"
 
-#: ../class-book-reviews.php:377
+#: ../class-book-reviews.php:394
 msgid "New Book Review"
 msgstr "Új könyv értékelése"
 
-#: ../class-book-reviews.php:378
+#: ../class-book-reviews.php:395
 msgid "View Book Review"
 msgstr "Könyv értékelése"
 
-#: ../class-book-reviews.php:379
+#: ../class-book-reviews.php:396
 msgid "Search Book Reviews"
 msgstr "Könyv értékelésének keresése"
 
-#: ../class-book-reviews.php:380
+#: ../class-book-reviews.php:397
 msgid "No book reviews found"
 msgstr "Nem találtam könyv értékeléseket"
 
-#: ../class-book-reviews.php:381
+#: ../class-book-reviews.php:398
 msgid "No book reviews found in Trash"
 msgstr "Nem találtam a Lomtárban értékeléseket"
 
-#: ../class-book-reviews.php:414 ../class-book-reviews.php:416
-#: ../class-book-reviews.php:431
+#: ../class-book-reviews.php:431 ../class-book-reviews.php:433
+#: ../class-book-reviews.php:448
 msgid "Genres"
 msgstr "Műfajok"
 
-#: ../class-book-reviews.php:417 ../class-book-reviews.php:1011
+#: ../class-book-reviews.php:434 ../class-book-reviews.php:1028
 msgid "Genre"
 msgstr "Műfaj"
 
-#: ../class-book-reviews.php:418
+#: ../class-book-reviews.php:435
 msgid "Search Genres"
 msgstr "Műfaj keresése"
 
-#: ../class-book-reviews.php:419
+#: ../class-book-reviews.php:436
 msgid "Popular Genres"
 msgstr "Népszerű műfajok"
 
-#: ../class-book-reviews.php:420
+#: ../class-book-reviews.php:437
 msgid "All Genres"
 msgstr "Minden műfaj"
 
-#: ../class-book-reviews.php:423
+#: ../class-book-reviews.php:440
 msgid "Edit Genre"
 msgstr "Műfaj szerkesztése"
 
-#: ../class-book-reviews.php:424
+#: ../class-book-reviews.php:441
 msgid "Update Genre"
 msgstr "Műfaj frissítése"
 
-#: ../class-book-reviews.php:425
+#: ../class-book-reviews.php:442
 msgid "Add New Genre"
 msgstr "Új műfaj"
 
-#: ../class-book-reviews.php:426
+#: ../class-book-reviews.php:443
 msgid "New Genre Name"
 msgstr "Új műfaj név"
 
-#: ../class-book-reviews.php:427
+#: ../class-book-reviews.php:444
 msgid "Separate genres with commas"
 msgstr "Műfajok felsorolása vesszővel elválasztva"
 
-#: ../class-book-reviews.php:428
+#: ../class-book-reviews.php:445
 msgid "Add or remove genres"
 msgstr "Műfaj hozzáadása vagy eltávolítása"
 
-#: ../class-book-reviews.php:429
+#: ../class-book-reviews.php:446
 msgid "Choose from the most used genres"
 msgstr "Választás az előző műfajokból"
 
-#: ../class-book-reviews.php:430 ../class-book-reviews.php:1102
+#: ../class-book-reviews.php:447 ../class-book-reviews.php:1119
 msgid "No genres found"
 msgstr "Nincsenek műfajok"
 
-#: ../class-book-reviews.php:463 ../class-book-reviews.php:465
-#: ../class-book-reviews.php:466
+#: ../class-book-reviews.php:480 ../class-book-reviews.php:482
+#: ../class-book-reviews.php:483
 msgid "Review Author"
 msgstr "Értékelés"
 
-#: ../class-book-reviews.php:467
+#: ../class-book-reviews.php:484
 msgid "Search Review Authors"
 msgstr "Értékelés keresése"
 
-#: ../class-book-reviews.php:468
+#: ../class-book-reviews.php:485
 msgid "Popular Review Authors"
 msgstr "Népszerű értékelések"
 
-#: ../class-book-reviews.php:469
+#: ../class-book-reviews.php:486
 msgid "All Review Authors"
 msgstr "Minden értékelés"
 
-#: ../class-book-reviews.php:472
+#: ../class-book-reviews.php:489
 msgid "Edit Review Author"
 msgstr "Értékelés szerkesztése"
 
-#: ../class-book-reviews.php:473
+#: ../class-book-reviews.php:490
 msgid "Update Review Author"
 msgstr "Értékelése frissítése"
 
-#: ../class-book-reviews.php:474
+#: ../class-book-reviews.php:491
 msgid "Add New Review Author"
 msgstr "Új értékelés"
 
-#: ../class-book-reviews.php:475
+#: ../class-book-reviews.php:492
 msgid "New Review Author Name"
 msgstr "Új értékelés neve"
 
-#: ../class-book-reviews.php:476
+#: ../class-book-reviews.php:493
 msgid "Separate Review Authors with commas"
 msgstr "Értékelések felsorolása vesszővel elválasztva"
 
-#: ../class-book-reviews.php:477
+#: ../class-book-reviews.php:494
 msgid "Add or remove Review Authors"
 msgstr "Értékelések hozzáadása vagy eltávolítása"
 
-#: ../class-book-reviews.php:478
+#: ../class-book-reviews.php:495
 msgid "Choose from the most used Review Authors"
 msgstr "Választás az eddigi értékelések közül"
 
-#: ../class-book-reviews.php:479 ../views/setup-options.php:23
+#: ../class-book-reviews.php:496 ../views/setup-options.php:23
 msgid "Review Authors"
 msgstr "Értékelések"
 
-#: ../class-book-reviews.php:511 ../class-book-reviews.php:513
-#: ../class-book-reviews.php:527
+#: ../class-book-reviews.php:528 ../class-book-reviews.php:530
+#: ../class-book-reviews.php:544
 msgid "Book Authors"
 msgstr "Könyvek szerzői"
 
-#: ../class-book-reviews.php:514 ../class-book-reviews.php:1010
+#: ../class-book-reviews.php:531 ../class-book-reviews.php:1027
 msgid "Author"
 msgstr "Szerző"
 
-#: ../class-book-reviews.php:515
+#: ../class-book-reviews.php:532
 msgid "Search Book Authors"
 msgstr "Szerző keresése"
 
-#: ../class-book-reviews.php:516
+#: ../class-book-reviews.php:533
 msgid "Popular Book Authors"
 msgstr "Népszerű szerzők"
 
-#: ../class-book-reviews.php:517
+#: ../class-book-reviews.php:534
 msgid "All Book Authors"
 msgstr "Minden szerző"
 
-#: ../class-book-reviews.php:520
+#: ../class-book-reviews.php:537
 msgid "Edit Author"
 msgstr "Szerző szerkesztése"
 
-#: ../class-book-reviews.php:521
+#: ../class-book-reviews.php:538
 msgid "Update Author"
 msgstr "Szerző frissítése"
 
-#: ../class-book-reviews.php:522
+#: ../class-book-reviews.php:539
 msgid "Add New Author"
 msgstr "Új szerző"
 
-#: ../class-book-reviews.php:523
+#: ../class-book-reviews.php:540
 msgid "New Author Name"
 msgstr "Új szerző név"
 
-#: ../class-book-reviews.php:524
+#: ../class-book-reviews.php:541
 msgid "Separate Book Authors with commas"
 msgstr "Szerzők felsorolása vesszővel elválasztva"
 
-#: ../class-book-reviews.php:525
+#: ../class-book-reviews.php:542
 msgid "Add or remove Book Authors"
 msgstr "Szerzők hozzáadása vagy eltávolítása"
 
-#: ../class-book-reviews.php:526
+#: ../class-book-reviews.php:543
 msgid "Choose from the most used Book Authors"
 msgstr "Választás az eddigi szerzők közül"
 
-#: ../class-book-reviews.php:558 ../class-book-reviews.php:560
-#: ../class-book-reviews.php:561 ../class-book-reviews.php:908
-#: ../class-book-reviews.php:1027 ../views/setup-options.php:51
+#: ../class-book-reviews.php:575 ../class-book-reviews.php:577
+#: ../class-book-reviews.php:578 ../class-book-reviews.php:925
+#: ../class-book-reviews.php:1044 ../views/setup-options.php:51
 msgid "Reading Level"
 msgstr "Korhatár"
 
-#: ../class-book-reviews.php:562
+#: ../class-book-reviews.php:579
 msgid "Search Reading Levels"
 msgstr "Korhatár keresése"
 
-#: ../class-book-reviews.php:563
+#: ../class-book-reviews.php:580
 msgid "Popular Reading Levels"
 msgstr "Népszerű korhatár értékek"
 
-#: ../class-book-reviews.php:564
+#: ../class-book-reviews.php:581
 msgid "All Reading Levels"
 msgstr "Minden korhatár"
 
-#: ../class-book-reviews.php:567
+#: ../class-book-reviews.php:584
 msgid "Edit Reading Level"
 msgstr "Korhatár szerkesztése"
 
-#: ../class-book-reviews.php:568
+#: ../class-book-reviews.php:585
 msgid "Update Reading Level"
 msgstr "Korhatár frissítése"
 
-#: ../class-book-reviews.php:569
+#: ../class-book-reviews.php:586
 msgid "Add New Reading Level"
 msgstr "Új olvasási szint"
 
-#: ../class-book-reviews.php:570
+#: ../class-book-reviews.php:587
 msgid "New Reading Level Name"
 msgstr "Új korhatár érték"
 
-#: ../class-book-reviews.php:571
+#: ../class-book-reviews.php:588
 msgid "Separate Reading Levels with commas"
 msgstr "Korhatár értékek felsorolása vesszővel elválasztva"
 
-#: ../class-book-reviews.php:572
+#: ../class-book-reviews.php:589
 msgid "Add or remove Reading Levels"
 msgstr "Korhatár hozzáadása vagy eltávolítása"
 
-#: ../class-book-reviews.php:573
+#: ../class-book-reviews.php:590
 msgid "Choose from the most used Reading Levels"
 msgstr "Korhatár választása az eddigiek közül"
 
-#: ../class-book-reviews.php:574
+#: ../class-book-reviews.php:591
 msgid "Reading Levels"
 msgstr "Korhatárok"
 
-#: ../class-book-reviews.php:605 ../class-book-reviews.php:607
-#: ../class-book-reviews.php:621 ../class-book-reviews.php:1023
+#: ../class-book-reviews.php:622 ../class-book-reviews.php:624
+#: ../class-book-reviews.php:638 ../class-book-reviews.php:1040
 msgid "Subjects"
 msgstr "Témák"
 
-#: ../class-book-reviews.php:608 ../views/setup-options.php:79
+#: ../class-book-reviews.php:625 ../views/setup-options.php:79
 msgid "Subject"
 msgstr "Téma"
 
-#: ../class-book-reviews.php:609
+#: ../class-book-reviews.php:626
 msgid "Search Subjects"
 msgstr "Témák keresése"
 
-#: ../class-book-reviews.php:610
+#: ../class-book-reviews.php:627
 msgid "Popular Subjects"
 msgstr "Népszerű témák"
 
-#: ../class-book-reviews.php:611
+#: ../class-book-reviews.php:628
 msgid "All Subjects"
 msgstr "Minden téma"
 
-#: ../class-book-reviews.php:614
+#: ../class-book-reviews.php:631
 msgid "Edit Subject"
 msgstr "Téma szerkesztése"
 
-#: ../class-book-reviews.php:615
+#: ../class-book-reviews.php:632
 msgid "Update Subject"
 msgstr "Téma frissítése"
 
-#: ../class-book-reviews.php:616
+#: ../class-book-reviews.php:633
 msgid "Add New Subject"
 msgstr "Új téma"
 
-#: ../class-book-reviews.php:617
+#: ../class-book-reviews.php:634
 msgid "New Subject Name"
 msgstr "Új téma név"
 
-#: ../class-book-reviews.php:618
+#: ../class-book-reviews.php:635
 msgid "Separate Subjects with commas"
 msgstr "Témák felsorolása vesszővel elválasztva"
 
-#: ../class-book-reviews.php:619
+#: ../class-book-reviews.php:636
 msgid "Add or remove Subjects"
 msgstr "Témák hozzáadása vagy eltávolítása"
 
-#: ../class-book-reviews.php:620
+#: ../class-book-reviews.php:637
 msgid "Choose from the most used Subjects"
 msgstr "Téma választása az eddigiek közül"
 
-#: ../class-book-reviews.php:652 ../class-book-reviews.php:654
-#: ../class-book-reviews.php:668
+#: ../class-book-reviews.php:669 ../class-book-reviews.php:671
+#: ../class-book-reviews.php:685
 msgid "Illustrators"
 msgstr "Illusztrátorok"
 
-#: ../class-book-reviews.php:655 ../class-book-reviews.php:898
-#: ../class-book-reviews.php:1019 ../views/setup-options.php:107
+#: ../class-book-reviews.php:672 ../class-book-reviews.php:915
+#: ../class-book-reviews.php:1036 ../views/setup-options.php:107
 msgid "Illustrator"
 msgstr "Illusztrátor"
 
-#: ../class-book-reviews.php:656
+#: ../class-book-reviews.php:673
 msgid "Search Illustrators"
 msgstr "Illusztrátor keresése"
 
-#: ../class-book-reviews.php:657
+#: ../class-book-reviews.php:674
 msgid "Popular Illustrators"
 msgstr "Népszerű illusztrátorok"
 
-#: ../class-book-reviews.php:658
+#: ../class-book-reviews.php:675
 msgid "All Illustrators"
 msgstr "Minden illusztrátor"
 
-#: ../class-book-reviews.php:661
+#: ../class-book-reviews.php:678
 msgid "Edit Illustrator"
 msgstr "Illusztrátor szerkesztése"
 
-#: ../class-book-reviews.php:662
+#: ../class-book-reviews.php:679
 msgid "Update Illustrator"
 msgstr "Illusztrátor frissítése"
 
-#: ../class-book-reviews.php:663
+#: ../class-book-reviews.php:680
 msgid "Add New Illustrator"
 msgstr "Új illusztrátor"
 
-#: ../class-book-reviews.php:664
+#: ../class-book-reviews.php:681
 msgid "New Illustrator Name"
 msgstr "Új illusztrátor név"
 
-#: ../class-book-reviews.php:665
+#: ../class-book-reviews.php:682
 msgid "Separate Illustrators with commas"
 msgstr "Illusztrátorok felsorolása vesszővel elválasztva"

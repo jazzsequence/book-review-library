@@ -2,328 +2,343 @@
 # This file is distributed under the same license as the Book Review Library package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2013-11-29 17:51-0700\n"
+"PO-Revision-Date: 2014-04-17 12:03-0700\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.4\n"
 "Project-Id-Version: Book Review Library\n"
 "POT-Creation-Date: \n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
-"Language-Team: Tristano Ajmone <chris@arcanepalette.com>\n"
-"Language: it_IT\n"
+"Language-Team: Tristano Ajmone <tajmone@libero.it>\n"
+"Language: it\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_x;_n;_ex\n"
 
-#: ../class-book-reviews.php:1477 ../class-book-reviews.php:1578
+#: ../inc/func.php:436
+msgid "With the title"
+msgstr ""
+
+#: ../inc/func.php:440
+msgid "On a new line"
+msgstr ""
+
+#: ../views/setup-options.php:258
+msgid ""
+"<strong>With the title</strong> displays the author on the same line as the "
+"book title. <strong>On a new line</strong> adds a line break before "
+"displaying the author. <strong>Disabled</strong> removes the author from the "
+"title entirely."
+msgstr ""
+
+#: ../class-book-reviews.php:1517 ../class-book-reviews.php:1618
 msgid "%1$s"
 msgstr "%1$s"
 
 #: ../inc/widgets.php:82 ../inc/widgets.php:127 ../inc/widgets.php:225
-#: ../views/public.php:266
+#: ../views/public.php:304 ../views/public.php:321
 msgid "%1$s by %2$s"
 msgstr "%1$s di %2$s"
 
-#: ../class-book-reviews.php:666
+#: ../class-book-reviews.php:683
 msgid "Add or remove Illustrators"
 msgstr "Aggiungi o rimuovi Illustratori"
 
-#: ../class-book-reviews.php:667
+#: ../class-book-reviews.php:684
 msgid "Choose from the most used Illustrators"
 msgstr "Scegli tra gli Illustratori più utilizzati"
 
-#: ../class-book-reviews.php:699 ../class-book-reviews.php:701
-#: ../class-book-reviews.php:715 ../class-book-reviews.php:1031
+#: ../class-book-reviews.php:716 ../class-book-reviews.php:718
+#: ../class-book-reviews.php:732 ../class-book-reviews.php:1048
 #: ../views/setup-options.php:135
 msgid "Awards"
 msgstr "Premi"
 
-#: ../class-book-reviews.php:702
+#: ../class-book-reviews.php:719
 msgid "Award"
 msgstr "Premio"
 
-#: ../class-book-reviews.php:703
+#: ../class-book-reviews.php:720
 msgid "Search Awards"
 msgstr "Cerca Tra i Premi"
 
-#: ../class-book-reviews.php:704
+#: ../class-book-reviews.php:721
 msgid "Popular Awards"
 msgstr "Premi Popolari"
 
-#: ../class-book-reviews.php:705
+#: ../class-book-reviews.php:722
 msgid "All Awards"
 msgstr "Tutti i Premi"
 
-#: ../class-book-reviews.php:708
+#: ../class-book-reviews.php:725
 msgid "Edit Award"
 msgstr "Modifica Premio"
 
-#: ../class-book-reviews.php:709
+#: ../class-book-reviews.php:726
 msgid "Update Award"
 msgstr "Aggiorna Premio"
 
-#: ../class-book-reviews.php:710
+#: ../class-book-reviews.php:727
 msgid "Add New Award"
 msgstr "Aggiungi Premio"
 
-#: ../class-book-reviews.php:711
+#: ../class-book-reviews.php:728
 msgid "New Award Name"
 msgstr "Nome Premio"
 
-#: ../class-book-reviews.php:712
+#: ../class-book-reviews.php:729
 msgid "Separate Awards with commas"
 msgstr "Separa i Premi con delle virgole"
 
-#: ../class-book-reviews.php:713
+#: ../class-book-reviews.php:730
 msgid "Add or remove Awards"
 msgstr "Aggiungi o rimuovi Premi"
 
-#: ../class-book-reviews.php:714
+#: ../class-book-reviews.php:731
 msgid "Choose from the most used Awards"
 msgstr "Scegli tra i Premi più utlizzati"
 
-#: ../class-book-reviews.php:746 ../class-book-reviews.php:748
-#: ../class-book-reviews.php:749 ../class-book-reviews.php:762
-#: ../class-book-reviews.php:903 ../class-book-reviews.php:1015
+#: ../class-book-reviews.php:763 ../class-book-reviews.php:765
+#: ../class-book-reviews.php:766 ../class-book-reviews.php:779
+#: ../class-book-reviews.php:920 ../class-book-reviews.php:1032
 #: ../views/setup-options.php:163
 msgid "Series"
 msgstr "Serie"
 
-#: ../class-book-reviews.php:750
+#: ../class-book-reviews.php:767
 msgid "Search Series"
 msgstr "Cerca Tra Le Serie"
 
-#: ../class-book-reviews.php:751
+#: ../class-book-reviews.php:768
 msgid "Popular Series"
 msgstr "Serie Popolari"
 
-#: ../class-book-reviews.php:752
+#: ../class-book-reviews.php:769
 msgid "All Series"
 msgstr "Tutte Le Serie"
 
-#: ../class-book-reviews.php:755
+#: ../class-book-reviews.php:772
 msgid "Edit Series"
 msgstr "Modifica Serie"
 
-#: ../class-book-reviews.php:756
+#: ../class-book-reviews.php:773
 msgid "Update Series"
 msgstr "Aggiorna Serie"
 
-#: ../class-book-reviews.php:757
+#: ../class-book-reviews.php:774
 msgid "Add New Series"
 msgstr "Aggiungi Serie"
 
-#: ../class-book-reviews.php:758
+#: ../class-book-reviews.php:775
 msgid "New Series Name"
 msgstr "Nome Serie"
 
-#: ../class-book-reviews.php:759
+#: ../class-book-reviews.php:776
 msgid "Separate Series with commas"
 msgstr "Separa le Serie con delle virgole"
 
-#: ../class-book-reviews.php:760
+#: ../class-book-reviews.php:777
 msgid "Add or remove Series"
 msgstr "Aggiungi o rimuovi Serie"
 
-#: ../class-book-reviews.php:761
+#: ../class-book-reviews.php:778
 msgid "Choose from the most used Series"
 msgstr "Scegli tra le Serie più utilizzate"
 
-#: ../class-book-reviews.php:793 ../class-book-reviews.php:795
-#: ../class-book-reviews.php:809
+#: ../class-book-reviews.php:810 ../class-book-reviews.php:812
+#: ../class-book-reviews.php:826
 msgid "Star Ratings"
 msgstr "Classifica"
 
-#: ../class-book-reviews.php:796
+#: ../class-book-reviews.php:813
 msgid "Star"
 msgstr "Stella"
 
-#: ../class-book-reviews.php:797
+#: ../class-book-reviews.php:814
 msgid "Search Ratings"
 msgstr "Cerca Tra Le Classifiche"
 
-#: ../class-book-reviews.php:798
+#: ../class-book-reviews.php:815
 msgid "Popular Ratings"
 msgstr "Classifiche Popolari"
 
-#: ../class-book-reviews.php:799
+#: ../class-book-reviews.php:816
 msgid "Stars"
 msgstr "Stelle"
 
-#: ../class-book-reviews.php:802
+#: ../class-book-reviews.php:819
 msgid "Edit Rating"
 msgstr "Modifica Classifica"
 
-#: ../class-book-reviews.php:803
+#: ../class-book-reviews.php:820
 msgid "Update Rating"
 msgstr "Aggiorna Classifica"
 
-#: ../class-book-reviews.php:804
+#: ../class-book-reviews.php:821
 msgid "Add New Rating"
 msgstr "Aggiungi Classifica"
 
-#: ../class-book-reviews.php:805
+#: ../class-book-reviews.php:822
 msgid "New Rating Name"
 msgstr "Nome Classifica"
 
-#: ../class-book-reviews.php:806
+#: ../class-book-reviews.php:823
 msgid "Separate Star Ratings with commas"
 msgstr "Separa le Classifiche con delle virgole"
 
-#: ../class-book-reviews.php:807
+#: ../class-book-reviews.php:824
 msgid "Add or remove Star Ratings"
 msgstr "Aggiungi o rimuovi Classifiche"
 
-#: ../class-book-reviews.php:808
+#: ../class-book-reviews.php:825
 msgid "Choose from the most used Star Ratings"
 msgstr "Scegli tra le Classifiche più utilizzate"
 
-#: ../class-book-reviews.php:840 ../inc/func.php:221
+#: ../class-book-reviews.php:857 ../inc/func.php:221
 msgid "Zero stars"
 msgstr "Zero stelle"
 
-#: ../class-book-reviews.php:844
+#: ../class-book-reviews.php:861
 msgid "One star"
 msgstr "Una stella"
 
-#: ../class-book-reviews.php:848
+#: ../class-book-reviews.php:865
 msgid "Two stars"
 msgstr "Due stelle"
 
-#: ../class-book-reviews.php:852
+#: ../class-book-reviews.php:869
 msgid "Three stars"
 msgstr "Tre stelle"
 
-#: ../class-book-reviews.php:856
+#: ../class-book-reviews.php:873
 msgid "Four stars"
 msgstr "Quattro stelle"
 
-#: ../class-book-reviews.php:860
+#: ../class-book-reviews.php:877
 msgid "Five stars"
 msgstr "Cinque stelle"
 
-#: ../class-book-reviews.php:894
+#: ../class-book-reviews.php:911
 msgid "Book Author"
 msgstr "Autore del Libro"
 
-#: ../class-book-reviews.php:913
+#: ../class-book-reviews.php:930
 msgid "Star Rating"
 msgstr "Classifica"
 
-#: ../class-book-reviews.php:917
+#: ../class-book-reviews.php:934
 msgid "Book Cover"
 msgstr "Copertina del Libro"
 
-#: ../class-book-reviews.php:927
+#: ../class-book-reviews.php:944
 msgid "Additional Information"
 msgstr "Informazioni Extra"
 
-#: ../class-book-reviews.php:946
+#: ../class-book-reviews.php:963
 msgid "ISBN:"
 msgstr "ISBN:"
 
-#: ../class-book-reviews.php:952
+#: ../class-book-reviews.php:969
 msgid "In stock?"
 msgstr "Disponibile?"
 
-#: ../class-book-reviews.php:955
+#: ../class-book-reviews.php:972
 msgid "Book is in stock"
 msgstr "Il libro è disponibile"
 
-#: ../class-book-reviews.php:956
+#: ../class-book-reviews.php:973
 msgid "Book out of stock"
 msgstr "Il libro è fuori stampa"
 
-#: ../class-book-reviews.php:963
+#: ../class-book-reviews.php:980
 msgid "Upload Award Image"
 msgstr "Carica Immagine del Premio"
 
-#: ../class-book-reviews.php:996
+#: ../class-book-reviews.php:1013
 msgid "Set featured image"
 msgstr "Imposta immagine in evidenza"
 
-#: ../class-book-reviews.php:996
+#: ../class-book-reviews.php:1013
 msgid "Select Book Cover"
 msgstr "Scegli la Copertina del Libro"
 
-#: ../class-book-reviews.php:1009
+#: ../class-book-reviews.php:1026
 msgid "Title"
 msgstr "Titolo"
 
-#: ../class-book-reviews.php:1035
+#: ../class-book-reviews.php:1052
 msgid "Rating"
 msgstr "Classifica"
 
-#: ../class-book-reviews.php:1075
+#: ../class-book-reviews.php:1092
 msgid "No authors found"
 msgstr "Nessun autore trovato"
 
-#: ../class-book-reviews.php:1129
+#: ../class-book-reviews.php:1146
 msgid "No series found"
 msgstr "Nessuna serie trovata"
 
-#: ../class-book-reviews.php:1156
+#: ../class-book-reviews.php:1173
 msgid "No illustrators found"
 msgstr "Nessun illustratore trovato"
 
-#: ../class-book-reviews.php:1183
+#: ../class-book-reviews.php:1200
 msgid "No subjects found"
 msgstr "Nessun soggetto trovato"
 
-#: ../class-book-reviews.php:1210
+#: ../class-book-reviews.php:1227
 msgid "No reading level found"
 msgstr "Nessun livello di lettura trovato"
 
-#: ../class-book-reviews.php:1237
+#: ../class-book-reviews.php:1254
 msgid "No awards found"
 msgstr "Nessun premio trovato"
 
-#: ../class-book-reviews.php:1269 ../class-book-reviews.php:1282
+#: ../class-book-reviews.php:1286 ../class-book-reviews.php:1299
 msgid "No rating found"
 msgstr "Nessuna classifica trovata"
 
-#: ../class-book-reviews.php:1515 ../class-book-reviews.php:1616
-#: ../views/public.php:125 ../views/public.php:206
+#: ../class-book-reviews.php:1555 ../class-book-reviews.php:1656
+#: ../views/public.php:163 ../views/public.php:244
 msgid "Review by %s"
 msgstr "Recensione di %s"
 
-#: ../class-book-reviews.php:1520 ../class-book-reviews.php:1621
-#: ../views/public.php:130 ../views/public.php:211
+#: ../class-book-reviews.php:1560 ../class-book-reviews.php:1661
+#: ../views/public.php:168 ../views/public.php:249
 msgid "Reading Level: %s"
 msgstr "Livello di Lettura: %s"
 
-#: ../class-book-reviews.php:1526 ../class-book-reviews.php:1627
-#: ../views/public.php:136 ../views/public.php:217
+#: ../class-book-reviews.php:1566 ../class-book-reviews.php:1667
+#: ../views/public.php:174 ../views/public.php:255
 msgid "This book is <strong>in stock</strong>"
 msgstr "Questo libro è <strong>disponibile</strong>"
 
-#: ../class-book-reviews.php:1530 ../class-book-reviews.php:1631
-#: ../views/public.php:140 ../views/public.php:221
+#: ../class-book-reviews.php:1570 ../class-book-reviews.php:1671
+#: ../views/public.php:178 ../views/public.php:259
 msgid "This book is <strong>currently checked out</strong>"
 msgstr "Questo libro è <strong>momentaneamente escluso</strong>"
 
-#: ../class-book-reviews.php:1537 ../class-book-reviews.php:1638
+#: ../class-book-reviews.php:1577 ../class-book-reviews.php:1678
 msgid "<strong>Author:</strong> %s"
 msgstr "<strong>Autore:</strong> %s"
 
-#: ../class-book-reviews.php:1540 ../class-book-reviews.php:1641
-#: ../views/public.php:155 ../views/public.php:236
+#: ../class-book-reviews.php:1580 ../class-book-reviews.php:1681
+#: ../views/public.php:193 ../views/public.php:274
 msgid "<strong>Genre:</strong> %s"
 msgstr "<strong>Genere:</strong> %s"
 
-#: ../class-book-reviews.php:1543 ../class-book-reviews.php:1644
-#: ../views/public.php:158 ../views/public.php:239
+#: ../class-book-reviews.php:1583 ../class-book-reviews.php:1684
+#: ../views/public.php:196 ../views/public.php:277
 msgid "<strong>Series:</strong> %s | "
 msgstr "<strong>Serie:</strong> %s"
 
-#: ../class-book-reviews.php:1546 ../class-book-reviews.php:1647
-#: ../views/public.php:161 ../views/public.php:242
+#: ../class-book-reviews.php:1586 ../class-book-reviews.php:1687
+#: ../views/public.php:199 ../views/public.php:280
 msgid "<strong>Subjects:</strong> %s"
 msgstr "<strong>Soggetti:</strong> %s"
 
-#: ../class-book-reviews.php:1549 ../class-book-reviews.php:1650
-#: ../views/public.php:164 ../views/public.php:245
+#: ../class-book-reviews.php:1589 ../class-book-reviews.php:1690
+#: ../views/public.php:202 ../views/public.php:283
 msgid "<strong>Illustrated by</strong> %s"
 msgstr "<strong>Illustrato da</strong> %s"
 
@@ -331,7 +346,7 @@ msgstr "<strong>Illustrato da</strong> %s"
 msgid "Enabled"
 msgstr "Abilitato"
 
-#: ../inc/func.php:417
+#: ../inc/func.php:417 ../inc/func.php:444
 msgid "Disabled"
 msgstr "Disabilitato"
 
@@ -404,7 +419,7 @@ msgstr "Opzioni Recensione Libri salvate"
 msgid "Save Options"
 msgstr "Salva Opzioni"
 
-#: ../views/public.php:150 ../views/public.php:231
+#: ../views/public.php:188 ../views/public.php:269
 msgid "Author:"
 msgstr "Autore:"
 
@@ -467,15 +482,6 @@ msgstr ""
 msgid "Display author with title"
 msgstr "Mostra l'autore assieme al titolo"
 
-#: ../views/setup-options.php:258
-msgid ""
-"This disables the \"by {Author Name}\" link next to the book title. Disable "
-"this if getting HTML/formatting issues in your theme."
-msgstr ""
-"Questa opzione disabilita il link \"di {Nome Autore}\" affianco al titolo "
-"del libro. Disabilitala se riscontri problemi di formattazione/HTML con il "
-"tuo tema."
-
 #: ../views/setup-options.php:275
 msgid "Comments on book reviews"
 msgstr "Commenti alle recensioni"
@@ -490,346 +496,346 @@ msgstr ""
 msgid "Librarian"
 msgstr "Bibliotecario"
 
-#: ../class-book-reviews.php:128
+#: ../class-book-reviews.php:129
 msgid "Book Reviewer"
 msgstr "Autore Recensione"
 
-#: ../class-book-reviews.php:320
+#: ../class-book-reviews.php:337
 msgid "Book Reviews Options"
 msgstr "Opzioni delle Recensioni"
 
-#: ../class-book-reviews.php:321
+#: ../class-book-reviews.php:338
 msgid "Options"
 msgstr "Opzioni"
 
-#: ../class-book-reviews.php:372 ../class-book-reviews.php:382
+#: ../class-book-reviews.php:389 ../class-book-reviews.php:399
 msgid "Book Reviews"
 msgstr "Recensioni"
 
-#: ../class-book-reviews.php:373
+#: ../class-book-reviews.php:390
 msgid "Book Review"
 msgstr "Recensione"
 
-#: ../class-book-reviews.php:374
+#: ../class-book-reviews.php:391
 msgid "Add New"
 msgstr "Nuova Recensione"
 
-#: ../class-book-reviews.php:375
+#: ../class-book-reviews.php:392
 msgid "Add New Book Review"
 msgstr "Aggiungi Una Recensione"
 
-#: ../class-book-reviews.php:376
+#: ../class-book-reviews.php:393
 msgid "Edit Review"
 msgstr "Modifica Recensione"
 
-#: ../class-book-reviews.php:377
+#: ../class-book-reviews.php:394
 msgid "New Book Review"
 msgstr "Nuova Recensione"
 
-#: ../class-book-reviews.php:378
+#: ../class-book-reviews.php:395
 msgid "View Book Review"
 msgstr "Vedi Recensione"
 
-#: ../class-book-reviews.php:379
+#: ../class-book-reviews.php:396
 msgid "Search Book Reviews"
 msgstr "Cerca Tra Le Recensioni"
 
-#: ../class-book-reviews.php:380
+#: ../class-book-reviews.php:397
 msgid "No book reviews found"
 msgstr "Nessuna recensione trovata"
 
-#: ../class-book-reviews.php:381
+#: ../class-book-reviews.php:398
 msgid "No book reviews found in Trash"
 msgstr "Nessuna recensione trovata nel cestino"
 
-#: ../class-book-reviews.php:414 ../class-book-reviews.php:416
-#: ../class-book-reviews.php:431
+#: ../class-book-reviews.php:431 ../class-book-reviews.php:433
+#: ../class-book-reviews.php:448
 msgid "Genres"
 msgstr "Generi"
 
-#: ../class-book-reviews.php:417 ../class-book-reviews.php:1011
+#: ../class-book-reviews.php:434 ../class-book-reviews.php:1028
 msgid "Genre"
 msgstr "Genere"
 
-#: ../class-book-reviews.php:418
+#: ../class-book-reviews.php:435
 msgid "Search Genres"
 msgstr "Cerca Tra I Generi"
 
-#: ../class-book-reviews.php:419
+#: ../class-book-reviews.php:436
 msgid "Popular Genres"
 msgstr "Generi Popolari"
 
-#: ../class-book-reviews.php:420
+#: ../class-book-reviews.php:437
 msgid "All Genres"
 msgstr "Tutti i Generi"
 
-#: ../class-book-reviews.php:423
+#: ../class-book-reviews.php:440
 msgid "Edit Genre"
 msgstr "Modifica Genere"
 
-#: ../class-book-reviews.php:424
+#: ../class-book-reviews.php:441
 msgid "Update Genre"
 msgstr "Aggiorna Genere"
 
-#: ../class-book-reviews.php:425
+#: ../class-book-reviews.php:442
 msgid "Add New Genre"
 msgstr "Aggiungi Genere"
 
-#: ../class-book-reviews.php:426
+#: ../class-book-reviews.php:443
 msgid "New Genre Name"
 msgstr "Nome Del Nuovo Genere"
 
-#: ../class-book-reviews.php:427
+#: ../class-book-reviews.php:444
 msgid "Separate genres with commas"
 msgstr "Separa i generi con delle virgole"
 
-#: ../class-book-reviews.php:428
+#: ../class-book-reviews.php:445
 msgid "Add or remove genres"
 msgstr "Aggiungi o rimuovi generi"
 
-#: ../class-book-reviews.php:429
+#: ../class-book-reviews.php:446
 msgid "Choose from the most used genres"
 msgstr "Scegli tra i generi più usati"
 
-#: ../class-book-reviews.php:430 ../class-book-reviews.php:1102
+#: ../class-book-reviews.php:447 ../class-book-reviews.php:1119
 msgid "No genres found"
 msgstr "Nessun genere trovato"
 
-#: ../class-book-reviews.php:463 ../class-book-reviews.php:465
-#: ../class-book-reviews.php:466
+#: ../class-book-reviews.php:480 ../class-book-reviews.php:482
+#: ../class-book-reviews.php:483
 msgid "Review Author"
 msgstr "Autore della Recensione"
 
-#: ../class-book-reviews.php:467
+#: ../class-book-reviews.php:484
 msgid "Search Review Authors"
 msgstr "Cerca Tra gli Autori di Recensioni"
 
-#: ../class-book-reviews.php:468
+#: ../class-book-reviews.php:485
 msgid "Popular Review Authors"
 msgstr "Autori di Recensioni Popolari"
 
-#: ../class-book-reviews.php:469
+#: ../class-book-reviews.php:486
 msgid "All Review Authors"
 msgstr "Tutti Gli Autori di Recensioni"
 
-#: ../class-book-reviews.php:472
+#: ../class-book-reviews.php:489
 msgid "Edit Review Author"
 msgstr "Modifica Autore di Recensione"
 
-#: ../class-book-reviews.php:473
+#: ../class-book-reviews.php:490
 msgid "Update Review Author"
 msgstr "Aggiorna Autore di Recensione"
 
-#: ../class-book-reviews.php:474
+#: ../class-book-reviews.php:491
 msgid "Add New Review Author"
 msgstr "Aggiungi Nuovo Autore di Rencesione"
 
-#: ../class-book-reviews.php:475
+#: ../class-book-reviews.php:492
 msgid "New Review Author Name"
 msgstr "Nome Autore di Recensione"
 
-#: ../class-book-reviews.php:476
+#: ../class-book-reviews.php:493
 msgid "Separate Review Authors with commas"
 msgstr "Separa gil Autori di Recensione con delle virgole"
 
-#: ../class-book-reviews.php:477
+#: ../class-book-reviews.php:494
 msgid "Add or remove Review Authors"
 msgstr "Aggiungi o rimuovi Autori di Recensione"
 
-#: ../class-book-reviews.php:478
+#: ../class-book-reviews.php:495
 msgid "Choose from the most used Review Authors"
 msgstr "Scegli tra gli Autori di Recensione più utilizzati"
 
-#: ../class-book-reviews.php:479 ../views/setup-options.php:23
+#: ../class-book-reviews.php:496 ../views/setup-options.php:23
 msgid "Review Authors"
 msgstr "Autori di Recensione"
 
-#: ../class-book-reviews.php:511 ../class-book-reviews.php:513
-#: ../class-book-reviews.php:527
+#: ../class-book-reviews.php:528 ../class-book-reviews.php:530
+#: ../class-book-reviews.php:544
 msgid "Book Authors"
 msgstr "Autori di Libri"
 
-#: ../class-book-reviews.php:514 ../class-book-reviews.php:1010
+#: ../class-book-reviews.php:531 ../class-book-reviews.php:1027
 msgid "Author"
 msgstr "Autore"
 
-#: ../class-book-reviews.php:515
+#: ../class-book-reviews.php:532
 msgid "Search Book Authors"
 msgstr "Cerca Tra Gli Autori di Libri"
 
-#: ../class-book-reviews.php:516
+#: ../class-book-reviews.php:533
 msgid "Popular Book Authors"
 msgstr "Autori di Libri Popolari"
 
-#: ../class-book-reviews.php:517
+#: ../class-book-reviews.php:534
 msgid "All Book Authors"
 msgstr "Tutti gli Autori di Libri"
 
-#: ../class-book-reviews.php:520
+#: ../class-book-reviews.php:537
 msgid "Edit Author"
 msgstr "Modifica Autore"
 
-#: ../class-book-reviews.php:521
+#: ../class-book-reviews.php:538
 msgid "Update Author"
 msgstr "Aggiorna Autore"
 
-#: ../class-book-reviews.php:522
+#: ../class-book-reviews.php:539
 msgid "Add New Author"
 msgstr "Aggiungi Nuovo Autore"
 
-#: ../class-book-reviews.php:523
+#: ../class-book-reviews.php:540
 msgid "New Author Name"
 msgstr "Nome dell'Autore"
 
-#: ../class-book-reviews.php:524
+#: ../class-book-reviews.php:541
 msgid "Separate Book Authors with commas"
 msgstr "Separa gli Autori di Libri con delle virgole"
 
-#: ../class-book-reviews.php:525
+#: ../class-book-reviews.php:542
 msgid "Add or remove Book Authors"
 msgstr "Aggiungi o rimuovi Autori di Libri"
 
-#: ../class-book-reviews.php:526
+#: ../class-book-reviews.php:543
 msgid "Choose from the most used Book Authors"
 msgstr "Scegli tra gli Autori di Libri più utilizzati"
 
-#: ../class-book-reviews.php:558 ../class-book-reviews.php:560
-#: ../class-book-reviews.php:561 ../class-book-reviews.php:908
-#: ../class-book-reviews.php:1027 ../views/setup-options.php:51
+#: ../class-book-reviews.php:575 ../class-book-reviews.php:577
+#: ../class-book-reviews.php:578 ../class-book-reviews.php:925
+#: ../class-book-reviews.php:1044 ../views/setup-options.php:51
 msgid "Reading Level"
 msgstr "Livello di Lettura"
 
-#: ../class-book-reviews.php:562
+#: ../class-book-reviews.php:579
 msgid "Search Reading Levels"
 msgstr "Cerca Tra i Livelli di Lettura"
 
-#: ../class-book-reviews.php:563
+#: ../class-book-reviews.php:580
 msgid "Popular Reading Levels"
 msgstr "Livelli di Lettura Popolari"
 
-#: ../class-book-reviews.php:564
+#: ../class-book-reviews.php:581
 msgid "All Reading Levels"
 msgstr "Tutti i Livelli di Lettura"
 
-#: ../class-book-reviews.php:567
+#: ../class-book-reviews.php:584
 msgid "Edit Reading Level"
 msgstr "Modifica Livello di Lettura"
 
-#: ../class-book-reviews.php:568
+#: ../class-book-reviews.php:585
 msgid "Update Reading Level"
 msgstr "Aggiorna Livello di Lettura"
 
-#: ../class-book-reviews.php:569
+#: ../class-book-reviews.php:586
 msgid "Add New Reading Level"
 msgstr "Aggiungi Livello di Lettura"
 
-#: ../class-book-reviews.php:570
+#: ../class-book-reviews.php:587
 msgid "New Reading Level Name"
 msgstr "Nome del Livello di Lettura"
 
-#: ../class-book-reviews.php:571
+#: ../class-book-reviews.php:588
 msgid "Separate Reading Levels with commas"
 msgstr "Separa i Livelli di Lettura con delle virgole"
 
-#: ../class-book-reviews.php:572
+#: ../class-book-reviews.php:589
 msgid "Add or remove Reading Levels"
 msgstr "Aggiungi o rimuovi Livelli di Lettura"
 
-#: ../class-book-reviews.php:573
+#: ../class-book-reviews.php:590
 msgid "Choose from the most used Reading Levels"
 msgstr "Scegli tra i Livelli di Lettura più utlizzati"
 
-#: ../class-book-reviews.php:574
+#: ../class-book-reviews.php:591
 msgid "Reading Levels"
 msgstr "Livelli di Lettura"
 
-#: ../class-book-reviews.php:605 ../class-book-reviews.php:607
-#: ../class-book-reviews.php:621 ../class-book-reviews.php:1023
+#: ../class-book-reviews.php:622 ../class-book-reviews.php:624
+#: ../class-book-reviews.php:638 ../class-book-reviews.php:1040
 msgid "Subjects"
 msgstr "Soggetti"
 
-#: ../class-book-reviews.php:608 ../views/setup-options.php:79
+#: ../class-book-reviews.php:625 ../views/setup-options.php:79
 msgid "Subject"
 msgstr "Soggetto"
 
-#: ../class-book-reviews.php:609
+#: ../class-book-reviews.php:626
 msgid "Search Subjects"
 msgstr "Cerca Tra i Soggetti"
 
-#: ../class-book-reviews.php:610
+#: ../class-book-reviews.php:627
 msgid "Popular Subjects"
 msgstr "Soggeti Popolari"
 
-#: ../class-book-reviews.php:611
+#: ../class-book-reviews.php:628
 msgid "All Subjects"
 msgstr "Tutti i Soggetti"
 
-#: ../class-book-reviews.php:614
+#: ../class-book-reviews.php:631
 msgid "Edit Subject"
 msgstr "Modfica Soggetto"
 
-#: ../class-book-reviews.php:615
+#: ../class-book-reviews.php:632
 msgid "Update Subject"
 msgstr "Aggiorna Soggetto"
 
-#: ../class-book-reviews.php:616
+#: ../class-book-reviews.php:633
 msgid "Add New Subject"
 msgstr "Aggiungi Soggetto"
 
-#: ../class-book-reviews.php:617
+#: ../class-book-reviews.php:634
 msgid "New Subject Name"
 msgstr "Nome Soggetto"
 
-#: ../class-book-reviews.php:618
+#: ../class-book-reviews.php:635
 msgid "Separate Subjects with commas"
 msgstr "Separa i Soggetti con delle virgole"
 
-#: ../class-book-reviews.php:619
+#: ../class-book-reviews.php:636
 msgid "Add or remove Subjects"
 msgstr "Aggiungi o rimuovi Soggetto"
 
-#: ../class-book-reviews.php:620
+#: ../class-book-reviews.php:637
 msgid "Choose from the most used Subjects"
 msgstr "Scegli tra i Soggetti più utilizzati"
 
-#: ../class-book-reviews.php:652 ../class-book-reviews.php:654
-#: ../class-book-reviews.php:668
+#: ../class-book-reviews.php:669 ../class-book-reviews.php:671
+#: ../class-book-reviews.php:685
 msgid "Illustrators"
 msgstr "Illustratori"
 
-#: ../class-book-reviews.php:655 ../class-book-reviews.php:898
-#: ../class-book-reviews.php:1019 ../views/setup-options.php:107
+#: ../class-book-reviews.php:672 ../class-book-reviews.php:915
+#: ../class-book-reviews.php:1036 ../views/setup-options.php:107
 msgid "Illustrator"
 msgstr "Illustratore"
 
-#: ../class-book-reviews.php:656
+#: ../class-book-reviews.php:673
 msgid "Search Illustrators"
 msgstr "Cerca Tra Gli Illustratori"
 
-#: ../class-book-reviews.php:657
+#: ../class-book-reviews.php:674
 msgid "Popular Illustrators"
 msgstr "Illustratori Popoplari"
 
-#: ../class-book-reviews.php:658
+#: ../class-book-reviews.php:675
 msgid "All Illustrators"
 msgstr "Tutti Gli Illustratori"
 
-#: ../class-book-reviews.php:661
+#: ../class-book-reviews.php:678
 msgid "Edit Illustrator"
 msgstr "Modfica Illustratore"
 
-#: ../class-book-reviews.php:662
+#: ../class-book-reviews.php:679
 msgid "Update Illustrator"
 msgstr "Aggiorna Illustratore"
 
-#: ../class-book-reviews.php:663
+#: ../class-book-reviews.php:680
 msgid "Add New Illustrator"
 msgstr "Aggiungi Illustratore"
 
-#: ../class-book-reviews.php:664
+#: ../class-book-reviews.php:681
 msgid "New Illustrator Name"
 msgstr "Nome Illustratore"
 
-#: ../class-book-reviews.php:665
+#: ../class-book-reviews.php:682
 msgid "Separate Illustrators with commas"
 msgstr "Separa gli Illustratori con delle virgole"

@@ -1,22 +1,490 @@
+# Translation of Book Review Library in Russian
+# This file is distributed under the same license as the Book Review Library package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Book Review Library\n"
-"POT-Creation-Date: 2013-12-31 13:10-0700\n"
-"PO-Revision-Date: 2014-03-17 09:27-0700\n"
-"Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
-"Language-Team: Diana Kononova\n"
-"Language: en_US\n"
+"PO-Revision-Date: 2014-04-17 12:07-0700\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
-"X-Poedit-KeywordsList: __;_n;_e;_x;_ex\n"
-"X-Poedit-Basepath: .\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.6.4\n"
+"Project-Id-Version: Book Review Library\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
+"Language-Team: Diana Kononova\n"
+"Language: ru\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: ..\n"
-"X-Poedit-SearchPath-1: ../inc\n"
-"X-Poedit-SearchPath-2: ../views\n"
+
+#: ../inc/func.php:436
+msgid "With the title"
+msgstr "С названием"
+
+#: ../inc/func.php:440
+msgid "On a new line"
+msgstr "На новой строке"
+
+#: ../views/setup-options.php:258
+msgid ""
+"<strong>With the title</strong> displays the author on the same line as the "
+"book title. <strong>On a new line</strong> adds a line break before "
+"displaying the author. <strong>Disabled</strong> removes the author from the "
+"title entirely."
+msgstr ""
+"<strong>С названием</strong> - имя автора появиться в той же строке, что и "
+"название книги. <strong>На новой строке</strong> - имя автора будет выведено "
+"на следующей строке. <strong>Выключено</strong> полностью удаляет имя автора "
+"из названия книги."
+
+#: ../class-book-reviews.php:1517 ../class-book-reviews.php:1618
+msgid "%1$s"
+msgstr "%1$s"
+
+#: ../inc/widgets.php:82 ../inc/widgets.php:127 ../inc/widgets.php:225
+#: ../views/public.php:304 ../views/public.php:321
+msgid "%1$s by %2$s"
+msgstr "%1$s автор: %2$s"
+
+#: ../class-book-reviews.php:683
+msgid "Add or remove Illustrators"
+msgstr "Добавить или удалить переводчиков"
+
+#: ../class-book-reviews.php:684
+msgid "Choose from the most used Illustrators"
+msgstr "Выберите из часто используемых переводчиков"
+
+#: ../class-book-reviews.php:716 ../class-book-reviews.php:718
+#: ../class-book-reviews.php:732 ../class-book-reviews.php:1048
+#: ../views/setup-options.php:135
+msgid "Awards"
+msgstr "Награды"
+
+#: ../class-book-reviews.php:719
+msgid "Award"
+msgstr "Награда"
+
+#: ../class-book-reviews.php:720
+msgid "Search Awards"
+msgstr "Искать в наградах"
+
+#: ../class-book-reviews.php:721
+msgid "Popular Awards"
+msgstr "Популярные награды"
+
+#: ../class-book-reviews.php:722
+msgid "All Awards"
+msgstr "Все награды"
+
+#: ../class-book-reviews.php:725
+msgid "Edit Award"
+msgstr "Редактировать награды"
+
+#: ../class-book-reviews.php:726
+msgid "Update Award"
+msgstr "Обновить награды"
+
+#: ../class-book-reviews.php:727
+msgid "Add New Award"
+msgstr "Добавить награды"
+
+#: ../class-book-reviews.php:728
+msgid "New Award Name"
+msgstr "Новое название награды"
+
+#: ../class-book-reviews.php:729
+msgid "Separate Awards with commas"
+msgstr "Разделяйте награды запятыми"
+
+#: ../class-book-reviews.php:730
+msgid "Add or remove Awards"
+msgstr "Добавить или удалить награды"
+
+#: ../class-book-reviews.php:731
+msgid "Choose from the most used Awards"
+msgstr "Выберите из часто используемых наград"
+
+#: ../class-book-reviews.php:763 ../class-book-reviews.php:765
+#: ../class-book-reviews.php:766 ../class-book-reviews.php:779
+#: ../class-book-reviews.php:920 ../class-book-reviews.php:1032
+#: ../views/setup-options.php:163
+msgid "Series"
+msgstr "Серии"
+
+#: ../class-book-reviews.php:767
+msgid "Search Series"
+msgstr "Поиск в сериях"
+
+#: ../class-book-reviews.php:768
+msgid "Popular Series"
+msgstr "Популярные серии"
+
+#: ../class-book-reviews.php:769
+msgid "All Series"
+msgstr "Все серии"
+
+#: ../class-book-reviews.php:772
+msgid "Edit Series"
+msgstr "Редактировать серию"
+
+#: ../class-book-reviews.php:773
+msgid "Update Series"
+msgstr "Обновить серию"
+
+#: ../class-book-reviews.php:774
+msgid "Add New Series"
+msgstr "Добавить серию"
+
+#: ../class-book-reviews.php:775
+msgid "New Series Name"
+msgstr "Новое название серии"
+
+#: ../class-book-reviews.php:776
+msgid "Separate Series with commas"
+msgstr "Разделяйте серии запятыми"
+
+#: ../class-book-reviews.php:777
+msgid "Add or remove Series"
+msgstr "Добавить или удалить серии"
+
+#: ../class-book-reviews.php:778
+msgid "Choose from the most used Series"
+msgstr "Выберите из часто используемых серий"
+
+#: ../class-book-reviews.php:810 ../class-book-reviews.php:812
+#: ../class-book-reviews.php:826
+msgid "Star Ratings"
+msgstr "Звездный рейтинг"
+
+#: ../class-book-reviews.php:813
+msgid "Star"
+msgstr "Звезда"
+
+#: ../class-book-reviews.php:814
+msgid "Search Ratings"
+msgstr "Искать в рейтинге"
+
+#: ../class-book-reviews.php:815
+msgid "Popular Ratings"
+msgstr "Популярные рейтинги"
+
+#: ../class-book-reviews.php:816
+msgid "Stars"
+msgstr "Звезды"
+
+#: ../class-book-reviews.php:819
+msgid "Edit Rating"
+msgstr "Редактировать рейтинг"
+
+#: ../class-book-reviews.php:820
+msgid "Update Rating"
+msgstr "Обновить рейтинг"
+
+#: ../class-book-reviews.php:821
+msgid "Add New Rating"
+msgstr "Добавить рейтинг"
+
+#: ../class-book-reviews.php:822
+msgid "New Rating Name"
+msgstr "Новое название рейтинга"
+
+#: ../class-book-reviews.php:823
+msgid "Separate Star Ratings with commas"
+msgstr "Разделяйте рейтинги запятыми"
+
+#: ../class-book-reviews.php:824
+msgid "Add or remove Star Ratings"
+msgstr "Добавить или удалить рейтинги"
+
+#: ../class-book-reviews.php:825
+msgid "Choose from the most used Star Ratings"
+msgstr "Выберите из часто используемых рейтингов"
+
+#: ../class-book-reviews.php:857 ../inc/func.php:221
+msgid "Zero stars"
+msgstr "Нет звезд"
+
+#: ../class-book-reviews.php:861
+msgid "One star"
+msgstr "Одна звезда"
+
+#: ../class-book-reviews.php:865
+msgid "Two stars"
+msgstr "Две звезды"
+
+#: ../class-book-reviews.php:869
+msgid "Three stars"
+msgstr "Три звезды"
+
+#: ../class-book-reviews.php:873
+msgid "Four stars"
+msgstr "Четыре звезды"
+
+#: ../class-book-reviews.php:877
+msgid "Five stars"
+msgstr "Пять звезд"
+
+#: ../class-book-reviews.php:911
+msgid "Book Author"
+msgstr "Автор книги"
+
+#: ../class-book-reviews.php:930
+msgid "Star Rating"
+msgstr "Звездный рейтинг"
+
+#: ../class-book-reviews.php:934
+msgid "Book Cover"
+msgstr "Обложка книги"
+
+#: ../class-book-reviews.php:944
+msgid "Additional Information"
+msgstr "Дополнительная информация"
+
+#: ../class-book-reviews.php:963
+msgid "ISBN:"
+msgstr "ISBN:"
+
+#: ../class-book-reviews.php:969
+msgid "In stock?"
+msgstr "В наличии"
+
+#: ../class-book-reviews.php:972
+msgid "Book is in stock"
+msgstr "Книга на складе"
+
+#: ../class-book-reviews.php:973
+msgid "Book out of stock"
+msgstr "Книги нет на складе"
+
+#: ../class-book-reviews.php:980
+msgid "Upload Award Image"
+msgstr "Загрузить изображение"
+
+#: ../class-book-reviews.php:1013
+msgid "Set featured image"
+msgstr "Установить обработанное изображение"
+
+#: ../class-book-reviews.php:1013
+msgid "Select Book Cover"
+msgstr "Выбрать обложку книги"
+
+#: ../class-book-reviews.php:1026
+msgid "Title"
+msgstr "Название"
+
+#: ../class-book-reviews.php:1052
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: ../class-book-reviews.php:1092
+msgid "No authors found"
+msgstr "нет"
+
+#: ../class-book-reviews.php:1146
+msgid "No series found"
+msgstr "нет"
+
+#: ../class-book-reviews.php:1173
+msgid "No illustrators found"
+msgstr "нет"
+
+#: ../class-book-reviews.php:1200
+msgid "No subjects found"
+msgstr "нет"
+
+#: ../class-book-reviews.php:1227
+msgid "No reading level found"
+msgstr "нет"
+
+#: ../class-book-reviews.php:1254
+msgid "No awards found"
+msgstr "нет"
+
+#: ../class-book-reviews.php:1286 ../class-book-reviews.php:1299
+msgid "No rating found"
+msgstr "нет"
+
+#: ../class-book-reviews.php:1555 ../class-book-reviews.php:1656
+#: ../views/public.php:163 ../views/public.php:244
+msgid "Review by %s"
+msgstr "Отзыв:  %s"
+
+#: ../class-book-reviews.php:1560 ../class-book-reviews.php:1661
+#: ../views/public.php:168 ../views/public.php:249
+msgid "Reading Level: %s"
+msgstr "Уровень чтения: %s"
+
+#: ../class-book-reviews.php:1566 ../class-book-reviews.php:1667
+#: ../views/public.php:174 ../views/public.php:255
+msgid "This book is <strong>in stock</strong>"
+msgstr "Книга <strong>в наличии</strong> на складе"
+
+#: ../class-book-reviews.php:1570 ../class-book-reviews.php:1671
+#: ../views/public.php:178 ../views/public.php:259
+msgid "This book is <strong>currently checked out</strong>"
+msgstr "Книги <strong>временно нет</strong> на складе"
+
+#: ../class-book-reviews.php:1577 ../class-book-reviews.php:1678
+msgid "<strong>Author:</strong> %s"
+msgstr "<strong>Автор:</strong> %s"
+
+#: ../class-book-reviews.php:1580 ../class-book-reviews.php:1681
+#: ../views/public.php:193 ../views/public.php:274
+msgid "<strong>Genre:</strong> %s"
+msgstr "<strong>Жанр:</strong> %s"
+
+#: ../class-book-reviews.php:1583 ../class-book-reviews.php:1684
+#: ../views/public.php:196 ../views/public.php:277
+msgid "<strong>Series:</strong> %s | "
+msgstr "<strong>Серии(я):</strong> %s | "
+
+#: ../class-book-reviews.php:1586 ../class-book-reviews.php:1687
+#: ../views/public.php:199 ../views/public.php:280
+msgid "<strong>Subjects:</strong> %s"
+msgstr "<strong>Темы(а):</strong> %s"
+
+#: ../class-book-reviews.php:1589 ../class-book-reviews.php:1690
+#: ../views/public.php:202 ../views/public.php:283
+msgid "<strong>Illustrated by</strong> %s"
+msgstr "<strong>Переводчик</strong> %s"
+
+#: ../inc/func.php:413
+msgid "Enabled"
+msgstr "Включено"
+
+#: ../inc/func.php:417 ../inc/func.php:444
+msgid "Disabled"
+msgstr "Выключено"
+
+#: ../inc/widgets.php:19
+msgid ""
+"Displays a list of related books by common taxonomies. This widget only "
+"displays when viewing a single book review or a book review archive."
+msgstr ""
+"Отображает список связанных книг общей таксономией. Этот виджет отображается "
+"только при просмотре одной рецензии на книгу или всего архива рецензий."
+
+#: ../inc/widgets.php:34 ../inc/widgets.php:141
+msgid "Similar Books"
+msgstr "Похожие книги"
+
+#: ../inc/widgets.php:89
+msgid "No similar books were found."
+msgstr "Похожие книги не найдены."
+
+#: ../inc/widgets.php:145 ../inc/widgets.php:245
+msgid "No"
+msgstr "Нет"
+
+#: ../inc/widgets.php:146 ../inc/widgets.php:246
+msgid "Yes"
+msgstr "Да"
+
+#: ../inc/widgets.php:153 ../inc/widgets.php:253
+msgid "Title:"
+msgstr "Название:"
+
+#: ../inc/widgets.php:155 ../inc/widgets.php:255
+msgid "The title that displays above the widget."
+msgstr "Название, которое отображается выше виджета."
+
+#: ../inc/widgets.php:158 ../inc/widgets.php:258
+msgid "Count:"
+msgstr "Количество:"
+
+#: ../inc/widgets.php:160 ../inc/widgets.php:260
+msgid "How many reviews to display."
+msgstr "Сколько показывать рецензий."
+
+#: ../inc/widgets.php:163 ../inc/widgets.php:263
+msgid "Display Images:"
+msgstr "Просмотр изображений:"
+
+#: ../inc/widgets.php:165 ../inc/widgets.php:265
+msgid "Display thumbnail images next to the titles?"
+msgstr "Показывать уменьшенные изображения рядом с названиями?"
+
+#: ../inc/widgets.php:187
+msgid "Displays a list of recent book reviews."
+msgstr "Показывать список последних рецензий."
+
+#: ../inc/widgets.php:191 ../inc/widgets.php:198 ../inc/widgets.php:241
+msgid "Recent Book Reviews"
+msgstr "Последние рецензии"
+
+#: ../inc/widgets.php:235
+msgid "No books were found."
+msgstr "Книги не найдены."
+
+#: ../views/admin.php:23
+msgid "Book Review options saved"
+msgstr "Опции рецензий сохранены"
+
+#: ../views/admin.php:34
+msgid "Save Options"
+msgstr "Сохранить опции"
+
+#: ../views/public.php:188 ../views/public.php:269
+msgid "Author:"
+msgstr "Автор:"
+
+#: ../views/setup-options.php:34
+msgid ""
+"Enable this if the person adding the book review is not the original author "
+"of the review."
+msgstr "Показывать отзывы."
+
+#: ../views/setup-options.php:62
+msgid "Enable this to display the reading level for the book."
+msgstr "Показывать уровни чтения."
+
+#: ../views/setup-options.php:90
+msgid ""
+"Enable this to tag the book with different subjects (unique from genres)."
+msgstr "Показывать темы."
+
+#: ../views/setup-options.php:118
+msgid "Enable this to add illustrators to book reviews."
+msgstr "Показывать переводчиков."
+
+#: ../views/setup-options.php:146
+msgid "Enable this to add awards the book has received."
+msgstr "Показывать награды."
+
+#: ../views/setup-options.php:174
+msgid "Enable this to group books by series."
+msgstr "Показывать серии для книг."
+
+#: ../views/setup-options.php:191
+msgid "Ratings"
+msgstr "Рейтинг"
+
+#: ../views/setup-options.php:202
+msgid "Enable this for star ratings."
+msgstr "Показывать звездные рейтинги."
+
+#: ../views/setup-options.php:219
+msgid "Stock"
+msgstr "Склад"
+
+#: ../views/setup-options.php:230
+msgid ""
+"Enable this to display \"In Stock\"/\"Out of Stock\" information with the "
+"book review."
+msgstr ""
+"Показывать информацию о складе  \"в наличии\"/\"временно нет\" в рецензии "
+"книги."
+
+#: ../views/setup-options.php:247
+msgid "Display author with title"
+msgstr "Показать имя автора книги вместе с названием книги"
+
+#: ../views/setup-options.php:275
+msgid "Comments on book reviews"
+msgstr "Комментарии"
+
+#: ../views/setup-options.php:286
+msgid "If enabled, allows visitors to comment on book reviews."
+msgstr "Если включено, то посетители сайта могут комментировать книги."
 
 #: ../class-book-reviews.php:105
 msgid "Librarian"
@@ -365,482 +833,3 @@ msgstr "Новое имя переводчика"
 #: ../class-book-reviews.php:682
 msgid "Separate Illustrators with commas"
 msgstr "Разделяйте имена переводчиков запятыми"
-
-#: ../class-book-reviews.php:683
-msgid "Add or remove Illustrators"
-msgstr "Добавить или удалить переводчиков"
-
-#: ../class-book-reviews.php:684
-msgid "Choose from the most used Illustrators"
-msgstr "Выберите из часто используемых переводчиков"
-
-#: ../class-book-reviews.php:716 ../class-book-reviews.php:718
-#: ../class-book-reviews.php:732 ../class-book-reviews.php:1048
-#: ../views/setup-options.php:135
-msgid "Awards"
-msgstr "Награды"
-
-#: ../class-book-reviews.php:719
-msgid "Award"
-msgstr "Награда"
-
-#: ../class-book-reviews.php:720
-msgid "Search Awards"
-msgstr "Искать в наградах"
-
-#: ../class-book-reviews.php:721
-msgid "Popular Awards"
-msgstr "Популярные награды"
-
-#: ../class-book-reviews.php:722
-msgid "All Awards"
-msgstr "Все награды"
-
-#: ../class-book-reviews.php:725
-msgid "Edit Award"
-msgstr "Редактировать награды"
-
-#: ../class-book-reviews.php:726
-msgid "Update Award"
-msgstr "Обновить награды"
-
-#: ../class-book-reviews.php:727
-msgid "Add New Award"
-msgstr "Добавить награды"
-
-#: ../class-book-reviews.php:728
-msgid "New Award Name"
-msgstr "Новое название награды"
-
-#: ../class-book-reviews.php:729
-msgid "Separate Awards with commas"
-msgstr "Разделяйте награды запятыми"
-
-#: ../class-book-reviews.php:730
-msgid "Add or remove Awards"
-msgstr "Добавить или удалить награды"
-
-#: ../class-book-reviews.php:731
-msgid "Choose from the most used Awards"
-msgstr "Выберите из часто используемых наград"
-
-#: ../class-book-reviews.php:763 ../class-book-reviews.php:765
-#: ../class-book-reviews.php:766 ../class-book-reviews.php:779
-#: ../class-book-reviews.php:920 ../class-book-reviews.php:1032
-#: ../views/setup-options.php:163
-msgid "Series"
-msgstr "Серии"
-
-#: ../class-book-reviews.php:767
-msgid "Search Series"
-msgstr "Поиск в сериях"
-
-#: ../class-book-reviews.php:768
-msgid "Popular Series"
-msgstr "Популярные серии"
-
-#: ../class-book-reviews.php:769
-msgid "All Series"
-msgstr "Все серии"
-
-#: ../class-book-reviews.php:772
-msgid "Edit Series"
-msgstr "Редактировать серию"
-
-#: ../class-book-reviews.php:773
-msgid "Update Series"
-msgstr "Обновить серию"
-
-#: ../class-book-reviews.php:774
-msgid "Add New Series"
-msgstr "Добавить серию"
-
-#: ../class-book-reviews.php:775
-msgid "New Series Name"
-msgstr "Новое название серии"
-
-#: ../class-book-reviews.php:776
-msgid "Separate Series with commas"
-msgstr "Разделяйте серии запятыми"
-
-#: ../class-book-reviews.php:777
-msgid "Add or remove Series"
-msgstr "Добавить или удалить серии"
-
-#: ../class-book-reviews.php:778
-msgid "Choose from the most used Series"
-msgstr "Выберите из часто используемых серий"
-
-#: ../class-book-reviews.php:810 ../class-book-reviews.php:812
-#: ../class-book-reviews.php:826
-msgid "Star Ratings"
-msgstr "Звездный рейтинг"
-
-#: ../class-book-reviews.php:813
-msgid "Star"
-msgstr "Звезда"
-
-#: ../class-book-reviews.php:814
-msgid "Search Ratings"
-msgstr "Искать в рейтинге"
-
-#: ../class-book-reviews.php:815
-msgid "Popular Ratings"
-msgstr "Популярные рейтинги"
-
-#: ../class-book-reviews.php:816
-msgid "Stars"
-msgstr "Звезды"
-
-#: ../class-book-reviews.php:819
-msgid "Edit Rating"
-msgstr "Редактировать рейтинг"
-
-#: ../class-book-reviews.php:820
-msgid "Update Rating"
-msgstr "Обновить рейтинг"
-
-#: ../class-book-reviews.php:821
-msgid "Add New Rating"
-msgstr "Добавить рейтинг"
-
-#: ../class-book-reviews.php:822
-msgid "New Rating Name"
-msgstr "Новое название рейтинга"
-
-#: ../class-book-reviews.php:823
-msgid "Separate Star Ratings with commas"
-msgstr "Разделяйте рейтинги запятыми"
-
-#: ../class-book-reviews.php:824
-msgid "Add or remove Star Ratings"
-msgstr "Добавить или удалить рейтинги"
-
-#: ../class-book-reviews.php:825
-msgid "Choose from the most used Star Ratings"
-msgstr "Выберите из часто используемых рейтингов"
-
-#: ../class-book-reviews.php:857 ../inc/func.php:221
-msgid "Zero stars"
-msgstr "Нет звезд"
-
-#: ../class-book-reviews.php:861
-msgid "One star"
-msgstr "Одна звезда"
-
-#: ../class-book-reviews.php:865
-msgid "Two stars"
-msgstr "Две звезды"
-
-#: ../class-book-reviews.php:869
-msgid "Three stars"
-msgstr "Три звезды"
-
-#: ../class-book-reviews.php:873
-msgid "Four stars"
-msgstr "Четыре звезды"
-
-#: ../class-book-reviews.php:877
-msgid "Five stars"
-msgstr "Пять звезд"
-
-#: ../class-book-reviews.php:911
-msgid "Book Author"
-msgstr "Автор книги"
-
-#: ../class-book-reviews.php:930
-msgid "Star Rating"
-msgstr "Звездный рейтинг"
-
-#: ../class-book-reviews.php:934
-msgid "Book Cover"
-msgstr "Обложка книги"
-
-#: ../class-book-reviews.php:944
-msgid "Additional Information"
-msgstr "Дополнительная информация"
-
-#: ../class-book-reviews.php:963
-msgid "ISBN:"
-msgstr "ISBN:"
-
-#: ../class-book-reviews.php:969
-msgid "In stock?"
-msgstr "В наличии"
-
-#: ../class-book-reviews.php:972
-msgid "Book is in stock"
-msgstr "Книга на складе"
-
-#: ../class-book-reviews.php:973
-msgid "Book out of stock"
-msgstr "Книги нет на складе"
-
-#: ../class-book-reviews.php:980
-msgid "Upload Award Image"
-msgstr "Загрузить изображение"
-
-#: ../class-book-reviews.php:1013
-msgid "Set featured image"
-msgstr "Установить обработанное изображение"
-
-#: ../class-book-reviews.php:1013
-msgid "Select Book Cover"
-msgstr "Выбрать обложку книги"
-
-#: ../class-book-reviews.php:1026
-msgid "Title"
-msgstr "Название"
-
-#: ../class-book-reviews.php:1052
-msgid "Rating"
-msgstr "Рейтинг"
-
-#: ../class-book-reviews.php:1092
-msgid "No authors found"
-msgstr "нет"
-
-#: ../class-book-reviews.php:1146
-msgid "No series found"
-msgstr "нет"
-
-#: ../class-book-reviews.php:1173
-msgid "No illustrators found"
-msgstr "нет"
-
-#: ../class-book-reviews.php:1200
-msgid "No subjects found"
-msgstr "нет"
-
-#: ../class-book-reviews.php:1227
-msgid "No reading level found"
-msgstr "нет"
-
-#: ../class-book-reviews.php:1254
-msgid "No awards found"
-msgstr "нет"
-
-#: ../class-book-reviews.php:1286 ../class-book-reviews.php:1299
-msgid "No rating found"
-msgstr "нет"
-
-#: ../class-book-reviews.php:1517 ../class-book-reviews.php:1618
-#, php-format
-msgid "%1$s"
-msgstr "%1$s"
-
-#: ../class-book-reviews.php:1555 ../class-book-reviews.php:1656
-#: ../views/public.php:163 ../views/public.php:244
-#, php-format
-msgid "Review by %s"
-msgstr "Отзыв:  %s"
-
-#: ../class-book-reviews.php:1560 ../class-book-reviews.php:1661
-#: ../views/public.php:168 ../views/public.php:249
-#, php-format
-msgid "Reading Level: %s"
-msgstr "Уровень чтения: %s"
-
-#: ../class-book-reviews.php:1566 ../class-book-reviews.php:1667
-#: ../views/public.php:174 ../views/public.php:255
-msgid "This book is <strong>in stock</strong>"
-msgstr "Книга <strong>в наличии</strong> на складе"
-
-#: ../class-book-reviews.php:1570 ../class-book-reviews.php:1671
-#: ../views/public.php:178 ../views/public.php:259
-msgid "This book is <strong>currently checked out</strong>"
-msgstr "Книги <strong>временно нет</strong> на складе"
-
-#: ../class-book-reviews.php:1577 ../class-book-reviews.php:1678
-#, php-format
-msgid "<strong>Author:</strong> %s"
-msgstr "<strong>Автор:</strong> %s"
-
-#: ../class-book-reviews.php:1580 ../class-book-reviews.php:1681
-#: ../views/public.php:193 ../views/public.php:274
-#, php-format
-msgid "<strong>Genre:</strong> %s"
-msgstr "<strong>Жанр:</strong> %s"
-
-#: ../class-book-reviews.php:1583 ../class-book-reviews.php:1684
-#: ../views/public.php:196 ../views/public.php:277
-#, php-format
-msgid "<strong>Series:</strong> %s | "
-msgstr "<strong>Серии(я):</strong> %s | "
-
-#: ../class-book-reviews.php:1586 ../class-book-reviews.php:1687
-#: ../views/public.php:199 ../views/public.php:280
-#, php-format
-msgid "<strong>Subjects:</strong> %s"
-msgstr "<strong>Темы(а):</strong> %s"
-
-#: ../class-book-reviews.php:1589 ../class-book-reviews.php:1690
-#: ../views/public.php:202 ../views/public.php:283
-#, php-format
-msgid "<strong>Illustrated by</strong> %s"
-msgstr "<strong>Переводчик</strong> %s"
-
-#: ../inc/func.php:413
-msgid "Enabled"
-msgstr "Включено"
-
-#: ../inc/func.php:417 ../inc/func.php:444
-msgid "Disabled"
-msgstr "Выключено"
-
-#: ../inc/func.php:436
-msgid "With the title"
-msgstr "С названием"
-
-#: ../inc/func.php:440
-msgid "On a new line"
-msgstr "На новой строке"
-
-#: ../inc/widgets.php:19
-msgid ""
-"Displays a list of related books by common taxonomies. This widget only "
-"displays when viewing a single book review or a book review archive."
-msgstr ""
-"Отображает список связанных книг общей таксономией. Этот виджет отображается "
-"только при просмотре одной рецензии на книгу или всего архива рецензий."
-
-#: ../inc/widgets.php:34 ../inc/widgets.php:141
-msgid "Similar Books"
-msgstr "Похожие книги"
-
-#: ../inc/widgets.php:82 ../inc/widgets.php:127 ../inc/widgets.php:225
-#: ../views/public.php:304 ../views/public.php:321
-#, php-format
-msgid "%1$s by %2$s"
-msgstr "%1$s автор: %2$s"
-
-#: ../inc/widgets.php:89
-msgid "No similar books were found."
-msgstr "Похожие книги не найдены."
-
-#: ../inc/widgets.php:145 ../inc/widgets.php:245
-msgid "No"
-msgstr "Нет"
-
-#: ../inc/widgets.php:146 ../inc/widgets.php:246
-msgid "Yes"
-msgstr "Да"
-
-#: ../inc/widgets.php:153 ../inc/widgets.php:253
-msgid "Title:"
-msgstr "Название:"
-
-#: ../inc/widgets.php:155 ../inc/widgets.php:255
-msgid "The title that displays above the widget."
-msgstr "Название, которое отображается выше виджета."
-
-#: ../inc/widgets.php:158 ../inc/widgets.php:258
-msgid "Count:"
-msgstr "Количество:"
-
-#: ../inc/widgets.php:160 ../inc/widgets.php:260
-msgid "How many reviews to display."
-msgstr "Сколько показывать рецензий."
-
-#: ../inc/widgets.php:163 ../inc/widgets.php:263
-msgid "Display Images:"
-msgstr "Просмотр изображений:"
-
-#: ../inc/widgets.php:165 ../inc/widgets.php:265
-msgid "Display thumbnail images next to the titles?"
-msgstr "Показывать уменьшенные изображения рядом с названиями?"
-
-#: ../inc/widgets.php:187
-msgid "Displays a list of recent book reviews."
-msgstr "Показывать список последних рецензий."
-
-#: ../inc/widgets.php:191 ../inc/widgets.php:198 ../inc/widgets.php:241
-msgid "Recent Book Reviews"
-msgstr "Последние рецензии"
-
-#: ../inc/widgets.php:235
-msgid "No books were found."
-msgstr "Книги не найдены."
-
-#: ../views/admin.php:23
-msgid "Book Review options saved"
-msgstr "Опции рецензий сохранены"
-
-#: ../views/admin.php:34
-msgid "Save Options"
-msgstr "Сохранить опции"
-
-#: ../views/public.php:188 ../views/public.php:269
-msgid "Author:"
-msgstr "Автор:"
-
-#: ../views/setup-options.php:34
-msgid ""
-"Enable this if the person adding the book review is not the original author "
-"of the review."
-msgstr "Показывать отзывы."
-
-#: ../views/setup-options.php:62
-msgid "Enable this to display the reading level for the book."
-msgstr "Показывать уровни чтения."
-
-#: ../views/setup-options.php:90
-msgid ""
-"Enable this to tag the book with different subjects (unique from genres)."
-msgstr "Показывать темы."
-
-#: ../views/setup-options.php:118
-msgid "Enable this to add illustrators to book reviews."
-msgstr "Показывать переводчиков."
-
-#: ../views/setup-options.php:146
-msgid "Enable this to add awards the book has received."
-msgstr "Показывать награды."
-
-#: ../views/setup-options.php:174
-msgid "Enable this to group books by series."
-msgstr "Показывать серии для книг."
-
-#: ../views/setup-options.php:191
-msgid "Ratings"
-msgstr "Рейтинг"
-
-#: ../views/setup-options.php:202
-msgid "Enable this for star ratings."
-msgstr "Показывать звездные рейтинги."
-
-#: ../views/setup-options.php:219
-msgid "Stock"
-msgstr "Склад"
-
-#: ../views/setup-options.php:230
-msgid ""
-"Enable this to display \"In Stock\"/\"Out of Stock\" information with the "
-"book review."
-msgstr ""
-"Показывать информацию о складе  \"в наличии\"/\"временно нет\" в рецензии "
-"книги."
-
-#: ../views/setup-options.php:247
-msgid "Display author with title"
-msgstr "Показать имя автора книги вместе с названием книги"
-
-#: ../views/setup-options.php:258
-msgid ""
-"<strong>With the title</strong> displays the author on the same line as the "
-"book title. <strong>On a new line</strong> adds a line break before "
-"displaying the author. <strong>Disabled</strong> removes the author from the "
-"title entirely."
-msgstr ""
-"<strong>С названием</strong> - имя автора появиться в той же строке, что и "
-"название книги. <strong>На новой строке</strong> - имя автора будет выведено "
-"на следующей строке. <strong>Выключено</strong> полностью удаляет имя автора "
-"из названия книги."
-
-#: ../views/setup-options.php:275
-msgid "Comments on book reviews"
-msgstr "Комментарии"
-
-#: ../views/setup-options.php:286
-msgid "If enabled, allows visitors to comment on book reviews."
-msgstr "Если включено, то посетители сайта могут комментировать книги."
