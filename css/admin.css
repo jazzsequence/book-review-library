@@ -74,7 +74,7 @@ div#icon-edit.icon32-posts-book-review:after {
 	top: -5px;
 }
 
-.branch-3-8 #adminmenu #menu-posts-book-review div.wp-menu-image:before {
+#adminmenu #menu-posts-book-review div.wp-menu-image:before {
 	font-family: 'Genericons'!important;
 	content: '\f444';
 	left: 0;
