@@ -34,10 +34,15 @@ This plugin uses the [Genericons icon font](http://genericons.com) in both the d
 
 Translators can collectively help work on translating this plugin at http://translations.museumthemes.com/projects/book-review-library. If you would like to help the translation process, [let me know](http://museumthemes.com/book-review-library/youve-got-questions-weve-got-answers/) and I'll get you added as a translator.
 
-* *Italian translation* by [tristano-ajmone](http://wordpress.org/support/profile/tristano-ajmone)
-* *Hungarian translation* by Ignácz József
-* *French translation* by claire idrac
-* *Russian translation* by [Diana Kononova](http://wordpress.org/support/profile/diana-kononova) **New in 1.4.8!!**
+* **Italian translation** by [tristano-ajmone](http://wordpress.org/support/profile/tristano-ajmone)
+* **Hungarian translation** by [Ignácz József](http://joco1114.dyndns.org/)
+* **French translation** by claire idrac
+* **Russian translation** by [Diana Kononova](http://wordpress.org/support/profile/diana-kononova)
+* **Arabic translation** by Salim Solomon **New in 1.4.9!**
+* **Spanish translation** by Tierras del Rincon **New in 1.4.9!**
+* **Persian (Farsi) translation** by [Masoud Allameh](http://www.masoudallameh.com/) **New in 1.4.9!**
+* **Polish translation** by Rafał Szampera **New in 1.4.9!**
+
 
 = About this plugin =
 
@@ -146,6 +151,14 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 * 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library
 
 == Changelog ==
+
+= 1.4.9 =
+* Fixed a bug where the book author wasn't displaying if the title was filtered by WordPress before being passed to Book Review Library's title filter
+* changed string to boolean value for covers check
+* added Arabic language file
+* added Spanish language file
+* added Farsi language file
+* added Polish language file
 
 = 1.4.8 =
 * fixed a conflict with other plugins that use post types which prevented single posts of other post types from displaying
