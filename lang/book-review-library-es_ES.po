@@ -1,0 +1,830 @@
+# Translation of Book Review Library in Spanish (Spain)
+# This file is distributed under the same license as the Book Review Library package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2014-04-17 11:52-0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.6.4\n"
+"Project-Id-Version: Book Review Library\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
+"Language-Team: Tierras del Rincon <tierras.del.rincon@gmail.com>\n"
+"Language: es\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: ../inc/func.php:436
+msgid "With the title"
+msgstr "Con el título"
+
+#: ../inc/func.php:440
+msgid "On a new line"
+msgstr "En una nueva línea"
+
+#: ../views/setup-options.php:258
+msgid ""
+"<strong>With the title</strong> displays the author on the same line as the "
+"book title. <strong>On a new line</strong> adds a line break before "
+"displaying the author. <strong>Disabled</strong> removes the author from the "
+"title entirely."
+msgstr ""
+"<strong>Con el título</strong> muestra el autor en la misma linea que el "
+"título del libro. <strong>En una nueva línea</strong> añade un salto de "
+"línea antes de mostrar el autor . <strong>Inhabilitado</strong> elimina "
+"completamente el autor del título."
+
+#: ../class-book-reviews.php:1517 ../class-book-reviews.php:1618
+msgid "%1$s"
+msgstr "%1$s"
+
+#: ../inc/widgets.php:82 ../inc/widgets.php:127 ../inc/widgets.php:225
+#: ../views/public.php:304 ../views/public.php:321
+msgid "%1$s by %2$s"
+msgstr "%1$s de %2$s"
+
+#: ../class-book-reviews.php:683
+msgid "Add or remove Illustrators"
+msgstr "Añade o remueve ilustradores"
+
+#: ../class-book-reviews.php:684
+msgid "Choose from the most used Illustrators"
+msgstr "Escoger de entre los ilustradores más utilizados"
+
+#: ../class-book-reviews.php:716 ../class-book-reviews.php:718
+#: ../class-book-reviews.php:732 ../class-book-reviews.php:1048
+#: ../views/setup-options.php:135
+msgid "Awards"
+msgstr "Premios"
+
+#: ../class-book-reviews.php:719
+msgid "Award"
+msgstr "Premio"
+
+#: ../class-book-reviews.php:720
+msgid "Search Awards"
+msgstr "Búsqueda de premios"
+
+#: ../class-book-reviews.php:721
+msgid "Popular Awards"
+msgstr ""
+
+#: ../class-book-reviews.php:722
+msgid "All Awards"
+msgstr "Todos los premios"
+
+#: ../class-book-reviews.php:725
+msgid "Edit Award"
+msgstr "Editar premio"
+
+#: ../class-book-reviews.php:726
+msgid "Update Award"
+msgstr "Actualizar premio"
+
+#: ../class-book-reviews.php:727
+msgid "Add New Award"
+msgstr "Añadir nuevo premio"
+
+#: ../class-book-reviews.php:728
+msgid "New Award Name"
+msgstr "Nombre del premio nuevo"
+
+#: ../class-book-reviews.php:729
+msgid "Separate Awards with commas"
+msgstr "Separar premios con comas"
+
+#: ../class-book-reviews.php:730
+msgid "Add or remove Awards"
+msgstr "Añadir o remover premios"
+
+#: ../class-book-reviews.php:731
+msgid "Choose from the most used Awards"
+msgstr "Escoger de entre los premios más utilizados"
+
+#: ../class-book-reviews.php:763 ../class-book-reviews.php:765
+#: ../class-book-reviews.php:766 ../class-book-reviews.php:779
+#: ../class-book-reviews.php:920 ../class-book-reviews.php:1032
+#: ../views/setup-options.php:163
+msgid "Series"
+msgstr "Series"
+
+#: ../class-book-reviews.php:767
+msgid "Search Series"
+msgstr "Buscar series"
+
+#: ../class-book-reviews.php:768
+msgid "Popular Series"
+msgstr "Series populares"
+
+#: ../class-book-reviews.php:769
+msgid "All Series"
+msgstr "Todas las series"
+
+#: ../class-book-reviews.php:772
+msgid "Edit Series"
+msgstr "Editar series"
+
+#: ../class-book-reviews.php:773
+msgid "Update Series"
+msgstr "Actualizar series"
+
+#: ../class-book-reviews.php:774
+msgid "Add New Series"
+msgstr "Añadir series nuevas"
+
+#: ../class-book-reviews.php:775
+msgid "New Series Name"
+msgstr "Nombre de la serie nueva"
+
+#: ../class-book-reviews.php:776
+msgid "Separate Series with commas"
+msgstr "Separar series por comas"
+
+#: ../class-book-reviews.php:777
+msgid "Add or remove Series"
+msgstr "Añadir o remover series"
+
+#: ../class-book-reviews.php:778
+msgid "Choose from the most used Series"
+msgstr "Escoger de entre las series más utilizadas"
+
+#: ../class-book-reviews.php:810 ../class-book-reviews.php:812
+#: ../class-book-reviews.php:826
+msgid "Star Ratings"
+msgstr ""
+
+#: ../class-book-reviews.php:813
+msgid "Star"
+msgstr ""
+
+#: ../class-book-reviews.php:814
+msgid "Search Ratings"
+msgstr ""
+
+#: ../class-book-reviews.php:815
+msgid "Popular Ratings"
+msgstr ""
+
+#: ../class-book-reviews.php:816
+msgid "Stars"
+msgstr ""
+
+#: ../class-book-reviews.php:819
+msgid "Edit Rating"
+msgstr ""
+
+#: ../class-book-reviews.php:820
+msgid "Update Rating"
+msgstr ""
+
+#: ../class-book-reviews.php:821
+msgid "Add New Rating"
+msgstr ""
+
+#: ../class-book-reviews.php:822
+msgid "New Rating Name"
+msgstr ""
+
+#: ../class-book-reviews.php:823
+msgid "Separate Star Ratings with commas"
+msgstr ""
+
+#: ../class-book-reviews.php:824
+msgid "Add or remove Star Ratings"
+msgstr ""
+
+#: ../class-book-reviews.php:825
+msgid "Choose from the most used Star Ratings"
+msgstr ""
+
+#: ../class-book-reviews.php:857 ../inc/func.php:221
+msgid "Zero stars"
+msgstr ""
+
+#: ../class-book-reviews.php:861
+msgid "One star"
+msgstr ""
+
+#: ../class-book-reviews.php:865
+msgid "Two stars"
+msgstr ""
+
+#: ../class-book-reviews.php:869
+msgid "Three stars"
+msgstr "Tres estrellas"
+
+#: ../class-book-reviews.php:873
+msgid "Four stars"
+msgstr "Cuatro estrellas"
+
+#: ../class-book-reviews.php:877
+msgid "Five stars"
+msgstr "Cinco estrellas"
+
+#: ../class-book-reviews.php:911
+msgid "Book Author"
+msgstr "Autor del libro"
+
+#: ../class-book-reviews.php:930
+msgid "Star Rating"
+msgstr ""
+
+#: ../class-book-reviews.php:934
+msgid "Book Cover"
+msgstr "Portada de libro"
+
+#: ../class-book-reviews.php:944
+msgid "Additional Information"
+msgstr "Información adicional"
+
+#: ../class-book-reviews.php:963
+msgid "ISBN:"
+msgstr "ISBN:"
+
+#: ../class-book-reviews.php:969
+msgid "In stock?"
+msgstr "¿En existencia?"
+
+#: ../class-book-reviews.php:972
+msgid "Book is in stock"
+msgstr "Libros en existencia"
+
+#: ../class-book-reviews.php:973
+msgid "Book out of stock"
+msgstr "Libros agotados"
+
+#: ../class-book-reviews.php:980
+msgid "Upload Award Image"
+msgstr "Subir imagen de premio"
+
+#: ../class-book-reviews.php:1013
+msgid "Set featured image"
+msgstr ""
+
+#: ../class-book-reviews.php:1013
+msgid "Select Book Cover"
+msgstr "Escoger portada libro"
+
+#: ../class-book-reviews.php:1026
+msgid "Title"
+msgstr "Título"
+
+#: ../class-book-reviews.php:1052
+msgid "Rating"
+msgstr "Valoración"
+
+#: ../class-book-reviews.php:1092
+msgid "No authors found"
+msgstr "Autores no encontrados"
+
+#: ../class-book-reviews.php:1146
+msgid "No series found"
+msgstr "Series no encontradas"
+
+#: ../class-book-reviews.php:1173
+msgid "No illustrators found"
+msgstr "Ilustradores no encontrados"
+
+#: ../class-book-reviews.php:1200
+msgid "No subjects found"
+msgstr "Objetos no encontrados"
+
+#: ../class-book-reviews.php:1227
+msgid "No reading level found"
+msgstr "Nivel de lectura no encontrados"
+
+#: ../class-book-reviews.php:1254
+msgid "No awards found"
+msgstr "Premios no encontrados"
+
+#: ../class-book-reviews.php:1286 ../class-book-reviews.php:1299
+msgid "No rating found"
+msgstr "Valoración no encontrada"
+
+#: ../class-book-reviews.php:1555 ../class-book-reviews.php:1656
+#: ../views/public.php:163 ../views/public.php:244
+msgid "Review by %s"
+msgstr "Reseña por %s"
+
+#: ../class-book-reviews.php:1560 ../class-book-reviews.php:1661
+#: ../views/public.php:168 ../views/public.php:249
+msgid "Reading Level: %s"
+msgstr "Nivel de lectura: %s"
+
+#: ../class-book-reviews.php:1566 ../class-book-reviews.php:1667
+#: ../views/public.php:174 ../views/public.php:255
+msgid "This book is <strong>in stock</strong>"
+msgstr "Este libro se encuentra <strong>en existencia</strong>"
+
+#: ../class-book-reviews.php:1570 ../class-book-reviews.php:1671
+#: ../views/public.php:178 ../views/public.php:259
+msgid "This book is <strong>currently checked out</strong>"
+msgstr "Este libro se encuentra <strong>actualmente prestado</strong>"
+
+#: ../class-book-reviews.php:1577 ../class-book-reviews.php:1678
+msgid "<strong>Author:</strong> %s"
+msgstr "<strong>Autor:</strong> %s"
+
+#: ../class-book-reviews.php:1580 ../class-book-reviews.php:1681
+#: ../views/public.php:193 ../views/public.php:274
+msgid "<strong>Genre:</strong> %s"
+msgstr "<strong>Genero:</strong> %s"
+
+#: ../class-book-reviews.php:1583 ../class-book-reviews.php:1684
+#: ../views/public.php:196 ../views/public.php:277
+msgid "<strong>Series:</strong> %s | "
+msgstr "<strong>Series:</strong> %s | "
+
+#: ../class-book-reviews.php:1586 ../class-book-reviews.php:1687
+#: ../views/public.php:199 ../views/public.php:280
+msgid "<strong>Subjects:</strong> %s"
+msgstr ""
+
+#: ../class-book-reviews.php:1589 ../class-book-reviews.php:1690
+#: ../views/public.php:202 ../views/public.php:283
+msgid "<strong>Illustrated by</strong> %s"
+msgstr ""
+
+#: ../inc/func.php:413
+msgid "Enabled"
+msgstr ""
+
+#: ../inc/func.php:417 ../inc/func.php:444
+msgid "Disabled"
+msgstr ""
+
+#: ../inc/widgets.php:19
+msgid ""
+"Displays a list of related books by common taxonomies. This widget only "
+"displays when viewing a single book review or a book review archive."
+msgstr ""
+
+#: ../inc/widgets.php:34 ../inc/widgets.php:141
+msgid "Similar Books"
+msgstr ""
+
+#: ../inc/widgets.php:89
+msgid "No similar books were found."
+msgstr ""
+
+#: ../inc/widgets.php:145 ../inc/widgets.php:245
+msgid "No"
+msgstr ""
+
+#: ../inc/widgets.php:146 ../inc/widgets.php:246
+msgid "Yes"
+msgstr ""
+
+#: ../inc/widgets.php:153 ../inc/widgets.php:253
+msgid "Title:"
+msgstr ""
+
+#: ../inc/widgets.php:155 ../inc/widgets.php:255
+msgid "The title that displays above the widget."
+msgstr ""
+
+#: ../inc/widgets.php:158 ../inc/widgets.php:258
+msgid "Count:"
+msgstr ""
+
+#: ../inc/widgets.php:160 ../inc/widgets.php:260
+msgid "How many reviews to display."
+msgstr ""
+
+#: ../inc/widgets.php:163 ../inc/widgets.php:263
+msgid "Display Images:"
+msgstr ""
+
+#: ../inc/widgets.php:165 ../inc/widgets.php:265
+msgid "Display thumbnail images next to the titles?"
+msgstr ""
+
+#: ../inc/widgets.php:187
+msgid "Displays a list of recent book reviews."
+msgstr ""
+
+#: ../inc/widgets.php:191 ../inc/widgets.php:198 ../inc/widgets.php:241
+msgid "Recent Book Reviews"
+msgstr ""
+
+#: ../inc/widgets.php:235
+msgid "No books were found."
+msgstr ""
+
+#: ../views/admin.php:23
+msgid "Book Review options saved"
+msgstr ""
+
+#: ../views/admin.php:34
+msgid "Save Options"
+msgstr ""
+
+#: ../views/public.php:188 ../views/public.php:269
+msgid "Author:"
+msgstr ""
+
+#: ../views/setup-options.php:34
+msgid ""
+"Enable this if the person adding the book review is not the original author "
+"of the review."
+msgstr ""
+
+#: ../views/setup-options.php:62
+msgid "Enable this to display the reading level for the book."
+msgstr ""
+
+#: ../views/setup-options.php:90
+msgid ""
+"Enable this to tag the book with different subjects (unique from genres)."
+msgstr ""
+
+#: ../views/setup-options.php:118
+msgid "Enable this to add illustrators to book reviews."
+msgstr ""
+
+#: ../views/setup-options.php:146
+msgid "Enable this to add awards the book has received."
+msgstr ""
+
+#: ../views/setup-options.php:174
+msgid "Enable this to group books by series."
+msgstr ""
+
+#: ../views/setup-options.php:191
+msgid "Ratings"
+msgstr ""
+
+#: ../views/setup-options.php:202
+msgid "Enable this for star ratings."
+msgstr ""
+
+#: ../views/setup-options.php:219
+msgid "Stock"
+msgstr ""
+
+#: ../views/setup-options.php:230
+msgid ""
+"Enable this to display \"In Stock\"/\"Out of Stock\" information with the "
+"book review."
+msgstr ""
+
+#: ../views/setup-options.php:247
+msgid "Display author with title"
+msgstr ""
+
+#: ../views/setup-options.php:275
+msgid "Comments on book reviews"
+msgstr ""
+
+#: ../views/setup-options.php:286
+msgid "If enabled, allows visitors to comment on book reviews."
+msgstr ""
+
+#: ../class-book-reviews.php:105
+msgid "Librarian"
+msgstr ""
+
+#: ../class-book-reviews.php:129
+msgid "Book Reviewer"
+msgstr ""
+
+#: ../class-book-reviews.php:337
+msgid "Book Reviews Options"
+msgstr ""
+
+#: ../class-book-reviews.php:338
+msgid "Options"
+msgstr ""
+
+#: ../class-book-reviews.php:389 ../class-book-reviews.php:399
+msgid "Book Reviews"
+msgstr ""
+
+#: ../class-book-reviews.php:390
+msgid "Book Review"
+msgstr ""
+
+#: ../class-book-reviews.php:391
+msgid "Add New"
+msgstr ""
+
+#: ../class-book-reviews.php:392
+msgid "Add New Book Review"
+msgstr ""
+
+#: ../class-book-reviews.php:393
+msgid "Edit Review"
+msgstr ""
+
+#: ../class-book-reviews.php:394
+msgid "New Book Review"
+msgstr ""
+
+#: ../class-book-reviews.php:395
+msgid "View Book Review"
+msgstr ""
+
+#: ../class-book-reviews.php:396
+msgid "Search Book Reviews"
+msgstr ""
+
+#: ../class-book-reviews.php:397
+msgid "No book reviews found"
+msgstr ""
+
+#: ../class-book-reviews.php:398
+msgid "No book reviews found in Trash"
+msgstr ""
+
+#: ../class-book-reviews.php:431 ../class-book-reviews.php:433
+#: ../class-book-reviews.php:448
+msgid "Genres"
+msgstr ""
+
+#: ../class-book-reviews.php:434 ../class-book-reviews.php:1028
+msgid "Genre"
+msgstr ""
+
+#: ../class-book-reviews.php:435
+msgid "Search Genres"
+msgstr ""
+
+#: ../class-book-reviews.php:436
+msgid "Popular Genres"
+msgstr ""
+
+#: ../class-book-reviews.php:437
+msgid "All Genres"
+msgstr ""
+
+#: ../class-book-reviews.php:440
+msgid "Edit Genre"
+msgstr ""
+
+#: ../class-book-reviews.php:441
+msgid "Update Genre"
+msgstr ""
+
+#: ../class-book-reviews.php:442
+msgid "Add New Genre"
+msgstr ""
+
+#: ../class-book-reviews.php:443
+msgid "New Genre Name"
+msgstr ""
+
+#: ../class-book-reviews.php:444
+msgid "Separate genres with commas"
+msgstr ""
+
+#: ../class-book-reviews.php:445
+msgid "Add or remove genres"
+msgstr ""
+
+#: ../class-book-reviews.php:446
+msgid "Choose from the most used genres"
+msgstr ""
+
+#: ../class-book-reviews.php:447 ../class-book-reviews.php:1119
+msgid "No genres found"
+msgstr ""
+
+#: ../class-book-reviews.php:480 ../class-book-reviews.php:482
+#: ../class-book-reviews.php:483
+msgid "Review Author"
+msgstr ""
+
+#: ../class-book-reviews.php:484
+msgid "Search Review Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:485
+msgid "Popular Review Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:486
+msgid "All Review Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:489
+msgid "Edit Review Author"
+msgstr ""
+
+#: ../class-book-reviews.php:490
+msgid "Update Review Author"
+msgstr ""
+
+#: ../class-book-reviews.php:491
+msgid "Add New Review Author"
+msgstr ""
+
+#: ../class-book-reviews.php:492
+msgid "New Review Author Name"
+msgstr ""
+
+#: ../class-book-reviews.php:493
+msgid "Separate Review Authors with commas"
+msgstr ""
+
+#: ../class-book-reviews.php:494
+msgid "Add or remove Review Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:495
+msgid "Choose from the most used Review Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:496 ../views/setup-options.php:23
+msgid "Review Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:528 ../class-book-reviews.php:530
+#: ../class-book-reviews.php:544
+msgid "Book Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:531 ../class-book-reviews.php:1027
+msgid "Author"
+msgstr ""
+
+#: ../class-book-reviews.php:532
+msgid "Search Book Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:533
+msgid "Popular Book Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:534
+msgid "All Book Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:537
+msgid "Edit Author"
+msgstr ""
+
+#: ../class-book-reviews.php:538
+msgid "Update Author"
+msgstr ""
+
+#: ../class-book-reviews.php:539
+msgid "Add New Author"
+msgstr ""
+
+#: ../class-book-reviews.php:540
+msgid "New Author Name"
+msgstr ""
+
+#: ../class-book-reviews.php:541
+msgid "Separate Book Authors with commas"
+msgstr ""
+
+#: ../class-book-reviews.php:542
+msgid "Add or remove Book Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:543
+msgid "Choose from the most used Book Authors"
+msgstr ""
+
+#: ../class-book-reviews.php:575 ../class-book-reviews.php:577
+#: ../class-book-reviews.php:578 ../class-book-reviews.php:925
+#: ../class-book-reviews.php:1044 ../views/setup-options.php:51
+msgid "Reading Level"
+msgstr ""
+
+#: ../class-book-reviews.php:579
+msgid "Search Reading Levels"
+msgstr ""
+
+#: ../class-book-reviews.php:580
+msgid "Popular Reading Levels"
+msgstr ""
+
+#: ../class-book-reviews.php:581
+msgid "All Reading Levels"
+msgstr ""
+
+#: ../class-book-reviews.php:584
+msgid "Edit Reading Level"
+msgstr ""
+
+#: ../class-book-reviews.php:585
+msgid "Update Reading Level"
+msgstr ""
+
+#: ../class-book-reviews.php:586
+msgid "Add New Reading Level"
+msgstr ""
+
+#: ../class-book-reviews.php:587
+msgid "New Reading Level Name"
+msgstr ""
+
+#: ../class-book-reviews.php:588
+msgid "Separate Reading Levels with commas"
+msgstr ""
+
+#: ../class-book-reviews.php:589
+msgid "Add or remove Reading Levels"
+msgstr ""
+
+#: ../class-book-reviews.php:590
+msgid "Choose from the most used Reading Levels"
+msgstr ""
+
+#: ../class-book-reviews.php:591
+msgid "Reading Levels"
+msgstr ""
+
+#: ../class-book-reviews.php:622 ../class-book-reviews.php:624
+#: ../class-book-reviews.php:638 ../class-book-reviews.php:1040
+msgid "Subjects"
+msgstr ""
+
+#: ../class-book-reviews.php:625 ../views/setup-options.php:79
+msgid "Subject"
+msgstr ""
+
+#: ../class-book-reviews.php:626
+msgid "Search Subjects"
+msgstr ""
+
+#: ../class-book-reviews.php:627
+msgid "Popular Subjects"
+msgstr ""
+
+#: ../class-book-reviews.php:628
+msgid "All Subjects"
+msgstr ""
+
+#: ../class-book-reviews.php:631
+msgid "Edit Subject"
+msgstr ""
+
+#: ../class-book-reviews.php:632
+msgid "Update Subject"
+msgstr ""
+
+#: ../class-book-reviews.php:633
+msgid "Add New Subject"
+msgstr ""
+
+#: ../class-book-reviews.php:634
+msgid "New Subject Name"
+msgstr ""
+
+#: ../class-book-reviews.php:635
+msgid "Separate Subjects with commas"
+msgstr ""
+
+#: ../class-book-reviews.php:636
+msgid "Add or remove Subjects"
+msgstr ""
+
+#: ../class-book-reviews.php:637
+msgid "Choose from the most used Subjects"
+msgstr ""
+
+#: ../class-book-reviews.php:669 ../class-book-reviews.php:671
+#: ../class-book-reviews.php:685
+msgid "Illustrators"
+msgstr ""
+
+#: ../class-book-reviews.php:672 ../class-book-reviews.php:915
+#: ../class-book-reviews.php:1036 ../views/setup-options.php:107
+msgid "Illustrator"
+msgstr ""
+
+#: ../class-book-reviews.php:673
+msgid "Search Illustrators"
+msgstr ""
+
+#: ../class-book-reviews.php:674
+msgid "Popular Illustrators"
+msgstr ""
+
+#: ../class-book-reviews.php:675
+msgid "All Illustrators"
+msgstr ""
+
+#: ../class-book-reviews.php:678
+msgid "Edit Illustrator"
+msgstr ""
+
+#: ../class-book-reviews.php:679
+msgid "Update Illustrator"
+msgstr ""
+
+#: ../class-book-reviews.php:680
+msgid "Add New Illustrator"
+msgstr ""
+
+#: ../class-book-reviews.php:681
+msgid "New Illustrator Name"
+msgstr ""
+
+#: ../class-book-reviews.php:682
+msgid "Separate Illustrators with commas"
+msgstr ""

@@ -1,0 +1,833 @@
+# Translation of Book Review Library in Arabic
+# This file is distributed under the same license as the Book Review Library package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2014-04-17 11:49-0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Poedit 1.6.4\n"
+"Project-Id-Version: Book Review Library\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
+"Language-Team: Salim Solomon <sal.sol.89@gmail.com>\n"
+"Language: ar\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: ../inc/func.php:436
+msgid "With the title"
+msgstr "بالعنوان"
+
+#: ../inc/func.php:440
+msgid "On a new line"
+msgstr "على سطر جديد"
+
+#: ../views/setup-options.php:258
+msgid ""
+"<strong>With the title</strong> displays the author on the same line as the "
+"book title. <strong>On a new line</strong> adds a line break before "
+"displaying the author. <strong>Disabled</strong> removes the author from the "
+"title entirely."
+msgstr ""
+"<strong>بالعنوان</strong> عرض المؤلف على نفس سطر عنوان الكتاب <strong>على "
+"سطر جديد</strong> أضف سطراً فارغاً قبل اسم المؤلف <strong>معطل</strong> إزالة "
+"إسم المؤلف من عنوان الكتاب نهائياً."
+
+#: ../class-book-reviews.php:1517 ../class-book-reviews.php:1618
+msgid "%1$s"
+msgstr "%1$s"
+
+#: ../inc/widgets.php:82 ../inc/widgets.php:127 ../inc/widgets.php:225
+#: ../views/public.php:304 ../views/public.php:321
+msgid "%1$s by %2$s"
+msgstr ""
+
+#: ../class-book-reviews.php:683
+msgid "Add or remove Illustrators"
+msgstr "إضافة أو إزالة الصور التوضيحية"
+
+#: ../class-book-reviews.php:684
+msgid "Choose from the most used Illustrators"
+msgstr "إختر من أكثر الصور التوضيحية استخداماً"
+
+#: ../class-book-reviews.php:716 ../class-book-reviews.php:718
+#: ../class-book-reviews.php:732 ../class-book-reviews.php:1048
+#: ../views/setup-options.php:135
+msgid "Awards"
+msgstr "جوائز"
+
+#: ../class-book-reviews.php:719
+msgid "Award"
+msgstr "جائزة"
+
+#: ../class-book-reviews.php:720
+msgid "Search Awards"
+msgstr "البحث في الجوائز"
+
+#: ../class-book-reviews.php:721
+msgid "Popular Awards"
+msgstr "الجوائز الشائعة"
+
+#: ../class-book-reviews.php:722
+msgid "All Awards"
+msgstr "كل الجوائز"
+
+#: ../class-book-reviews.php:725
+msgid "Edit Award"
+msgstr "تعديل الجائزة"
+
+#: ../class-book-reviews.php:726
+msgid "Update Award"
+msgstr "تحديث الجائزة"
+
+#: ../class-book-reviews.php:727
+msgid "Add New Award"
+msgstr "إضافة جائزة جديدة"
+
+#: ../class-book-reviews.php:728
+msgid "New Award Name"
+msgstr "إسم الجائزة الجديدة"
+
+#: ../class-book-reviews.php:729
+msgid "Separate Awards with commas"
+msgstr "الفصل بين الجوائز بفاصلة"
+
+#: ../class-book-reviews.php:730
+msgid "Add or remove Awards"
+msgstr "إضافة أو حذف جوائز"
+
+#: ../class-book-reviews.php:731
+msgid "Choose from the most used Awards"
+msgstr "إختر من أكثر الجوائز استخداماً"
+
+#: ../class-book-reviews.php:763 ../class-book-reviews.php:765
+#: ../class-book-reviews.php:766 ../class-book-reviews.php:779
+#: ../class-book-reviews.php:920 ../class-book-reviews.php:1032
+#: ../views/setup-options.php:163
+msgid "Series"
+msgstr "سلاسل"
+
+#: ../class-book-reviews.php:767
+msgid "Search Series"
+msgstr "البحث في السلاسل"
+
+#: ../class-book-reviews.php:768
+msgid "Popular Series"
+msgstr "السلاسل الشائعة"
+
+#: ../class-book-reviews.php:769
+msgid "All Series"
+msgstr "كل السلاسل"
+
+#: ../class-book-reviews.php:772
+msgid "Edit Series"
+msgstr "تعديل السلاسل"
+
+#: ../class-book-reviews.php:773
+msgid "Update Series"
+msgstr "تحديث السلاسل"
+
+#: ../class-book-reviews.php:774
+msgid "Add New Series"
+msgstr "إضافة سلسلة جديدة"
+
+#: ../class-book-reviews.php:775
+msgid "New Series Name"
+msgstr "إسم السلسلة الجديدة"
+
+#: ../class-book-reviews.php:776
+msgid "Separate Series with commas"
+msgstr "الفصل بين السلاسل بفاصلة"
+
+#: ../class-book-reviews.php:777
+msgid "Add or remove Series"
+msgstr "إضافة أو حذف سلاسل"
+
+#: ../class-book-reviews.php:778
+msgid "Choose from the most used Series"
+msgstr "إختر من أكثر السلاسل استخداماً"
+
+#: ../class-book-reviews.php:810 ../class-book-reviews.php:812
+#: ../class-book-reviews.php:826
+msgid "Star Ratings"
+msgstr "تقييم بالنجوم"
+
+#: ../class-book-reviews.php:813
+msgid "Star"
+msgstr "نجمة"
+
+#: ../class-book-reviews.php:814
+msgid "Search Ratings"
+msgstr "البحث في التقييمات"
+
+#: ../class-book-reviews.php:815
+msgid "Popular Ratings"
+msgstr "التقييمات الشائعة"
+
+#: ../class-book-reviews.php:816
+msgid "Stars"
+msgstr "نجوم"
+
+#: ../class-book-reviews.php:819
+msgid "Edit Rating"
+msgstr "تعديل التقييم"
+
+#: ../class-book-reviews.php:820
+msgid "Update Rating"
+msgstr "تحديث التقييم"
+
+#: ../class-book-reviews.php:821
+msgid "Add New Rating"
+msgstr "إضافة تقييم جديد"
+
+#: ../class-book-reviews.php:822
+msgid "New Rating Name"
+msgstr "إسم التقييم الجديد"
+
+#: ../class-book-reviews.php:823
+msgid "Separate Star Ratings with commas"
+msgstr "الفصل بين التقييمات بفاصلة"
+
+#: ../class-book-reviews.php:824
+msgid "Add or remove Star Ratings"
+msgstr "إضافة أو حذف التقييمات"
+
+#: ../class-book-reviews.php:825
+msgid "Choose from the most used Star Ratings"
+msgstr "اختر من اكثر التقييمات استخداماً"
+
+#: ../class-book-reviews.php:857 ../inc/func.php:221
+msgid "Zero stars"
+msgstr "لا نجوم"
+
+#: ../class-book-reviews.php:861
+msgid "One star"
+msgstr "نجمة واحدة"
+
+#: ../class-book-reviews.php:865
+msgid "Two stars"
+msgstr "نجمتين"
+
+#: ../class-book-reviews.php:869
+msgid "Three stars"
+msgstr "ثلاث نجوم"
+
+#: ../class-book-reviews.php:873
+msgid "Four stars"
+msgstr "أربع نجوم"
+
+#: ../class-book-reviews.php:877
+msgid "Five stars"
+msgstr "خمس نجوم"
+
+#: ../class-book-reviews.php:911
+msgid "Book Author"
+msgstr "مؤلف الكتاب"
+
+#: ../class-book-reviews.php:930
+msgid "Star Rating"
+msgstr "التقييم بالنجوم"
+
+#: ../class-book-reviews.php:934
+msgid "Book Cover"
+msgstr "غلاف الكتاب"
+
+#: ../class-book-reviews.php:944
+msgid "Additional Information"
+msgstr "معلومات إضافية"
+
+#: ../class-book-reviews.php:963
+msgid "ISBN:"
+msgstr ""
+
+#: ../class-book-reviews.php:969
+msgid "In stock?"
+msgstr "في المتجر؟"
+
+#: ../class-book-reviews.php:972
+msgid "Book is in stock"
+msgstr "الكتاب في المتجر"
+
+#: ../class-book-reviews.php:973
+msgid "Book out of stock"
+msgstr "الكتاب خارج المتجر"
+
+#: ../class-book-reviews.php:980
+msgid "Upload Award Image"
+msgstr "رفع صورة الجائزة"
+
+#: ../class-book-reviews.php:1013
+msgid "Set featured image"
+msgstr "وضع الصورة المفضلة"
+
+#: ../class-book-reviews.php:1013
+msgid "Select Book Cover"
+msgstr "اختيار غلاف الكتاب"
+
+#: ../class-book-reviews.php:1026
+msgid "Title"
+msgstr "العنوان"
+
+#: ../class-book-reviews.php:1052
+msgid "Rating"
+msgstr "التقييم"
+
+#: ../class-book-reviews.php:1092
+msgid "No authors found"
+msgstr "لا يوجد مؤلفين"
+
+#: ../class-book-reviews.php:1146
+msgid "No series found"
+msgstr "لا توجد سلاسل"
+
+#: ../class-book-reviews.php:1173
+msgid "No illustrators found"
+msgstr "لا توجد صور توضيحية"
+
+#: ../class-book-reviews.php:1200
+msgid "No subjects found"
+msgstr "لا توجد مواضيع"
+
+#: ../class-book-reviews.php:1227
+msgid "No reading level found"
+msgstr "لا يوجد مستوى قراءة"
+
+#: ../class-book-reviews.php:1254
+msgid "No awards found"
+msgstr "لا توجد جوائز"
+
+#: ../class-book-reviews.php:1286 ../class-book-reviews.php:1299
+msgid "No rating found"
+msgstr "لا يوجد تقييم"
+
+#: ../class-book-reviews.php:1555 ../class-book-reviews.php:1656
+#: ../views/public.php:163 ../views/public.php:244
+msgid "Review by %s"
+msgstr "روجع بواسطة"
+
+#: ../class-book-reviews.php:1560 ../class-book-reviews.php:1661
+#: ../views/public.php:168 ../views/public.php:249
+msgid "Reading Level: %s"
+msgstr "مستوى القراءة"
+
+#: ../class-book-reviews.php:1566 ../class-book-reviews.php:1667
+#: ../views/public.php:174 ../views/public.php:255
+msgid "This book is <strong>in stock</strong>"
+msgstr "هذا الكتاب <strong>في المتجر</strong>"
+
+#: ../class-book-reviews.php:1570 ../class-book-reviews.php:1671
+#: ../views/public.php:178 ../views/public.php:259
+msgid "This book is <strong>currently checked out</strong>"
+msgstr "هذا الكتاب <strong>حالياً مشترى</strong>"
+
+#: ../class-book-reviews.php:1577 ../class-book-reviews.php:1678
+msgid "<strong>Author:</strong> %s"
+msgstr "<strong>المؤلف:</strong> %s"
+
+#: ../class-book-reviews.php:1580 ../class-book-reviews.php:1681
+#: ../views/public.php:193 ../views/public.php:274
+msgid "<strong>Genre:</strong> %s"
+msgstr "<strong>النوع:</strong> %s"
+
+#: ../class-book-reviews.php:1583 ../class-book-reviews.php:1684
+#: ../views/public.php:196 ../views/public.php:277
+msgid "<strong>Series:</strong> %s | "
+msgstr "<strong>السلاسل:</strong> %s | "
+
+#: ../class-book-reviews.php:1586 ../class-book-reviews.php:1687
+#: ../views/public.php:199 ../views/public.php:280
+msgid "<strong>Subjects:</strong> %s"
+msgstr "<strong>المواضيع:</strong> %s"
+
+#: ../class-book-reviews.php:1589 ../class-book-reviews.php:1690
+#: ../views/public.php:202 ../views/public.php:283
+msgid "<strong>Illustrated by</strong> %s"
+msgstr "<strong>وضحت بواسطة:</strong> %s"
+
+#: ../inc/func.php:413
+msgid "Enabled"
+msgstr "ممكن"
+
+#: ../inc/func.php:417 ../inc/func.php:444
+msgid "Disabled"
+msgstr "معطل"
+
+#: ../inc/widgets.php:19
+msgid ""
+"Displays a list of related books by common taxonomies. This widget only "
+"displays when viewing a single book review or a book review archive."
+msgstr ""
+"عرض قائمة بالكتب ذات العلاقة بواسطة التصنيفات الشائعة. هذا المربع الجانبي "
+"يعرض فقط عند عرض صفحة كتاب واحد او ارشيف عرض كتاب واحد"
+
+#: ../inc/widgets.php:34 ../inc/widgets.php:141
+msgid "Similar Books"
+msgstr "الكتب المشابهة"
+
+#: ../inc/widgets.php:89
+msgid "No similar books were found."
+msgstr "لا توجد كتب مشابهة"
+
+#: ../inc/widgets.php:145 ../inc/widgets.php:245
+msgid "No"
+msgstr "لا"
+
+#: ../inc/widgets.php:146 ../inc/widgets.php:246
+msgid "Yes"
+msgstr "نعم"
+
+#: ../inc/widgets.php:153 ../inc/widgets.php:253
+msgid "Title:"
+msgstr "العنوان:"
+
+#: ../inc/widgets.php:155 ../inc/widgets.php:255
+msgid "The title that displays above the widget."
+msgstr "العنوان الذي يظهر فوق المربع الجانبي"
+
+#: ../inc/widgets.php:158 ../inc/widgets.php:258
+msgid "Count:"
+msgstr "العد:"
+
+#: ../inc/widgets.php:160 ../inc/widgets.php:260
+msgid "How many reviews to display."
+msgstr "كم عدد المشاهدات لعرضها"
+
+#: ../inc/widgets.php:163 ../inc/widgets.php:263
+msgid "Display Images:"
+msgstr "عرض الصور:"
+
+#: ../inc/widgets.php:165 ../inc/widgets.php:265
+msgid "Display thumbnail images next to the titles?"
+msgstr "عرض الصور المصغرة بجانب العناوين؟"
+
+#: ../inc/widgets.php:187
+msgid "Displays a list of recent book reviews."
+msgstr "عرض قائمة بآخر مشاهدات الكتاب"
+
+#: ../inc/widgets.php:191 ../inc/widgets.php:198 ../inc/widgets.php:241
+msgid "Recent Book Reviews"
+msgstr "آخر مشاهدات الكتاب"
+
+#: ../inc/widgets.php:235
+msgid "No books were found."
+msgstr "لا يوجد كتاب"
+
+#: ../views/admin.php:23
+msgid "Book Review options saved"
+msgstr "خيارات عرض الكتاب محفوظة"
+
+#: ../views/admin.php:34
+msgid "Save Options"
+msgstr "حفظ الخيارات"
+
+#: ../views/public.php:188 ../views/public.php:269
+msgid "Author:"
+msgstr "المؤلف:"
+
+#: ../views/setup-options.php:34
+msgid ""
+"Enable this if the person adding the book review is not the original author "
+"of the review."
+msgstr ""
+"تمكين هذا اذا كان الشخص المضيف لمشاهدة الكتاب ليس المؤلف الأصلي للمشاهدة"
+
+#: ../views/setup-options.php:62
+msgid "Enable this to display the reading level for the book."
+msgstr "تمكين هذا لعرض مستوى قراءة الكتاب"
+
+#: ../views/setup-options.php:90
+msgid ""
+"Enable this to tag the book with different subjects (unique from genres)."
+msgstr "تمكين هذا لربط الكتاب مع مواضيع مختلفة (وحيد من الأنواع)"
+
+#: ../views/setup-options.php:118
+msgid "Enable this to add illustrators to book reviews."
+msgstr "تمكين هذا لإضافة التوضيحات لمشاهدة او مراجعة الكتاب"
+
+#: ../views/setup-options.php:146
+msgid "Enable this to add awards the book has received."
+msgstr "تمكين هذا لإضافة الجوائز التي حصل عليها الكتاب"
+
+#: ../views/setup-options.php:174
+msgid "Enable this to group books by series."
+msgstr "تمكين هذا لجمع الكتب بواسطة السلاسل"
+
+#: ../views/setup-options.php:191
+msgid "Ratings"
+msgstr "التقييمات"
+
+#: ../views/setup-options.php:202
+msgid "Enable this for star ratings."
+msgstr "تمكين هذا للتقييم بالنجوم"
+
+#: ../views/setup-options.php:219
+msgid "Stock"
+msgstr "المتجر"
+
+#: ../views/setup-options.php:230
+msgid ""
+"Enable this to display \"In Stock\"/\"Out of Stock\" information with the "
+"book review."
+msgstr "تمكين هذا لعرض معلومات \"في المتجر\"/\"خارج المتجر\" مع مشاهدة الكتاب"
+
+#: ../views/setup-options.php:247
+msgid "Display author with title"
+msgstr "عرض المؤلف مع العنوان"
+
+#: ../views/setup-options.php:275
+msgid "Comments on book reviews"
+msgstr "التعليقات على مشاهدة الكتاب"
+
+#: ../views/setup-options.php:286
+msgid "If enabled, allows visitors to comment on book reviews."
+msgstr "إذا كانت ممكنة ستسمح للزوار بالتعليق على عرض الكتاب"
+
+#: ../class-book-reviews.php:105
+msgid "Librarian"
+msgstr "مكتبي"
+
+#: ../class-book-reviews.php:129
+msgid "Book Reviewer"
+msgstr "عارض كتب"
+
+#: ../class-book-reviews.php:337
+msgid "Book Reviews Options"
+msgstr "خيارات عرض الكتاب"
+
+#: ../class-book-reviews.php:338
+msgid "Options"
+msgstr "خيارات"
+
+#: ../class-book-reviews.php:389 ../class-book-reviews.php:399
+msgid "Book Reviews"
+msgstr "مشاهدات الكتاب"
+
+#: ../class-book-reviews.php:390
+msgid "Book Review"
+msgstr "عرض الكتاب"
+
+#: ../class-book-reviews.php:391
+msgid "Add New"
+msgstr "إضافة جديد"
+
+#: ../class-book-reviews.php:392
+msgid "Add New Book Review"
+msgstr "إضافة مشاهدة كتاب جديدة"
+
+#: ../class-book-reviews.php:393
+msgid "Edit Review"
+msgstr "تعديل عرض"
+
+#: ../class-book-reviews.php:394
+msgid "New Book Review"
+msgstr "مشاهدة كتاب جديدة"
+
+#: ../class-book-reviews.php:395
+msgid "View Book Review"
+msgstr "عرض مشاهدة كتاب"
+
+#: ../class-book-reviews.php:396
+msgid "Search Book Reviews"
+msgstr "البحث في مشاهدات الكتاب"
+
+#: ../class-book-reviews.php:397
+msgid "No book reviews found"
+msgstr "لا توجد مشاهدات للكتاب"
+
+#: ../class-book-reviews.php:398
+msgid "No book reviews found in Trash"
+msgstr "لا توجد مشاهدات للكتاب في سلة المهملات"
+
+#: ../class-book-reviews.php:431 ../class-book-reviews.php:433
+#: ../class-book-reviews.php:448
+msgid "Genres"
+msgstr "التصنيفات"
+
+#: ../class-book-reviews.php:434 ../class-book-reviews.php:1028
+msgid "Genre"
+msgstr "الصنف"
+
+#: ../class-book-reviews.php:435
+msgid "Search Genres"
+msgstr "البحث في التصنيفات"
+
+#: ../class-book-reviews.php:436
+msgid "Popular Genres"
+msgstr "التصنيفات الشائعة"
+
+#: ../class-book-reviews.php:437
+msgid "All Genres"
+msgstr "كل التصنيفات"
+
+#: ../class-book-reviews.php:440
+msgid "Edit Genre"
+msgstr "تعديل التصنيف"
+
+#: ../class-book-reviews.php:441
+msgid "Update Genre"
+msgstr "تحديث التصنيف"
+
+#: ../class-book-reviews.php:442
+msgid "Add New Genre"
+msgstr "إضافة تصنيف جديد"
+
+#: ../class-book-reviews.php:443
+msgid "New Genre Name"
+msgstr "إسم الصنف الجديد"
+
+#: ../class-book-reviews.php:444
+msgid "Separate genres with commas"
+msgstr "الفصل بين التصنيفات بفاصلة"
+
+#: ../class-book-reviews.php:445
+msgid "Add or remove genres"
+msgstr "إضافة او حذف تصنيفات"
+
+#: ../class-book-reviews.php:446
+msgid "Choose from the most used genres"
+msgstr "اختر من اكثر التصنيفات استخداماً"
+
+#: ../class-book-reviews.php:447 ../class-book-reviews.php:1119
+msgid "No genres found"
+msgstr "لا توجد تصنيفات"
+
+#: ../class-book-reviews.php:480 ../class-book-reviews.php:482
+#: ../class-book-reviews.php:483
+msgid "Review Author"
+msgstr "عرض المؤلف"
+
+#: ../class-book-reviews.php:484
+msgid "Search Review Authors"
+msgstr "البحث في عرض المؤلفين"
+
+#: ../class-book-reviews.php:485
+msgid "Popular Review Authors"
+msgstr "عرض المؤلفين الشائع"
+
+#: ../class-book-reviews.php:486
+msgid "All Review Authors"
+msgstr "كل عرض المؤلفين"
+
+#: ../class-book-reviews.php:489
+msgid "Edit Review Author"
+msgstr "تعديل عرض المؤلف"
+
+#: ../class-book-reviews.php:490
+msgid "Update Review Author"
+msgstr "تحديث عرض المؤلف"
+
+#: ../class-book-reviews.php:491
+msgid "Add New Review Author"
+msgstr "إضافة عرض مؤلف جديد"
+
+#: ../class-book-reviews.php:492
+msgid "New Review Author Name"
+msgstr "عرض إسم مؤلف جديد"
+
+#: ../class-book-reviews.php:493
+msgid "Separate Review Authors with commas"
+msgstr "الفصل بين عرض المؤلفين بفاصلة"
+
+#: ../class-book-reviews.php:494
+msgid "Add or remove Review Authors"
+msgstr "إضافة أو حذف عرض مؤلفين"
+
+#: ../class-book-reviews.php:495
+msgid "Choose from the most used Review Authors"
+msgstr "اختر من اكثر عرض المؤلفين استخداماً"
+
+#: ../class-book-reviews.php:496 ../views/setup-options.php:23
+msgid "Review Authors"
+msgstr "عرض المؤلفين"
+
+#: ../class-book-reviews.php:528 ../class-book-reviews.php:530
+#: ../class-book-reviews.php:544
+msgid "Book Authors"
+msgstr "مؤلفي الكتاب"
+
+#: ../class-book-reviews.php:531 ../class-book-reviews.php:1027
+msgid "Author"
+msgstr "مؤلف"
+
+#: ../class-book-reviews.php:532
+msgid "Search Book Authors"
+msgstr "البحث في مؤلفي الكتاب"
+
+#: ../class-book-reviews.php:533
+msgid "Popular Book Authors"
+msgstr "مؤلفي الكتب الشائعين"
+
+#: ../class-book-reviews.php:534
+msgid "All Book Authors"
+msgstr "كل مؤلفي الكتب"
+
+#: ../class-book-reviews.php:537
+msgid "Edit Author"
+msgstr "تعديل المؤلف"
+
+#: ../class-book-reviews.php:538
+msgid "Update Author"
+msgstr "تحديث المؤلف"
+
+#: ../class-book-reviews.php:539
+msgid "Add New Author"
+msgstr "إضافة مؤلف جديد"
+
+#: ../class-book-reviews.php:540
+msgid "New Author Name"
+msgstr "إسم مؤلف جديد"
+
+#: ../class-book-reviews.php:541
+msgid "Separate Book Authors with commas"
+msgstr "الفصل بين مؤلفي الكتب بفاصلة"
+
+#: ../class-book-reviews.php:542
+msgid "Add or remove Book Authors"
+msgstr "إضافة أو حذف مؤلفي كتب"
+
+#: ../class-book-reviews.php:543
+msgid "Choose from the most used Book Authors"
+msgstr "اختر من اكثر مؤلفي الكتب استخداماً"
+
+#: ../class-book-reviews.php:575 ../class-book-reviews.php:577
+#: ../class-book-reviews.php:578 ../class-book-reviews.php:925
+#: ../class-book-reviews.php:1044 ../views/setup-options.php:51
+msgid "Reading Level"
+msgstr "مستوى القراءة"
+
+#: ../class-book-reviews.php:579
+msgid "Search Reading Levels"
+msgstr "البحث في مستويات القراءة"
+
+#: ../class-book-reviews.php:580
+msgid "Popular Reading Levels"
+msgstr "مستويات القراءة الشائعة"
+
+#: ../class-book-reviews.php:581
+msgid "All Reading Levels"
+msgstr "كل مستويات القراءة"
+
+#: ../class-book-reviews.php:584
+msgid "Edit Reading Level"
+msgstr "تعديل مستوى القراءة"
+
+#: ../class-book-reviews.php:585
+msgid "Update Reading Level"
+msgstr "تحديث مستوى القراءة"
+
+#: ../class-book-reviews.php:586
+msgid "Add New Reading Level"
+msgstr "إضافة مستوى قراءة جديد"
+
+#: ../class-book-reviews.php:587
+msgid "New Reading Level Name"
+msgstr "اسم مستوى قراءة جديد"
+
+#: ../class-book-reviews.php:588
+msgid "Separate Reading Levels with commas"
+msgstr "الفصل بين مستويات القراءة بفاصلة"
+
+#: ../class-book-reviews.php:589
+msgid "Add or remove Reading Levels"
+msgstr "إضافة أو حذف مستوى قراءة"
+
+#: ../class-book-reviews.php:590
+msgid "Choose from the most used Reading Levels"
+msgstr "اختر من اكثر مستويات القراءة الشائعة"
+
+#: ../class-book-reviews.php:591
+msgid "Reading Levels"
+msgstr "مستويات القراءة"
+
+#: ../class-book-reviews.php:622 ../class-book-reviews.php:624
+#: ../class-book-reviews.php:638 ../class-book-reviews.php:1040
+msgid "Subjects"
+msgstr "المواضيع"
+
+#: ../class-book-reviews.php:625 ../views/setup-options.php:79
+msgid "Subject"
+msgstr "الموضوع"
+
+#: ../class-book-reviews.php:626
+msgid "Search Subjects"
+msgstr "البحث في المواضيع"
+
+#: ../class-book-reviews.php:627
+msgid "Popular Subjects"
+msgstr "المواضيع الشائعة"
+
+#: ../class-book-reviews.php:628
+msgid "All Subjects"
+msgstr "كل المواضيع"
+
+#: ../class-book-reviews.php:631
+msgid "Edit Subject"
+msgstr "تعديل الموضوع"
+
+#: ../class-book-reviews.php:632
+msgid "Update Subject"
+msgstr "تحديث الموضوع"
+
+#: ../class-book-reviews.php:633
+msgid "Add New Subject"
+msgstr "إضافة موضوع جديد"
+
+#: ../class-book-reviews.php:634
+msgid "New Subject Name"
+msgstr "اسم موضوع جديد"
+
+#: ../class-book-reviews.php:635
+msgid "Separate Subjects with commas"
+msgstr "الفصل بين المواضيع بفاصلة"
+
+#: ../class-book-reviews.php:636
+msgid "Add or remove Subjects"
+msgstr "إضافة او حذف موضوع"
+
+#: ../class-book-reviews.php:637
+msgid "Choose from the most used Subjects"
+msgstr "اختر من اكثر المواضيع استخداماً"
+
+#: ../class-book-reviews.php:669 ../class-book-reviews.php:671
+#: ../class-book-reviews.php:685
+msgid "Illustrators"
+msgstr "التوضيحات"
+
+#: ../class-book-reviews.php:672 ../class-book-reviews.php:915
+#: ../class-book-reviews.php:1036 ../views/setup-options.php:107
+msgid "Illustrator"
+msgstr "التوضيح"
+
+#: ../class-book-reviews.php:673
+msgid "Search Illustrators"
+msgstr "البحث في التوضيحات"
+
+#: ../class-book-reviews.php:674
+msgid "Popular Illustrators"
+msgstr "التوضيحات الشائعة"
+
+#: ../class-book-reviews.php:675
+msgid "All Illustrators"
+msgstr "كل التوضيحات"
+
+#: ../class-book-reviews.php:678
+msgid "Edit Illustrator"
+msgstr "تعديل التوضيح"
+
+#: ../class-book-reviews.php:679
+msgid "Update Illustrator"
+msgstr "تحديث التوضيح"
+
+#: ../class-book-reviews.php:680
+msgid "Add New Illustrator"
+msgstr "إضافة توضيح جديد"
+
+#: ../class-book-reviews.php:681
+msgid "New Illustrator Name"
+msgstr "اسم التوضيح الجديد"
+
+#: ../class-book-reviews.php:682
+msgid "Separate Illustrators with commas"
+msgstr "الفصل بين التوضيحات بفاصلة"

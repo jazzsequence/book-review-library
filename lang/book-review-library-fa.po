@@ -1,0 +1,841 @@
+# Translation of Book Review Library in Persian
+# This file is distributed under the same license as the Book Review Library package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2014-04-17 11:54-0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.6.4\n"
+"Project-Id-Version: Book Review Library\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
+"Language-Team: Masoud Allameh <allamehpix@gmail.com>\n"
+"Language: fa\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: ../inc/func.php:436
+msgid "With the title"
+msgstr "با عنوان"
+
+#: ../inc/func.php:440
+msgid "On a new line"
+msgstr "روی یک خط جدید"
+
+#: ../views/setup-options.php:258
+msgid ""
+"<strong>With the title</strong> displays the author on the same line as the "
+"book title. <strong>On a new line</strong> adds a line break before "
+"displaying the author. <strong>Disabled</strong> removes the author from the "
+"title entirely."
+msgstr ""
+"<strong>کنار عنوان</strong> نویسنده را در ادامه خط عنوان کتاب نمایش می دهد. "
+"<strong>روی خط جدید</strong> یک خط جداکننده را قبل از نمایش نویسنده اضافه می "
+"کند. <strong>غیر فعال شده</strong> نام نویسنده را بطور کامل از عنوان حذف می "
+"نماید."
+
+#: ../class-book-reviews.php:1517 ../class-book-reviews.php:1618
+msgid "%1$s"
+msgstr "%1$s"
+
+#: ../inc/widgets.php:82 ../inc/widgets.php:127 ../inc/widgets.php:225
+#: ../views/public.php:304 ../views/public.php:321
+msgid "%1$s by %2$s"
+msgstr "%1$s توسط %2$s"
+
+#: ../class-book-reviews.php:683
+msgid "Add or remove Illustrators"
+msgstr "افزودن یا حذف تصویرگر"
+
+#: ../class-book-reviews.php:684
+msgid "Choose from the most used Illustrators"
+msgstr "از میان تصویرگرانی که بیشترین استفاده را داشته اند انتخاب نمایید"
+
+#: ../class-book-reviews.php:716 ../class-book-reviews.php:718
+#: ../class-book-reviews.php:732 ../class-book-reviews.php:1048
+#: ../views/setup-options.php:135
+msgid "Awards"
+msgstr "جوایز"
+
+#: ../class-book-reviews.php:719
+msgid "Award"
+msgstr "جایزه"
+
+#: ../class-book-reviews.php:720
+msgid "Search Awards"
+msgstr "جستجوی جوایز"
+
+#: ../class-book-reviews.php:721
+msgid "Popular Awards"
+msgstr "جوایز محبوب"
+
+#: ../class-book-reviews.php:722
+msgid "All Awards"
+msgstr "تمامی جوایز"
+
+#: ../class-book-reviews.php:725
+msgid "Edit Award"
+msgstr "ویرایش جایزه"
+
+#: ../class-book-reviews.php:726
+msgid "Update Award"
+msgstr "بروزرسانی جایزه"
+
+#: ../class-book-reviews.php:727
+msgid "Add New Award"
+msgstr "افزودن یک جایزه جدید"
+
+#: ../class-book-reviews.php:728
+msgid "New Award Name"
+msgstr "نام جایزه جدید"
+
+#: ../class-book-reviews.php:729
+msgid "Separate Awards with commas"
+msgstr "جوایز را با ویرگول جدا نمایید"
+
+#: ../class-book-reviews.php:730
+msgid "Add or remove Awards"
+msgstr "افزودن یا حذف جوایز"
+
+#: ../class-book-reviews.php:731
+msgid "Choose from the most used Awards"
+msgstr "از میان جوایز بیشتر استفاده شده انتخاب نمایید"
+
+#: ../class-book-reviews.php:763 ../class-book-reviews.php:765
+#: ../class-book-reviews.php:766 ../class-book-reviews.php:779
+#: ../class-book-reviews.php:920 ../class-book-reviews.php:1032
+#: ../views/setup-options.php:163
+msgid "Series"
+msgstr "مجموعه ها"
+
+#: ../class-book-reviews.php:767
+msgid "Search Series"
+msgstr "جستجوی مجموعه ها"
+
+#: ../class-book-reviews.php:768
+msgid "Popular Series"
+msgstr "مجموعه های محبوب"
+
+#: ../class-book-reviews.php:769
+msgid "All Series"
+msgstr "همه مجموعه ها"
+
+#: ../class-book-reviews.php:772
+msgid "Edit Series"
+msgstr "ویرایش مجموعه ها"
+
+#: ../class-book-reviews.php:773
+msgid "Update Series"
+msgstr "بروزرسانی مجموعه ها"
+
+#: ../class-book-reviews.php:774
+msgid "Add New Series"
+msgstr "افزودن مجموعه جدید"
+
+#: ../class-book-reviews.php:775
+msgid "New Series Name"
+msgstr "نام مجموعه جدید"
+
+#: ../class-book-reviews.php:776
+msgid "Separate Series with commas"
+msgstr "مجموعه ها را با ویرگول جدا نمایید"
+
+#: ../class-book-reviews.php:777
+msgid "Add or remove Series"
+msgstr "افزودن یا حذف مجموعه"
+
+#: ../class-book-reviews.php:778
+msgid "Choose from the most used Series"
+msgstr "از میان مجموعه های بیشتر استفاده شده انتخاب نمایید"
+
+#: ../class-book-reviews.php:810 ../class-book-reviews.php:812
+#: ../class-book-reviews.php:826
+msgid "Star Ratings"
+msgstr "نمره دهی با ستاره"
+
+#: ../class-book-reviews.php:813
+msgid "Star"
+msgstr "ستاره"
+
+#: ../class-book-reviews.php:814
+msgid "Search Ratings"
+msgstr "امتیازدهی جستجو"
+
+#: ../class-book-reviews.php:815
+msgid "Popular Ratings"
+msgstr "امتیازدهی های محبوب"
+
+#: ../class-book-reviews.php:816
+msgid "Stars"
+msgstr "ستاره ها"
+
+#: ../class-book-reviews.php:819
+msgid "Edit Rating"
+msgstr "ویرایش امتیاز"
+
+#: ../class-book-reviews.php:820
+msgid "Update Rating"
+msgstr "بروزرسانی امتیاز"
+
+#: ../class-book-reviews.php:821
+msgid "Add New Rating"
+msgstr "افزودن امتیاز جدید"
+
+#: ../class-book-reviews.php:822
+msgid "New Rating Name"
+msgstr "نام امتیاز جدید"
+
+#: ../class-book-reviews.php:823
+msgid "Separate Star Ratings with commas"
+msgstr "امتیازهای ستاره دار را توسط ویرگول جدا نمایید"
+
+#: ../class-book-reviews.php:824
+msgid "Add or remove Star Ratings"
+msgstr "افزودن یا حذف امتیازدهی ستاره دار"
+
+#: ../class-book-reviews.php:825
+msgid "Choose from the most used Star Ratings"
+msgstr "از میان امتیازهای ستاره دار بیشتر استفاده شده انتخاب نمایید"
+
+#: ../class-book-reviews.php:857 ../inc/func.php:221
+msgid "Zero stars"
+msgstr "بدون ستاره"
+
+#: ../class-book-reviews.php:861
+msgid "One star"
+msgstr "یک ستاره"
+
+#: ../class-book-reviews.php:865
+msgid "Two stars"
+msgstr "دو ستاره"
+
+#: ../class-book-reviews.php:869
+msgid "Three stars"
+msgstr "سه ستاره"
+
+#: ../class-book-reviews.php:873
+msgid "Four stars"
+msgstr "چهار ستاره"
+
+#: ../class-book-reviews.php:877
+msgid "Five stars"
+msgstr "پنج ستاره"
+
+#: ../class-book-reviews.php:911
+msgid "Book Author"
+msgstr "نویسنده کتاب"
+
+#: ../class-book-reviews.php:930
+msgid "Star Rating"
+msgstr "امتیازدهی ستاره دار"
+
+#: ../class-book-reviews.php:934
+msgid "Book Cover"
+msgstr "جلد کتاب"
+
+#: ../class-book-reviews.php:944
+msgid "Additional Information"
+msgstr "اطلاعات اضافی"
+
+#: ../class-book-reviews.php:963
+msgid "ISBN:"
+msgstr "شابا (ISBN)"
+
+#: ../class-book-reviews.php:969
+msgid "In stock?"
+msgstr "در انبار موجود است ؟"
+
+#: ../class-book-reviews.php:972
+msgid "Book is in stock"
+msgstr "کتاب در انبار موجود است"
+
+#: ../class-book-reviews.php:973
+msgid "Book out of stock"
+msgstr "کتاب در انبار موجود نیست"
+
+#: ../class-book-reviews.php:980
+msgid "Upload Award Image"
+msgstr "بارگذاری تصویر جایزه"
+
+#: ../class-book-reviews.php:1013
+msgid "Set featured image"
+msgstr "انتخاب تصویر ویژه"
+
+#: ../class-book-reviews.php:1013
+msgid "Select Book Cover"
+msgstr "انتخاب جلد کتاب"
+
+#: ../class-book-reviews.php:1026
+msgid "Title"
+msgstr "عنوان"
+
+#: ../class-book-reviews.php:1052
+msgid "Rating"
+msgstr "امتیاز دهی"
+
+#: ../class-book-reviews.php:1092
+msgid "No authors found"
+msgstr "نویسنده ای یافت نشد"
+
+#: ../class-book-reviews.php:1146
+msgid "No series found"
+msgstr "مجموعه ای یافت نشد"
+
+#: ../class-book-reviews.php:1173
+msgid "No illustrators found"
+msgstr "هیچ تصویرگری یافت نشد"
+
+#: ../class-book-reviews.php:1200
+msgid "No subjects found"
+msgstr "هیچ موضوعی یافت نشد"
+
+#: ../class-book-reviews.php:1227
+msgid "No reading level found"
+msgstr "هیچ سطح مطالعه ای یافت نشد"
+
+#: ../class-book-reviews.php:1254
+msgid "No awards found"
+msgstr "هیچ جایزه ای یافت نشد"
+
+#: ../class-book-reviews.php:1286 ../class-book-reviews.php:1299
+msgid "No rating found"
+msgstr "هیچ امتیاز دهی یافت نشد"
+
+#: ../class-book-reviews.php:1555 ../class-book-reviews.php:1656
+#: ../views/public.php:163 ../views/public.php:244
+msgid "Review by %s"
+msgstr "مرور توسط %s"
+
+#: ../class-book-reviews.php:1560 ../class-book-reviews.php:1661
+#: ../views/public.php:168 ../views/public.php:249
+msgid "Reading Level: %s"
+msgstr "سطح مطالعه %s"
+
+#: ../class-book-reviews.php:1566 ../class-book-reviews.php:1667
+#: ../views/public.php:174 ../views/public.php:255
+msgid "This book is <strong>in stock</strong>"
+msgstr "این کتاب در انبار <strong>موجود است</strong>"
+
+#: ../class-book-reviews.php:1570 ../class-book-reviews.php:1671
+#: ../views/public.php:178 ../views/public.php:259
+msgid "This book is <strong>currently checked out</strong>"
+msgstr "این کتاب <strong>هم اکنون در امانت است</strong>"
+
+#: ../class-book-reviews.php:1577 ../class-book-reviews.php:1678
+msgid "<strong>Author:</strong> %s"
+msgstr "<strong>نویسنده:</strong> %s"
+
+#: ../class-book-reviews.php:1580 ../class-book-reviews.php:1681
+#: ../views/public.php:193 ../views/public.php:274
+msgid "<strong>Genre:</strong> %s"
+msgstr "<strong>ژانر:</strong> %s"
+
+#: ../class-book-reviews.php:1583 ../class-book-reviews.php:1684
+#: ../views/public.php:196 ../views/public.php:277
+msgid "<strong>Series:</strong> %s | "
+msgstr "<strong>مجموعه:</strong> %s | "
+
+#: ../class-book-reviews.php:1586 ../class-book-reviews.php:1687
+#: ../views/public.php:199 ../views/public.php:280
+msgid "<strong>Subjects:</strong> %s"
+msgstr "<strong>موضوعات:</strong> %s"
+
+#: ../class-book-reviews.php:1589 ../class-book-reviews.php:1690
+#: ../views/public.php:202 ../views/public.php:283
+msgid "<strong>Illustrated by</strong> %s"
+msgstr "<strong>تصویرگری توسط</strong> %s"
+
+#: ../inc/func.php:413
+msgid "Enabled"
+msgstr "فعال شده"
+
+#: ../inc/func.php:417 ../inc/func.php:444
+msgid "Disabled"
+msgstr "غیر فعال شده"
+
+#: ../inc/widgets.php:19
+msgid ""
+"Displays a list of related books by common taxonomies. This widget only "
+"displays when viewing a single book review or a book review archive."
+msgstr ""
+"فهرستی از کتاب های مرتبط را با طبقه بندی های معمول نمایش می دهد. این ابزار "
+"فقط زمانی که مرور یک کتاب یا آرشیو مرور یک کتاب مشاهده شود، نمایش داده می "
+"گردد."
+
+#: ../inc/widgets.php:34 ../inc/widgets.php:141
+msgid "Similar Books"
+msgstr "کتاب های مشابه"
+
+#: ../inc/widgets.php:89
+msgid "No similar books were found."
+msgstr "هیچ کتاب مشابهی یافت نشد"
+
+#: ../inc/widgets.php:145 ../inc/widgets.php:245
+msgid "No"
+msgstr "خیر"
+
+#: ../inc/widgets.php:146 ../inc/widgets.php:246
+msgid "Yes"
+msgstr "بله"
+
+#: ../inc/widgets.php:153 ../inc/widgets.php:253
+msgid "Title:"
+msgstr "عنوان :"
+
+#: ../inc/widgets.php:155 ../inc/widgets.php:255
+msgid "The title that displays above the widget."
+msgstr "عنوانی که بالای ابزار نمایش داده می شود"
+
+#: ../inc/widgets.php:158 ../inc/widgets.php:258
+msgid "Count:"
+msgstr "شمارش :"
+
+#: ../inc/widgets.php:160 ../inc/widgets.php:260
+msgid "How many reviews to display."
+msgstr "چه تعداد مرور برای نمایش."
+
+#: ../inc/widgets.php:163 ../inc/widgets.php:263
+msgid "Display Images:"
+msgstr "نمایش تصاویر:"
+
+#: ../inc/widgets.php:165 ../inc/widgets.php:265
+msgid "Display thumbnail images next to the titles?"
+msgstr "نمایش تصاویر بندانگشتی کنار عناوین ؟"
+
+#: ../inc/widgets.php:187
+msgid "Displays a list of recent book reviews."
+msgstr "فهرستی از مرورهای کتاب های اخیر را نمایش می دهد"
+
+#: ../inc/widgets.php:191 ../inc/widgets.php:198 ../inc/widgets.php:241
+msgid "Recent Book Reviews"
+msgstr "مرورهای کتاب های اخیر"
+
+#: ../inc/widgets.php:235
+msgid "No books were found."
+msgstr "هیچ کتابی یافت نشد."
+
+#: ../views/admin.php:23
+msgid "Book Review options saved"
+msgstr "گزینه های مرور کتاب ذخیره شد"
+
+#: ../views/admin.php:34
+msgid "Save Options"
+msgstr "ذخیره گزینه ها"
+
+#: ../views/public.php:188 ../views/public.php:269
+msgid "Author:"
+msgstr "نویسنده :"
+
+#: ../views/setup-options.php:34
+msgid ""
+"Enable this if the person adding the book review is not the original author "
+"of the review."
+msgstr ""
+"اگر فردی که مرور کتاب را می افزاید نویسنده اصلی مرور نیست، این گزینه را فعال "
+"کنید."
+
+#: ../views/setup-options.php:62
+msgid "Enable this to display the reading level for the book."
+msgstr "این گزینه را برای نمایش سطح مطالعه این کتاب فعال کنید."
+
+#: ../views/setup-options.php:90
+msgid ""
+"Enable this to tag the book with different subjects (unique from genres)."
+msgstr ""
+"این گزینه را برای برچسب زدن به کتاب با موضوعات مختلف (متفاوت از ژانر) فعال "
+"کنید."
+
+#: ../views/setup-options.php:118
+msgid "Enable this to add illustrators to book reviews."
+msgstr "این گزینه را برای افزودن تصویرگران به مرور کتاب فعال کنید."
+
+#: ../views/setup-options.php:146
+msgid "Enable this to add awards the book has received."
+msgstr "این گزینه را برای افزودن جوایزی که کتاب دریافت کرده است فعال کنید."
+
+#: ../views/setup-options.php:174
+msgid "Enable this to group books by series."
+msgstr "این گزینه را برای دسته بندی کتاب ها در مجموعه ها فعال کنید."
+
+#: ../views/setup-options.php:191
+msgid "Ratings"
+msgstr "امتیازدهی ها"
+
+#: ../views/setup-options.php:202
+msgid "Enable this for star ratings."
+msgstr "این گزینه را برای امتیازدهی ستاره دار فعال کنید."
+
+#: ../views/setup-options.php:219
+msgid "Stock"
+msgstr "انبار"
+
+#: ../views/setup-options.php:230
+msgid ""
+"Enable this to display \"In Stock\"/\"Out of Stock\" information with the "
+"book review."
+msgstr ""
+"این گزینه را برای نمایش اطلاعات \"موجود در انبار\"/\"ناموجود در انبار\" "
+"همراه مرور کتاب فعال کنید."
+
+#: ../views/setup-options.php:247
+msgid "Display author with title"
+msgstr "نمایش نویسنده کنار عنوان"
+
+#: ../views/setup-options.php:275
+msgid "Comments on book reviews"
+msgstr "دیدگاه ها روی مرور کتاب"
+
+#: ../views/setup-options.php:286
+msgid "If enabled, allows visitors to comment on book reviews."
+msgstr ""
+"اگر فعال باشد به بازدیدکنندگان اجازه می دهد تا روی مرور کتاب دیدگاه خود را "
+"درج کنند."
+
+#: ../class-book-reviews.php:105
+msgid "Librarian"
+msgstr "کتابدار"
+
+#: ../class-book-reviews.php:129
+msgid "Book Reviewer"
+msgstr "نویسنده مرور و نقد کتاب"
+
+#: ../class-book-reviews.php:337
+msgid "Book Reviews Options"
+msgstr "گزینه های مرور کتاب"
+
+#: ../class-book-reviews.php:338
+msgid "Options"
+msgstr "گزینه ها"
+
+#: ../class-book-reviews.php:389 ../class-book-reviews.php:399
+msgid "Book Reviews"
+msgstr "مرورهای کتاب"
+
+#: ../class-book-reviews.php:390
+msgid "Book Review"
+msgstr "مرور کتاب"
+
+#: ../class-book-reviews.php:391
+msgid "Add New"
+msgstr "افزودن"
+
+#: ../class-book-reviews.php:392
+msgid "Add New Book Review"
+msgstr "افزودن مرور جدید کتاب"
+
+#: ../class-book-reviews.php:393
+msgid "Edit Review"
+msgstr "ویرایش مرور"
+
+#: ../class-book-reviews.php:394
+msgid "New Book Review"
+msgstr "مرور جدید کتاب"
+
+#: ../class-book-reviews.php:395
+msgid "View Book Review"
+msgstr "دیدن مرور کتاب"
+
+#: ../class-book-reviews.php:396
+msgid "Search Book Reviews"
+msgstr "جستجوی مرورهای کتاب"
+
+#: ../class-book-reviews.php:397
+msgid "No book reviews found"
+msgstr "هیچ مروری یافت نشد"
+
+#: ../class-book-reviews.php:398
+msgid "No book reviews found in Trash"
+msgstr "هیچ مرور کتابی در سطل زباله یافت نشد"
+
+#: ../class-book-reviews.php:431 ../class-book-reviews.php:433
+#: ../class-book-reviews.php:448
+msgid "Genres"
+msgstr "ژانرها"
+
+#: ../class-book-reviews.php:434 ../class-book-reviews.php:1028
+msgid "Genre"
+msgstr "ژانر"
+
+#: ../class-book-reviews.php:435
+msgid "Search Genres"
+msgstr "جستجوی ژانرها"
+
+#: ../class-book-reviews.php:436
+msgid "Popular Genres"
+msgstr "ژانرهای محبوب"
+
+#: ../class-book-reviews.php:437
+msgid "All Genres"
+msgstr "تمامی ژانرها"
+
+#: ../class-book-reviews.php:440
+msgid "Edit Genre"
+msgstr "ویرایش ژانر"
+
+#: ../class-book-reviews.php:441
+msgid "Update Genre"
+msgstr "بروزرسانی ژانر"
+
+#: ../class-book-reviews.php:442
+msgid "Add New Genre"
+msgstr "افزودن ژانر جدید"
+
+#: ../class-book-reviews.php:443
+msgid "New Genre Name"
+msgstr "نام ژانر جدید"
+
+#: ../class-book-reviews.php:444
+msgid "Separate genres with commas"
+msgstr "ژانرها را با ویرگول از هم جدا کنید"
+
+#: ../class-book-reviews.php:445
+msgid "Add or remove genres"
+msgstr "افزودن یا حذف ژانرها"
+
+#: ../class-book-reviews.php:446
+msgid "Choose from the most used genres"
+msgstr "از میان ژانرهای بیشتر استفاده شده انتخاب نمایید"
+
+#: ../class-book-reviews.php:447 ../class-book-reviews.php:1119
+msgid "No genres found"
+msgstr "هیچ ژانری یافت نشد"
+
+#: ../class-book-reviews.php:480 ../class-book-reviews.php:482
+#: ../class-book-reviews.php:483
+msgid "Review Author"
+msgstr "نویسنده مرور"
+
+#: ../class-book-reviews.php:484
+msgid "Search Review Authors"
+msgstr "جستجوی نویسندگان مرور"
+
+#: ../class-book-reviews.php:485
+msgid "Popular Review Authors"
+msgstr "نویسندگان محبوب مرور"
+
+#: ../class-book-reviews.php:486
+msgid "All Review Authors"
+msgstr "تمامی نویسندگان مرور"
+
+#: ../class-book-reviews.php:489
+msgid "Edit Review Author"
+msgstr "ویرایش نویسنده مرور"
+
+#: ../class-book-reviews.php:490
+msgid "Update Review Author"
+msgstr "بروزرسانی نویسنده مرور"
+
+#: ../class-book-reviews.php:491
+msgid "Add New Review Author"
+msgstr "افزودن نویسنده مرور جدید"
+
+#: ../class-book-reviews.php:492
+msgid "New Review Author Name"
+msgstr "نام نویسنده جدید مرور"
+
+#: ../class-book-reviews.php:493
+msgid "Separate Review Authors with commas"
+msgstr "نویسندگان مرور را با ویرگول جدا نمایید"
+
+#: ../class-book-reviews.php:494
+msgid "Add or remove Review Authors"
+msgstr "افزودن یا حذف نویسندگان مرور"
+
+#: ../class-book-reviews.php:495
+msgid "Choose from the most used Review Authors"
+msgstr "از میان نویسندگان مرور بیشتر استفاده شده انتخاب نمایید"
+
+#: ../class-book-reviews.php:496 ../views/setup-options.php:23
+msgid "Review Authors"
+msgstr "نویسندگان مرور"
+
+#: ../class-book-reviews.php:528 ../class-book-reviews.php:530
+#: ../class-book-reviews.php:544
+msgid "Book Authors"
+msgstr "نویسندگان کتاب"
+
+#: ../class-book-reviews.php:531 ../class-book-reviews.php:1027
+msgid "Author"
+msgstr "نویسنده"
+
+#: ../class-book-reviews.php:532
+msgid "Search Book Authors"
+msgstr "جستجوی نویسندگان کتاب"
+
+#: ../class-book-reviews.php:533
+msgid "Popular Book Authors"
+msgstr "نویسندگان محبوب کتاب"
+
+#: ../class-book-reviews.php:534
+msgid "All Book Authors"
+msgstr "تمامی نویسندگان کتاب"
+
+#: ../class-book-reviews.php:537
+msgid "Edit Author"
+msgstr "ویرایش نویسنده"
+
+#: ../class-book-reviews.php:538
+msgid "Update Author"
+msgstr "بروزرسانی نویسنده"
+
+#: ../class-book-reviews.php:539
+msgid "Add New Author"
+msgstr "افزودن نویسنده جدید"
+
+#: ../class-book-reviews.php:540
+msgid "New Author Name"
+msgstr "نام نویسنده جدید"
+
+#: ../class-book-reviews.php:541
+msgid "Separate Book Authors with commas"
+msgstr "نویسندگان کتاب را با ویرگول از هم جدا نمایید"
+
+#: ../class-book-reviews.php:542
+msgid "Add or remove Book Authors"
+msgstr "افزودن یا حذف نویسندگان کتاب"
+
+#: ../class-book-reviews.php:543
+msgid "Choose from the most used Book Authors"
+msgstr "از میان نویسندگان کتاب بیشتر استفاده شده انتخاب نمایید"
+
+#: ../class-book-reviews.php:575 ../class-book-reviews.php:577
+#: ../class-book-reviews.php:578 ../class-book-reviews.php:925
+#: ../class-book-reviews.php:1044 ../views/setup-options.php:51
+msgid "Reading Level"
+msgstr "سطح مطالعه"
+
+#: ../class-book-reviews.php:579
+msgid "Search Reading Levels"
+msgstr "جستجوی سطوح مطالعه"
+
+#: ../class-book-reviews.php:580
+msgid "Popular Reading Levels"
+msgstr "سطوح مطالعه محبوب"
+
+#: ../class-book-reviews.php:581
+msgid "All Reading Levels"
+msgstr "همه سطوح مطالعه"
+
+#: ../class-book-reviews.php:584
+msgid "Edit Reading Level"
+msgstr "ویرایش سطح مطالعه"
+
+#: ../class-book-reviews.php:585
+msgid "Update Reading Level"
+msgstr "بروزرسانی سطح مطالعه"
+
+#: ../class-book-reviews.php:586
+msgid "Add New Reading Level"
+msgstr "افزودن سطح مطالعه جدید"
+
+#: ../class-book-reviews.php:587
+msgid "New Reading Level Name"
+msgstr "نام سطح مطالعه جدید"
+
+#: ../class-book-reviews.php:588
+msgid "Separate Reading Levels with commas"
+msgstr "سطوح مطالعه را با ویرگول جدا نمایید"
+
+#: ../class-book-reviews.php:589
+msgid "Add or remove Reading Levels"
+msgstr "افزودن یا حذف سطوح مطالعه"
+
+#: ../class-book-reviews.php:590
+msgid "Choose from the most used Reading Levels"
+msgstr "از میان سطوح مطالعه بیشتر استفاده شده انتخاب نمایید"
+
+#: ../class-book-reviews.php:591
+msgid "Reading Levels"
+msgstr "سطوح مطالعه"
+
+#: ../class-book-reviews.php:622 ../class-book-reviews.php:624
+#: ../class-book-reviews.php:638 ../class-book-reviews.php:1040
+msgid "Subjects"
+msgstr "موضوعات"
+
+#: ../class-book-reviews.php:625 ../views/setup-options.php:79
+msgid "Subject"
+msgstr "موضوع"
+
+#: ../class-book-reviews.php:626
+msgid "Search Subjects"
+msgstr "جستجوی موضوعات"
+
+#: ../class-book-reviews.php:627
+msgid "Popular Subjects"
+msgstr "موضوعات محبوب"
+
+#: ../class-book-reviews.php:628
+msgid "All Subjects"
+msgstr "تمامی موضوعات"
+
+#: ../class-book-reviews.php:631
+msgid "Edit Subject"
+msgstr "ویرایش موضوع"
+
+#: ../class-book-reviews.php:632
+msgid "Update Subject"
+msgstr "بروزرسانی موضوع"
+
+#: ../class-book-reviews.php:633
+msgid "Add New Subject"
+msgstr "افزودن موضوع جدید"
+
+#: ../class-book-reviews.php:634
+msgid "New Subject Name"
+msgstr "نام موضوع جدید"
+
+#: ../class-book-reviews.php:635
+msgid "Separate Subjects with commas"
+msgstr "موضوعات را با ویرگول جدا نمایید"
+
+#: ../class-book-reviews.php:636
+msgid "Add or remove Subjects"
+msgstr "افزودن یا حذف موضوعات"
+
+#: ../class-book-reviews.php:637
+msgid "Choose from the most used Subjects"
+msgstr "از میان موضوعات بیشتر استفاده شده انتخاب نمایید"
+
+#: ../class-book-reviews.php:669 ../class-book-reviews.php:671
+#: ../class-book-reviews.php:685
+msgid "Illustrators"
+msgstr "تصویرگران"
+
+#: ../class-book-reviews.php:672 ../class-book-reviews.php:915
+#: ../class-book-reviews.php:1036 ../views/setup-options.php:107
+msgid "Illustrator"
+msgstr "تصویرگر"
+
+#: ../class-book-reviews.php:673
+msgid "Search Illustrators"
+msgstr "جستجوی تصویرگران"
+
+#: ../class-book-reviews.php:674
+msgid "Popular Illustrators"
+msgstr "تصویرگران محبوب"
+
+#: ../class-book-reviews.php:675
+msgid "All Illustrators"
+msgstr "تمامی تصویرگران"
+
+#: ../class-book-reviews.php:678
+msgid "Edit Illustrator"
+msgstr "ویرایش تصویرگر"
+
+#: ../class-book-reviews.php:679
+msgid "Update Illustrator"
+msgstr "بروزرسانی تصویرگر"
+
+#: ../class-book-reviews.php:680
+msgid "Add New Illustrator"
+msgstr "افزودن تصویرگر جدید"
+
+#: ../class-book-reviews.php:681
+msgid "New Illustrator Name"
+msgstr "نام تصویرگر جدید"
+
+#: ../class-book-reviews.php:682
+msgid "Separate Illustrators with commas"
+msgstr "تصویرگران را با ویرگول جدا نمایید"
