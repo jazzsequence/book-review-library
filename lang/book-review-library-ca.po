@@ -1,0 +1,858 @@
+# Translation of Book Review Library in Italian
+# This file is distributed under the same license as the Book Review Library package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Book Review Library\n"
+"POT-Creation-Date: 2013-12-31 13:10-0700\n"
+"PO-Revision-Date: 2014-05-24 15:10+0100\n"
+"Last-Translator: Jordi Ramírez <jordirmz@gmail.com>\n"
+"Language-Team: Jordi Ramírez <jordirmz@gmail.com>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x;_n;_ex\n"
+
+#: ../class-book-reviews.php:105
+msgid "Librarian"
+msgstr "Bibliotecari"
+
+#: ../class-book-reviews.php:129
+msgid "Book Reviewer"
+msgstr "Creador de la ressenya"
+
+#: ../class-book-reviews.php:337
+msgid "Book Reviews Options"
+msgstr "Opcions dels llibres"
+
+#: ../class-book-reviews.php:338
+msgid "Options"
+msgstr "Opcions"
+
+#: ../class-book-reviews.php:389 ../class-book-reviews.php:399
+msgid "Book Reviews"
+msgstr "Llibres"
+
+#: ../class-book-reviews.php:390
+msgid "Book Review"
+msgstr "Ressenya del llibre"
+
+#: ../class-book-reviews.php:391
+msgid "Add New"
+msgstr "Afegiu-ne un"
+
+#: ../class-book-reviews.php:392
+msgid "Add New Book Review"
+msgstr "Afegiu un nou llibre"
+
+#: ../class-book-reviews.php:393
+msgid "Edit Review"
+msgstr "Editeu la ressenya"
+
+#: ../class-book-reviews.php:394
+msgid "New Book Review"
+msgstr "Nova ressenya del llibre"
+
+#: ../class-book-reviews.php:395
+msgid "View Book Review"
+msgstr "Vegeu la ressenya del llibre"
+
+#: ../class-book-reviews.php:396
+msgid "Search Book Reviews"
+msgstr "Busqueu ressenyes de llibres"
+
+#: ../class-book-reviews.php:397
+msgid "No book reviews found"
+msgstr "No s'han trobat ressenyes"
+
+#: ../class-book-reviews.php:398
+msgid "No book reviews found in Trash"
+msgstr "No s'han trobat ressenyes a la paperera"
+
+#: ../class-book-reviews.php:431 ../class-book-reviews.php:433
+#: ../class-book-reviews.php:448
+msgid "Genres"
+msgstr "Gèneres"
+
+#: ../class-book-reviews.php:434 ../class-book-reviews.php:1028
+msgid "Genre"
+msgstr "Gènere"
+
+#: ../class-book-reviews.php:435
+msgid "Search Genres"
+msgstr "Busqueu gèneres"
+
+#: ../class-book-reviews.php:436
+msgid "Popular Genres"
+msgstr "Gèneres populars"
+
+#: ../class-book-reviews.php:437
+msgid "All Genres"
+msgstr "Tots els gèneres"
+
+#: ../class-book-reviews.php:440
+msgid "Edit Genre"
+msgstr "Editeu el gènere"
+
+#: ../class-book-reviews.php:441
+msgid "Update Genre"
+msgstr "Actualitzeu el gènere"
+
+#: ../class-book-reviews.php:442
+msgid "Add New Genre"
+msgstr "Afegiu un nou gènere"
+
+#: ../class-book-reviews.php:443
+msgid "New Genre Name"
+msgstr "Nom del nou gènere"
+
+#: ../class-book-reviews.php:444
+msgid "Separate genres with commas"
+msgstr "Separeu els gèneres amb comes"
+
+#: ../class-book-reviews.php:445
+msgid "Add or remove genres"
+msgstr "Afegiu o elimineu gèneres"
+
+#: ../class-book-reviews.php:446
+msgid "Choose from the most used genres"
+msgstr "Trieu dels gèneres més utilitzats"
+
+#: ../class-book-reviews.php:447 ../class-book-reviews.php:1119
+msgid "No genres found"
+msgstr "No s'han trobat gèneres"
+
+#: ../class-book-reviews.php:480 ../class-book-reviews.php:482
+#: ../class-book-reviews.php:483
+msgid "Review Author"
+msgstr "Autor de la ressenya"
+
+#: ../class-book-reviews.php:484
+msgid "Search Review Authors"
+msgstr "Busqueu autors de la ressenya"
+
+#: ../class-book-reviews.php:485
+msgid "Popular Review Authors"
+msgstr "Autors populars de ressenyes"
+
+#: ../class-book-reviews.php:486
+msgid "All Review Authors"
+msgstr "Tots els autors de ressenyes"
+
+#: ../class-book-reviews.php:489
+msgid "Edit Review Author"
+msgstr "Editeu un autor de ressenyes"
+
+#: ../class-book-reviews.php:490
+msgid "Update Review Author"
+msgstr "Actualitzeu un autor de ressenyes"
+
+#: ../class-book-reviews.php:491
+msgid "Add New Review Author"
+msgstr "Afegiu un autor de ressenyes"
+
+#: ../class-book-reviews.php:492
+msgid "New Review Author Name"
+msgstr "Nom del nou autor de ressenyes"
+
+#: ../class-book-reviews.php:493
+msgid "Separate Review Authors with commas"
+msgstr "Separeu els autors de les ressenyes amb comes"
+
+#: ../class-book-reviews.php:494
+msgid "Add or remove Review Authors"
+msgstr "Afegiu o elimineu autors de les ressenyes"
+
+#: ../class-book-reviews.php:495
+msgid "Choose from the most used Review Authors"
+msgstr "Trieu dels autors de ressenyes més utilitzats"
+
+#: ../class-book-reviews.php:496 ../views/setup-options.php:23
+msgid "Review Authors"
+msgstr "Autors de les ressenyes"
+
+#: ../class-book-reviews.php:528 ../class-book-reviews.php:530
+#: ../class-book-reviews.php:544
+msgid "Book Authors"
+msgstr "Autors dels llibres"
+
+#: ../class-book-reviews.php:531 ../class-book-reviews.php:1027
+msgid "Author"
+msgstr "Autor"
+
+#: ../class-book-reviews.php:532
+msgid "Search Book Authors"
+msgstr "Busqueu autors de llibres"
+
+#: ../class-book-reviews.php:533
+msgid "Popular Book Authors"
+msgstr "Autors populars"
+
+#: ../class-book-reviews.php:534
+msgid "All Book Authors"
+msgstr "Tots els autors de llibres"
+
+#: ../class-book-reviews.php:537
+msgid "Edit Author"
+msgstr "Editeu autor"
+
+#: ../class-book-reviews.php:538
+msgid "Update Author"
+msgstr "Actualitzeu l'autor"
+
+#: ../class-book-reviews.php:539
+msgid "Add New Author"
+msgstr "Afegiu un nou autor"
+
+#: ../class-book-reviews.php:540
+msgid "New Author Name"
+msgstr "Nom del nou autor"
+
+#: ../class-book-reviews.php:541
+msgid "Separate Book Authors with commas"
+msgstr "Separeu els autors del llibre amb comes"
+
+#: ../class-book-reviews.php:542
+msgid "Add or remove Book Authors"
+msgstr "Afegiu o elimineu autors del llibre"
+
+#: ../class-book-reviews.php:543
+msgid "Choose from the most used Book Authors"
+msgstr "Trieu dels autors de llibres més utilitzats"
+
+#: ../class-book-reviews.php:575 ../class-book-reviews.php:577
+#: ../class-book-reviews.php:578 ../class-book-reviews.php:925
+#: ../class-book-reviews.php:1044 ../views/setup-options.php:51
+msgid "Reading Level"
+msgstr "Nivell de lectura"
+
+#: ../class-book-reviews.php:579
+msgid "Search Reading Levels"
+msgstr "Busqueu nivells de lectura"
+
+#: ../class-book-reviews.php:580
+msgid "Popular Reading Levels"
+msgstr "Nivells de lectura populars"
+
+#: ../class-book-reviews.php:581
+msgid "All Reading Levels"
+msgstr "Tots els nivells de lectura"
+
+#: ../class-book-reviews.php:584
+msgid "Edit Reading Level"
+msgstr "Editeu un nivell de lectura"
+
+#: ../class-book-reviews.php:585
+msgid "Update Reading Level"
+msgstr "Actualitzeu un nivell de lectura"
+
+#: ../class-book-reviews.php:586
+msgid "Add New Reading Level"
+msgstr "Afegiu un nou nivell de lectua"
+
+#: ../class-book-reviews.php:587
+msgid "New Reading Level Name"
+msgstr "Nom del nou nivell de lectura"
+
+#: ../class-book-reviews.php:588
+msgid "Separate Reading Levels with commas"
+msgstr "Separeu els nivells de lectura amb comes"
+
+#: ../class-book-reviews.php:589
+msgid "Add or remove Reading Levels"
+msgstr "Afegiu o elimineu nivells de lectura"
+
+#: ../class-book-reviews.php:590
+msgid "Choose from the most used Reading Levels"
+msgstr "Trieu dels nivells de lectura més utilitzats"
+
+#: ../class-book-reviews.php:591
+msgid "Reading Levels"
+msgstr "Nivells de lectura"
+
+#: ../class-book-reviews.php:622 ../class-book-reviews.php:624
+#: ../class-book-reviews.php:638 ../class-book-reviews.php:1040
+msgid "Subjects"
+msgstr "Temes"
+
+#: ../class-book-reviews.php:625 ../views/setup-options.php:79
+msgid "Subject"
+msgstr "Tema"
+
+#: ../class-book-reviews.php:626
+msgid "Search Subjects"
+msgstr "Busqueu temes"
+
+#: ../class-book-reviews.php:627
+msgid "Popular Subjects"
+msgstr "Temes populars"
+
+#: ../class-book-reviews.php:628
+msgid "All Subjects"
+msgstr "Tots els temes"
+
+#: ../class-book-reviews.php:631
+msgid "Edit Subject"
+msgstr "Editeu un tema"
+
+#: ../class-book-reviews.php:632
+msgid "Update Subject"
+msgstr "Actualitzeu un tema"
+
+#: ../class-book-reviews.php:633
+msgid "Add New Subject"
+msgstr "Afegiu un nou tema"
+
+#: ../class-book-reviews.php:634
+msgid "New Subject Name"
+msgstr "Nom del nou tema"
+
+#: ../class-book-reviews.php:635
+msgid "Separate Subjects with commas"
+msgstr "Separeu els temes amb comes"
+
+#: ../class-book-reviews.php:636
+msgid "Add or remove Subjects"
+msgstr "Afegiu o elimineu temes"
+
+#: ../class-book-reviews.php:637
+msgid "Choose from the most used Subjects"
+msgstr "Trieu dels temes més utilitzats"
+
+#: ../class-book-reviews.php:669 ../class-book-reviews.php:671
+#: ../class-book-reviews.php:685
+msgid "Illustrators"
+msgstr "Il·lustradors"
+
+#: ../class-book-reviews.php:672 ../class-book-reviews.php:915
+#: ../class-book-reviews.php:1036 ../views/setup-options.php:107
+msgid "Illustrator"
+msgstr "Il·lustrador"
+
+#: ../class-book-reviews.php:673
+msgid "Search Illustrators"
+msgstr "Busqueu il·lustradors"
+
+#: ../class-book-reviews.php:674
+msgid "Popular Illustrators"
+msgstr "Il·lustradors populars"
+
+#: ../class-book-reviews.php:675
+msgid "All Illustrators"
+msgstr "Tots els il·lustradors"
+
+#: ../class-book-reviews.php:678
+msgid "Edit Illustrator"
+msgstr "Editeu il·lustradors"
+
+#: ../class-book-reviews.php:679
+msgid "Update Illustrator"
+msgstr "Actualitzeu il·lustradors"
+
+#: ../class-book-reviews.php:680
+msgid "Add New Illustrator"
+msgstr "Afegiu un nou il·lustrador"
+
+#: ../class-book-reviews.php:681
+msgid "New Illustrator Name"
+msgstr "Nom del nou il·lustrador"
+
+#: ../class-book-reviews.php:682
+msgid "Separate Illustrators with commas"
+msgstr "Separeu els il·lustradors amb comes"
+
+#: ../class-book-reviews.php:683
+msgid "Add or remove Illustrators"
+msgstr "Afegiu o eliminineu il·lustradors"
+
+#: ../class-book-reviews.php:684
+msgid "Choose from the most used Illustrators"
+msgstr "Trieu dels il·lustradors més usats"
+
+#: ../class-book-reviews.php:716 ../class-book-reviews.php:718
+#: ../class-book-reviews.php:732 ../class-book-reviews.php:1048
+#: ../views/setup-options.php:135
+msgid "Awards"
+msgstr "Premis"
+
+#: ../class-book-reviews.php:719
+msgid "Award"
+msgstr "Premi"
+
+#: ../class-book-reviews.php:720
+msgid "Search Awards"
+msgstr "Busqueu premis"
+
+#: ../class-book-reviews.php:721
+msgid "Popular Awards"
+msgstr "Premis populars"
+
+#: ../class-book-reviews.php:722
+msgid "All Awards"
+msgstr "Tots els premis"
+
+#: ../class-book-reviews.php:725
+msgid "Edit Award"
+msgstr "Editeu el premi"
+
+#: ../class-book-reviews.php:726
+msgid "Update Award"
+msgstr "Actualitzeu el premi"
+
+#: ../class-book-reviews.php:727
+msgid "Add New Award"
+msgstr "Afetgiu un nou premi"
+
+#: ../class-book-reviews.php:728
+msgid "New Award Name"
+msgstr "Nou nom del premi"
+
+#: ../class-book-reviews.php:729
+msgid "Separate Awards with commas"
+msgstr "Separeu els premis amb comes"
+
+#: ../class-book-reviews.php:730
+msgid "Add or remove Awards"
+msgstr "Afegiu o elimineu premis"
+
+#: ../class-book-reviews.php:731
+msgid "Choose from the most used Awards"
+msgstr "Trieu dels premis més utilitzats"
+
+#: ../class-book-reviews.php:763 ../class-book-reviews.php:765
+#: ../class-book-reviews.php:766 ../class-book-reviews.php:779
+#: ../class-book-reviews.php:920 ../class-book-reviews.php:1032
+#: ../views/setup-options.php:163
+msgid "Series"
+msgstr "Col·leccions"
+
+#: ../class-book-reviews.php:767
+msgid "Search Series"
+msgstr "Busqueu col·leccions"
+
+#: ../class-book-reviews.php:768
+msgid "Popular Series"
+msgstr "Col·leccions populars"
+
+#: ../class-book-reviews.php:769
+msgid "All Series"
+msgstr "Totes les col·leccions"
+
+#: ../class-book-reviews.php:772
+msgid "Edit Series"
+msgstr "Editeu la col·lecció"
+
+#: ../class-book-reviews.php:773
+msgid "Update Series"
+msgstr "Actualitzeu la col·lecció"
+
+#: ../class-book-reviews.php:774
+msgid "Add New Series"
+msgstr "Afegiu una nova col·lecció"
+
+#: ../class-book-reviews.php:775
+msgid "New Series Name"
+msgstr "Nou nom de la col·lecció"
+
+#: ../class-book-reviews.php:776
+msgid "Separate Series with commas"
+msgstr "Separeu les col·leccions amb comes"
+
+#: ../class-book-reviews.php:777
+msgid "Add or remove Series"
+msgstr "Afegiu o elimineu col·leccions"
+
+#: ../class-book-reviews.php:778
+msgid "Choose from the most used Series"
+msgstr "Trieu de les col·leccions més utilitzades"
+
+#: ../class-book-reviews.php:810 ../class-book-reviews.php:812
+#: ../class-book-reviews.php:826
+msgid "Star Ratings"
+msgstr "Qualificacions"
+
+#: ../class-book-reviews.php:813
+msgid "Star"
+msgstr "Estrella"
+
+#: ../class-book-reviews.php:814
+msgid "Search Ratings"
+msgstr "Busqueu valoracions"
+
+#: ../class-book-reviews.php:815
+msgid "Popular Ratings"
+msgstr "Valoracions populars"
+
+#: ../class-book-reviews.php:816
+msgid "Stars"
+msgstr "Estrelles"
+
+#: ../class-book-reviews.php:819
+msgid "Edit Rating"
+msgstr "Editeu la valoració"
+
+#: ../class-book-reviews.php:820
+msgid "Update Rating"
+msgstr "Actualitzeu la valoració"
+
+#: ../class-book-reviews.php:821
+msgid "Add New Rating"
+msgstr "Afegiu una nova valoració"
+
+#: ../class-book-reviews.php:822
+msgid "New Rating Name"
+msgstr "Nou nom de la valoració"
+
+#: ../class-book-reviews.php:823
+msgid "Separate Star Ratings with commas"
+msgstr "Separeu les qualificacions amb comes"
+
+#: ../class-book-reviews.php:824
+msgid "Add or remove Star Ratings"
+msgstr "Afegiu o elimineu qualificacions"
+
+#: ../class-book-reviews.php:825
+msgid "Choose from the most used Star Ratings"
+msgstr "Trieu de les qualificacions més utilitzades"
+
+#: ../class-book-reviews.php:857 ../inc/func.php:221
+msgid "Zero stars"
+msgstr "Zero estrelles"
+
+#: ../class-book-reviews.php:861
+msgid "One star"
+msgstr "Una estrella"
+
+#: ../class-book-reviews.php:865
+msgid "Two stars"
+msgstr "Dos estrelles"
+
+#: ../class-book-reviews.php:869
+msgid "Three stars"
+msgstr "Tres estrelles"
+
+#: ../class-book-reviews.php:873
+msgid "Four stars"
+msgstr "Quatre estrelles"
+
+#: ../class-book-reviews.php:877
+msgid "Five stars"
+msgstr "Cinc estrelles"
+
+#: ../class-book-reviews.php:911
+msgid "Book Author"
+msgstr "Autor del llibre"
+
+#: ../class-book-reviews.php:930
+msgid "Star Rating"
+msgstr "Qualificació"
+
+#: ../class-book-reviews.php:934
+msgid "Book Cover"
+msgstr "Portada del llibre"
+
+#: ../class-book-reviews.php:944
+msgid "Additional Information"
+msgstr "Informació addicional"
+
+#: ../class-book-reviews.php:963
+msgid "ISBN:"
+msgstr "ISBN:"
+
+#: ../class-book-reviews.php:969
+msgid "In stock?"
+msgstr "Disponible?"
+
+#: ../class-book-reviews.php:972
+msgid "Book is in stock"
+msgstr "El llibre està disponible"
+
+#: ../class-book-reviews.php:973
+msgid "Book out of stock"
+msgstr "El llibre no està disponible"
+
+#: ../class-book-reviews.php:980
+msgid "Upload Award Image"
+msgstr "Pujeu una imatge del premi"
+
+#: ../class-book-reviews.php:1013
+msgid "Set featured image"
+msgstr "Seleccioneu la imatge principal"
+
+#: ../class-book-reviews.php:1013
+msgid "Select Book Cover"
+msgstr "Seleccioneu la portada del llibre"
+
+#: ../class-book-reviews.php:1026
+msgid "Title"
+msgstr "Títol"
+
+#: ../class-book-reviews.php:1052
+msgid "Rating"
+msgstr "Valoració"
+
+#: ../class-book-reviews.php:1092
+msgid "No authors found"
+msgstr "No s'han trobat autors"
+
+#: ../class-book-reviews.php:1146
+msgid "No series found"
+msgstr "No s'han trobat col·leccions"
+
+#: ../class-book-reviews.php:1173
+msgid "No illustrators found"
+msgstr "No s'han trobat il·lustradors"
+
+#: ../class-book-reviews.php:1200
+msgid "No subjects found"
+msgstr "No s'han trobat temes"
+
+#: ../class-book-reviews.php:1227
+msgid "No reading level found"
+msgstr "No s'han trobat nivells de lectura"
+
+#: ../class-book-reviews.php:1254
+msgid "No awards found"
+msgstr "No s'han trobat premis"
+
+#: ../class-book-reviews.php:1286 ../class-book-reviews.php:1299
+msgid "No rating found"
+msgstr "No s'han trobat valoracions"
+
+#: ../class-book-reviews.php:1517 ../class-book-reviews.php:1618
+#, php-format
+msgid "%1$s"
+msgstr "%1$s"
+
+#: ../class-book-reviews.php:1555 ../class-book-reviews.php:1656
+#: ../views/public.php:163 ../views/public.php:244
+#, php-format
+msgid "Review by %s"
+msgstr "Ressenya per %s"
+
+#: ../class-book-reviews.php:1560 ../class-book-reviews.php:1661
+#: ../views/public.php:168 ../views/public.php:249
+#, php-format
+msgid "Reading Level: %s"
+msgstr "Nivell de lectura: %s"
+
+#: ../class-book-reviews.php:1566 ../class-book-reviews.php:1667
+#: ../views/public.php:174 ../views/public.php:255
+msgid "This book is <strong>in stock</strong>"
+msgstr "Aquest llibre <strong>està disponible</strong>"
+
+#: ../class-book-reviews.php:1570 ../class-book-reviews.php:1671
+#: ../views/public.php:178 ../views/public.php:259
+msgid "This book is <strong>currently checked out</strong>"
+msgstr "Aquest llibre <strong>no està disponible</strong>"
+
+#: ../class-book-reviews.php:1577 ../class-book-reviews.php:1678
+#, php-format
+msgid "<strong>Author:</strong> %s"
+msgstr "<strong>Autor:</strong> %s"
+
+#: ../class-book-reviews.php:1580 ../class-book-reviews.php:1681
+#: ../views/public.php:193 ../views/public.php:274
+#, php-format
+msgid "<strong>Genre:</strong> %s"
+msgstr "<strong>Gènere:</strong> %s"
+
+#: ../class-book-reviews.php:1583 ../class-book-reviews.php:1684
+#: ../views/public.php:196 ../views/public.php:277
+#, php-format
+msgid "<strong>Series:</strong> %s | "
+msgstr "<strong>Col·lecció:</strong> %s | "
+
+#: ../class-book-reviews.php:1586 ../class-book-reviews.php:1687
+#: ../views/public.php:199 ../views/public.php:280
+#, php-format
+msgid "<strong>Subjects:</strong> %s"
+msgstr "<strong>Temes:</strong> %s"
+
+#: ../class-book-reviews.php:1589 ../class-book-reviews.php:1690
+#: ../views/public.php:202 ../views/public.php:283
+#, php-format
+msgid "<strong>Illustrated by</strong> %s"
+msgstr "<strong>Il·lustrat per:</strong> %s"
+
+#: ../inc/func.php:413
+msgid "Enabled"
+msgstr "Activat"
+
+#: ../inc/func.php:417 ../inc/func.php:444
+msgid "Disabled"
+msgstr "Desactivat"
+
+#: ../inc/func.php:436
+msgid "With the title"
+msgstr "Amb el títol"
+
+#: ../inc/func.php:440
+msgid "On a new line"
+msgstr "En una línia nova"
+
+#: ../inc/widgets.php:19
+msgid ""
+"Displays a list of related books by common taxonomies. This widget only "
+"displays when viewing a single book review or a book review archive."
+msgstr ""
+"Mostra una llista de llibres relacionats per taxonomies comuns. Aquest giny "
+"només es mostra quan es veu una sola ressenya d'un llibre o d'un arxiu de "
+"ressenyes de llibres."
+
+#: ../inc/widgets.php:34 ../inc/widgets.php:141
+msgid "Similar Books"
+msgstr "Llibres similars"
+
+#: ../inc/widgets.php:82 ../inc/widgets.php:127 ../inc/widgets.php:225
+#: ../views/public.php:304 ../views/public.php:321
+#, php-format
+msgid "%1$s by %2$s"
+msgstr "%1$s per %2$s"
+
+#: ../inc/widgets.php:89
+msgid "No similar books were found."
+msgstr "No s'han trobat llibres similars."
+
+#: ../inc/widgets.php:145 ../inc/widgets.php:245
+msgid "No"
+msgstr "No"
+
+#: ../inc/widgets.php:146 ../inc/widgets.php:246
+msgid "Yes"
+msgstr "Si"
+
+#: ../inc/widgets.php:153 ../inc/widgets.php:253
+msgid "Title:"
+msgstr "Títol:"
+
+#: ../inc/widgets.php:155 ../inc/widgets.php:255
+msgid "The title that displays above the widget."
+msgstr "El títol que es mostra dalt el giny."
+
+#: ../inc/widgets.php:158 ../inc/widgets.php:258
+msgid "Count:"
+msgstr "Compte:"
+
+#: ../inc/widgets.php:160 ../inc/widgets.php:260
+msgid "How many reviews to display."
+msgstr "Quants comentaris per mostrar."
+
+#: ../inc/widgets.php:163 ../inc/widgets.php:263
+msgid "Display Images:"
+msgstr "Imatges per mostrar:"
+
+#: ../inc/widgets.php:165 ../inc/widgets.php:265
+msgid "Display thumbnail images next to the titles?"
+msgstr "Voleu mostrar les miniatures de les imatges al costat dels títols?"
+
+#: ../inc/widgets.php:187
+msgid "Displays a list of recent book reviews."
+msgstr "Mostreu una llista de les revisions recents dels llibres."
+
+#: ../inc/widgets.php:191 ../inc/widgets.php:198 ../inc/widgets.php:241
+msgid "Recent Book Reviews"
+msgstr "Llibres recents"
+
+#: ../inc/widgets.php:235
+msgid "No books were found."
+msgstr "No s'han trobat llibres."
+
+#: ../views/admin.php:23
+msgid "Book Review options saved"
+msgstr "Opcions guardades correctament"
+
+#: ../views/admin.php:34
+msgid "Save Options"
+msgstr "Guardar les opcions"
+
+#: ../views/public.php:188 ../views/public.php:269
+msgid "Author:"
+msgstr "Autor:"
+
+#: ../views/setup-options.php:34
+msgid ""
+"Enable this if the person adding the book review is not the original author "
+"of the review."
+msgstr ""
+"Activeu aquesta opció si la persona que està afegint aquesta ressenya no és "
+"l'autor del llibre."
+
+#: ../views/setup-options.php:62
+msgid "Enable this to display the reading level for the book."
+msgstr "Activeu aquesta opció per mostrar el nivell de lectura dels llibres."
+
+#: ../views/setup-options.php:90
+msgid ""
+"Enable this to tag the book with different subjects (unique from genres)."
+msgstr ""
+"Activeu aquesta opció per poder marcar els llibres amb diferents temes."
+
+#: ../views/setup-options.php:118
+msgid "Enable this to add illustrators to book reviews."
+msgstr ""
+"Activeu aquesta opció per afegir il·lustradors a les resenyes dels llibres."
+
+#: ../views/setup-options.php:146
+msgid "Enable this to add awards the book has received."
+msgstr ""
+"Activeu aquesta opció per poder afegir els premis que el llibre ha rebut."
+
+#: ../views/setup-options.php:174
+msgid "Enable this to group books by series."
+msgstr "Activeu aquesta opció per agrupar els llibres per col·leccions."
+
+#: ../views/setup-options.php:191
+msgid "Ratings"
+msgstr "Valoracions"
+
+#: ../views/setup-options.php:202
+msgid "Enable this for star ratings."
+msgstr "Activeu aquesta opció per mostrar valoracions dels llibres."
+
+#: ../views/setup-options.php:219
+msgid "Stock"
+msgstr "Provisió"
+
+#: ../views/setup-options.php:230
+msgid ""
+"Enable this to display \"In Stock\"/\"Out of Stock\" information with the "
+"book review."
+msgstr ""
+"Activeu aquesta opció per mostrar informació sobre la disponibilitat del "
+"llibre."
+
+#: ../views/setup-options.php:247
+msgid "Display author with title"
+msgstr "Mostreu l'autor amb el títol"
+
+#: ../views/setup-options.php:258
+msgid ""
+"<strong>With the title</strong> displays the author on the same line as the "
+"book title. <strong>On a new line</strong> adds a line break before "
+"displaying the author. <strong>Disabled</strong> removes the author from the "
+"title entirely."
+msgstr ""
+"<strong>Amb el títol</strong> mostra l'autor a la mateixa línia que el títol "
+"del llibre. <strong>En una línia nova</strong> s'afegeix un salt de línia "
+"abans de mostrar l'autor. <strong>Desactivat</strong> elimina l'autor del "
+"títol."
+
+#: ../views/setup-options.php:275
+msgid "Comments on book reviews"
+msgstr "Comentaris a les ressenyes del llibre"
+
+#: ../views/setup-options.php:286
+msgid "If enabled, allows visitors to comment on book reviews."
+msgstr ""
+"Si està actiu, permet als visitants comentar les ressenyes dels llibres."
+
+#~ msgid ""
+#~ "This disables the \"by {Author Name}\" link next to the book title. "
+#~ "Disable this if getting HTML/formatting issues in your theme."
+#~ msgstr ""
+#~ "Aquesta opció desactiva el nom de l'autor al costat del títol del llibre. "
+#~ "Desactiveu aquesta opció si el seu tema rep problemes de format HTML."
