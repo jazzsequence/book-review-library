@@ -448,6 +448,28 @@ function book_reviews_title_filter() {
 }
 
 /**
+ * Book Review Thumbnail Option
+ * used by the options page
+ * allows the user to specify whether they want to use internal image size or post thumbnail image size
+ * solves some problems when the theme is taking over the thumbnail size
+ *
+ * @since 1.4.11
+ */
+function book_reviews_image_size() {
+	$result = array(
+		'thumbnail' => array(
+			'value' => 'thumbnail',
+			'label' => __( 'Use the post thumbnail size', 'book-review-library' )
+		),
+		'book-cover' => array(
+			'value' => 'book-cover',
+			'label' => __( 'Use 6:9 book cover size (133px x 200px)', 'book-review-library' )
+		)
+	);
+	return $result;
+}
+
+/**
  * Default option settings
  *
  * @since 	1.0.0

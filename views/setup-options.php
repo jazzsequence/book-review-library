@@ -290,6 +290,34 @@ function book_reviews_comments() {
 }
 
 /**
+ * Book cover option
+ * allows user to set the book cover thumbnail option
+ *
+ * @since 1.4.11
+ */
+function book_reviews_thumbnail() {
+	include_once(BOOK_REVIEWS_FUNC);
+	$defaults = book_reviews_option_defaults();
+	$options = get_option( 'book_reviews_settings', $defaults );
+	?>
+	<tr valign="top"><th scope="row"><?php _e( 'Book cover size', 'book-review-library' ); ?></th>
+		<td>
+			<select name="book_reviews_settings[thumbnail]" id="thumbnail">
+			<?php
+				$selected = $options['thumbnail'];
+				foreach ( book_reviews_image_size() as $option ) {
+					$label = $option['label'];
+					$value = $option['value'];
+					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+				} ?>
+			</select><br />
+			<label class="description" for="book_reviews_settings[thumbnail]"><?php _e( 'If covers are displayed, this controls how they are sized. Either uses the theme setting for thumbnails (which may be controlled by the theme or the Thumbnail setting on the Media Settings page) or a Book Review Library standard book cover size.', 'book-review-library' ); ?></label>
+		</td>
+	</tr>
+	<?php
+}
+
+/**
  * DO ALL THE THINGS!
  *
  * @since 	1.0.0
@@ -307,6 +335,7 @@ function book_reviews_do_options() {
 	book_reviews_awards();
 	book_reviews_series();
 	book_reviews_rating();
+	book_reviews_thumbnail();
 	book_reviews_stock();
 	book_reviews_title();
 	book_reviews_comments();
