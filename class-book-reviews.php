@@ -1389,6 +1389,7 @@ class Book_Reviews {
 	public function create_tiny_thumbs() {
 		if ( function_exists('add_image_size' ) ) {
 			add_image_size( 'tiny', 36, 36, true );
+			add_image_size( 'book-cover', 133, 200, array( 'center', 'top' ) );
 		}
 	}
 
@@ -1522,7 +1523,7 @@ class Book_Reviews {
 				<div <?php post_class( 'book-review-sc' ); ?>>
 					<?php if ( ($covers == true) && has_post_thumbnail() ) { ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
-							<?php the_post_thumbnail('thumbnail'); ?>
+							<?php the_post_thumbnail('book-cover'); ?>
 						</a>
 					<?php } ?>
 
@@ -1623,7 +1624,7 @@ class Book_Reviews {
 						<div <?php post_class( 'book-review-sc' ); ?>>
 							<?php if ( ($covers == true) && has_post_thumbnail() ) { ?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
-									<?php the_post_thumbnail('thumbnail'); ?>
+									<?php the_post_thumbnail('book-cover'); ?>
 								</a>
 							<?php } ?>
 

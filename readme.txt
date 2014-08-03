@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
 Tested up to: 3.8
-Stable tag: 1.4.10
+Stable tag: 1.4.11
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -152,6 +152,9 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 * 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library
 
 == Changelog ==
+
+= 1.4.11 =
+* added image size for book covers. using that instead of default post thumbnail size.
 
 = 1.4.10 =
 * added Catalan language file
