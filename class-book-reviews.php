@@ -1523,7 +1523,11 @@ class Book_Reviews {
 				<div <?php post_class( 'book-review-sc' ); ?>>
 					<?php if ( ($covers == true) && has_post_thumbnail() ) { ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
-							<?php the_post_thumbnail('book-cover'); ?>
+							<?php if ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) {
+								the_post_thumbnail('book-cover');
+							} else {
+								the_post_thumbnail( 'thumbnail' );
+							} ?>
 						</a>
 					<?php } ?>
 
@@ -1624,7 +1628,11 @@ class Book_Reviews {
 						<div <?php post_class( 'book-review-sc' ); ?>>
 							<?php if ( ($covers == true) && has_post_thumbnail() ) { ?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
-									<?php the_post_thumbnail('book-cover'); ?>
+									<?php if ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) {
+										the_post_thumbnail('book-cover');
+									} else {
+										the_post_thumbnail( 'thumbnail' );
+									} ?>
 								</a>
 							<?php } ?>
 
