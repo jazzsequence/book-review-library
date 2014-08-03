@@ -154,7 +154,7 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 == Changelog ==
 
 = 1.4.11 =
-* added image size for book covers. using that instead of default post thumbnail size.
+* added image size for book covers. users can use that instead of default post thumbnail size or they can use the thumbnail setting. controlled from the options page.
 
 = 1.4.10 =
 * added Catalan language file
