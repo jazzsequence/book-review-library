@@ -9,7 +9,7 @@
  * @author    Chris Reynolds <hello@chrisreynolds.io>
  * @license   GPL-3.0
  * @link      http://chrisreynolds.io
- * @copyright 2013 Chris Reynolds
+ * @copyright 2014 Chris Reynolds
  */
 ?>
 <?php

@@ -4,7 +4,7 @@
  * @author    Chris Reynolds <hello@chrisreynolds.io>
  * @license   GPLv3
  * @link      http://chrisreynolds.io
- * @copyright 2013 Chris Reynolds
+ * @copyright 2014 Chris Reynolds
  *
  * @wordpress-plugin
  * Plugin Name: Book Review Library
