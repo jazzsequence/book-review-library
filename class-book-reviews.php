@@ -371,9 +371,9 @@ class Book_Reviews {
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 		if ( isset($options['comments']) && $options['comments'] ) {
-			$supports = array( 'title', 'editor', 'author', 'thumbnail', 'revisions', 'comments' );
+			$supports = array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'comments' );
 		} else {
-			$supports = array( 'title', 'editor', 'author', 'thumbnail', 'revisions' );
+			$supports = array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions' );
 		}
 
 		$capabilities = array(
