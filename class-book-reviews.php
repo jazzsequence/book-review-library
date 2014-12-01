@@ -926,11 +926,8 @@ class Book_Reviews {
 				add_meta_box( 'tagsdiv-reading-level', __( 'Reading Level', 'book-review-library' ), 'post_tags_meta_box', 'book-review', 'normal', 'core', array( 'taxonomy' => 'reading-level' ) );
 			}
 
-			if ( isset($options['rating']) && ($options['rating']  == true) ) {
-				unset( $wp_meta_boxes['book-review']['side']['core']['ratingdiv'] );
-				add_meta_box( 'ratingdiv', __( 'Star Rating', 'book-review-library' ), 'post_categories_meta_box', 'book-review', 'normal', 'core', array( 'taxonomy' => 'rating' ) );
-			}
 
+			remove_meta_box( 'ratingdiv', 'book-review', 'side' );
 			remove_meta_box( 'postimagediv', 'book-review', 'side' );
 	    	add_meta_box('postimagediv', __('Book Cover', 'book-review-library'), 'post_thumbnail_meta_box', 'book-review', 'side', 'default');
 	    }
@@ -981,6 +978,27 @@ class Book_Reviews {
 			)
 		);
 
+		// check if ratings are enabled
+		if ( $this->are_ratings_enabled() ) {
+			$meta_boxes['star-rating'] = array(
+				'id'           => 'star-rating',
+				'title'        => __( 'Star Rating', 'book-review-library' ),
+				'show_names'   => false,
+				'object_types' => array( 'book-review' ),
+				'context'      => 'side',
+				'priority'     => 'high',
+				'fields'       => array(
+					array(
+						'id'               => 'star-rating',
+						'taxonomy'         => 'rating',
+						'type'             => 'taxonomy_radio',
+						'show_option_none' => false,
+						'default'          => 'zero-stars'
+					)
+				)
+			);
+		}
+
 		return $meta_boxes;
  	}
 
@@ -1026,7 +1044,7 @@ class Book_Reviews {
  	}
 
  	/**
- 	 * Check if awards is enabled
+ 	 * Check if awards are enabled
  	 *
  	 * @since 	1.5.0
  	 * @return 	bool 				True if awards are enabled, false if they aren't
@@ -1052,7 +1070,34 @@ class Book_Reviews {
  		return false;
  	}
 
-		/**
+ 	/**
+ 	 * Check if ratings are enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if ratings are enabled, false if they aren't
+ 	 */
+ 	public function are_ratings_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the rating option isn't set
+ 		if ( !isset( $options['rating'] ) )
+ 			return false;
+
+ 		// if rating is true
+ 		if ( true == $options['rating'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
+	/**
 	 * Registers the options
 	 *
 	 * @since 	1.0.0
