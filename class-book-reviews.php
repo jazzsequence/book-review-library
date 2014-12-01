@@ -24,7 +24,7 @@ class Book_Reviews {
 	 *
 	 * @var     string
 	 */
-	protected $version = '1.4.10';
+	protected $version = '1.5.0';
 
 	/**
 	 * Unique identifier for your plugin.

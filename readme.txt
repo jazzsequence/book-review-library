@@ -3,8 +3,8 @@ Contributors: jazzs3quence
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
-Tested up to: 3.8
-Stable tag: 1.4.11
+Tested up to: 4.0
+Stable tag: 1.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -42,7 +42,7 @@ Translators can collectively help work on translating this plugin at http://tran
 * **Spanish translation** by Tierras del Rincon
 * **Persian (Farsi) translation** by [Masoud Allameh](http://www.masoudallameh.com/)
 * **Polish translation** by Rafał Szampera
-* **Catalan translation** by Jordi Ramirez **New in 1.4.10!**
+* **Catalan translation** by Jordi Ramirez
 
 
 = About this plugin =
@@ -152,6 +152,9 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 * 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library
 
 == Changelog ==
+
+= 1.5 =
+* added CMB2 library for metaboxes
 
 = 1.4.11 =
 * added image size for book covers. users can use that instead of default post thumbnail size or they can use the thumbnail setting. controlled from the options page.
