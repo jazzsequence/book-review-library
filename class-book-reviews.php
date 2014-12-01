@@ -976,6 +976,34 @@ class Book_Reviews {
  		// for anything else
  		return false;
  	}
+
+ 	/**
+ 	 * Check if awards is enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if awards are enabled, false if they aren't
+ 	 */
+ 	public function are_awards_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the awards option isn't set
+ 		if ( !isset( $options['awards'] ) )
+ 			return false;
+
+ 		// if awards is true
+ 		if ( true == $options['awards'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
 	/**
 	 * Adds the Additional Information meta box for book review posts
 	 *
