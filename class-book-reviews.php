@@ -937,6 +937,20 @@ class Book_Reviews {
 	}
 
 	/**
+ 	 * Get Book Review Library options helper function
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return  array 	The options array for Book Review Library
+ 	 */
+ 	private function get_options() {
+		// include helper functions
+		include_once(BOOK_REVIEWS_FUNC);
+
+		// get the options
+		return get_option( 'book_reviews_settings', book_reviews_option_defaults() );
+ 	}
+
+ 	/**
  	 * Check if stock is enabled
  	 *
  	 * @since 	1.5.0
