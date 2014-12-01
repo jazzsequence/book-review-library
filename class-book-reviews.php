@@ -937,6 +937,29 @@ class Book_Reviews {
 	}
 
 	/**
+ 	 * Check if stock is enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @param 	array 	$options 	The options array for Book Review Library
+ 	 * @return 	bool 				True if stock is enabled, false if it isn't
+ 	 */
+ 	public function is_stock_enabled( $options = array() ) {
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the stock option isn't set
+ 		if ( !isset( $options['stock'] ) )
+ 			return false;
+
+ 		// if stock is true
+ 		if ( true == $options['stock'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+	/**
 	 * Adds the Additional Information meta box for book review posts
 	 *
 	 * @since 	1.0.0
