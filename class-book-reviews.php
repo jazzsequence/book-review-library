@@ -937,6 +937,54 @@ class Book_Reviews {
 	}
 
 	/**
+	 * Deal with the metaboxes
+	 *
+	 * @since 	1.5
+	 */
+	public function  do_cmb_meta_boxes( array $meta_boxes ) {
+
+		// get the options
+		$options = $this->get_options();
+
+		$meta_boxes['book-reviews-meta'] = array(
+			'id'           => 'book-reviews-meta',
+			'title'        => __( 'Additional Information', 'book-review-library' ),
+			'object_types' => array( 'book-review' ),
+			'context'      => 'normal',
+			'priority'     => 'default',
+			'show_names'   => true,
+			'fields'       => array(
+				'isbn'          => array(
+					'name'       => __( 'ISBN:', 'book-review-library' ),
+					'id'         => 'isbn',
+					'type'       => 'text_medium'
+				),
+				'book_in_stock' => array(
+					'name'       => __( 'In Stock?', 'book-review-library' ),
+					'id'         => 'book_in_stock',
+					'type'       => 'select',
+					'default'    => 1,
+					'options'    => array(
+						0 => __( 'Book is out of stock', 'book-review-library' ),
+						1 => __( 'Book is in stock', 'book-review-library' )
+					),
+					'show_on_cb' => array( $this, 'is_stock_enabled' )
+				),
+				'award_image' => array(
+					'name'       => __( 'Upload Award Image', 'book-review-library' ),
+					'desc'       => __( 'Upload an image or enter a URL', 'book-review-library' ),
+					'type'       => 'file',
+					'id'         => 'award_image',
+					'show_on_cb' => array( $this, 'are_awards_enabled' )
+				)
+
+			)
+		);
+
+		return $meta_boxes;
+ 	}
+
+ 	/**
  	 * Get Book Review Library options helper function
  	 *
  	 * @since 	1.5.0
@@ -1003,54 +1051,6 @@ class Book_Reviews {
  		// for anything else
  		return false;
  	}
-
-	/**
-	 * Adds the Additional Information meta box for book review posts
-	 *
-	 * @since 	1.0.0
-	 */
-	public function book_reviews_meta_box() {
-		add_meta_box( 'book-reviews-meta', __('Additional Information', 'book-review-library'), array($this,'book_reviews_box'), 'book-review', 'normal', 'default' );
-	}
-
-	/**
-	 * Renters the actual content of the Additional Information meta box
-	 *
-	 * @since 	1.0.0
-	 */
-	public function book_reviews_box() {
-		global $post;
-
-		include_once(BOOK_REVIEWS_FUNC);
-
-		$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
-
-		echo '<input type="hidden" name="noncename" id="noncename" value="' .
-		wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
-
-		echo '<div class="isbn-meta">';
-		echo '<label for="isbn"><strong>' . __( 'ISBN:', 'book-review-library' ) . '</strong></label><br />';
-		echo '<input class="widefat" id="isbn" name="isbn" value="' . wp_strip_all_tags( get_post_meta( $post->ID, 'isbn', true ), true ) . '" type="text" />';
-		echo '</div>';
-
-		if ( isset($options['stock']) && ($options['stock'] == true) ) {
-			echo '<div class="in-stock-box">';
-			echo '<label for="in-stock"><strong>' . __( 'In stock?', 'book-review-library' ) . '</strong></label><br />';
-			echo '<select name="book_in_stock">';
-			$selected = get_post_meta( $post->ID, 'book_in_stock', true );
-			echo '<option value="1" ' . selected( $selected, 1 ) . '>' . __( 'Book is in stock', 'book-review-library' ) . '</option>';
-			echo '<option value="0" ' . selected( $selected, 0 ) . '>' . __( 'Book out of stock', 'book-review-library' ) . '</option>';
-			echo '</select>';
-			echo '</div>';
-		}
-
-		if ( isset($options['awards']) && ($options['awards'] == true) ) {
-			echo '<div class="award-image-upload">';
-			echo '<label for-"award-image-upload"><strong>' . __( 'Upload Award Image', 'book-review-library' ) . '</strong></label><br />';
-			echo '<input style="width: 55%;" id="award_image" class="award_image" name="award_image" value="' . get_post_meta($post->ID, 'award_image', true) . '" type="text" /> <input id="upload_file_image_button" type="button" class="upload_button button button-primary" value="Upload Image" />';
-			echo '</div>';
-		}
-	}
 
 		/**
 	 * Registers the options
