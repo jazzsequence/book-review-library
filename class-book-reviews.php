@@ -64,6 +64,7 @@ class Book_Reviews {
 	private function __construct() {
 
 		include_once( 'views/actions.php' );
+		include_once( 'inc/cmb-init.php' );
 
 	}
 

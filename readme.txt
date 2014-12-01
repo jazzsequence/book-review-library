@@ -2,7 +2,7 @@
 Contributors: jazzs3quence
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG
 Tags: book, book review, library, librarian, reading level, custom post type
-Requires at least: 3.6
+Requires at least: 3.8
 Tested up to: 4.0
 Stable tag: 1.5
 License: GPLv3
