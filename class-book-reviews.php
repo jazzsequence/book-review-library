@@ -954,10 +954,13 @@ class Book_Reviews {
  	 * Check if stock is enabled
  	 *
  	 * @since 	1.5.0
- 	 * @param 	array 	$options 	The options array for Book Review Library
  	 * @return 	bool 				True if stock is enabled, false if it isn't
  	 */
- 	public function is_stock_enabled( $options = array() ) {
+ 	public function is_stock_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
  		// if the options array isn't an array
  		if ( empty( $options ) )
  			return false;
