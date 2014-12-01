@@ -2,7 +2,7 @@
 /**
  * Include and setup custom metaboxes and fields. (make sure you copy this file to outside the CMB directory)
  *
- * @category YourThemeOrPlugin
+ * @category Book Review Library
  * @package  Metaboxes
  * @license  http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link     https://github.com/webdevstudios/Custom-Metaboxes-and-Fields-for-WordPress
@@ -11,10 +11,8 @@
 /**
  * Get the bootstrap! If using the plugin from wordpress.org, REMOVE THIS!
  */
-if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
-	require_once  __DIR__ . '/cmb2/init.php';
-} elseif ( file_exists(  __DIR__ . '/CMB2/init.php' ) ) {
-	require_once  __DIR__ . '/CMB2/init.php';
+if ( file_exists(  __DIR__ . '/cmb/init.php' ) ) {
+	require_once  __DIR__ . '/cmb/init.php';
 }
 
 /**
