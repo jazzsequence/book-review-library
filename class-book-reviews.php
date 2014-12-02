@@ -927,6 +927,7 @@ class Book_Reviews {
 			}
 
 
+			remove_meta_box( 'tagsdiv-genre', 'book-review', 'side' );
 			remove_meta_box( 'ratingdiv', 'book-review', 'side' );
 			remove_meta_box( 'postimagediv', 'book-review', 'side' );
 	    	add_meta_box('postimagediv', __('Book Cover', 'book-review-library'), 'post_thumbnail_meta_box', 'book-review', 'side', 'default');
@@ -998,6 +999,22 @@ class Book_Reviews {
 				)
 			);
 		}
+
+		$meta_boxes['genre-select'] = array(
+			'id'           => 'genre-select',
+			'title'        => __( 'Genre', 'book-review-library' ),
+			'show_names'   => false,
+			'object_types' => array( 'book-review' ),
+			'context'      => 'side',
+			'priority'     => 'low',
+			'fields'       => array(
+				array(
+					'id'               => 'genre-select',
+					'taxonomy'         => 'genre',
+					'type'             => 'taxonomy_radio'
+				)
+			)
+		);
 
 		return $meta_boxes;
  	}
