@@ -921,12 +921,9 @@ class Book_Reviews {
 				add_meta_box( 'seriesdiv', __( 'Series', 'book-review-library' ), 'post_categories_meta_box', 'book-review', 'normal', 'core', array( 'taxonomy' => 'series' ) );
 			}
 
-			if ( isset($options['reading-level']) && ($options['reading-level']  == true) ) {
-				unset( $wp_meta_boxes['book-review']['side']['core']['tagsdiv-reading-level'] );
-				add_meta_box( 'tagsdiv-reading-level', __( 'Reading Level', 'book-review-library' ), 'post_tags_meta_box', 'book-review', 'normal', 'core', array( 'taxonomy' => 'reading-level' ) );
-			}
 
-
+			remove_meta_box( 'tagsdiv-reading-level', 'book-review', 'side' );
+			remove_meta_box( 'tagsdiv-genre', 'book-review', 'side' );
 			remove_meta_box( 'ratingdiv', 'book-review', 'side' );
 			remove_meta_box( 'postimagediv', 'book-review', 'side' );
 	    	add_meta_box('postimagediv', __('Book Cover', 'book-review-library'), 'post_thumbnail_meta_box', 'book-review', 'side', 'default');
@@ -999,6 +996,41 @@ class Book_Reviews {
 			);
 		}
 
+		$meta_boxes['genre-select'] = array(
+			'id'           => 'genre-select',
+			'title'        => __( 'Genre', 'book-review-library' ),
+			'show_names'   => false,
+			'object_types' => array( 'book-review' ),
+			'context'      => 'side',
+			'priority'     => 'low',
+			'fields'       => array(
+				array(
+					'id'               => 'genre-select',
+					'taxonomy'         => 'genre',
+					'type'             => 'taxonomy_radio'
+				)
+			)
+		);
+
+		// check if reading level is enabled
+		if ( $this->is_reading_level_enabled() ) {
+		$meta_boxes['reading-level'] = array(
+			'id'           => 'reading-level',
+			'title'        => __( 'Reading Level', 'book-review-library' ),
+			'show_names'   => false,
+			'object_types' => array( 'book-review' ),
+			'context'      => 'normal',
+			'priority'     => 'low',
+			'fields'       => array(
+				array(
+					'id'               => 'reading-level',
+					'taxonomy'         => 'reading-level',
+					'type'             => 'taxonomy_radio'
+				)
+			)
+		);
+		}
+
 		return $meta_boxes;
  	}
 
@@ -1014,6 +1046,33 @@ class Book_Reviews {
 
 		// get the options
 		return get_option( 'book_reviews_settings', book_reviews_option_defaults() );
+ 	}
+
+ 	/**
+ 	 * Check if reading level is enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if reading level is enabled, false if it isn't
+ 	 */
+ 	public function is_reading_level_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the reading-level option isn't set
+ 		if ( !isset( $options['reading-level'] ) )
+ 			return false;
+
+ 		// if reading-level is true
+ 		if ( true == $options['reading-level'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
  	}
 
  	/**
