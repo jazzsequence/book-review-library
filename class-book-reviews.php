@@ -24,7 +24,7 @@ class Book_Reviews {
 	 *
 	 * @var     string
 	 */
-	protected $version = '1.4.10';
+	protected $version = '1.5.0';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -63,7 +63,8 @@ class Book_Reviews {
 	 */
 	private function __construct() {
 
-		include_once( 'views/actions.php' );
+		require_once( plugin_dir_path( __FILE__ ) . '/views/actions.php' );
+		require_once( plugin_dir_path( __FILE__ ) . '/inc/cmb-init.php' );
 
 	}
 
@@ -925,65 +926,178 @@ class Book_Reviews {
 				add_meta_box( 'tagsdiv-reading-level', __( 'Reading Level', 'book-review-library' ), 'post_tags_meta_box', 'book-review', 'normal', 'core', array( 'taxonomy' => 'reading-level' ) );
 			}
 
-			if ( isset($options['rating']) && ($options['rating']  == true) ) {
-				unset( $wp_meta_boxes['book-review']['side']['core']['ratingdiv'] );
-				add_meta_box( 'ratingdiv', __( 'Star Rating', 'book-review-library' ), 'post_categories_meta_box', 'book-review', 'normal', 'core', array( 'taxonomy' => 'rating' ) );
-			}
 
+			remove_meta_box( 'ratingdiv', 'book-review', 'side' );
 			remove_meta_box( 'postimagediv', 'book-review', 'side' );
 	    	add_meta_box('postimagediv', __('Book Cover', 'book-review-library'), 'post_thumbnail_meta_box', 'book-review', 'side', 'default');
 	    }
 	}
 
 	/**
-	 * Adds the Additional Information meta box for book review posts
+	 * Deal with the metaboxes
 	 *
-	 * @since 	1.0.0
+	 * @since 	1.5
 	 */
-	public function book_reviews_meta_box() {
-		add_meta_box( 'book-reviews-meta', __('Additional Information', 'book-review-library'), array($this,'book_reviews_box'), 'book-review', 'normal', 'default' );
-	}
+	public function  do_cmb_meta_boxes( array $meta_boxes ) {
 
-	/**
-	 * Renters the actual content of the Additional Information meta box
-	 *
-	 * @since 	1.0.0
-	 */
-	public function book_reviews_box() {
-		global $post;
+		// get the options
+		$options = $this->get_options();
 
+		$meta_boxes['book-reviews-meta'] = array(
+			'id'           => 'book-reviews-meta',
+			'title'        => __( 'Additional Information', 'book-review-library' ),
+			'object_types' => array( 'book-review' ),
+			'context'      => 'normal',
+			'priority'     => 'default',
+			'show_names'   => true,
+			'fields'       => array(
+				'isbn'          => array(
+					'name'       => __( 'ISBN:', 'book-review-library' ),
+					'id'         => 'isbn',
+					'type'       => 'text_medium'
+				),
+				'book_in_stock' => array(
+					'name'       => __( 'In Stock?', 'book-review-library' ),
+					'id'         => 'book_in_stock',
+					'type'       => 'select',
+					'default'    => 1,
+					'options'    => array(
+						0 => __( 'Book is out of stock', 'book-review-library' ),
+						1 => __( 'Book is in stock', 'book-review-library' )
+					),
+					'show_on_cb' => array( $this, 'is_stock_enabled' )
+				),
+				'award_image' => array(
+					'name'       => __( 'Upload Award Image', 'book-review-library' ),
+					'desc'       => __( 'Upload an image or enter a URL', 'book-review-library' ),
+					'type'       => 'file',
+					'id'         => 'award_image',
+					'show_on_cb' => array( $this, 'are_awards_enabled' )
+				)
+
+			)
+		);
+
+		// check if ratings are enabled
+		if ( $this->are_ratings_enabled() ) {
+			$meta_boxes['star-rating'] = array(
+				'id'           => 'star-rating',
+				'title'        => __( 'Star Rating', 'book-review-library' ),
+				'show_names'   => false,
+				'object_types' => array( 'book-review' ),
+				'context'      => 'side',
+				'priority'     => 'high',
+				'fields'       => array(
+					array(
+						'id'               => 'star-rating',
+						'taxonomy'         => 'rating',
+						'type'             => 'taxonomy_radio',
+						'show_option_none' => false,
+						'default'          => 'zero-stars'
+					)
+				)
+			);
+		}
+
+		return $meta_boxes;
+ 	}
+
+ 	/**
+ 	 * Get Book Review Library options helper function
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return  array 	The options array for Book Review Library
+ 	 */
+ 	private function get_options() {
+		// include helper functions
 		include_once(BOOK_REVIEWS_FUNC);
 
-		$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
+		// get the options
+		return get_option( 'book_reviews_settings', book_reviews_option_defaults() );
+ 	}
 
-		echo '<input type="hidden" name="noncename" id="noncename" value="' .
-		wp_create_nonce( plugin_basename(__FILE__) ) . '" />';
+ 	/**
+ 	 * Check if stock is enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if stock is enabled, false if it isn't
+ 	 */
+ 	public function is_stock_enabled() {
 
-		echo '<div class="isbn-meta">';
-		echo '<label for="isbn"><strong>' . __( 'ISBN:', 'book-review-library' ) . '</strong></label><br />';
-		echo '<input class="widefat" id="isbn" name="isbn" value="' . wp_strip_all_tags( get_post_meta( $post->ID, 'isbn', true ), true ) . '" type="text" />';
-		echo '</div>';
+		// get the options
+		$options = $this->get_options();
 
-		if ( isset($options['stock']) && ($options['stock'] == true) ) {
-			echo '<div class="in-stock-box">';
-			echo '<label for="in-stock"><strong>' . __( 'In stock?', 'book-review-library' ) . '</strong></label><br />';
-			echo '<select name="book_in_stock">';
-			$selected = get_post_meta( $post->ID, 'book_in_stock', true );
-			echo '<option value="1" ' . selected( $selected, 1 ) . '>' . __( 'Book is in stock', 'book-review-library' ) . '</option>';
-			echo '<option value="0" ' . selected( $selected, 0 ) . '>' . __( 'Book out of stock', 'book-review-library' ) . '</option>';
-			echo '</select>';
-			echo '</div>';
-		}
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
 
-		if ( isset($options['awards']) && ($options['awards'] == true) ) {
-			echo '<div class="award-image-upload">';
-			echo '<label for-"award-image-upload"><strong>' . __( 'Upload Award Image', 'book-review-library' ) . '</strong></label><br />';
-			echo '<input style="width: 55%;" id="award_image" class="award_image" name="award_image" value="' . get_post_meta($post->ID, 'award_image', true) . '" type="text" /> <input id="upload_file_image_button" type="button" class="upload_button button button-primary" value="Upload Image" />';
-			echo '</div>';
-		}
-	}
+ 		// if the stock option isn't set
+ 		if ( !isset( $options['stock'] ) )
+ 			return false;
 
-		/**
+ 		// if stock is true
+ 		if ( true == $options['stock'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
+ 	/**
+ 	 * Check if awards are enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if awards are enabled, false if they aren't
+ 	 */
+ 	public function are_awards_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the awards option isn't set
+ 		if ( !isset( $options['awards'] ) )
+ 			return false;
+
+ 		// if awards is true
+ 		if ( true == $options['awards'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
+ 	/**
+ 	 * Check if ratings are enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if ratings are enabled, false if they aren't
+ 	 */
+ 	public function are_ratings_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the rating option isn't set
+ 		if ( !isset( $options['rating'] ) )
+ 			return false;
+
+ 		// if rating is true
+ 		if ( true == $options['rating'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
+	/**
 	 * Registers the options
 	 *
 	 * @since 	1.0.0

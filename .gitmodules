@@ -1,0 +1,3 @@
+[submodule "inc/cmb"]
+	path = inc/cmb
+	url = git@github.com:WebDevStudios/CMB2.git
