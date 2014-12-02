@@ -1,14 +1,6 @@
-#rating-tabs .hide-if-no-js,
-#rating-adder {
-	display: none;
-}
-
-#book-authordiv .tabs-panel,
-#illustratordiv .tabs-panel,
-#ratingdiv .tabs-panel,
-#tagsdiv-reading-level .tabs-panel,
-#seriesdiv .tabs-panel {
-	padding-bottom: 10px;
+.cmb2-id-reading-level ul.cmb2-radio-list.cmb2-list li {
+	display: inline;
+	margin-right: 25px;
 }
 
 #book-authordiv .tabs-panel li,
