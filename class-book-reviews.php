@@ -1014,21 +1014,21 @@ class Book_Reviews {
 
 		// check if reading level is enabled
 		if ( $this->is_reading_level_enabled() ) {
-		$meta_boxes['reading-level'] = array(
-			'id'           => 'reading-level',
-			'title'        => __( 'Reading Level', 'book-review-library' ),
-			'show_names'   => false,
-			'object_types' => array( 'book-review' ),
-			'context'      => 'normal',
-			'priority'     => 'low',
-			'fields'       => array(
-				array(
-					'id'               => 'reading-level',
-					'taxonomy'         => 'reading-level',
-					'type'             => 'taxonomy_radio'
+			$meta_boxes['reading-level'] = array(
+				'id'           => 'reading-level',
+				'title'        => __( 'Reading Level', 'book-review-library' ),
+				'show_names'   => false,
+				'object_types' => array( 'book-review' ),
+				'context'      => 'normal',
+				'priority'     => 'low',
+				'fields'       => array(
+					array(
+						'id'               => 'reading-level',
+						'taxonomy'         => 'reading-level',
+						'type'             => 'taxonomy_radio'
+					)
 				)
-			)
-		);
+			);
 		}
 
 		return $meta_boxes;
