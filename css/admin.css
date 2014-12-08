@@ -3,12 +3,22 @@
 	margin-right: 25px;
 }
 
+#book-authordiv .tabs-panel,
+#illustratordiv .tabs-panel,
+#seriesdiv .tabs-panel {
+	padding: 0 0 10px;
+}
+
 #book-authordiv .tabs-panel li,
 #illustratordiv .tabs-panel li,
 #ratingdiv .tabs-panel li,
 #tagsdiv-reading-level .tabs-panel li,
 #seriesdiv .tabs-panel li {
 	float: left;
+}
+#book-authordiv .tabs-panel li,
+#illustratordiv .tabs-panel li {
+	width: 150px;
 }
 #book-authordiv .tabs-panel li .selectit,
 #illustratordiv .tabs-panel li .selectit,
@@ -17,6 +27,7 @@
 #seriesdiv .tabs-panel li .selectit {
 	margin-left: 10px;
 }
+
 #ratingdiv {
 	margin-right: 0;
 }
