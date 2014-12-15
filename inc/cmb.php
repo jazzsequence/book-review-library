@@ -106,6 +106,25 @@ class Book_Review_Library_CMB {
 			);
 		}
 
+		// check if author image is enabled
+		if ( $book_reviews->is_author_image_enabled() ) {
+			$meta_boxes['author-image'] = array(
+				'id'           => 'author-image',
+				'title'        => __( 'Author Image', 'book-review-library' ),
+				'show_names'   => false,
+				'object_types' => array( 'book-review' ),
+				'context'      => 'side',
+				'priority'     => 'low',
+				'fields'       => array(
+					array(
+						'id'   => 'author-image',
+						'desc' => __( 'Upload or select an image for this book\'s author or enter a URL to an image. No image will display if none is uploaded.', 'book-review-library' ),
+						'type' => 'file'
+					)
+				)
+			);
+		}
+
 		$meta_boxes['genre-select'] = array(
 			'id'           => 'genre-select',
 			'title'        => __( 'Genre', 'book-review-library' ),
