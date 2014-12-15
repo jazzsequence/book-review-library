@@ -476,6 +476,34 @@ class Book_Reviews {
  	}
 
  	/**
+ 	 * Check if author image is enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if author image is enabled, false if it isn't
+ 	 */
+ 	public function is_author_image_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the author-image option isn't set
+ 		if ( !isset( $options['author-image'] ) )
+ 			return false;
+
+ 		// if author-image is true
+ 		if ( true == $options['author-image'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
+
+ 	/**
  	 * Check if illustrator is enabled
  	 *
  	 * @since 	1.5.0
