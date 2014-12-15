@@ -413,7 +413,7 @@ class Book_Reviews {
  	 * @since 	1.5.0
  	 * @return  array 	The options array for Book Review Library
  	 */
- 	private function get_options() {
+ 	public function get_options() {
 		// include helper functions
 		include_once(BOOK_REVIEWS_FUNC);
 
