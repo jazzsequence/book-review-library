@@ -64,7 +64,7 @@ class Book_Reviews {
 	private function __construct() {
 
 		require_once( plugin_dir_path( __FILE__ ) . '/views/actions.php' );
-		require_once( plugin_dir_path( __FILE__ ) . '/inc/cmb-init.php' );
+		require_once( plugin_dir_path( __FILE__ ) . '/inc/cmb.php' );
 
 	}
 
