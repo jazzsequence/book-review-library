@@ -1,6 +1,16 @@
 <?php
 
 class Book_Review_Library_CMB {
+
+	/**
+	 * Instance of this class.
+	 *
+	 * @since    1.0.0
+	 *
+	 * @var      object
+	 */
+	protected static $instance = null;
+
 	private function __construct() {
 		// initialize CMB2
 		if ( file_exists(  __DIR__ . '/cmb/init.php' ) ) {
