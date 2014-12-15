@@ -14,41 +14,11 @@
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 
-		// Register post type
-		add_action( 'init', array( $this, 'register_post_type_book_review' ) );
-
-		// Register taxonomies
-		if ( isset($options['review-author']) && ($options['review-author']  == true) )
-			add_action( 'init', array( $this, 'register_taxonomy_review_author' ) );
-		add_action( 'init', array( $this, 'register_taxonomy_genre' ) );
-		add_action( 'init', array( $this, 'register_taxonomy_book_author' ) );
-		if ( isset($options['reading-level']) && ($options['reading-level']  == true) )
-			add_action( 'init', array( $this, 'register_taxonomy_reading_level' ) );
-		if ( isset($options['subject']) && ($options['subject']  == true) )
-			add_action( 'init', array( $this, 'register_taxonomy_subject' ) );
-		if ( isset($options['illustrator']) && ($options['illustrator']  == true) )
-			add_action( 'init', array( $this, 'register_taxonomy_illustrator' ) );
-		if ( isset($options['awards']) && ($options['awards']  == true) )
-			add_action( 'init', array( $this, 'register_taxonomy_awards' ) );
-		if ( isset($options['series']) && ($options['series']  == true) )
-			add_action( 'init', array( $this, 'register_taxonomy_series' ) );
-		if ( isset($options['rating']) && ($options['rating']  == true) )
-			add_action( 'init', array( $this, 'register_taxonomy_rating' ) );
-
-		// Set up star ratings
-		if ( isset($options['rating']) && ($options['rating']  == true) ) {
-			add_action( 'init', array( $this, 'insert_star_ratings' ) );
-			add_action( 'admin_init', array( $this, 'remove_rating_submenu' ) );
-		}
-
 		// set new thumbnail size
 		add_action( 'after_setup_theme', array( $this, 'create_tiny_thumbs' ) );
 
 		// Move metaboxes around
 		add_action( 'add_meta_boxes', array( $this, 'move_meta_boxes' ) );
-
-		// deal with meta boxes
-		add_filter( 'cmb2_meta_boxes', array( $this, 'do_cmb_meta_boxes') );
 
 		// Register the options
 		add_action( 'admin_init' , array( $this, 'settings_init' ) );
