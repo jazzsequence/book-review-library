@@ -65,6 +65,8 @@ class Book_Reviews {
 
 		require_once( plugin_dir_path( __FILE__ ) . '/views/actions.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/inc/cmb.php' );
+		require_once( plugin_dir_path( __FILE__ ) . '/inc/cpt.php' );
+		require_once( plugin_dir_path( __FILE__ ) . '/inc/taxonomy.php' );
 
 	}
 
