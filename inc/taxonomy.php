@@ -76,7 +76,7 @@ class Book_Review_Library_Taxonomies {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_genre() {
+	private function register_taxonomy_genre() {
 		register_taxonomy('genre', array('book-review'), array(
 			'label' => __('Genres', 'book-review-library'),
 			'labels' => array(
@@ -125,7 +125,7 @@ class Book_Review_Library_Taxonomies {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_review_author() {
+	private function register_taxonomy_review_author() {
 		register_taxonomy('review-author', array('book-review'), array(
 			'label' => __('Review Author', 'book-review-library'),
 			'labels' => array(
@@ -173,7 +173,7 @@ class Book_Review_Library_Taxonomies {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_book_author() {
+	private function register_taxonomy_book_author() {
 		register_taxonomy('book-author', array('book-review'), array(
 			'label' => __('Book Authors', 'book-review-library'),
 			'labels' => array(
@@ -220,7 +220,7 @@ class Book_Review_Library_Taxonomies {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_reading_level() {
+	private function register_taxonomy_reading_level() {
 		register_taxonomy('reading-level', array('book-review'), array(
 			'label' => __('Reading Level', 'book-review-library'),
 			'labels' => array(
@@ -267,7 +267,7 @@ class Book_Review_Library_Taxonomies {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_subject() {
+	private function register_taxonomy_subject() {
 		register_taxonomy('subject', array('book-review'), array(
 			'label' => __('Subjects', 'book-review-library'),
 			'labels' => array(
@@ -314,7 +314,7 @@ class Book_Review_Library_Taxonomies {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_illustrator() {
+	private function register_taxonomy_illustrator() {
 		register_taxonomy('illustrator', array('book-review'), array(
 			'label' => __('Illustrators', 'book-review-library'),
 			'labels' => array(
@@ -361,7 +361,7 @@ class Book_Review_Library_Taxonomies {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_awards() {
+	private function register_taxonomy_awards() {
 		register_taxonomy('awards', array('book-review'), array(
 			'label' => __('Awards', 'book-review-library'),
 			'labels' => array(
@@ -408,7 +408,7 @@ class Book_Review_Library_Taxonomies {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_series() {
+	private function register_taxonomy_series() {
 		register_taxonomy('series', array('book-review'), array(
 			'label' => __('Series', 'book-review-library'),
 			'labels' => array(
@@ -455,7 +455,7 @@ class Book_Review_Library_Taxonomies {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_rating() {
+	private function register_taxonomy_rating() {
 		register_taxonomy('rating', array('book-review'), array(
 			'label' => __('Star Ratings', 'book-review-library'),
 			'labels' => array(
