@@ -318,6 +318,34 @@ function book_reviews_thumbnail() {
 }
 
 /**
+ * Author Image
+ * enables/disables author image uploads
+ *
+ * @since 1.5.0
+ */
+function book_reviews_author_image() {
+	include_once(BOOK_REVIEWS_FUNC);
+	$defaults = book_reviews_option_defaults();
+	$options = get_option( 'book_reviews_settings', $defaults );
+	?>
+	<tr valign="top"><th scope="row"><?php _e( 'Author Image', 'book-review-library' ); ?></th>
+		<td>
+			<select name="book_reviews_settings[author-image]" id="author-image">
+			<?php
+				$selected = $options['author-image'];
+				foreach ( book_reviews_true_false() as $option ) {
+					$label = $option['label'];
+					$value = $option['value'];
+					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+				} ?>
+			</select><br />
+			<label class="description" for="book_reviews_settings[author-image]"><?php _e( 'Enable to allow uploads for an author image to display with the book review.', 'book-review-library' ); ?></label>
+		</td>
+	</tr>
+	<?php
+}
+
+/**
  * DO ALL THE THINGS!
  *
  * @since 	1.0.0
@@ -337,6 +365,7 @@ function book_reviews_do_options() {
 	book_reviews_rating();
 	book_reviews_thumbnail();
 	book_reviews_stock();
+	book_reviews_author_image();
 	book_reviews_title();
 	book_reviews_comments();
 	echo $options_after;
