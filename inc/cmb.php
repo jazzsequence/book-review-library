@@ -22,14 +22,33 @@ class Book_Review_Library_CMB {
 	}
 
 	/**
+	 * Return an instance of this class.
+	 *
+	 * @since     1.0.0
+	 *
+	 * @return    object    A single instance of this class.
+	 */
+	public static function get_instance() {
+
+		// If the single instance hasn't been set, set it now.
+		if ( null == self::$instance ) {
+			self::$instance = new self;
+		}
+
+		return self::$instance;
+	}
+
+	/**
 	 * Deal with the metaboxes
 	 *
 	 * @since 	1.5
 	 */
 	public function  do_cmb_meta_boxes( array $meta_boxes ) {
 
+		$book_reviews = Book_Reviews::get_instance();
+
 		// get the options
-		$options = Book_Reviews::get_options();
+		$options = $book_reviews->get_options();
 
 		$meta_boxes['book-reviews-meta'] = array(
 			'id'           => 'book-reviews-meta',
@@ -126,3 +145,5 @@ class Book_Review_Library_CMB {
  	}
 
 }
+
+Book_Review_Library_CMB::get_instance();
