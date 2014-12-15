@@ -449,6 +449,60 @@ class Book_Reviews {
  	}
 
  	/**
+ 	 * Check if subject is enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if subject is enabled, false if it isn't
+ 	 */
+ 	public function is_subject_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the subject option isn't set
+ 		if ( !isset( $options['subject'] ) )
+ 			return false;
+
+ 		// if subject is true
+ 		if ( true == $options['subject'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
+ 	/**
+ 	 * Check if illustrator is enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if illustrator is enabled, false if it isn't
+ 	 */
+ 	public function is_illustrator_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the illustrator option isn't set
+ 		if ( !isset( $options['illustrator'] ) )
+ 			return false;
+
+ 		// if illustrator is true
+ 		if ( true == $options['illustrator'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
+ 	/**
  	 * Check if stock is enabled
  	 *
  	 * @since 	1.5.0
@@ -503,6 +557,33 @@ class Book_Reviews {
  	}
 
  	/**
+ 	 * Check if series are enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if series are enabled, false if they aren't
+ 	 */
+ 	public function are_series_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the series option isn't set
+ 		if ( !isset( $options['series'] ) )
+ 			return false;
+
+ 		// if series is true
+ 		if ( true == $options['series'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
+ 	/**
  	 * Check if ratings are enabled
  	 *
  	 * @since 	1.5.0
@@ -523,6 +604,33 @@ class Book_Reviews {
 
  		// if rating is true
  		if ( true == $options['rating'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
+ 	/**
+ 	 * Check if review authors are enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if review authors are enabled, false if they aren't
+ 	 */
+ 	public function are_review_authors_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the review-author option isn't set
+ 		if ( !isset( $options['review-author'] ) )
+ 			return false;
+
+ 		// if review-author is true
+ 		if ( true == $options['review-author'] )
  			return true;
 
  		// for anything else
