@@ -86,7 +86,7 @@ class Book_Review_Library_CMB {
 		);
 
 		// check if ratings are enabled
-		if ( Book_Reviews::are_ratings_enabled() ) {
+		if ( $book_reviews->are_ratings_enabled() ) {
 			$meta_boxes['star-rating'] = array(
 				'id'           => 'star-rating',
 				'title'        => __( 'Star Rating', 'book-review-library' ),
@@ -123,7 +123,7 @@ class Book_Review_Library_CMB {
 		);
 
 		// check if reading level is enabled
-		if ( Book_Reviews::is_reading_level_enabled() ) {
+		if ( $book_reviews->is_reading_level_enabled() ) {
 			$meta_boxes['reading-level'] = array(
 				'id'           => 'reading-level',
 				'title'        => __( 'Reading Level', 'book-review-library' ),
