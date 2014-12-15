@@ -498,6 +498,65 @@ class Book_Review_Library_Taxonomies {
 	}
 
 	/**
+	 * Helper function to register the all the taxonomies
+	 *
+	 * @since 1.5.0
+	 */
+	private function register_the_taxonomy( $args = array() ) {
+		if ( empty( $args ) )
+			return;
+
+		$singular     = $args['singular'];
+		$plural       = $args['plural'];
+		$slug         = $args['slug'];
+		$show_ui      = $args['show_ui'];
+		$tagcloud     = $args['show_tagcloud'];
+		$hierarchical = $args['hierarchical'];
+
+		$taxonomy = array(
+			'label' => $plural,
+			'labels' => array(
+				'name' => $plural,
+				'singular_name' => $singular,
+				'search_items' =>  sprintf( __( 'Search %s', 'book-review-library' ), $plural ),
+				'popular_items' => sprintf( __( 'Popular %s', 'book-review-library' ), $plural ),
+				'all_items' => sprintf( __( 'All %s', 'book-review-library' ), $plural ),
+				'parent_item' => null,
+				'parent_item_colon' => null,
+				'edit_item' => sprintf( __( 'Edit %s' ), $singular ),
+				'update_item' => sprintf( __( 'Update %s' ), $singular ),
+				'add_new_item' => sprintf( __( 'Add New %s' ), $singular ),
+				'new_item_name' => sprintf( __( 'New %s Name' ), $singular ),
+				'separate_items_with_commas' => sprintf( __( 'Separate %s with commas' ), $plural ),
+				'add_or_remove_items' => sprintf( __( 'Add or remove %s' ), $plural ),
+				'choose_from_most_used' => sprintf( __( 'Choose from the most used %s' ), $plural ),
+				'menu_name' => $plural,
+			),
+			'public' => true,
+			'show_in_nav_menus' => true,
+			'show_ui' => $show_ui,
+			'show_tagcloud' => $tagcloud,
+			'hierarchical' => $hierarchical,
+			'update_count_callback' => '',
+			'query_var' =>  $slug,
+			'rewrite' => array(
+				'slug' =>  $slug,
+				'with_front' => true,
+				'hierarchical' => false,
+			),
+			'capabilities' => array(
+				'manage_terms' => 'edit_book-reviews',
+				'edit_terms' => 'edit_book-reviews',
+				'delete_terms' => 'edit_others_book-reviews',
+				'manage_categories' => 'edit_book-reviews',
+				'assign_terms' => 'edit_book-reviews'
+			),
+		);
+
+		return $taxonomy;
+	}
+
+	/**
 	 * Inserts the rating levels
 	 *
 	 * @since 	1.0.0
