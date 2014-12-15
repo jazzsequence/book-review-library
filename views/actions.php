@@ -47,9 +47,6 @@
 		// Move metaboxes around
 		add_action( 'add_meta_boxes', array( $this, 'move_meta_boxes' ) );
 
-		// deal with meta boxes
-		add_filter( 'cmb2_meta_boxes', array( $this, 'do_cmb_meta_boxes') );
-
 		// Register the options
 		add_action( 'admin_init' , array( $this, 'settings_init' ) );
 
