@@ -17,6 +17,8 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: book-review-library
  * Domain Path: /lang
+ * GitHub Plugin URI: https://github.com/jazzsequence/book-review-library
+ * GitHub Branch: develop
  */
 
 // If this file is called directly, abort.
