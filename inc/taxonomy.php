@@ -309,9 +309,6 @@ class Book_Review_Library_Taxonomies {
 			'singular'          => __( 'Subject', 'book-review-library' ),
 			'plural'            => __( 'Subjects', 'book-review-library' ),
 			'slug'              => 'subject',
-			'show_ui'           => true,
-			'show_in_nav_menus' => true,
-			'show_tagcloud'     => true,
 			'hierarchical'      => false
 		);
 		$this->register_the_taxonomy( $args );
@@ -327,10 +324,6 @@ class Book_Review_Library_Taxonomies {
 			'singular'          => __( 'Illustrator', 'book-review-library' ),
 			'plural'            => __( 'Illustrators', 'book-review-library' ),
 			'slug'              => 'illustrator',
-			'show_ui'           => true,
-			'show_in_nav_menus' => true,
-			'show_tagcloud'     => true,
-			'hierarchical'      => true
 		);
 		$this->register_the_taxonomy( $args );
 	}
@@ -345,9 +338,6 @@ class Book_Review_Library_Taxonomies {
 			'singular'          => __( 'Award', 'book-review-library' ),
 			'plural'            => __( 'Awards', 'book-review-library' ),
 			'slug'              => 'awards',
-			'show_ui'           => true,
-			'show_in_nav_menus' => true,
-			'show_tagcloud'     => true,
 			'hierarchical'      => false
 		);
 		$this->register_the_taxonomy( $args );
@@ -363,10 +353,6 @@ class Book_Review_Library_Taxonomies {
 			'singular'          => __( 'Series', 'book-review-library' ),
 			'plural'            => __( 'Series', 'book-review-library' ),
 			'slug'              => 'series',
-			'show_ui'           => true,
-			'show_in_nav_menus' => true,
-			'show_tagcloud'     => false,
-			'hierarchical'      => true
 		);
 		$this->register_the_taxonomy( $args );
 	}
@@ -381,7 +367,6 @@ class Book_Review_Library_Taxonomies {
 			'singular'          => __( 'Star Rating', 'book-review-library' ),
 			'plural'            => __( 'Star Ratings', 'book-review-library' ),
 			'slug'              => 'rating',
-			'show_ui'           => true,
 			'show_in_nav_menus' => false,
 			'show_tagcloud'     => false,
 			'hierarchical'      => false
