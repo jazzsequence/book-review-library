@@ -279,6 +279,7 @@ class Book_Review_Library_Taxonomies {
 	 * Register the language taxonomy
 	 *
 	 * @since 1.5.0
+	 * @todo Add action, add option
 	 */
 	public function register_taxonomy_language() {
 		$args = array(
@@ -294,6 +295,7 @@ class Book_Review_Library_Taxonomies {
 	 * Register the format taxonomy
 	 *
 	 * @since 1.5.0
+	 * @todo add action, option, cmb, default format terms
 	 */
 	public function register_taxonomy_format() {
 		$args = array(
