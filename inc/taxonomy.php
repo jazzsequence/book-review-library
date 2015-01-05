@@ -83,13 +83,13 @@ class Book_Review_Library_Taxonomies {
 		if ( empty( $args ) )
 			return;
 
-		$singular          = $args['singular'];
-		$plural            = $args['plural'];
-		$slug              = $args['slug'];
-		$show_ui           = $args['show_ui'];
-		$show_in_nav_menus = $args['show_in_nav_menus'];
-		$tagcloud          = $args['show_tagcloud'];
-		$hierarchical      = $args['hierarchical'];
+		$singular          = $args['singular']; // required
+		$plural            = $args['plural'];   // required
+		$slug              = $args['slug'];     // required
+		$show_ui           = ( isset( $args['show_ui'] ) ) ? $args['show_ui'] : true;
+		$show_in_nav_menus = ( isset( $args['show_in_nav_menus'] ) ) ? $args['show_in_nav_menus'] : true;
+		$tagcloud          = ( isset( $args['show_tagcloud'] ) ) ? $args['show_tagcloud'] : true;
+		$hierarchical      = ( isset ( $args['hierarchical'] ) ) ? $args['hierarchical'] : true;
 
 		$labels = array(
 			'name' => $plural,
