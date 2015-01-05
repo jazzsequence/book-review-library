@@ -90,9 +90,10 @@ class Book_Review_Library_Taxonomies {
 		$show_in_nav_menus = ( isset( $args['show_in_nav_menus'] ) ) ? $args['show_in_nav_menus'] : true;
 		$tagcloud          = ( isset( $args['show_tagcloud'] ) ) ? $args['show_tagcloud'] : true;
 		$hierarchical      = ( isset ( $args['hierarchical'] ) ) ? $args['hierarchical'] : true;
+		$name              = ( isset( $args['use_singular_labels'] ) && $args['use_singular_labels'] ) ? $singular : $plural;
 
 		$labels = array(
-			'name' => $plural,
+			'name' => $name,
 			'singular_name' => $singular,
 			'search_items' =>  sprintf( __( 'Search %s', 'book-review-library' ), $plural ),
 			'popular_items' => sprintf( __( 'Popular %s', 'book-review-library' ), $plural ),
@@ -110,7 +111,7 @@ class Book_Review_Library_Taxonomies {
 		);
 
 		$taxonomy = array(
-			'label' => $plural,
+			'label' => $name,
 			'labels' => $labels,
 			'public' => true,
 			'show_in_nav_menus' => $show_in_nav_menus,
