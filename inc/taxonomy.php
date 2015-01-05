@@ -329,45 +329,16 @@ class Book_Review_Library_Taxonomies {
 	 * @since 	1.0.0
 	 */
 	public function register_taxonomy_subject() {
-		register_taxonomy('subject', array('book-review'), array(
-			'label' => __('Subjects', 'book-review-library'),
-			'labels' => array(
-				'name' => __( 'Subjects', 'book-review-library' ),
-				'singular_name' => __( 'Subject', 'book-review-library' ),
-				'search_items' =>  __( 'Search Subjects', 'book-review-library' ),
-				'popular_items' => __( 'Popular Subjects', 'book-review-library' ),
-				'all_items' => __( 'All Subjects', 'book-review-library' ),
-				'parent_item' => null,
-				'parent_item_colon' => null,
-				'edit_item' => __( 'Edit Subject', 'book-review-library' ),
-				'update_item' => __( 'Update Subject', 'book-review-library' ),
-				'add_new_item' => __( 'Add New Subject', 'book-review-library' ),
-				'new_item_name' => __( 'New Subject Name', 'book-review-library' ),
-				'separate_items_with_commas' => __( 'Separate Subjects with commas', 'book-review-library' ),
-				'add_or_remove_items' => __( 'Add or remove Subjects', 'book-review-library' ),
-				'choose_from_most_used' => __( 'Choose from the most used Subjects', 'book-review-library' ),
-				'menu_name' => __( 'Subjects', 'book-review-library' ),
-			),
-			'public' => true,
+		$args = array(
+			'singular'          => __( 'Subject', 'book-review-library' ),
+			'plural'            => __( 'Subjects', 'book-review-library' ),
+			'slug'              => 'subject',
+			'show_ui'           => true,
 			'show_in_nav_menus' => true,
-			'show_ui' => true,
-			'show_tagcloud' => true,
-			'hierarchical' => false,
-			'update_count_callback' => '',
-			'query_var' => 'subject',
-			'rewrite' => array(
-				'slug' => 'subject',
-				'with_front' => true,
-				'hierarchical' => false,
-			),
-			'capabilities' => array(
-				'manage_terms' => 'edit_book-reviews',
-				'edit_terms' => 'edit_book-reviews',
-				'delete_terms' => 'edit_others_book-reviews',
-				'manage_categories' => 'edit_book-reviews',
-				'assign_terms' => 'edit_book-reviews'
-			),
-		));
+			'show_tagcloud'     => true,
+			'hierarchical'      => false
+		);
+		$this->register_the_taxonomy( $args );
 	}
 
 	/**
