@@ -286,45 +286,17 @@ class Book_Review_Library_Taxonomies {
 	 * @since 	1.0.0
 	 */
 	public function register_taxonomy_reading_level() {
-		register_taxonomy('reading-level', array('book-review'), array(
-			'label' => __('Reading Level', 'book-review-library'),
-			'labels' => array(
-				'name' => __( 'Reading Level', 'book-review-library' ),
-				'singular_name' => __( 'Reading Level', 'book-review-library' ),
-				'search_items' =>  __( 'Search Reading Levels', 'book-review-library' ),
-				'popular_items' => __( 'Popular Reading Levels', 'book-review-library' ),
-				'all_items' => __( 'All Reading Levels', 'book-review-library' ),
-				'parent_item' => null,
-				'parent_item_colon' => null,
-				'edit_item' => __( 'Edit Reading Level', 'book-review-library' ),
-				'update_item' => __( 'Update Reading Level', 'book-review-library' ),
-				'add_new_item' => __( 'Add New Reading Level', 'book-review-library' ),
-				'new_item_name' => __( 'New Reading Level Name', 'book-review-library' ),
-				'separate_items_with_commas' => __( 'Separate Reading Levels with commas', 'book-review-library' ),
-				'add_or_remove_items' => __( 'Add or remove Reading Levels', 'book-review-library' ),
-				'choose_from_most_used' => __( 'Choose from the most used Reading Levels', 'book-review-library' ),
-				'menu_name' => __( 'Reading Levels', 'book-review-library' ),
-			),
-			'public' => true,
-			'show_in_nav_menus' => true,
-			'show_ui' => true,
-			'show_tagcloud' => true,
-			'hierarchical' => false,
-			'update_count_callback' => '',
-			'query_var' => 'reading-level',
-			'rewrite' => array(
-				'slug' => 'reading-level',
-				'with_front' => true,
-				'hierarchical' => false,
-			),
-			'capabilities' => array(
-				'manage_terms' => 'edit_book-reviews',
-				'edit_terms' => 'edit_book-reviews',
-				'delete_terms' => 'edit_others_book-reviews',
-				'manage_categories' => 'edit_book-reviews',
-				'assign_terms' => 'edit_book-reviews'
-			),
-		));
+		$args = array(
+			'singular'            => __('Reading Level', 'book-review-library'),
+			'plural'              => __('Reading Levels', 'book-review-library'),
+			'slug'                => 'reading-level',
+			'show_ui'             => true,
+			'show_in_nav_menus'   => true,
+			'show_tagcloud'       => true,
+			'hierarchical'        => false,
+			'use_singular_labels' => true
+		);
+		$this->register_the_taxonomy( $args );
 	}
 
 	/**
