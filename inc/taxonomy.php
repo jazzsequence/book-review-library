@@ -74,6 +74,9 @@ class Book_Review_Library_Taxonomies {
 	/**
 	 * Helper function to register the all the taxonomies
 	 *
+	 * @param array $args 	singular, plural, slug, show_ui, show_in_nav_menus, tagcloud,
+	 * 						hierarchical
+	 *
 	 * @since 1.5.0
 	 */
 	public function register_the_taxonomy( $args = array() ) {
