@@ -290,9 +290,6 @@ class Book_Review_Library_Taxonomies {
 			'singular'            => __('Reading Level', 'book-review-library'),
 			'plural'              => __('Reading Levels', 'book-review-library'),
 			'slug'                => 'reading-level',
-			'show_ui'             => true,
-			'show_in_nav_menus'   => true,
-			'show_tagcloud'       => true,
 			'hierarchical'        => false,
 			'use_singular_labels' => true
 		);
