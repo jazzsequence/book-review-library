@@ -309,6 +309,21 @@ class Book_Review_Library_Taxonomies {
 	}
 
 	/**
+	 * Register the publisher taxonomy
+	 *
+	 * @since 1.5.0
+	 * @todo add action, option, cmb
+	 */
+	public function register_taxonomy_publisher() {
+		$args = array(
+			'singular'            => __( 'Publisher', 'book-review-library' ),
+			'plural'              => __( 'Publishers', 'book-review-library' ),
+			'slug'                => 'publisher',
+		);
+		$this->register_the_taxonomy( $args );
+	}
+
+	/**
 	 * Inserts the rating levels
 	 *
 	 * @since 	1.0.0
