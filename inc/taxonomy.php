@@ -376,52 +376,16 @@ class Book_Review_Library_Taxonomies {
 	 * @since 	1.0.0
 	 */
 	public function register_taxonomy_illustrator() {
-			// 'singular'          => __( 'Star Rating', 'book-review-library' ),
-			// 'plural'            => __( 'Star Ratings', 'book-review-library' ),
-			// 'slug'              => 'rating',
-			// 'show_ui'           => true,
-			// 'show_in_nav_menus' => false,
-			// 'show_tagcloud'     => false,
-			// 'hierarchical'      => false
-		register_taxonomy('illustrator', array('book-review'), array(
-			'label' => __('Illustrators', 'book-review-library'),
-			'labels' => array(
-				'name' => __( 'Illustrators', 'book-review-library' ),
-				'singular_name' => __( 'Illustrator', 'book-review-library' ),
-				'search_items' =>  __( 'Search Illustrators', 'book-review-library' ),
-				'popular_items' => __( 'Popular Illustrators', 'book-review-library' ),
-				'all_items' => __( 'All Illustrators', 'book-review-library' ),
-				'parent_item' => null,
-				'parent_item_colon' => null,
-				'edit_item' => __( 'Edit Illustrator', 'book-review-library' ),
-				'update_item' => __( 'Update Illustrator', 'book-review-library' ),
-				'add_new_item' => __( 'Add New Illustrator', 'book-review-library' ),
-				'new_item_name' => __( 'New Illustrator Name', 'book-review-library' ),
-				'separate_items_with_commas' => __( 'Separate Illustrators with commas', 'book-review-library' ),
-				'add_or_remove_items' => __( 'Add or remove Illustrators', 'book-review-library' ),
-				'choose_from_most_used' => __( 'Choose from the most used Illustrators', 'book-review-library' ),
-				'menu_name' => __( 'Illustrators', 'book-review-library' ),
-			),
-			'public' => true,
+		$args = array(
+			'singular'          => __( 'Illustrator', 'book-review-library' ),
+			'plural'            => __( 'Illustrators', 'book-review-library' ),
+			'slug'              => 'illustrator',
+			'show_ui'           => true,
 			'show_in_nav_menus' => true,
-			'show_ui' => true,
-			'show_tagcloud' => true,
-			'hierarchical' => true,
-			'update_count_callback' => '',
-			'query_var' => 'illustrator',
-			'rewrite' => array(
-				'slug' => 'illustrator',
-				'with_front' => true,
-				'hierarchical' => false,
-			),
-			'capabilities' => array(
-				'manage_terms' => 'edit_book-reviews',
-				'edit_terms' => 'edit_book-reviews',
-				'delete_terms' => 'edit_others_book-reviews',
-				'manage_categories' => 'edit_book-reviews',
-				'assign_terms' => 'edit_book-reviews'
-			),
-		));
+			'show_tagcloud'     => true,
+			'hierarchical'      => true
+		);
+		$this->register_the_taxonomy( $args );
 	}
 
 	/**
@@ -440,45 +404,6 @@ class Book_Review_Library_Taxonomies {
 			'hierarchical'      => false
 		);
 		$this->register_the_taxonomy( $args );
-		// register_taxonomy('awards', array('book-review'), array(
-		// 	'label' => __('Awards', 'book-review-library'),
-		// 	'labels' => array(
-		// 		'name' => __( 'Awards', 'book-review-library' ),
-		// 		'singular_name' => __( 'Award', 'book-review-library' ),
-		// 		'search_items' =>  __( 'Search Awards', 'book-review-library' ),
-		// 		'popular_items' => __( 'Popular Awards', 'book-review-library' ),
-		// 		'all_items' => __( 'All Awards', 'book-review-library' ),
-		// 		'parent_item' => null,
-		// 		'parent_item_colon' => null,
-		// 		'edit_item' => __( 'Edit Award', 'book-review-library' ),
-		// 		'update_item' => __( 'Update Award', 'book-review-library' ),
-		// 		'add_new_item' => __( 'Add New Award', 'book-review-library' ),
-		// 		'new_item_name' => __( 'New Award Name', 'book-review-library' ),
-		// 		'separate_items_with_commas' => __( 'Separate Awards with commas', 'book-review-library' ),
-		// 		'add_or_remove_items' => __( 'Add or remove Awards', 'book-review-library' ),
-		// 		'choose_from_most_used' => __( 'Choose from the most used Awards', 'book-review-library' ),
-		// 		'menu_name' => __( 'Awards', 'book-review-library' ),
-		// 	),
-		// 	'public' => true,
-		// 	'show_in_nav_menus' => true,
-		// 	'show_ui' => true,
-		// 	'show_tagcloud' => true,
-		// 	'hierarchical' => false,
-		// 	'update_count_callback' => '',
-		// 	'query_var' => 'awards',
-		// 	'rewrite' => array(
-		// 		'slug' => 'awards',
-		// 		'with_front' => true,
-		// 		'hierarchical' => false,
-		// 	),
-		// 	'capabilities' => array(
-		// 		'manage_terms' => 'edit_book-reviews',
-		// 		'edit_terms' => 'edit_book-reviews',
-		// 		'delete_terms' => 'edit_others_book-reviews',
-		// 		'manage_categories' => 'edit_book-reviews',
-		// 		'assign_terms' => 'edit_book-reviews'
-		// 	),
-		// ));
 	}
 
 	/**
