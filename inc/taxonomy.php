@@ -291,6 +291,22 @@ class Book_Review_Library_Taxonomies {
 	}
 
 	/**
+	 * Register the format taxonomy
+	 *
+	 * @since 1.5.0
+	 */
+	public function register_taxonomy_format() {
+		$args = array(
+			'singular'            => __( 'Format', 'book-review-library' ),
+			'plural'              => __( 'Formats', 'book-review-library' ),
+			'slug'                => 'format',
+			'hierarchical'        => false,
+			'use_singular_labels' => true
+		);
+		$this->register_the_taxonomy( $args );
+	}
+
+	/**
 	 * Inserts the rating levels
 	 *
 	 * @since 	1.0.0
