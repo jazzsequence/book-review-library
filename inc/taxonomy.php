@@ -72,6 +72,67 @@ class Book_Review_Library_Taxonomies {
 	}
 
 	/**
+	 * Helper function to register the all the taxonomies
+	 *
+	 * @since 1.5.0
+	 */
+	public function register_the_taxonomy( $args = array() ) {
+		if ( empty( $args ) )
+			return;
+
+		$singular          = $args['singular'];
+		$plural            = $args['plural'];
+		$slug              = $args['slug'];
+		$show_ui           = $args['show_ui'];
+		$show_in_nav_menus = $args['show_in_nav_menus'];
+		$tagcloud          = $args['show_tagcloud'];
+		$hierarchical      = $args['hierarchical'];
+
+		$labels = array(
+			'name' => $plural,
+			'singular_name' => $singular,
+			'search_items' =>  sprintf( __( 'Search %s', 'book-review-library' ), $plural ),
+			'popular_items' => sprintf( __( 'Popular %s', 'book-review-library' ), $plural ),
+			'all_items' => sprintf( __( 'All %s', 'book-review-library' ), $plural ),
+			'parent_item' => sprintf( __( 'Parent %s', 'book-review-library' ), $singular ),
+			'parent_item_colon' => sprintf( __( 'Parent %s:', 'book-review-library' ), $singular ),
+			'edit_item' => sprintf( __( 'Edit %s', 'book-review-library' ), $singular ),
+			'update_item' => sprintf( __( 'Update %s', 'book-review-library' ), $singular ),
+			'add_new_item' => sprintf( __( 'Add New %s', 'book-review-library' ), $singular ),
+			'new_item_name' => sprintf( __( 'New %s Name', 'book-review-library' ), $singular ),
+			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'book-review-library' ), $plural ),
+			'add_or_remove_items' => sprintf( __( 'Add or remove %s', 'book-review-library' ), $plural ),
+			'choose_from_most_used' => sprintf( __( 'Choose from the most used %s', 'book-review-library' ), $plural ),
+			'menu_name' => $plural,
+		);
+
+		$taxonomy = array(
+			'label' => $plural,
+			'labels' => $labels,
+			'public' => true,
+			'show_in_nav_menus' => $show_in_nav_menus,
+			'show_ui' => $show_ui,
+			'show_tagcloud' => $tagcloud,
+			'hierarchical' => $hierarchical,
+			'query_var' =>  $slug,
+			'rewrite' => array(
+				'slug' => $slug,
+				'with_front' => true,
+				'hierarchical' => false,
+			),
+			'capabilities' => array(
+				'manage_terms' => 'edit_book-reviews',
+				'edit_terms' => 'edit_book-reviews',
+				'delete_terms' => 'edit_others_book-reviews',
+				'manage_categories' => 'edit_book-reviews',
+				'assign_terms' => 'edit_book-reviews'
+			),
+		);
+
+		register_taxonomy( $slug, array( 'book-review' ), $taxonomy );
+	}
+
+	/**
 	 * Register the genre taxonomy
 	 *
 	 * @since 	1.0.0
@@ -315,6 +376,13 @@ class Book_Review_Library_Taxonomies {
 	 * @since 	1.0.0
 	 */
 	public function register_taxonomy_illustrator() {
+			// 'singular'          => __( 'Star Rating', 'book-review-library' ),
+			// 'plural'            => __( 'Star Ratings', 'book-review-library' ),
+			// 'slug'              => 'rating',
+			// 'show_ui'           => true,
+			// 'show_in_nav_menus' => false,
+			// 'show_tagcloud'     => false,
+			// 'hierarchical'      => false
 		register_taxonomy('illustrator', array('book-review'), array(
 			'label' => __('Illustrators', 'book-review-library'),
 			'labels' => array(
@@ -362,145 +430,44 @@ class Book_Review_Library_Taxonomies {
 	 * @since 	1.0.0
 	 */
 	public function register_taxonomy_awards() {
-		register_taxonomy('awards', array('book-review'), array(
-			'label' => __('Awards', 'book-review-library'),
-			'labels' => array(
-				'name' => __( 'Awards', 'book-review-library' ),
-				'singular_name' => __( 'Award', 'book-review-library' ),
-				'search_items' =>  __( 'Search Awards', 'book-review-library' ),
-				'popular_items' => __( 'Popular Awards', 'book-review-library' ),
-				'all_items' => __( 'All Awards', 'book-review-library' ),
-				'parent_item' => null,
-				'parent_item_colon' => null,
-				'edit_item' => __( 'Edit Award', 'book-review-library' ),
-				'update_item' => __( 'Update Award', 'book-review-library' ),
-				'add_new_item' => __( 'Add New Award', 'book-review-library' ),
-				'new_item_name' => __( 'New Award Name', 'book-review-library' ),
-				'separate_items_with_commas' => __( 'Separate Awards with commas', 'book-review-library' ),
-				'add_or_remove_items' => __( 'Add or remove Awards', 'book-review-library' ),
-				'choose_from_most_used' => __( 'Choose from the most used Awards', 'book-review-library' ),
-				'menu_name' => __( 'Awards', 'book-review-library' ),
-			),
-			'public' => true,
-			'show_in_nav_menus' => true,
-			'show_ui' => true,
-			'show_tagcloud' => true,
-			'hierarchical' => false,
-			'update_count_callback' => '',
-			'query_var' => 'awards',
-			'rewrite' => array(
-				'slug' => 'awards',
-				'with_front' => true,
-				'hierarchical' => false,
-			),
-			'capabilities' => array(
-				'manage_terms' => 'edit_book-reviews',
-				'edit_terms' => 'edit_book-reviews',
-				'delete_terms' => 'edit_others_book-reviews',
-				'manage_categories' => 'edit_book-reviews',
-				'assign_terms' => 'edit_book-reviews'
-			),
-		));
-	}
-
-	/**
-	 * Register the series taxonomy
-	 *
-	 * @since 	1.0.0
-	 */
-	public function register_taxonomy_series() {
-		register_taxonomy('series', array('book-review'), array(
-			'label' => __('Series', 'book-review-library'),
-			'labels' => array(
-				'name' => __( 'Series', 'book-review-library' ),
-				'singular_name' => __( 'Series', 'book-review-library' ),
-				'search_items' =>  __( 'Search Series', 'book-review-library' ),
-				'popular_items' => __( 'Popular Series', 'book-review-library' ),
-				'all_items' => __( 'All Series', 'book-review-library' ),
-				'parent_item' => null,
-				'parent_item_colon' => null,
-				'edit_item' => __( 'Edit Series', 'book-review-library' ),
-				'update_item' => __( 'Update Series', 'book-review-library' ),
-				'add_new_item' => __( 'Add New Series', 'book-review-library' ),
-				'new_item_name' => __( 'New Series Name', 'book-review-library' ),
-				'separate_items_with_commas' => __( 'Separate Series with commas', 'book-review-library' ),
-				'add_or_remove_items' => __( 'Add or remove Series', 'book-review-library' ),
-				'choose_from_most_used' => __( 'Choose from the most used Series', 'book-review-library' ),
-				'menu_name' => __( 'Series', 'book-review-library' ),
-			),
-			'public' => true,
-			'show_in_nav_menus' => true,
-			'show_ui' => true,
-			'show_tagcloud' => true,
-			'hierarchical' => true,
-			'update_count_callback' => '',
-			'query_var' => 'series',
-			'rewrite' => array(
-				'slug' => 'series',
-				'with_front' => true,
-				'hierarchical' => false,
-			),
-			'capabilities' => array(
-				'manage_terms' => 'edit_book-reviews',
-				'edit_terms' => 'edit_book-reviews',
-				'delete_terms' => 'edit_others_book-reviews',
-				'manage_categories' => 'edit_book-reviews',
-				'assign_terms' => 'edit_book-reviews'
-			),
-		));
-	}
-
-	/**
-	 * Register the rating taxonomy
-	 *
-	 * @since 	1.0.0
-	 */
-	public function register_taxonomy_rating() {
-		// $singular     = $args['singular'];
-		// $plural       = $args['plural'];
-		// $slug         = $args['slug'];
-		// $show_ui      = $args['show_ui'];
-		// $tagcloud     = $args['show_tagcloud'];
-		// $hierarchical = $args['hierarchical'];
 		$args = array(
-			'singular'          => __( 'Star Rating', 'book-review-library' ),
-			'plural'            => __( 'Star Ratings', 'book-review-library' ),
-			'slug'              => 'rating',
+			'singular'          => __( 'Award', 'book-review-library' ),
+			'plural'            => __( 'Awards', 'book-review-library' ),
+			'slug'              => 'awards',
 			'show_ui'           => true,
-			'show_in_nav_menus' => false,
-			'show_tagcloud'     => false,
+			'show_in_nav_menus' => true,
+			'show_tagcloud'     => true,
 			'hierarchical'      => false
 		);
 		$this->register_the_taxonomy( $args );
-
-		// register_taxonomy('rating', array('book-review'), array(
-		// 	'label' => __('Star Ratings', 'book-review-library'),
+		// register_taxonomy('awards', array('book-review'), array(
+		// 	'label' => __('Awards', 'book-review-library'),
 		// 	'labels' => array(
-		// 		'name' => __( 'Star Ratings', 'book-review-library' ),
-		// 		'singular_name' => __( 'Star', 'book-review-library' ),
-		// 		'search_items' =>  __( 'Search Ratings', 'book-review-library' ),
-		// 		'popular_items' => __( 'Popular Ratings', 'book-review-library' ),
-		// 		'all_items' => __( 'Stars', 'book-review-library' ),
+		// 		'name' => __( 'Awards', 'book-review-library' ),
+		// 		'singular_name' => __( 'Award', 'book-review-library' ),
+		// 		'search_items' =>  __( 'Search Awards', 'book-review-library' ),
+		// 		'popular_items' => __( 'Popular Awards', 'book-review-library' ),
+		// 		'all_items' => __( 'All Awards', 'book-review-library' ),
 		// 		'parent_item' => null,
 		// 		'parent_item_colon' => null,
-		// 		'edit_item' => __( 'Edit Rating', 'book-review-library' ),
-		// 		'update_item' => __( 'Update Rating', 'book-review-library' ),
-		// 		'add_new_item' => __( 'Add New Rating', 'book-review-library' ),
-		// 		'new_item_name' => __( 'New Rating Name', 'book-review-library' ),
-		// 		'separate_items_with_commas' => __( 'Separate Star Ratings with commas', 'book-review-library' ),
-		// 		'add_or_remove_items' => __( 'Add or remove Star Ratings', 'book-review-library' ),
-		// 		'choose_from_most_used' => __( 'Choose from the most used Star Ratings', 'book-review-library' ),
-		// 		'menu_name' => __( 'Star Ratings', 'book-review-library' ),
+		// 		'edit_item' => __( 'Edit Award', 'book-review-library' ),
+		// 		'update_item' => __( 'Update Award', 'book-review-library' ),
+		// 		'add_new_item' => __( 'Add New Award', 'book-review-library' ),
+		// 		'new_item_name' => __( 'New Award Name', 'book-review-library' ),
+		// 		'separate_items_with_commas' => __( 'Separate Awards with commas', 'book-review-library' ),
+		// 		'add_or_remove_items' => __( 'Add or remove Awards', 'book-review-library' ),
+		// 		'choose_from_most_used' => __( 'Choose from the most used Awards', 'book-review-library' ),
+		// 		'menu_name' => __( 'Awards', 'book-review-library' ),
 		// 	),
 		// 	'public' => true,
-		// 	'show_in_nav_menus' => false,
+		// 	'show_in_nav_menus' => true,
 		// 	'show_ui' => true,
-		// 	'show_tagcloud' => false,
-		// 	'hierarchical' => true,
+		// 	'show_tagcloud' => true,
+		// 	'hierarchical' => false,
 		// 	'update_count_callback' => '',
-		// 	'query_var' => 'rating',
+		// 	'query_var' => 'awards',
 		// 	'rewrite' => array(
-		// 		'slug' => 'rating',
+		// 		'slug' => 'awards',
 		// 		'with_front' => true,
 		// 		'hierarchical' => false,
 		// 	),
@@ -515,63 +482,39 @@ class Book_Review_Library_Taxonomies {
 	}
 
 	/**
-	 * Helper function to register the all the taxonomies
+	 * Register the series taxonomy
 	 *
-	 * @since 1.5.0
+	 * @since 	1.0.0
 	 */
-	public function register_the_taxonomy( $args = array() ) {
-		if ( empty( $args ) )
-			return;
-
-		$singular          = $args['singular'];
-		$plural            = $args['plural'];
-		$slug              = $args['slug'];
-		$show_ui           = $args['show_ui'];
-		$show_in_nav_menus = $args['show_in_nav_menus'];
-		$tagcloud          = $args['show_tagcloud'];
-		$hierarchical      = $args['hierarchical'];
-
-		$taxonomy = array(
-			'label' => $plural,
-			'labels' => array(
-				'name' => $plural,
-				'singular_name' => $singular,
-				'search_items' =>  sprintf( __( 'Search %s', 'book-review-library' ), $plural ),
-				'popular_items' => sprintf( __( 'Popular %s', 'book-review-library' ), $plural ),
-				'all_items' => sprintf( __( 'All %s', 'book-review-library' ), $plural ),
-				'parent_item' => null,
-				'parent_item_colon' => null,
-				'edit_item' => sprintf( __( 'Edit %s' ), $singular ),
-				'update_item' => sprintf( __( 'Update %s' ), $singular ),
-				'add_new_item' => sprintf( __( 'Add New %s' ), $singular ),
-				'new_item_name' => sprintf( __( 'New %s Name' ), $singular ),
-				'separate_items_with_commas' => sprintf( __( 'Separate %s with commas' ), $plural ),
-				'add_or_remove_items' => sprintf( __( 'Add or remove %s' ), $plural ),
-				'choose_from_most_used' => sprintf( __( 'Choose from the most used %s' ), $plural ),
-				'menu_name' => $plural,
-			),
-			'public' => true,
-			'show_in_nav_menus' => $show_in_nav_menus,
-			'show_ui' => $show_ui,
-			'show_tagcloud' => $tagcloud,
-			'hierarchical' => $hierarchical,
-			'update_count_callback' => '',
-			'query_var' =>  $slug,
-			'rewrite' => array(
-				'slug' =>  $slug,
-				'with_front' => true,
-				'hierarchical' => false,
-			),
-			'capabilities' => array(
-				'manage_terms' => 'edit_book-reviews',
-				'edit_terms' => 'edit_book-reviews',
-				'delete_terms' => 'edit_others_book-reviews',
-				'manage_categories' => 'edit_book-reviews',
-				'assign_terms' => 'edit_book-reviews'
-			),
+	public function register_taxonomy_series() {
+		$args = array(
+			'singular'          => __( 'Series', 'book-review-library' ),
+			'plural'            => __( 'Series', 'book-review-library' ),
+			'slug'              => 'series',
+			'show_ui'           => true,
+			'show_in_nav_menus' => true,
+			'show_tagcloud'     => false,
+			'hierarchical'      => true
 		);
+		$this->register_the_taxonomy( $args );
+	}
 
-		register_taxonomy( $slug, array( 'book-review' ), array( $taxonomy ) );
+	/**
+	 * Register the rating taxonomy
+	 *
+	 * @since 	1.0.0
+	 */
+	public function register_taxonomy_rating() {
+		$args = array(
+			'singular'          => __( 'Star Rating', 'book-review-library' ),
+			'plural'            => __( 'Star Ratings', 'book-review-library' ),
+			'slug'              => 'rating',
+			'show_ui'           => true,
+			'show_in_nav_menus' => false,
+			'show_tagcloud'     => false,
+			'hierarchical'      => false
+		);
+		$this->register_the_taxonomy( $args );
 	}
 
 	/**
