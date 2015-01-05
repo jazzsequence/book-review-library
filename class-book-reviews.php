@@ -400,7 +400,7 @@ class Book_Reviews {
 
 			remove_meta_box( 'tagsdiv-reading-level', 'book-review', 'side' );
 			remove_meta_box( 'tagsdiv-genre', 'book-review', 'side' );
-			remove_meta_box( 'ratingdiv', 'book-review', 'side' );
+			remove_meta_box( 'tagsdiv-rating', 'book-review', 'side' );
 			remove_meta_box( 'postimagediv', 'book-review', 'side' );
 	    	add_meta_box('postimagediv', __('Book Cover', 'book-review-library'), 'post_thumbnail_meta_box', 'book-review', 'side', 'default');
 	    }
