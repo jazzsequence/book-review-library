@@ -665,6 +665,33 @@ class Book_Reviews {
  		return false;
  	}
 
+ 	/**
+ 	 * Check if languages are enabled
+ 	 *
+ 	 * @since 	1.5.0
+ 	 * @return 	bool 				True if languages are enabled, false if they aren't
+ 	 */
+ 	public function are_languages_enabled() {
+
+		// get the options
+		$options = $this->get_options();
+
+ 		// if the options array isn't an array
+ 		if ( empty( $options ) )
+ 			return false;
+
+ 		// if the languages option isn't set
+ 		if ( !isset( $options['languages'] ) )
+ 			return false;
+
+ 		// if languages is true
+ 		if ( true == $options['languages'] )
+ 			return true;
+
+ 		// for anything else
+ 		return false;
+ 	}
+
 	/**
 	 * Registers the options
 	 *
