@@ -422,12 +422,18 @@ class Book_Reviews {
  	}
 
  	/**
- 	 * Check if reading level is enabled
+ 	 * Check if a given option is enabled
  	 *
  	 * @since 	1.5.0
- 	 * @return 	bool 				True if reading level is enabled, false if it isn't
+ 	 * @param 	string 	The option name to check
+ 	 * @return 	bool 	True of the setting is enabled, false if it isn't or no option was
+ 	 * 					passed
  	 */
- 	public function is_reading_level_enabled() {
+ 	public function is_option_enabled( $option_name = '' ) {
+
+ 		// return false if nothing was passed
+ 		if ( '' == $option_name )
+ 			return false;
 
 		// get the options
 		$options = $this->get_options();
@@ -436,260 +442,17 @@ class Book_Reviews {
  		if ( empty( $options ) )
  			return false;
 
- 		// if the reading-level option isn't set
- 		if ( !isset( $options['reading-level'] ) )
+ 		// if the option isn't set
+ 		if ( !isset( $options[$option_name] ) )
  			return false;
 
- 		// if reading-level is true
- 		if ( true == $options['reading-level'] )
+ 		// if the option is true
+ 		if ( true == $options[$option_name] )
  			return true;
 
  		// for anything else
  		return false;
- 	}
 
- 	/**
- 	 * Check if subject is enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @return 	bool 				True if subject is enabled, false if it isn't
- 	 */
- 	public function is_subject_enabled() {
-
-		// get the options
-		$options = $this->get_options();
-
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
-
- 		// if the subject option isn't set
- 		if ( !isset( $options['subject'] ) )
- 			return false;
-
- 		// if subject is true
- 		if ( true == $options['subject'] )
- 			return true;
-
- 		// for anything else
- 		return false;
- 	}
-
- 	/**
- 	 * Check if author image is enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @return 	bool 				True if author image is enabled, false if it isn't
- 	 */
- 	public function is_author_image_enabled() {
-
-		// get the options
-		$options = $this->get_options();
-
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
-
- 		// if the author-image option isn't set
- 		if ( !isset( $options['author-image'] ) )
- 			return false;
-
- 		// if author-image is true
- 		if ( true == $options['author-image'] )
- 			return true;
-
- 		// for anything else
- 		return false;
- 	}
-
-
- 	/**
- 	 * Check if illustrator is enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @return 	bool 				True if illustrator is enabled, false if it isn't
- 	 */
- 	public function is_illustrator_enabled() {
-
-		// get the options
-		$options = $this->get_options();
-
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
-
- 		// if the illustrator option isn't set
- 		if ( !isset( $options['illustrator'] ) )
- 			return false;
-
- 		// if illustrator is true
- 		if ( true == $options['illustrator'] )
- 			return true;
-
- 		// for anything else
- 		return false;
- 	}
-
- 	/**
- 	 * Check if stock is enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @return 	bool 				True if stock is enabled, false if it isn't
- 	 */
- 	public function is_stock_enabled() {
-
-		// get the options
-		$options = $this->get_options();
-
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
-
- 		// if the stock option isn't set
- 		if ( !isset( $options['stock'] ) )
- 			return false;
-
- 		// if stock is true
- 		if ( true == $options['stock'] )
- 			return true;
-
- 		// for anything else
- 		return false;
- 	}
-
- 	/**
- 	 * Check if awards are enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @return 	bool 				True if awards are enabled, false if they aren't
- 	 */
- 	public function are_awards_enabled() {
-
-		// get the options
-		$options = $this->get_options();
-
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
-
- 		// if the awards option isn't set
- 		if ( !isset( $options['awards'] ) )
- 			return false;
-
- 		// if awards is true
- 		if ( true == $options['awards'] )
- 			return true;
-
- 		// for anything else
- 		return false;
- 	}
-
- 	/**
- 	 * Check if series are enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @return 	bool 				True if series are enabled, false if they aren't
- 	 */
- 	public function are_series_enabled() {
-
-		// get the options
-		$options = $this->get_options();
-
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
-
- 		// if the series option isn't set
- 		if ( !isset( $options['series'] ) )
- 			return false;
-
- 		// if series is true
- 		if ( true == $options['series'] )
- 			return true;
-
- 		// for anything else
- 		return false;
- 	}
-
- 	/**
- 	 * Check if ratings are enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @return 	bool 				True if ratings are enabled, false if they aren't
- 	 */
- 	public function are_ratings_enabled() {
-
-		// get the options
-		$options = $this->get_options();
-
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
-
- 		// if the rating option isn't set
- 		if ( !isset( $options['rating'] ) )
- 			return false;
-
- 		// if rating is true
- 		if ( true == $options['rating'] )
- 			return true;
-
- 		// for anything else
- 		return false;
- 	}
-
- 	/**
- 	 * Check if review authors are enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @return 	bool 				True if review authors are enabled, false if they aren't
- 	 */
- 	public function are_review_authors_enabled() {
-
-		// get the options
-		$options = $this->get_options();
-
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
-
- 		// if the review-author option isn't set
- 		if ( !isset( $options['review-author'] ) )
- 			return false;
-
- 		// if review-author is true
- 		if ( true == $options['review-author'] )
- 			return true;
-
- 		// for anything else
- 		return false;
- 	}
-
- 	/**
- 	 * Check if languages are enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @return 	bool 				True if languages are enabled, false if they aren't
- 	 */
- 	public function are_languages_enabled() {
-
-		// get the options
-		$options = $this->get_options();
-
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
-
- 		// if the languages option isn't set
- 		if ( !isset( $options['languages'] ) )
- 			return false;
-
- 		// if languages is true
- 		if ( true == $options['languages'] )
- 			return true;
-
- 		// for anything else
- 		return false;
  	}
 
 	/**
