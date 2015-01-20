@@ -351,7 +351,7 @@ function book_reviews_author_image() {
  *
  * @since 1.5.0
  */
-function book_reviews_author_image() {
+function book_reviews_languages() {
 	include_once(BOOK_REVIEWS_FUNC);
 	$defaults = book_reviews_option_defaults();
 	$options = get_option( 'book_reviews_settings', $defaults );
@@ -379,7 +379,7 @@ function book_reviews_author_image() {
  *
  * @since 1.5.0
  */
-function book_reviews_author_image() {
+function book_reviews_format() {
 	include_once(BOOK_REVIEWS_FUNC);
 	$defaults = book_reviews_option_defaults();
 	$options = get_option( 'book_reviews_settings', $defaults );
@@ -407,7 +407,7 @@ function book_reviews_author_image() {
  *
  * @since 1.5.0
  */
-function book_reviews_author_image() {
+function book_reviews_publisher() {
 	include_once(BOOK_REVIEWS_FUNC);
 	$defaults = book_reviews_option_defaults();
 	$options = get_option( 'book_reviews_settings', $defaults );
@@ -447,6 +447,9 @@ function book_reviews_do_options() {
 	book_reviews_awards();
 	book_reviews_series();
 	book_reviews_rating();
+	book_reviews_languages();
+	book_reviews_format();
+	book_reviews_publisher();
 	book_reviews_thumbnail();
 	book_reviews_stock();
 	book_reviews_author_image();
