@@ -346,6 +346,90 @@ function book_reviews_author_image() {
 }
 
 /**
+ * Languages
+ * enables/disables the language taxonomy
+ *
+ * @since 1.5.0
+ */
+function book_reviews_author_image() {
+	include_once(BOOK_REVIEWS_FUNC);
+	$defaults = book_reviews_option_defaults();
+	$options = get_option( 'book_reviews_settings', $defaults );
+	?>
+	<tr valign="top"><th scope="row"><?php _e( 'Languages', 'book-review-library' ); ?></th>
+		<td>
+			<select name="book_reviews_settings[languages]" id="languages">
+			<?php
+				$selected = $options['languages'];
+				foreach ( book_reviews_true_false() as $option ) {
+					$label = $option['label'];
+					$value = $option['value'];
+					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+				} ?>
+			</select><br />
+			<label class="description" for="book_reviews_settings[languages]"><?php _e( 'When enabled, allow books to be grouped by language.', 'book-review-library' ); ?></label>
+		</td>
+	</tr>
+	<?php
+}
+
+/**
+ * Format
+ * enables/disables format option
+ *
+ * @since 1.5.0
+ */
+function book_reviews_author_image() {
+	include_once(BOOK_REVIEWS_FUNC);
+	$defaults = book_reviews_option_defaults();
+	$options = get_option( 'book_reviews_settings', $defaults );
+	?>
+	<tr valign="top"><th scope="row"><?php _e( 'Format', 'book-review-library' ); ?></th>
+		<td>
+			<select name="book_reviews_settings[format]" id="format">
+			<?php
+				$selected = $options['format'];
+				foreach ( book_reviews_true_false() as $option ) {
+					$label = $option['label'];
+					$value = $option['value'];
+					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+				} ?>
+			</select><br />
+			<label class="description" for="book_reviews_settings[format]"><?php _e( 'Group books by formats (eBook, audiobook, etc).', 'book-review-library' ); ?></label>
+		</td>
+	</tr>
+	<?php
+}
+
+/**
+ * Publisher
+ * enables/disables Publisher taxonomy
+ *
+ * @since 1.5.0
+ */
+function book_reviews_author_image() {
+	include_once(BOOK_REVIEWS_FUNC);
+	$defaults = book_reviews_option_defaults();
+	$options = get_option( 'book_reviews_settings', $defaults );
+	?>
+	<tr valign="top"><th scope="row"><?php _e( 'Publisher', 'book-review-library' ); ?></th>
+		<td>
+			<select name="book_reviews_settings[publisher]" id="publisher">
+			<?php
+				$selected = $options['publisher'];
+				foreach ( book_reviews_true_false() as $option ) {
+					$label = $option['label'];
+					$value = $option['value'];
+					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+				} ?>
+			</select><br />
+			<label class="description" for="book_reviews_settings[publisher]"><?php _e( 'Group books by their publisher.', 'book-review-library' ); ?></label>
+		</td>
+	</tr>
+	<?php
+}
+
+/**
  * DO ALL THE THINGS!
  *
  * @since 	1.0.0
