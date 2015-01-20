@@ -45,11 +45,6 @@ class Book_Review_Library_CMB {
 	 */
 	public function  do_cmb_meta_boxes( array $meta_boxes ) {
 
-		$book_reviews = Book_Reviews::get_instance();
-
-		// get the options
-		$options = $book_reviews->get_options();
-
 		$meta_boxes['book-reviews-meta'] = array(
 			'id'           => 'book-reviews-meta',
 			'title'        => __( 'Additional Information', 'book-review-library' ),
@@ -107,7 +102,7 @@ class Book_Review_Library_CMB {
 		}
 
 		// check if author image is enabled
-		if ( $book_reviews->is_option_enabled( 'author-image' ) ) {
+		if ( book_reviews_is_option_enabled( 'author-image' ) ) {
 			$meta_boxes['author-image'] = array(
 				'id'           => 'author-image',
 				'title'        => __( 'Author Image', 'book-review-library' ),
@@ -142,7 +137,7 @@ class Book_Review_Library_CMB {
 		);
 
 		// check if reading level is enabled
-		if ( $book_reviews->is_option_enabled( 'reading-level' ) ) {
+		if ( book_reviews_is_option_enabled( 'reading-level' ) ) {
 			$meta_boxes['reading-level'] = array(
 				'id'           => 'reading-level',
 				'title'        => __( 'Reading Level', 'book-review-library' ),
