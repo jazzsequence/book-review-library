@@ -33,7 +33,7 @@ class Book_Review_Library_Taxonomies {
 		if ( book_reviews_is_option_enabled( 'awards' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_awards' ) );
 
-
+		// Series
 		if ( book_reviews_is_option_enabled( 'series' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_series' ) );
 
@@ -50,6 +50,7 @@ class Book_Review_Library_Taxonomies {
 		// Book Authors (on always)
 		add_action( 'init', array( $this, 'register_taxonomy_book_author' ) );
 
+		// Languages
 		if ( book_reviews_is_option_enabled( 'languages' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_language' ) );
 
