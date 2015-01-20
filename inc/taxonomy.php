@@ -13,34 +13,32 @@ class Book_Review_Library_Taxonomies {
 
 	private function __construct() {
 
-		$book_reviews = Book_Reviews::get_instance();
-
 		// Review Authors
-		if ( $book_reviews->are_review_authors_enabled() )
+		if ( book_reviews_is_option_enabled( 'review-author' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_review_author' ) );
 
 		// Reading Level
-		if ( $book_reviews->is_reading_level_enabled() )
+		if ( book_reviews_is_option_enabled( 'reading-level' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_reading_level' ) );
 
 		// Subject
-		if ( $book_reviews->is_subject_enabled() )
+		if ( book_reviews_is_option_enabled( 'subject' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_subject' ) );
 
 		// Illustrator
-		if ( $book_reviews->is_illustrator_enabled() )
+		if ( book_reviews_is_option_enabled( 'illustrator' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_illustrator' ) );
 
 		// Awards
-		if ( $book_reviews->are_awards_enabled() )
+		if ( book_reviews_is_option_enabled( 'awards' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_awards' ) );
 
 
-		if ( $book_reviews->are_series_enabled() )
+		if ( book_reviews_is_option_enabled( 'series' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_series' ) );
 
 		// Star Ratings
-		if ( $book_reviews->are_ratings_enabled() ) {
+		if ( book_reviews_is_option_enabled( 'rating' ) ) {
 			add_action( 'init', array( $this, 'register_taxonomy_rating' ) );
 			add_action( 'init', array( $this, 'insert_star_ratings' ) );
 			add_action( 'admin_init', array( $this, 'remove_rating_submenu' ) );
