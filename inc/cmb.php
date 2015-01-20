@@ -81,7 +81,7 @@ class Book_Review_Library_CMB {
 		);
 
 		// check if ratings are enabled
-		if ( $book_reviews->are_ratings_enabled() ) {
+		if ( book_reviews_is_option_enabled( 'ratings' ) ) {
 			$meta_boxes['star-rating'] = array(
 				'id'           => 'star-rating',
 				'title'        => __( 'Star Rating', 'book-review-library' ),
