@@ -50,6 +50,9 @@ class Book_Review_Library_Taxonomies {
 		// Book Authors (on always)
 		add_action( 'init', array( $this, 'register_taxonomy_book_author' ) );
 
+		if ( book_reviews_is_option_enabled( 'languages' ) )
+			add_action( 'init', array( $this, 'register_taxonomy_language' ) );
+
 	}
 
 	/**
