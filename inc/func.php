@@ -493,3 +493,17 @@ function book_reviews_option_defaults() {
 	);
 	return $defaults;
 }
+
+/**
+ * Check if a particular option is enabled, wrapper for Book_Reviews::is_option_enabled()
+ *
+ * @since 1.5.0
+ * @param 	string 	The option name to check
+ * @return 	bool 	True of the setting is enabled, false if it isn't or no option was
+ * 					passed
+ */
+function book_reviews_is_option_enabled( $option_name = '' ) {
+	$book_reviews = Book_Reviews::get_instance();
+
+	return $book_reviews->is_option_enabled( $option_name );
+}
