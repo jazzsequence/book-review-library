@@ -53,6 +53,9 @@ class Book_Review_Library_Taxonomies {
 		if ( book_reviews_is_option_enabled( 'languages' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_language' ) );
 
+		// Format
+		if ( book_reviews_is_option_enabled( 'format' ) )
+			add_action( 'init', array( $this, 'register_taxonomy_format' ) );
 	}
 
 	/**
