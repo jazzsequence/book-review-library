@@ -489,7 +489,10 @@ function book_reviews_option_defaults() {
 		'roles' => false,
 		'title-filter' => true,
 		'comments' => false,
-		'author-image' => false
+		'author-image' => false,
+		'languages' => false,
+		'format' => false,
+		'publisher' => false
 	);
 	return $defaults;
 }
