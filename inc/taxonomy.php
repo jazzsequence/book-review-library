@@ -55,8 +55,10 @@ class Book_Review_Library_Taxonomies {
 			add_action( 'init', array( $this, 'register_taxonomy_language' ) );
 
 		// Format
-		if ( book_reviews_is_option_enabled( 'format' ) )
+		if ( book_reviews_is_option_enabled( 'format' ) ) {
 			add_action( 'init', array( $this, 'register_taxonomy_format' ) );
+			add_action( 'init', array( $this, 'insert_formats' ) );
+		}
 
 		// Publisher
 		if ( book_reviews_is_option_enabled( 'publisher' ) )
@@ -362,6 +364,43 @@ class Book_Review_Library_Taxonomies {
 		wp_insert_term( '5', 'rating', array(
 			'description' => __( 'Five stars', 'book-review-library' ),
 			'slug' => 'five-stars'
+		) );
+
+	}
+
+	/**
+	 * Insert book formats
+	 *
+	 * @since 1.5.0
+	 */
+	public function insert_formats() {
+		wp_insert_term( 'Audiobook', 'format', array(
+			'description' => __( 'Books on tape, CD, Audible and the like', 'book-review-library' ),
+			'slug' => 'audiobook'
+		) );
+		wp_insert_term( 'Book', 'format', array(
+			'description' => __( 'The default format for book reviews', 'book-review-library' ),
+			'slug' => 'book'
+		) );
+		wp_insert_term( 'Graphic Novel', 'format', array(
+			'description' => __( 'Long form comic, manga, or other illustrated story', 'book-review-library' ),
+			'slug' => 'graphic-novel'
+		) );
+		wp_insert_term( 'eBook', 'format', array(
+			'description' => __( 'Any book in digital format', 'book-review-library' ),
+			'slug' => 'ebook'
+		) );
+		wp_insert_term( 'Periodical', 'format', array(
+			'description' => __( 'Magazine or newspaper published at regular intervals', 'book-review-library' ),
+			'slug' => 'periodical'
+		) );
+		wp_insert_term( 'Reference' , 'format', array(
+			'description' => __( 'Encyclopedia, dictionary or other nonfiction reference material', 'book-review-library' ),
+			'slug' => 'reference'
+		) );
+		wp_insert_term( 'Picture Book', 'format', array(
+			'description' => __( 'Any book -- generally a children\'s book -- in which pictures make up a large portion -- if not most -- of the book\'s content', 'book-review-library' ),
+			'slug' => 'picture-book'
 		) );
 	}
 
