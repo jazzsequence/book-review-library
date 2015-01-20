@@ -57,6 +57,11 @@ class Book_Review_Library_Taxonomies {
 		// Format
 		if ( book_reviews_is_option_enabled( 'format' ) )
 			add_action( 'init', array( $this, 'register_taxonomy_format' ) );
+
+		// Publisher
+		if ( book_reviews_is_option_enabled( 'publisher' ) )
+			add_action( 'init', array( $this, 'register_taxonomy_publisher' ) );
+
 	}
 
 	/**
