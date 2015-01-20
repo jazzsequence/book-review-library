@@ -107,7 +107,7 @@ class Book_Review_Library_CMB {
 		}
 
 		// check if author image is enabled
-		if ( $book_reviews->is_author_image_enabled() ) {
+		if ( $book_reviews->is_option_enabled( 'author-image' ) ) {
 			$meta_boxes['author-image'] = array(
 				'id'           => 'author-image',
 				'title'        => __( 'Author Image', 'book-review-library' ),
@@ -142,7 +142,7 @@ class Book_Review_Library_CMB {
 		);
 
 		// check if reading level is enabled
-		if ( $book_reviews->is_reading_level_enabled() ) {
+		if ( $book_reviews->is_option_enabled( 'reading-level' ) ) {
 			$meta_boxes['reading-level'] = array(
 				'id'           => 'reading-level',
 				'title'        => __( 'Reading Level', 'book-review-library' ),
@@ -161,6 +161,26 @@ class Book_Review_Library_CMB {
 		}
 
 		return $meta_boxes;
+ 	}
+
+ 	/**
+ 	 * Callback function for stock meta box
+ 	 *
+ 	 * @since  1.5.0
+ 	 * @return bool 	True of stock is enabled, false if it isn't
+ 	 */
+ 	public function is_stock_enabled() {
+ 		return book_reviews_is_option_enabled( 'stock' );
+ 	}
+
+ 	/**
+ 	 * Callback function for awards meta box
+ 	 *
+ 	 * @since  1.5.0
+ 	 * @return bool 	True of stock is enabled, false if it isn't
+ 	 */
+ 	public function are_awards_enabled() {
+ 		return book_reviews_is_option_enabled( 'awards' );
  	}
 
 }
