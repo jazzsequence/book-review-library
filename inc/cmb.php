@@ -162,7 +162,7 @@ class Book_Review_Library_CMB {
  	 * Callback function for stock meta box
  	 *
  	 * @since  1.5.0
- 	 * @return bool 	True of stock is enabled, false if it isn't
+ 	 * @return bool 	True if stock is enabled, false if it isn't
  	 */
  	public function is_stock_enabled() {
  		return book_reviews_is_option_enabled( 'stock' );
