@@ -384,20 +384,10 @@ class Book_Reviews {
 
 			unset( $wp_meta_boxes['book-review']['normal']['core']['authordiv'] );
 
-			unset( $wp_meta_boxes['book-review']['side']['core']['book-authordiv'] );
-			add_meta_box( 'book-authordiv', __( 'Book Author', 'book-review-library' ), 'post_categories_meta_box', 'book-review', 'normal', 'core', array( 'taxonomy' => 'book-author' ) );
 
-			if ( isset($options['illustrator']) && ($options['illustrator']  == true) ) {
-				unset( $wp_meta_boxes['book-review']['side']['core']['illustratordiv'] );
-				add_meta_box( 'illustratordiv', __( 'Illustrator', 'book-review-library' ), 'post_categories_meta_box', 'book-review', 'normal', 'core', array( 'taxonomy' => 'illustrator' ) );
-			}
-
-			if ( isset($options['series']) && ($options['series']  == true) ) {
-				unset( $wp_meta_boxes['book-review']['side']['core']['seriesdiv'] );
-				add_meta_box( 'seriesdiv', __( 'Series', 'book-review-library' ), 'post_categories_meta_box', 'book-review', 'normal', 'core', array( 'taxonomy' => 'series' ) );
-			}
-
-
+			remove_meta_box( 'seriesdiv', 'book-review', 'side' );
+			remove_meta_box( 'book-authordiv', 'book-review', 'side' );
+			remove_meta_box( 'illustratordiv', 'book-review', 'side' );
 			remove_meta_box( 'tagsdiv-reading-level', 'book-review', 'side' );
 			remove_meta_box( 'tagsdiv-genre', 'book-review', 'side' );
 			remove_meta_box( 'tagsdiv-rating', 'book-review', 'side' );
