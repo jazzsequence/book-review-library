@@ -109,7 +109,7 @@ class Book_Review_Library_CMB {
 						'no_terms_text' => __( 'No illustrators have been added', 'book-review-library' )
 					)
 				),
-				'series'          => array(
+				'series' => array(
 					'name'        => __( 'Series', 'book-review-library' ),
 					'id'          => 'series',
 					'taxonomy'    => 'series',
