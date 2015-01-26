@@ -88,7 +88,7 @@ class Book_Review_Library_CMB {
 			'priority'     => 'high',
 			'show_names'   => true,
 			'fields'       => array(
-				'author'            => array(
+/*				'author' => array(
 					'name'          => __( 'Author', 'book-review-library' ),
 					'id'            => 'author',
 					'taxonomy'      => 'book-author',
@@ -97,8 +97,8 @@ class Book_Review_Library_CMB {
 					'options'       => array(
 						'no_terms_text' => __( 'No authors have been added', 'book-review-library' )
 					)
-				),
-				'illustrator'     => array(
+				), */
+				'illustrator' => array(
 					'name'        => __( 'Illustrator', 'book-review-library' ),
 					'id'          => 'illustrator',
 					'taxonomy'    => 'illustrator',
