@@ -68,15 +68,7 @@ class Book_Review_Library_CMB {
 						1 => __( 'Book is in stock', 'book-review-library' )
 					),
 					'show_on_cb' => array( $this, 'is_stock_enabled' )
-				),
-				'award_image' => array(
-					'name'       => __( 'Upload Award Image', 'book-review-library' ),
-					'desc'       => __( 'Upload an image or enter a URL', 'book-review-library' ),
-					'type'       => 'file',
-					'id'         => 'award_image',
-					'show_on_cb' => array( $this, 'are_awards_enabled' )
 				)
-
 			)
 		);
 
@@ -202,10 +194,38 @@ class Book_Review_Library_CMB {
 					'id'         => 'author-image',
 					'desc'       => __( 'Upload or select an image for this book\'s author or enter a URL to an image. No image will display if none is uploaded.', 'book-review-library' ),
 					'type'       => 'file',
-					'show_on_cb' => array( $this, 'is_author_image_enabled )'
+					'show_on_cb' => array( $this, 'is_author_image_enabled' )
 				)
 			)
 		);
+
+		if ( book_reviews_is_option_enabled( 'awards' ) ) {
+			$meta_boxes['awards'] = array(
+				'id'           => 'book-awards',
+				'title'        => __( 'Awards', 'book-review-library' ),
+				'show_names'   => true,
+				'object_types' => array( 'book-review' ),
+				'context'      => 'normal',
+				'priority'     => 'low',
+				'fields'       => array(
+					'awards' => array(
+						'id'          => 'awards',
+						'taxonomy'    => 'awards',
+						'type'        => 'taxonomy_multicheck',
+						'after_field' => sprintf( '<a href="%s">' . __( 'Add an award', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=awards&post_type=book-review' ),
+						'options'     => array(
+							'no_terms_text' => __( 'No awards have been added', 'book-review-library' )
+						)
+					),
+					'award-images' => array(
+						'id'          => 'award-images',
+						'name'        => __( 'Award Images', 'book-review-library' ),
+						'type'        => 'file_list',
+						'desc'        => __( 'File name or image title <em>must</em> match the award name.', 'book-review-library' )
+					)
+				)
+			);
+		}
 
 		// check if ratings are enabled
 		if ( book_reviews_is_option_enabled( 'ratings' ) ) {
