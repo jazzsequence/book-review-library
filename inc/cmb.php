@@ -142,7 +142,17 @@ class Book_Review_Library_CMB {
 						'no_terms_text' => __( 'No subjects have been added', 'book-review-library' )
 					)
 				),
-
+				'reading-level' => array(
+					'name'        => __( 'Reading Level', 'book-review-library' ),
+					'id'          => 'reading-level',
+					'taxonomy'    => 'reading-level',
+					'type'        => 'taxonomy_radio',
+					'show_on_cb'  => 'is_reading_level_enabled',
+					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new reading level', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=reading-level&post_type=book-review' ),
+					'options'     => array(
+						'no_terms_text' => __( 'No reading levels have been added', 'book-review-library' )
+					)
+				),
 			)
 		);
 
@@ -181,26 +191,6 @@ class Book_Review_Library_CMB {
 						'id'   => 'author-image',
 						'desc' => __( 'Upload or select an image for this book\'s author or enter a URL to an image. No image will display if none is uploaded.', 'book-review-library' ),
 						'type' => 'file'
-					)
-				)
-			);
-		}
-
-		// check if reading level is enabled
-		if ( book_reviews_is_option_enabled( 'reading-level' ) ) {
-			$meta_boxes['reading-level'] = array(
-				'id'           => 'reading-level',
-				'title'        => __( 'Reading Level', 'book-review-library' ),
-				'show_names'   => false,
-				'object_types' => array( 'book-review' ),
-				'context'      => 'normal',
-				'priority'     => 'low',
-				'fields'       => array(
-					array(
-
-						'id'               => 'reading-level',
-						'taxonomy'         => 'reading-level',
-						'type'             => 'taxonomy_radio'
 					)
 				)
 			);
