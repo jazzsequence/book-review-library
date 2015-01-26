@@ -172,10 +172,90 @@ class Book_Review_Library_CMB {
  	 * Callback function for awards meta box
  	 *
  	 * @since  1.5.0
- 	 * @return bool 	True of stock is enabled, false if it isn't
+ 	 * @return bool 	True if awards is enabled, false if it isn't
  	 */
  	public function are_awards_enabled() {
  		return book_reviews_is_option_enabled( 'awards' );
+ 	}
+
+ 	/**
+ 	 * Callback function for illustrator meta box
+ 	 *
+ 	 * @since 1.5.0
+ 	 * @return bool 	True if illustrator is enabled, false if it isn't
+ 	 */
+ 	public function is_illustrator_enabled() {
+ 		return book_reviews_is_option_enabled( 'illustrator' );
+ 	}
+
+ 	/**
+ 	 * Callback function for subjects meta box
+ 	 *
+ 	 * @since 1.5.0
+ 	 * @return bool 	True if subjects are enabled, false if it isn't
+ 	 */
+ 	public function are_subjects_enabled() {
+ 		return book_reviews_is_option_enabled( 'subject' );
+ 	}
+
+ 	/**
+ 	 * Callback function for series meta box
+ 	 *
+ 	 * @since 1.5.0
+ 	 * @return bool 	True if series is enabled, false if it isn't
+ 	 */
+ 	public function is_series_enabled() {
+ 		return book_reviews_is_option_enabled( 'series' );
+ 	}
+
+ 	/**
+ 	 * Callback function for languages meta box
+ 	 *
+ 	 * @since 1.5.0
+ 	 * @return bool 	True if languages are enabled, false if it isn't
+ 	 */
+ 	public function are_languages_enabled() {
+ 		return book_reviews_is_option_enabled( 'languages' );
+ 	}
+
+ 	/**
+ 	 * Callback function for format meta box
+ 	 *
+ 	 * @since 1.5.0
+ 	 * @return bool 	True if format is enabled, false if it isn't
+ 	 */
+ 	public function is_format_enabled() {
+ 		return book_reviews_is_option_enabled( 'format' );
+ 	}
+
+ 	/**
+ 	 * Callback function for publisher meta box
+ 	 *
+ 	 * @since 1.5.0
+ 	 * @return bool 	True if publisher is enabled, false if it isn't
+ 	 */
+ 	public function is_publisher_enabled() {
+ 		return book_reviews_is_option_enabled( 'publisher' );
+ 	}
+
+ 	/**
+ 	 * Callback function for genre meta box
+ 	 *
+ 	 * @since 1.5.0
+ 	 * @return bool 	True if genre is enabled, false if it isn't
+ 	 */
+ 	public function is_genre_enabled() {
+ 		return book_reviews_is_option_enabled( 'genre' );
+ 	}
+
+ 	/**
+ 	 * Callback function for reading-level meta box
+ 	 *
+ 	 * @since 1.5.0
+ 	 * @return bool 	True if reading-level is enabled, false if it isn't
+ 	 */
+ 	public function is_reading_level_enabled() {
+ 		return book_reviews_is_option_enabled( 'reading-level' );
  	}
 
 }
