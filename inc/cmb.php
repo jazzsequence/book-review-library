@@ -164,6 +164,18 @@ class Book_Review_Library_CMB {
 						'no_terms_text' => __( 'No languages have been added', 'book-review-library' )
 					)
 				),
+				'format' => array(
+					'name'        => __( 'Format', 'book-review-library' ),
+					'id'          => 'format',
+					'taxonomy'    => 'format',
+					'type'        => 'taxonomy_multicheck',
+					'show_on_cb'  => 'is_format_enabled',
+					'default'     => 'book',
+					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new format', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=format&post_type=book-review' ),
+					'options'     => array(
+						'no_terms_text' => __( 'No formats have been added', 'book-review-library' )
+					)
+				),
 			)
 		);
 
