@@ -93,7 +93,7 @@ class Book_Review_Library_CMB {
 					'id'          => 'illustrator',
 					'taxonomy'    => 'illustrator',
 					'type'        => 'taxonomy_multicheck',
-					'show_on_cb'  => 'is_illustrator_enabled',
+					'show_on_cb'  => array( $this, 'is_illustrator_enabled' ),
 					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new illustrator', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=illustrator&post_type=book-review' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No illustrators have been added', 'book-review-library' )
@@ -104,7 +104,7 @@ class Book_Review_Library_CMB {
 					'id'          => 'series',
 					'taxonomy'    => 'series',
 					'type'        => 'taxonomy_radio',
-					'show_on_cb'  => 'is_series_enabled',
+					'show_on_cb'  => array( $this, 'is_series_enabled' ),
 					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new series', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=series&post_type=book-review' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No series have been added', 'book-review-library' )
@@ -115,7 +115,7 @@ class Book_Review_Library_CMB {
 					'id'          => 'genre',
 					'taxonomy'    => 'genre',
 					'type'        => 'taxonomy_multicheck',
-					'show_on_cb'  => 'is_genre_enabled',
+					'show_on_cb'  => array( $this, 'is_genre_enabled' ),
 					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new genre', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=genre&post_type=book-review' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No genres have been added', 'book-review-library' )
@@ -126,7 +126,7 @@ class Book_Review_Library_CMB {
 					'id'          => 'subjects',
 					'taxonomy'    => 'subject',
 					'type'        => 'taxonomy_multicheck',
-					'show_on_cb'  => 'are_subjects_enabled',
+					'show_on_cb'  => array( $this, 'are_subjects_enabled' ),
 					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new subject', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=subject' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No subjects have been added', 'book-review-library' )
@@ -137,7 +137,7 @@ class Book_Review_Library_CMB {
 					'id'          => 'reading-level',
 					'taxonomy'    => 'reading-level',
 					'type'        => 'taxonomy_radio',
-					'show_on_cb'  => 'is_reading_level_enabled',
+					'show_on_cb'  => array( $this, 'is_reading_level_enabled' ),
 					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new reading level', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=reading-level&post_type=book-review' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No reading levels have been added', 'book-review-library' )
@@ -148,7 +148,7 @@ class Book_Review_Library_CMB {
 					'id'          => 'languages',
 					'taxonomy'    => 'language',
 					'type'        => 'taxonomy_radio',
-					'show_on_cb'  => 'are_languages_enabled',
+					'show_on_cb'  => array( $this, 'are_languages_enabled' ),
 					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new language', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=language&post_type=book-review' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No languages have been added', 'book-review-library' )
@@ -159,7 +159,7 @@ class Book_Review_Library_CMB {
 					'id'          => 'format',
 					'taxonomy'    => 'format',
 					'type'        => 'taxonomy_multicheck',
-					'show_on_cb'  => 'is_format_enabled',
+					'show_on_cb'  => array( $this, 'is_format_enabled' ),
 					'default'     => 'book',
 					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new format', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=format&post_type=book-review' ),
 					'options'     => array(
@@ -171,7 +171,7 @@ class Book_Review_Library_CMB {
 					'id'          => 'publisher',
 					'taxonomy'    => 'publisher',
 					'type'        => 'taxonomy_multicheck',
-					'show_on_cb'  => 'is_publisher_enabled',
+					'show_on_cb'  => array( $this, 'is_publisher_enabled' ),
 					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new publisher', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=publisher&post_type=book-review' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No publishers have been added', 'book-review-library' )
@@ -202,7 +202,7 @@ class Book_Review_Library_CMB {
 					'id'         => 'author-image',
 					'desc'       => __( 'Upload or select an image for this book\'s author or enter a URL to an image. No image will display if none is uploaded.', 'book-review-library' ),
 					'type'       => 'file',
-					'show_on_cb' => 'is_author_image_enabled'
+					'show_on_cb' => array( $this, 'is_author_image_enabled )'
 				)
 			)
 		);
