@@ -93,7 +93,7 @@ class Book_Review_Library_CMB {
 					'id'            => 'author',
 					'taxonomy'      => 'book-author',
 					'type'          => 'taxonomy_multicheck',
-					'after_field'   => sprintf( __( '<a href="%s">Add a new author</a>', 'book-review-library' ), 'edit-tags.php?taxonomy=book-author&post_type=book-review' ),
+					'after_field'   => sprintf( '<a href="%s">' . __( 'Add a new author', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=book-author&post_type=book-review' ),
 					'options'       => array(
 						'no_terms_text' => __( 'No authors have been added', 'book-review-library' )
 					)
@@ -104,7 +104,7 @@ class Book_Review_Library_CMB {
 					'taxonomy'    => 'illustrator',
 					'type'        => 'taxonomy_multicheck',
 					'show_on_cb'  => 'is_illustrator_enabled',
-					'after_field' => sprintf( __( '<a href="%s">Add a new illustrator</a>', 'book-review-library' ), 'edit-tags.php?taxonomy=illustrator&post_type=book-review' ),
+					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new illustrator', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=illustrator&post_type=book-review' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No illustrators have been added', 'book-review-library' )
 					)
@@ -115,7 +115,7 @@ class Book_Review_Library_CMB {
 					'taxonomy'    => 'series',
 					'type'        => 'taxonomy_radio',
 					'show_on_cb'  => 'is_series_enabled',
-					'after_field' => sprintf( __( '<a href="%s">Add a new series</a>', 'book-review-library' ), 'edit-tags.php?taxonomy=series&post_type=book-review' ),
+					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new series', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=series&post_type=book-review' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No series have been added', 'book-review-library' )
 					)
@@ -126,7 +126,7 @@ class Book_Review_Library_CMB {
 					'taxonomy'    => 'genre',
 					'type'        => 'taxonomy_multicheck',
 					'show_on_cb'  => 'is_genre_enabled',
-					'after_field' => sprintf( __( '<a href="%s">Add a new genre</a>', 'book-review-library' ), 'edit-tags.php?taxonomy=genre&post_type=book-review' ),
+					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new genre', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=genre&post_type=book-review' ),
 					'options'     => array(
 						'no_terms_text' => __( 'No genres have been added', 'book-review-library' )
 					)
