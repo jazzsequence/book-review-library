@@ -49,8 +49,8 @@ class Book_Review_Library_CMB {
 			'id'           => 'book-reviews-meta',
 			'title'        => __( 'Additional Information', 'book-review-library' ),
 			'object_types' => array( 'book-review' ),
-			'context'      => 'normal',
-			'priority'     => 'default',
+			'context'      => 'side',
+			'priority'     => 'low',
 			'show_names'   => true,
 			'fields'       => array(
 				'isbn'          => array(
