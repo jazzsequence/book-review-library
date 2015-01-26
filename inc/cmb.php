@@ -80,6 +80,50 @@ class Book_Review_Library_CMB {
 			)
 		);
 
+		$meta_boxes['book-information'] = array(
+			'id'           => 'book-information',
+			'title'        => __( 'Book Details', 'book-review-library' ),
+			'object_types' => array( 'book-review' ),
+			'context'      => 'normal',
+			'priority'     => 'high',
+			'show_names'   => true,
+			'fields'       => array(
+				'author'            => array(
+					'name'          => __( 'Author', 'book-review-library' ),
+					'id'            => 'author',
+					'taxonomy'      => 'book-author',
+					'type'          => 'taxonomy_multicheck',
+					'after_field'   => sprintf( __( '<a href="%s">Add a new author</a>', 'book-review-library' ), 'edit-tags.php?taxonomy=book-author&post_type=book-review' ),
+					'options'       => array(
+						'no_terms_text' => __( 'No authors have been added', 'book-review-library' )
+					)
+				),
+				'illustrator'     => array(
+					'name'        => __( 'Illustrator', 'book-review-library' ),
+					'id'          => 'illustrator',
+					'taxonomy'    => 'illustrator',
+					'type'        => 'taxonomy_multicheck',
+					'show_on_cb'  => 'is_illustrator_enabled',
+					'after_field' => sprintf( __( '<a href="%s">Add a new illustrator</a>', 'book-review-library' ), 'edit-tags.php?taxonomy=illustrator&post_type=book-review' ),
+					'options'     => array(
+						'no_terms_text' => __( 'No illustrators have been added', 'book-review-library' )
+					)
+				),
+				'series'          => array(
+					'name'        => __( 'Series', 'book-review-library' ),
+					'id'          => 'series',
+					'taxonomy'    => 'series',
+					'type'        => 'taxonomy_radio',
+					'show_on_cb'  => 'is_series_enabled',
+					'after_field' => sprintf( __( '<a href="%s">Add a new series</a>', 'book-review-library' ), 'edit-tags.php?taxonomy=series&post_type=book-review' ),
+					'options'     => array(
+						'no_terms_text' => __( 'No series have been added', 'book-review-library' )
+					)
+				),
+
+			)
+		);
+
 		// check if ratings are enabled
 		if ( book_reviews_is_option_enabled( 'ratings' ) ) {
 			$meta_boxes['star-rating'] = array(
@@ -147,6 +191,7 @@ class Book_Review_Library_CMB {
 				'priority'     => 'low',
 				'fields'       => array(
 					array(
+
 						'id'               => 'reading-level',
 						'taxonomy'         => 'reading-level',
 						'type'             => 'taxonomy_radio'
