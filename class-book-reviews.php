@@ -384,6 +384,7 @@ class Book_Reviews {
 
 			unset( $wp_meta_boxes['book-review']['normal']['core']['authordiv'] );
 
+			remove_meta_box( 'publisherdiv', 'book-review', 'side' );
 			remove_meta_box( 'tagsdiv-format', 'book-review', 'side' );
 			remove_meta_box( 'tagsdiv-language', 'book-review', 'side' );
 			remove_meta_box( 'tagsdiv-subject', 'book-review', 'side' );

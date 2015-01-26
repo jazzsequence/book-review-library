@@ -176,6 +176,17 @@ class Book_Review_Library_CMB {
 						'no_terms_text' => __( 'No formats have been added', 'book-review-library' )
 					)
 				),
+				'publisher' => array(
+					'name'        => __( 'Publisher', 'book-review-library' ),
+					'id'          => 'publisher',
+					'taxonomy'    => 'publisher',
+					'type'        => 'taxonomy_multicheck',
+					'show_on_cb'  => 'is_publisher_enabled',
+					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new publisher', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=publisher&post_type=book-review' ),
+					'options'     => array(
+						'no_terms_text' => __( 'No publishers have been added', 'book-review-library' )
+					)
+				)
 			)
 		);
 
