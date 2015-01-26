@@ -131,6 +131,17 @@ class Book_Review_Library_CMB {
 						'no_terms_text' => __( 'No genres have been added', 'book-review-library' )
 					)
 				),
+				'subjects' => array(
+					'name'        => __( 'Subjects', 'book-review-library' ),
+					'id'          => 'subjects',
+					'taxonomy'    => 'subject',
+					'type'        => 'taxonomy_multicheck',
+					'show_on_cb'  => 'are_subjects_enabled',
+					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new subject', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=subject' ),
+					'options'     => array(
+						'no_terms_text' => __( 'No subjects have been added', 'book-review-library' )
+					)
+				),
 
 			)
 		);
