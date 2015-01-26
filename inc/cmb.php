@@ -120,6 +120,17 @@ class Book_Review_Library_CMB {
 						'no_terms_text' => __( 'No series have been added', 'book-review-library' )
 					)
 				),
+				'genre' => array(
+					'name'        => __( 'Genre', 'book-review-library' ),
+					'id'          => 'genre',
+					'taxonomy'    => 'genre',
+					'type'        => 'taxonomy_multicheck',
+					'show_on_cb'  => 'is_genre_enabled',
+					'after_field' => sprintf( __( '<a href="%s">Add a new genre</a>', 'book-review-library' ), 'edit-tags.php?taxonomy=genre&post_type=book-review' ),
+					'options'     => array(
+						'no_terms_text' => __( 'No genres have been added', 'book-review-library' )
+					)
+				),
 
 			)
 		);
@@ -163,22 +174,6 @@ class Book_Review_Library_CMB {
 				)
 			);
 		}
-
-		$meta_boxes['genre-select'] = array(
-			'id'           => 'genre-select',
-			'title'        => __( 'Genre', 'book-review-library' ),
-			'show_names'   => false,
-			'object_types' => array( 'book-review' ),
-			'context'      => 'side',
-			'priority'     => 'low',
-			'fields'       => array(
-				array(
-					'id'               => 'genre-select',
-					'taxonomy'         => 'genre',
-					'type'             => 'taxonomy_radio'
-				)
-			)
-		);
 
 		// check if reading level is enabled
 		if ( book_reviews_is_option_enabled( 'reading-level' ) ) {
