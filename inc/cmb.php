@@ -88,16 +88,6 @@ class Book_Review_Library_CMB {
 			'priority'     => 'high',
 			'show_names'   => true,
 			'fields'       => array(
-/*				'author' => array(
-					'name'          => __( 'Author', 'book-review-library' ),
-					'id'            => 'author',
-					'taxonomy'      => 'book-author',
-					'type'          => 'taxonomy_multicheck',
-					'after_field'   => sprintf( '<a href="%s">' . __( 'Add a new author', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=book-author&post_type=book-review' ),
-					'options'       => array(
-						'no_terms_text' => __( 'No authors have been added', 'book-review-library' )
-					)
-				), */
 				'illustrator' => array(
 					'name'        => __( 'Illustrator', 'book-review-library' ),
 					'id'          => 'illustrator',
@@ -190,6 +180,33 @@ class Book_Review_Library_CMB {
 			)
 		);
 
+		$meta_boxes['book-author-information'] = array(
+			'id'           => 'author-information',
+			'title'        => __( 'Author Details', 'book-review-library' ),
+			'object_types' => array( 'book-review' ),
+			'context'      => 'side',
+			'priority'     => 'default',
+			'show_names'   => true,
+			'fields'       => array(
+				'author' => array(
+					'id'            => 'author',
+					'taxonomy'      => 'book-author',
+					'type'          => 'taxonomy_multicheck',
+					'after_field'   => sprintf( '<a href="%s">' . __( 'Add a new author', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=book-author&post_type=book-review' ),
+					'options'       => array(
+						'no_terms_text' => __( 'No authors have been added', 'book-review-library' )
+					)
+				),
+				'author-image' => array(
+					'name'       => __( 'Author Image', 'book-review-library' ),
+					'id'         => 'author-image',
+					'desc'       => __( 'Upload or select an image for this book\'s author or enter a URL to an image. No image will display if none is uploaded.', 'book-review-library' ),
+					'type'       => 'file',
+					'show_on_cb' => 'is_author_image_enabled'
+				)
+			)
+		);
+
 		// check if ratings are enabled
 		if ( book_reviews_is_option_enabled( 'ratings' ) ) {
 			$meta_boxes['star-rating'] = array(
@@ -206,25 +223,6 @@ class Book_Review_Library_CMB {
 						'type'             => 'taxonomy_radio',
 						'show_option_none' => false,
 						'default'          => 'zero-stars'
-					)
-				)
-			);
-		}
-
-		// check if author image is enabled
-		if ( book_reviews_is_option_enabled( 'author-image' ) ) {
-			$meta_boxes['author-image'] = array(
-				'id'           => 'author-image',
-				'title'        => __( 'Author Image', 'book-review-library' ),
-				'show_names'   => false,
-				'object_types' => array( 'book-review' ),
-				'context'      => 'side',
-				'priority'     => 'low',
-				'fields'       => array(
-					array(
-						'id'   => 'author-image',
-						'desc' => __( 'Upload or select an image for this book\'s author or enter a URL to an image. No image will display if none is uploaded.', 'book-review-library' ),
-						'type' => 'file'
 					)
 				)
 			);
@@ -331,6 +329,16 @@ class Book_Review_Library_CMB {
  	 */
  	public function is_reading_level_enabled() {
  		return book_reviews_is_option_enabled( 'reading-level' );
+ 	}
+
+ 	/**
+ 	 * Callback function for author-image meta box
+ 	 *
+ 	 * @since 1.5.0
+ 	 * @return bool 	True if author-image is enabled, false if it isn't
+ 	 */
+ 	public function is_author_image_enabled() {
+ 		return book_reviews_is_option_enabled( 'author-image' );
  	}
 
 }
