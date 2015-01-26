@@ -153,6 +153,17 @@ class Book_Review_Library_CMB {
 						'no_terms_text' => __( 'No reading levels have been added', 'book-review-library' )
 					)
 				),
+				'languages' => array(
+					'name'        => __( 'Language', 'book-review-library' ),
+					'id'          => 'languages',
+					'taxonomy'    => 'language',
+					'type'        => 'taxonomy_radio',
+					'show_on_cb'  => 'are_languages_enabled',
+					'after_field' => sprintf( '<a href="%s">' . __( 'Add a new language', 'book-review-library' ) . '</a>', 'edit-tags.php?taxonomy=language&post_type=book-review' ),
+					'options'     => array(
+						'no_terms_text' => __( 'No languages have been added', 'book-review-library' )
+					)
+				),
 			)
 		);
 
