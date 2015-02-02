@@ -81,6 +81,19 @@ class Book_Reviews_Options {
 		);
 	}
 
+	/**
+	 * Handles book cover size settings
+	 *
+	 * @since  1.5.0
+	 * @return array
+	 */
+	public function book_covers() {
+		return array(
+			'thumbnail'  => __( 'Use the post thumbnail size', 'book-review-library' ),
+			'book-cover'  => __( 'Use 6:9 book cover size (133px x 200px)', 'book-review-library' )
+		);
+	}
+
 }
 $Book_Reviews_Options = new Book_Reviews_Options();
 $Book_Reviews_Options->hooks();
