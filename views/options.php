@@ -329,8 +329,13 @@ function book_review_get_option( $key = '' ) {
 }
 
 /**
+ * Default option settings
  *
  * @since 	1.0.0
  *
+ * @return 	$defaults 	all the default settings (everything disabled)
  */
+function book_reviews_option_defaults() {
+	global $Book_Reviews_Options;
+	return $Book_Reviews_Options->defaults();
 }
