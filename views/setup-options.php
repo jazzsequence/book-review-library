@@ -20,6 +20,19 @@ class Book_Reviews_Options {
 
 	public function hooks() {}
 
+	/**
+	 * Handles true/false settings
+	 *
+	 * @since  1.5.0
+	 * @return array
+	 */
+	public function true_false() {
+		return array(
+			true  => __( 'Enabled', 'book-review-library' ),
+			false => __( 'Disabled', 'book-review-library' )
+		);
+	}
+
 }
 $Book_Reviews_Options = new Book_Reviews_Options();
 $Book_Reviews_Options->hooks();
