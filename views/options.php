@@ -211,6 +211,21 @@ class Book_Reviews_Options {
 	}
 
 	/**
+	 * Admin page markup. Mostly handled by CMB2
+	 *
+	 * @since 1.5.0
+	 * @link  https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
+	 */
+	public function admin_page_display() {
+		?>
+		<div class="wrap cmb2_options_page <?php echo $this->key; ?>">
+			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+			<?php cmb2_metabox_form( $this->option_metabox(), $this->key ); ?>
+		</div>
+		<?php
+	}
+
+	/**
 	 * Default option settings (moved from book_review_option_defaults)
 	 *
 	 * @since 	1.0.0
