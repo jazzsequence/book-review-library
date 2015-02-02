@@ -94,6 +94,21 @@ class Book_Reviews_Options {
 		);
 	}
 
+	/**
+	 * Handles author title settings
+	 *
+	 * @since  1.5.0
+	 * @return array
+	 */
+	public function author_title() {
+		return array(
+			'title'        => __( 'With the title', 'book-review-library' ),
+			'title-nolink' => __( 'With the title but not hyperlinked', 'book-review-library' ),
+			'newline'      => __( 'On a new line', 'book-review-library' ),
+			'disabled'     => __( 'Disabled', 'book-review-library' )
+		);
+	}
+
 }
 $Book_Reviews_Options = new Book_Reviews_Options();
 $Book_Reviews_Options->hooks();
