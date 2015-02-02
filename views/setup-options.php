@@ -17,6 +17,12 @@
 class Book_Reviews_Options {
 
 	/**
+	 * Option key & options page slug
+	 * @var string
+	 */
+	private $key = 'book_reviews_settings';
+
+	/**
 	 * Array of metaboxes/fields
 	 * @var string
 	 */
