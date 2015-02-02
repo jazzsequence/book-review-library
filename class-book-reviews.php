@@ -312,7 +312,6 @@ class Book_Reviews {
 
 		if ( is_admin() && current_user_can( 'publish_book-reviews' ) ) {
 			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), $this->version );
-			wp_enqueue_script( 'media-upload' );
 		}
 
 	}
