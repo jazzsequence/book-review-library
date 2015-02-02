@@ -41,6 +41,34 @@ class Book_Reviews_Options {
 	public function hooks() {}
 
 	/**
+	 * Default option settings (moved from book_review_option_defaults)
+	 *
+	 * @since 	1.0.0
+	 * @return 	$defaults 	all the default settings (everything disabled)
+	 */
+	public function defaults() {
+		$defaults = array(
+			'review-author' => false,
+			'reading-level' => false,
+			'subject' => false,
+			'illustrator' => false,
+			'awards' => false,
+			'series' => false,
+			'rating' => false,
+			'stock' => false,
+			'roles' => false,
+			'title-filter' => true,
+			'comments' => false,
+			'author-image' => false,
+			'languages' => false,
+			'format' => false,
+			'publisher' => false,
+			'thumbnail' => 'book-cover'
+		);
+		return $defaults;
+	}
+
+	/**
 	 * Handles true/false settings
 	 *
 	 * @since  1.5.0
