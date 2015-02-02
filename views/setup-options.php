@@ -50,20 +50,20 @@ class Book_Reviews_Options {
 		$defaults = array(
 			'review-author' => false,
 			'reading-level' => false,
-			'subject' => false,
-			'illustrator' => false,
-			'awards' => false,
-			'series' => false,
-			'rating' => false,
-			'stock' => false,
-			'roles' => false,
-			'title-filter' => true,
-			'comments' => false,
-			'author-image' => false,
-			'languages' => false,
-			'format' => false,
-			'publisher' => false,
-			'thumbnail' => 'book-cover'
+			'subject'       => false,
+			'illustrator'   => false,
+			'awards'        => false,
+			'series'        => false,
+			'rating'        => false,
+			'stock'         => false,
+			'roles'         => false,
+			'title-filter'  => 'title',
+			'comments'      => false,
+			'author-image'  => false,
+			'languages'     => false,
+			'format'        => false,
+			'publisher'     => false,
+			'thumbnail'     => 'book-cover'
 		);
 		return $defaults;
 	}
