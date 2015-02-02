@@ -16,7 +16,27 @@
  */
 class Book_Reviews_Options {
 
-	public function __construct() {}
+	/**
+	 * Array of metaboxes/fields
+	 * @var string
+	 */
+	protected $option_metabox = array();
+
+	/**
+	 * Options Page Title
+	 * @var string
+	 */
+	protected $title = '';
+
+	/**
+	 * Options Page hook
+	 * @var string
+	 */
+	protected $options_page = '';
+
+	public function __construct() {
+
+	}
 
 	public function hooks() {}
 
