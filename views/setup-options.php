@@ -36,6 +36,134 @@ class Book_Reviews_Options {
 
 	public function __construct() {
 
+		// set up our title
+		$this->title = __( 'Book Review Library Options', 'book-review-library' );
+		$this->defaults = $this->defaults();
+
+		// set up the CMB2 fields
+		$this->fields = array(
+			'review_authors' => array(
+				'name'    => __( 'Review Authors', 'book-review-library' ),
+				'desc'    => __( 'Enable this if the person adding the book review is not the original author of the review.', 'book-review-library' ),
+				'id'      => 'review-author',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['review-author']
+			),
+			'reading_level' => array(
+				'name'    => __( 'Reading Level', 'book-review-library' ),
+				'desc'    => __( 'Enable this to display the reading level for the book.', 'book-review-library' ),
+				'id'      => 'reading-level',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['reading-level']
+			),
+			'subject' => array(
+				'name'    => __( 'Subject', 'book-review-library' ),
+				'desc'    => __( 'Enable this to tag the book with different subjects (unique from genres).', 'book-review-library' ),
+				'id'      => 'subject',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['subject']
+			),
+			'illustrator' => array(
+				'name'    => __( 'Illustrator', 'book-review-library' ),
+				'desc'    => __( 'Enable this to add illustrators to book reviews.', 'book-review-library' ),
+				'id'      => 'illustrator',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['illustrator']
+			),
+			'awards' => array(
+				'name'    => __( 'Awards', 'book-review-library' ),
+				'desc'    => __( 'Enable this to add awards the book has received.', 'book-review-library' ),
+				'id'      => 'awards',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['awards']
+			),
+			'series' => array(
+				'name'    => __( 'Series', 'book-review-library' ),
+				'desc'    => __( 'Enable this to group books by series.', 'book-review-library' ),
+				'id'      => 'series',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['series']
+			),
+			'ratings' => array(
+				'name'    => __( 'Ratings', 'book-review-library' ),
+				'desc'    => __( 'Enable this for star ratings.', 'book-review-library' ),
+				'id'      => 'rating',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['rating']
+			),
+			'languages' => array(
+				'name'    => __( 'Languages', 'book-review-library' ),
+				'desc'    => __( 'When enabled, allow books to be grouped by language.', 'book-review-library' ),
+				'id'      => 'languages',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['languages']
+			),
+			'format' => array(
+				'name'    => __( 'Format', 'book-review-library' ),
+				'desc'    => __( 'Group books by formats (eBook, audiobook, etc).', 'book-review-library' ),
+				'id'      => 'format',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['format']
+			),
+			'publisher' => array(
+				'name'    => __( 'Publisher', 'book-review-library' ),
+				'desc'    => __( 'Group books by their publisher.', 'book-review-library' ),
+				'id'      => 'publisher',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['publisher']
+			),
+			'book_cover' => array(
+				'name'    => __( 'Book cover size', 'book-review-library' ),
+				'desc'    => __( 'If covers are displayed, this controls how they are sized. Either uses the theme setting for thumbnails (which may be controlled by the theme or the Thumbnail setting on the Media Settings page) or a Book Review Library standard book cover size.', 'book-review-library' ),
+				'id'      => 'thumbnail',
+				'type'    => 'select',
+				'options' => $this->book_covers(),
+				'default' => $this->defaults['thumbnail']
+			),
+			'stock' => array(
+				'name'    => __( 'Stock', 'book-review-library' ),
+				'desc'    => __( 'Enable this to display "In Stock"/"Out of Stock" information with the book review.', 'book-review-library' ),
+				'id'      => 'stock',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['stock']
+			),
+			'author_image' => array(
+				'name'    => __( 'Author Image', 'book-review-library' ),
+				'desc'    => __( 'Enable to allow uploads for an author image to display with the book review.', 'book-review-library' ),
+				'id'      => 'author-image',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['author-image']
+			),
+			'author_title' => array(
+				'name'    => __( 'Display author with title', 'book-review-library' ),
+				'desc'    => sprintf( __( '%sWith the title%s displays the author on the same line as the book title.', 'book-review-library' ) . '<br />' . __( '%sWith the title but not hyperlinked%s displays the author on the same line as the book title but does not link the author name.', 'book-review-library' ) . '<br />' . __( '%sOn a new line%s adds a line break before displaying the author.', 'book-review-library' ) . '<br />' . __( '%sDisabled%s removes the author from the title entirely.', 'book-review-library' ), '<strong>', '</strong>' )
+				'id'      => 'title-filter',
+				'type'    => 'select',
+				'options' => $this->author_title(),
+				'default' => $this->defaults['title-filter']
+			),
+			'comments' => array(
+				'name'    => __( 'Comments on book reviews', 'book-review-library' ),
+				'desc'    => __( 'If enabled, allows visitors to comment on book reviews.', 'book-review-library' ),
+				'id'      => 'comments',
+				'type'    => 'select',
+				'options' => $this->true_false(),
+				'default' => $this->defaults['comments']
+			)
+		);
+
 	}
 
 	public function hooks() {}
