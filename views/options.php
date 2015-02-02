@@ -226,6 +226,22 @@ class Book_Reviews_Options {
 	}
 
 	/**
+	 * Defines the option metabox and field configuration
+	 *
+	 * @since  1.5.0
+	 * @link   https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
+	 * @return array
+	 */
+	public function option_metabox() {
+		return array(
+			'id'         => 'option_metabox',
+			'show_on'    => array( 'key' => 'options-page', 'value' => $this->key ),
+			'show_names' => true,
+			'fields'     => $this->fields
+		);
+	}
+
+	/**
 	 * Default option settings (moved from book_review_option_defaults)
 	 *
 	 * @since 	1.0.0
