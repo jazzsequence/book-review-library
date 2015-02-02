@@ -17,7 +17,7 @@
 class Book_Reviews_Options {
 
 	/**
-	 * Option key & options page slug
+	 * Option key
 	 * @var string
 	 */
 	private $key = 'book_reviews_settings';
@@ -154,7 +154,7 @@ class Book_Reviews_Options {
 			),
 			'author_title' => array(
 				'name'    => __( 'Display author with title', 'book-review-library' ),
-				'desc'    => sprintf( __( '%sWith the title%s displays the author on the same line as the book title.', 'book-review-library' ) . '<br />' . __( '%sWith the title but not hyperlinked%s displays the author on the same line as the book title but does not link the author name.', 'book-review-library' ) . '<br />' . __( '%sOn a new line%s adds a line break before displaying the author.', 'book-review-library' ) . '<br />' . __( '%sDisabled%s removes the author from the title entirely.', 'book-review-library' ), '<strong>', '</strong>' )
+				'desc'    => sprintf( __( '%1$sWith the title%2$s displays the author on the same line as the book title.', 'book-review-library' ) . '<br />' . __( '%1$sWith the title but not hyperlinked%2$s displays the author on the same line as the book title but does not link the author name.', 'book-review-library' ) . '<br />' . __( '%1$sOn a new line%2$s adds a line break before displaying the author.', 'book-review-library' ) . '<br />' . __( '%1$sDisabled%2$s removes the author from the title entirely.', 'book-review-library' ), '<strong>', '</strong>' ),
 				'id'      => 'title-filter',
 				'type'    => 'select',
 				'options' => $this->author_title(),
@@ -172,7 +172,43 @@ class Book_Reviews_Options {
 
 	}
 
-	public function hooks() {}
+	/**
+	 * Initiate our hooks
+	 *
+	 * @since 1.5.0
+	 * @link  https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
+	 */
+	public function hooks() {
+		add_action( 'admin_init', array( $this, 'init' ) );
+		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
+	}
+
+	/**
+	 * Register the setting to WP
+	 *
+	 * @since 1.5.0
+	 * @link  https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
+	 */
+	public function init() {
+		register_setting( $this->key, $this->key );
+	}
+
+	/**
+	 * Register the administration menu for this plugin into the WordPress
+	 * Dashboard menu. (migrated from Book_Reviews)
+	 *
+	 * @since 0.1
+	 */
+	public function add_plugin_admin_menu() {
+		$this->options_page = add_submenu_page(
+			'edit.php?post_type=book-review',       // parent menu
+			$this->title,                           // page title
+			__( 'Options', 'book-review-library' ), // menu title
+			'manage_book_review_options',           // capability
+			'book-review-library-options',          // page slug
+			array( $this, 'admin_page_display' )    // options page callback
+		);
+	}
 
 	/**
 	 * Default option settings (moved from book_review_option_defaults)
