@@ -84,3 +84,7 @@ div#icon-edit.icon32-posts-book-review:after {
 	top: 0;
 	text-shadow: none;
 }
+
+.book-review_page_book-review-library-options .cmb2-id-thumbnail .cmb-td {
+	max-width: 80%;
+}
