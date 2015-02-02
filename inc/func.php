@@ -470,34 +470,6 @@ function book_reviews_image_size() {
 }
 
 /**
- * Default option settings
- *
- * @since 	1.0.0
- *
- * @return 	$defaults 	all the default settings (everything disabled)
- */
-function book_reviews_option_defaults() {
-	$defaults = array(
-		'review-author' => false,
-		'reading-level' => false,
-		'subject' => false,
-		'illustrator' => false,
-		'awards' => false,
-		'series' => false,
-		'rating' => false,
-		'stock' => false,
-		'roles' => false,
-		'title-filter' => true,
-		'comments' => false,
-		'author-image' => false,
-		'languages' => false,
-		'format' => false,
-		'publisher' => false
-	);
-	return $defaults;
-}
-
-/**
  * Check if a particular option is enabled, wrapper for Book_Reviews::is_option_enabled()
  *
  * @since 1.5.0

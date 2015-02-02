@@ -64,6 +64,7 @@ class Book_Reviews {
 	private function __construct() {
 
 		require_once( plugin_dir_path( __FILE__ ) . '/views/actions.php' );
+		require_once( plugin_dir_path( __FILE__ ) . '/views/options.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/inc/cmb.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/inc/cpt.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/inc/taxonomy.php' );
@@ -311,7 +312,6 @@ class Book_Reviews {
 
 		if ( is_admin() && current_user_can( 'publish_book-reviews' ) ) {
 			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), $this->version );
-			wp_enqueue_script( 'media-upload' );
 		}
 
 	}
@@ -329,31 +329,6 @@ class Book_Reviews {
 		}
 	}
 
-	/**
-	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
-	 *
-	 * @since   0.1
-	 */
-	public function add_plugin_admin_menu() {
-		$this->plugin_screen_hook_suffix = add_submenu_page(
-			'edit.php?post_type=book-review',
-			__( 'Book Reviews Options', 'book-review-library' ),
-			__( 'Options', 'book-review-library' ),
-			'manage_book_review_options',
-			$this->plugin_slug . '-options',
-			array( $this, 'display_plugin_admin_page' )
-		);
-
-	}
-
-	/**
-	 * Render the settings page for this plugin.
-	 *
-	 * @since   1.0.0
-	 */
-	public function display_plugin_admin_page() {
-		include_once( 'views/admin.php' );
-	}
 
 	/**
 	 * Flush rewrite rules
