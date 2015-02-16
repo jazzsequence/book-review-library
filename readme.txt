@@ -26,7 +26,7 @@ Theme developers haven't been forgotten either. If you want to customize the way
 * `archive-book-review.php`
 * `single-book-review.php`
 
-Additionally, there are a number of template tags that can be used in your theme, which are found in `inc/func.php`.
+Additionally, there are a number of template tags that can be used in your theme, which are found in `inc/template-tags.php`.
 
 This plugin uses the [Genericons icon font](http://genericons.com) in both the dashboard and the front end to display the book icons and star ratings.
 
