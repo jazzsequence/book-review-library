@@ -313,29 +313,3 @@ class Book_Reviews_Options {
 }
 $Book_Reviews_Options = new Book_Reviews_Options();
 $Book_Reviews_Options->hooks();
-
-/**
- * Wrapper function for cmb2_get_option to get specified Book Review
- * setting
- *
- * @since  1.5.0
- * @link   https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
- * @param  string $key 	Options array key
- * @return mixed 		Option value
- */
-function book_review_get_option( $key = '' ) {
-	global $Book_Reviews_Options;
-	return cmb2_get_option( $Book_Reviews_Options->key, $key );
-}
-
-/**
- * Default option settings
- *
- * @since 	1.0.0
- *
- * @return 	$defaults 	all the default settings (everything disabled)
- */
-function book_reviews_option_defaults() {
-	global $Book_Reviews_Options;
-	return $Book_Reviews_Options->defaults();
-}
