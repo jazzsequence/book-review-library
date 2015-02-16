@@ -39,7 +39,7 @@ class Book_Review_Library_CPT {
 	 * @since 	1.0.0
 	 */
 	public function register_post_type_book_review() {
-		include_once(BOOK_REVIEWS_FUNC);
+		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 		if ( book_reviews_is_option_enabled( 'comments' ) ) {

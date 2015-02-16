@@ -353,7 +353,7 @@ class Book_Reviews {
 			return;
 		} else {
 
-			include_once(BOOK_REVIEWS_FUNC);
+			include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 
 			$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 
@@ -383,7 +383,7 @@ class Book_Reviews {
  	 */
  	public function get_options() {
 		// include helper functions
-		include_once(BOOK_REVIEWS_FUNC);
+		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 
 		// get the options
 		return get_option( 'book_reviews_settings', book_reviews_option_defaults() );
@@ -843,7 +843,7 @@ class Book_Reviews {
 
 		$is_book_review_shortcode = true;
 
-		include_once(BOOK_REVIEWS_FUNC);
+		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 

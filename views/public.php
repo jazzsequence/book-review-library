@@ -23,7 +23,7 @@ function book_review_archive_check() {;
 
 	$archive = locate_template( 'archive-book-review.php' );
 	if ( empty($archive) ) {
-		include_once(BOOK_REVIEWS_FUNC);
+		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 		// archive template for book reviews not found, so do this...
@@ -57,7 +57,7 @@ function book_review_single_check() {;
 
 	$single = locate_template( 'single-book-review.php' );
 	if ( empty($single) ) {
-		include_once(BOOK_REVIEWS_FUNC);
+		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 		// single template for book reviews not found, so do this...
@@ -91,7 +91,7 @@ function book_review_taxonomy_check() {;
 
 	$taxonomy = locate_template( 'taxonomy.php' );
 	if ( empty($taxonomy) ) {
-		include_once(BOOK_REVIEWS_FUNC);
+		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 		// this actually makes it work better for tax archives if a taxonomy.php *doesn't* exist than if it does...maybe...
@@ -128,7 +128,7 @@ function filter_book_review_single( $content ) {
 	$awards = null;
 	$meta = null;
 	$postmeta = null;
-	include_once(BOOK_REVIEWS_FUNC);
+	include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 	$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 
 	// check for awards
@@ -221,7 +221,7 @@ function filter_book_review_excerpt( $content ) {
 
 	$meta = null;
 	$postmeta = null;
-	include_once(BOOK_REVIEWS_FUNC);
+	include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 	$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 
 	$meta = '<div class="post-meta">';

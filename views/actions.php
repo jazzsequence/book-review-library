@@ -1,5 +1,5 @@
 <?php
-		include_once(BOOK_REVIEWS_FUNC);
+		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 		include_once( 'public.php' );
 
 		$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
