@@ -25,7 +25,7 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-define( 'BOOK_REVIEWS_FUNC', plugin_dir_path( __FILE__ ) . 'inc/func.php' );
+define( 'BOOK_REVIEWS_TEMPLATE_TAGS', plugin_dir_path( __FILE__ ) . 'inc/template-tags.php' );
 define( 'BOOK_REVIEWS_WIDGETS', plugin_dir_path( __FILE__ ) . 'inc/widgets.php' );
 
 $is_book_review_shortcode = false;
