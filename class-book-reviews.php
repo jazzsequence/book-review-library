@@ -381,6 +381,7 @@ class Book_Reviews {
 	 */
 	public function register_post_type_book_review() {
 		include_once(BOOK_REVIEWS_FUNC);
+		$genre = ( $this->wpmoly ) ? 'book-genre' : 'genre';
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 		if ( isset($options['comments']) && $options['comments'] ) {
@@ -414,7 +415,7 @@ class Book_Reviews {
 			'hierarchical' => false,
 			'description' => 'Book Review',
 			'supports' => $supports,
-			'taxonomies' => array( 'genre', 'review-author' ),
+			'taxonomies' => array( $genre, 'review-author' ),
 			'public' => true,
 			'show_ui' => true,
 			'show_in_menu' => true,
@@ -439,8 +440,9 @@ class Book_Reviews {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_genre() {
-		register_taxonomy('genre', array('book-review'), array(
+	public function register_taxonomy_genre() { var_dump(defined( 'WPMOLY_PLUGIN' ));
+		$genre = ( $this->wpmoly ) ? 'book-genre' : 'genre';
+		register_taxonomy($genre, array('book-review'), array(
 			'label' => __('Genres', 'book-review-library'),
 			'labels' => array(
 				'name' => __( 'Genres', 'book-review-library' ),
@@ -466,9 +468,9 @@ class Book_Reviews {
 			'show_tagcloud' => true,
 			'hierarchical' => false,
 			'update_count_callback' => '',
-			'query_var' => 'genre',
+			'query_var' => $genre,
 			'rewrite' => array(
-				'slug' => 'genre',
+				'slug' => $genre,
 				'with_front' => true,
 				'hierarchical' => false,
 			),
@@ -1109,7 +1111,8 @@ class Book_Reviews {
 			// if displaying the genre column
 			case 'genre' :
 				// get the genre(s) for the book
-				$terms = get_the_terms( $post_id, 'genre' );
+				$genre = ( $this->wpmoly ) ? 'book-genre' : 'genre';
+				$terms = get_the_terms( $post_id, $genre );
 
 				// if terms were found
 				if ( !empty( $terms ) ) {
@@ -1119,8 +1122,8 @@ class Book_Reviews {
 					// loop through each term, linking to the 'edit posts' page for the specific term
 					foreach( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'genre' => $term->slug ), 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'genre', 'display' ) )
+						esc_url( add_query_arg( array( 'post_type' => $post->post_type, $genre => $term->slug ), 'edit.php' ) ),
+						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, $genre, 'display' ) )
 						);
 					}
 
@@ -1487,6 +1490,8 @@ class Book_Reviews {
 			$genre = sanitize_title( $atts['genre'] ); // sanitize the genre in case someone didn't remember to do that
 		}
 
+		$genre_tax = ( $this->wpmoly ) ? 'book-genre' : 'genre';
+
 		if ( !$orderby_author ) { // if we're not ordering by author, do things normally
 			if ( !$author && !$genre ) { // we are not listing books of a specific author or a specific genre
 				$args = array(
@@ -1509,7 +1514,7 @@ class Book_Reviews {
 					'posts_per_page' => $count,
 					'orderby' => $orderby,
 					'order' => $order,
-					'genre' => $genre
+					$genre_tax => $genre
 				);
 			} elseif ( $genre && $author ) { // we're listing all the books by a particular author in a specific genre
 				$args = array(
@@ -1517,7 +1522,7 @@ class Book_Reviews {
 					'posts_per_page' => $count,
 					'orderby' => $orderby,
 					'order' => $order,
-					'genre' => $genre,
+					$genre_tax => $genre,
 					'book-author' => $author
 				);
 			}
@@ -1594,7 +1599,7 @@ class Book_Reviews {
 					<?php if ( isset($options['title-filter']) && !$options['title-filter']  && has_term('', 'book-author') ) { ?>
 						<span class="book-author"><?php echo sprintf( __( '<strong>Author:</strong> %s', 'book-review-library' ), get_book_author() ); ?></span><br />
 					<?php } ?>
-					<?php if ( has_term('','genre') ) { ?>
+					<?php if ( has_term('',$genre_tax) ) { ?>
 						<span class="genre"><?php echo sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres()); ?></span><br />
 					<?php } ?>
 					<?php if ( has_term('','series') ) { ?>
@@ -1699,7 +1704,7 @@ class Book_Reviews {
 							<?php if ( isset($options['title-filter']) && !$options['title-filter']  && has_term('', 'book-author') ) { ?>
 								<span class="book-author"><?php echo sprintf( __( '<strong>Author:</strong> %s', 'book-review-library' ), get_book_author() ); ?></span><br />
 							<?php } ?>
-							<?php if ( has_term('','genre') ) { ?>
+							<?php if ( has_term('',$genre_tax) ) { ?>
 								<span class="genre"><?php echo sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres()); ?></span><br />
 							<?php } ?>
 							<?php if ( has_term('','series') ) { ?>
