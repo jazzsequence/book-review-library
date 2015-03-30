@@ -492,3 +492,17 @@ function book_reviews_option_defaults() {
 	);
 	return $defaults;
 }
+
+/**
+ * Public function to check the WP Media Library compatibility
+ *
+ * @since  1.4.13
+ * @return bool 	True if WP Media Library is present, false if not
+ */
+function book_reviews_wpmoly() {
+	if ( defined( 'WPMOLY_PLUGIN' ) ) {
+		return true;
+	}
+
+	return false;
+}
