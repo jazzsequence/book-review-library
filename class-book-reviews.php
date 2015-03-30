@@ -72,11 +72,10 @@ class Book_Reviews {
 	 */
 	private function __construct() {
 
-		if ( defined( 'WPMOLY_PLUGIN' ) ) {
+		include_once( 'views/actions.php' );
+		if ( book_reviews_wpmoly() ) {
 			$this->wpmoly = true;
 		}
-
-		include_once( 'views/actions.php' );
 
 	}
 
