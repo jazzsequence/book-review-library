@@ -440,7 +440,7 @@ class Book_Reviews {
 	 *
 	 * @since 	1.0.0
 	 */
-	public function register_taxonomy_genre() { var_dump(defined( 'WPMOLY_PLUGIN' ));
+	public function register_taxonomy_genre() {
 		$genre = ( $this->wpmoly ) ? 'book-genre' : 'genre';
 		register_taxonomy($genre, array('book-review'), array(
 			'label' => __('Genres', 'book-review-library'),
