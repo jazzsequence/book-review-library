@@ -72,6 +72,10 @@ class Book_Reviews {
 	 */
 	private function __construct() {
 
+		if ( defined( 'WPMOLY_PLUGIN' ) ) {
+			$this->wpmoly = true;
+		}
+
 		include_once( 'views/actions.php' );
 
 	}
