@@ -57,6 +57,15 @@ class Book_Reviews {
 	protected $plugin_screen_hook_suffix = null;
 
 	/**
+	 * WP Media Library Compatibility
+	 *
+	 * @since 1.4.13
+	 * @var   bool 		Determines whether we need to deal with an existing genre
+	 *        			taxonomy
+	 */
+	protected $wpmoly = false;
+
+	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
 	 *
 	 * @since     1.0.0
