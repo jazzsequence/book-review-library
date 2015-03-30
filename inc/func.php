@@ -500,7 +500,7 @@ function book_reviews_option_defaults() {
  * @return bool 	True if WP Media Library is present, false if not
  */
 function book_reviews_wpmoly() {
-	if ( defined( 'WPMOLY_PLUGIN' ) ) {
+	if ( file_exists( WP_PLUGIN_DIR . '/wpmovielibrary/wpmovielibrary.php' ) ) {
 		return true;
 	}
 
