@@ -37,8 +37,9 @@ class Book_Review_Widget extends WP_Widget {
 
 
 		if (  is_singular( 'book-review' ) ) {
-			$genres = wp_get_post_terms($this_post, 'genre');
-			$subjects = wp_get_post_terms($this_post, 'genre');
+			$genre = ( book_reviews_wpmoly() ) ? 'book-genre' : 'genre';
+			$genres = wp_get_post_terms($this_post, $genre);
+			$subjects = wp_get_post_terms($this_post, $genre);
 
 			if ($subjects || $genres) {
 
@@ -51,7 +52,7 @@ class Book_Review_Widget extends WP_Widget {
 				$query_args=array(
 					'tax_query' => array(
 					array(
-			            'taxonomy'  => 'genre',
+			            'taxonomy'  => $genre,
 			            'terms'     => $genre_ids,
 			            'operator'  => 'IN'
 						)

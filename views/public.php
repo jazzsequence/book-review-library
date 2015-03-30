@@ -180,6 +180,7 @@ function filter_book_review_single( $content ) {
 		}
 	}
 	$meta .= '</div>';
+	$genre = ( book_reviews_wpmoly() ) ? 'book-genre' : 'genre';
 
 	$postmeta = '<hr />';
 	$postmeta .= '<div class="post-data">';
@@ -189,7 +190,7 @@ function filter_book_review_single( $content ) {
 		$postmeta .= get_book_author();
 		$postmeta .= '</span><br />';
 	}
-	if ( has_term('','genre') ) {
+	if ( has_term('',$genre) ) {
 		$postmeta .= '<span class="genre">' . sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres()) . '</span><br />';
 	}
 	if ( has_term('','series') ) {
@@ -270,7 +271,7 @@ function filter_book_review_excerpt( $content ) {
 		$postmeta .= get_book_author();
 		$postmeta .= '</span><br />';
 	}
-	if ( has_term('','genre') ) {
+	if ( has_term('',$genre) ) {
 		$postmeta .= '<span class="genre">' . sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres()) . '</span><br />';
 	}
 	if ( has_term('','series') ) {
