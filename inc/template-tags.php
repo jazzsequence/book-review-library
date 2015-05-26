@@ -55,13 +55,14 @@ function get_review_author($before = null, $after = ', ', $forced = false) {
  */
 function get_genres($before = null, $after = ', ', $forced = false) {
 	global $post;
-	$genres = get_the_terms( $post->ID, 'genre' );
+	$genre_tax = ( $this->wpmoly ) ? 'book-genre' : 'genre';
+	$genres = get_the_terms( $post->ID, $genre_tax );
 	$genre_list = null;
 	if ( $genres && !is_wp_error( $genres ) ) {
 		$genre_out = array();
 		foreach ( $genres as $genre ) {
 			$genre_out[] = sprintf( '<a href="%s">%s</a>',
-				home_url() . '/?genre=' . $genre->slug,
+				home_url() . '/?' . $genre_tax . '=' . $genre->slug,
 				$genre->name);
 		}
 		$count = 0;
