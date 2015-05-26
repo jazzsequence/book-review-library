@@ -78,6 +78,10 @@ class Book_Reviews {
 		require_once( plugin_dir_path( __FILE__ ) . '/inc/cpt.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/inc/taxonomy.php' );
 
+		if ( book_reviews_wpmoly() ) {
+			$this->wpmoly = true;
+		}
+
 	}
 
 	/**
