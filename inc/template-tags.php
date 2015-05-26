@@ -55,7 +55,7 @@ function get_review_author($before = null, $after = ', ', $forced = false) {
  */
 function get_genres($before = null, $after = ', ', $forced = false) {
 	global $post;
-	$genre_tax = ( $this->wpmoly ) ? 'book-genre' : 'genre';
+	$genre_tax = ( book_reviews_wpmoly() ) ? 'book-genre' : 'genre';
 	$genres = get_the_terms( $post->ID, $genre_tax );
 	$genre_list = null;
 	if ( $genres && !is_wp_error( $genres ) ) {
