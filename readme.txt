@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
 Tested up to: 4.0
-Stable tag: 1.4.12
+Stable tag: 1.4.13
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -13,8 +13,6 @@ A book cataloguing and review system designed with bookophiles and librarians in
 == Description ==
 
 The Book Review Library plugin allows you to create a library of books, with reviews, that include sortable meta information like author, illustrator, genre, subjects as well as ratings. This enables you to list all the books of a particular type (e.g. all books written by a particular author or with a specific rating). With very little effort, the book review system will be up and running on your site right away, with built in filters to add this extra information to the page without any custom theming.
-
-** 3 new translation strings have been added in 1.4.7. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library Thanks!!**
 
 A configurable shortcode is also built in, to display a book list. `[book-reviews]` will display all books, while `[book-reviews count=3]` will only display 3 books and `[book-reviews count=3 covers=true]` will display those reviews with their covers, if they exist.
 
@@ -152,6 +150,8 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 * 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library
 
 == Changelog ==
+= 1.4.13 =
+* fixes WP_Widget issue reported [here](https://wordpress.org/support/topic/wp-43-notice)
 
 = 1.4.12 =
 * adds excerpt support
