@@ -28,7 +28,7 @@
  * All Genericons
  */
 
-.genericon {
+.book-review .genericon {
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -46,7 +46,7 @@
  * IE7 and IE6 hacks
  */
 
-.genericon {
+.book-review .genericon {
 	*overflow: auto;
 	*zoom: 1;
 	*display: inline;
@@ -57,109 +57,109 @@
  */
 
 /* Post formats */
-.genericon-standard:before { content: '\f100'; }
-.genericon-aside:before { content: '\f101'; }
-.genericon-image:before { content: '\f102'; }
-.genericon-gallery:before { content: '\f103'; }
-.genericon-video:before { content: '\f104'; }
-.genericon-status:before { content: '\f105'; }
-.genericon-quote:before { content: '\f106'; }
-.genericon-link:before { content: '\f107'; }
-.genericon-chat:before { content: '\f108'; }
-.genericon-audio:before { content: '\f109'; }
+.book-review .genericon-standard:before { content: '\f100'; }
+.book-review .genericon-aside:before { content: '\f101'; }
+.book-review .genericon-image:before { content: '\f102'; }
+.book-review .genericon-gallery:before { content: '\f103'; }
+.book-review .genericon-video:before { content: '\f104'; }
+.book-review .genericon-status:before { content: '\f105'; }
+.book-review .genericon-quote:before { content: '\f106'; }
+.book-review .genericon-link:before { content: '\f107'; }
+.book-review .genericon-chat:before { content: '\f108'; }
+.book-review .genericon-audio:before { content: '\f109'; }
 
 /* Social icons */
-.genericon-github:before { content: '\f200'; }
-.genericon-dribbble:before { content: '\f201'; }
-.genericon-twitter:before { content: '\f202'; }
-.genericon-facebook:before { content: '\f203'; }
-.genericon-facebook-alt:before { content: '\f204'; }
-.genericon-wordpress:before { content: '\f205'; }
-.genericon-googleplus:before { content: '\f206'; }
-.genericon-linkedin:before { content: '\f207'; }
-.genericon-linkedin-alt:before { content: '\f208'; }
-.genericon-pinterest:before { content: '\f209'; }
-.genericon-pinterest-alt:before { content: '\f210'; }
-.genericon-flickr:before { content: '\f211'; }
-.genericon-vimeo:before { content: '\f212'; }
-.genericon-youtube:before { content: '\f213'; }
-.genericon-tumblr:before { content: '\f214'; }
-.genericon-instagram:before { content: '\f215'; }
-.genericon-codepen:before { content: '\f216'; }
+.book-review .genericon-github:before { content: '\f200'; }
+.book-review .genericon-dribbble:before { content: '\f201'; }
+.book-review .genericon-twitter:before { content: '\f202'; }
+.book-review .genericon-facebook:before { content: '\f203'; }
+.book-review .genericon-facebook-alt:before { content: '\f204'; }
+.book-review .genericon-wordpress:before { content: '\f205'; }
+.book-review .genericon-googleplus:before { content: '\f206'; }
+.book-review .genericon-linkedin:before { content: '\f207'; }
+.book-review .genericon-linkedin-alt:before { content: '\f208'; }
+.book-review .genericon-pinterest:before { content: '\f209'; }
+.book-review .genericon-pinterest-alt:before { content: '\f210'; }
+.book-review .genericon-flickr:before { content: '\f211'; }
+.book-review .genericon-vimeo:before { content: '\f212'; }
+.book-review .genericon-youtube:before { content: '\f213'; }
+.book-review .genericon-tumblr:before { content: '\f214'; }
+.book-review .genericon-instagram:before { content: '\f215'; }
+.book-review .genericon-codepen:before { content: '\f216'; }
 
 /* Meta icons */
-.genericon-comment:before { content: '\f300'; }
-.genericon-category:before { content: '\f301'; }
-.genericon-tag:before { content: '\f302'; }
-.genericon-time:before { content: '\f303'; }
-.genericon-user:before { content: '\f304'; }
-.genericon-day:before { content: '\f305'; }
-.genericon-week:before { content: '\f306'; }
-.genericon-month:before { content: '\f307'; }
-.genericon-pinned:before { content: '\f308'; }
+.book-review .genericon-comment:before { content: '\f300'; }
+.book-review .genericon-category:before { content: '\f301'; }
+.book-review .genericon-tag:before { content: '\f302'; }
+.book-review .genericon-time:before { content: '\f303'; }
+.book-review .genericon-user:before { content: '\f304'; }
+.book-review .genericon-day:before { content: '\f305'; }
+.book-review .genericon-week:before { content: '\f306'; }
+.book-review .genericon-month:before { content: '\f307'; }
+.book-review .genericon-pinned:before { content: '\f308'; }
 
 /* Other icons */
-.genericon-search:before { content: '\f400'; }
-.genericon-unzoom:before { content: '\f401'; }
-.genericon-zoom:before { content: '\f402'; }
-.genericon-show:before { content: '\f403'; }
-.genericon-hide:before { content: '\f404'; }
-.genericon-close:before { content: '\f405'; }
-.genericon-close-alt:before { content: '\f406'; }
-.genericon-trash:before { content: '\f407'; }
-.genericon-star:before { content: '\f408'; }
-.genericon-home:before { content: '\f409'; }
-.genericon-mail:before { content: '\f410'; }
-.genericon-edit:before { content: '\f411'; }
-.genericon-reply:before { content: '\f412'; }
-.genericon-feed:before { content: '\f413'; }
-.genericon-warning:before { content: '\f414'; }
-.genericon-share:before { content: '\f415'; }
-.genericon-attachment:before { content: '\f416'; }
-.genericon-location:before { content: '\f417'; }
-.genericon-checkmark:before { content: '\f418'; }
-.genericon-menu:before { content: '\f419'; }
-.genericon-top:before { content: '\f420'; }
-.genericon-minimize:before { content: '\f421'; }
-.genericon-maximize:before { content: '\f422'; }
-.genericon-404:before { content: '\f423'; }
-.genericon-spam:before { content: '\f424'; }
-.genericon-summary:before { content: '\f425'; }
-.genericon-cloud:before { content: '\f426'; }
-.genericon-key:before { content: '\f427'; }
-.genericon-dot:before { content: '\f428'; }
-.genericon-next:before { content: '\f429'; }
-.genericon-previous:before { content: '\f430'; }
-.genericon-expand:before { content: '\f431'; }
-.genericon-collapse:before { content: '\f432'; }
-.genericon-dropdown:before { content: '\f433'; }
-.genericon-dropdown-left:before { content: '\f434'; }
-.genericon-top:before { content: '\f435'; }
-.genericon-draggable:before { content: '\f436'; }
-.genericon-phone:before { content: '\f437'; }
-.genericon-send-to-phone:before { content: '\f438'; }
-.genericon-plugin:before { content: '\f439'; }
-.genericon-cloud-download:before { content: '\f440'; }
-.genericon-cloud-upload:before { content: '\f441'; }
-.genericon-external:before { content: '\f442'; }
-.genericon-document:before { content: '\f443'; }
-.genericon-book:before { content: '\f444'; }
-.genericon-cog:before { content: '\f445'; }
-.genericon-unapprove:before { content: '\f446'; }
-.genericon-cart:before { content: '\f447'; }
-.genericon-pause:before { content: '\f448'; }
-.genericon-stop:before { content: '\f449'; }
-.genericon-skip-back:before { content: '\f450'; }
-.genericon-skip-ahead:before { content: '\f451'; }
-.genericon-play:before { content: '\f452'; }
-.genericon-tablet:before { content: '\f453'; }
-.genericon-send-to-tablet:before { content: '\f454'; }
+.book-review .genericon-search:before { content: '\f400'; }
+.book-review .genericon-unzoom:before { content: '\f401'; }
+.book-review .genericon-zoom:before { content: '\f402'; }
+.book-review .genericon-show:before { content: '\f403'; }
+.book-review .genericon-hide:before { content: '\f404'; }
+.book-review .genericon-close:before { content: '\f405'; }
+.book-review .genericon-close-alt:before { content: '\f406'; }
+.book-review .genericon-trash:before { content: '\f407'; }
+.book-review .genericon-star:before { content: '\f408'; }
+.book-review .genericon-home:before { content: '\f409'; }
+.book-review .genericon-mail:before { content: '\f410'; }
+.book-review .genericon-edit:before { content: '\f411'; }
+.book-review .genericon-reply:before { content: '\f412'; }
+.book-review .genericon-feed:before { content: '\f413'; }
+.book-review .genericon-warning:before { content: '\f414'; }
+.book-review .genericon-share:before { content: '\f415'; }
+.book-review .genericon-attachment:before { content: '\f416'; }
+.book-review .genericon-location:before { content: '\f417'; }
+.book-review .genericon-checkmark:before { content: '\f418'; }
+.book-review .genericon-menu:before { content: '\f419'; }
+.book-review .genericon-top:before { content: '\f420'; }
+.book-review .genericon-minimize:before { content: '\f421'; }
+.book-review .genericon-maximize:before { content: '\f422'; }
+.book-review .genericon-404:before { content: '\f423'; }
+.book-review .genericon-spam:before { content: '\f424'; }
+.book-review .genericon-summary:before { content: '\f425'; }
+.book-review .genericon-cloud:before { content: '\f426'; }
+.book-review .genericon-key:before { content: '\f427'; }
+.book-review .genericon-dot:before { content: '\f428'; }
+.book-review .genericon-next:before { content: '\f429'; }
+.book-review .genericon-previous:before { content: '\f430'; }
+.book-review .genericon-expand:before { content: '\f431'; }
+.book-review .genericon-collapse:before { content: '\f432'; }
+.book-review .genericon-dropdown:before { content: '\f433'; }
+.book-review .genericon-dropdown-left:before { content: '\f434'; }
+.book-review .genericon-top:before { content: '\f435'; }
+.book-review .genericon-draggable:before { content: '\f436'; }
+.book-review .genericon-phone:before { content: '\f437'; }
+.book-review .genericon-send-to-phone:before { content: '\f438'; }
+.book-review .genericon-plugin:before { content: '\f439'; }
+.book-review .genericon-cloud-download:before { content: '\f440'; }
+.book-review .genericon-cloud-upload:before { content: '\f441'; }
+.book-review .genericon-external:before { content: '\f442'; }
+.book-review .genericon-document:before { content: '\f443'; }
+.book-review .genericon-book:before { content: '\f444'; }
+.book-review .genericon-cog:before { content: '\f445'; }
+.book-review .genericon-unapprove:before { content: '\f446'; }
+.book-review .genericon-cart:before { content: '\f447'; }
+.book-review .genericon-pause:before { content: '\f448'; }
+.book-review .genericon-stop:before { content: '\f449'; }
+.book-review .genericon-skip-back:before { content: '\f450'; }
+.book-review .genericon-skip-ahead:before { content: '\f451'; }
+.book-review .genericon-play:before { content: '\f452'; }
+.book-review .genericon-tablet:before { content: '\f453'; }
+.book-review .genericon-send-to-tablet:before { content: '\f454'; }
 
 /* Generic shapes */
-.genericon-uparrow:before { content: '\f500'; }
-.genericon-rightarrow:before { content: '\f501'; }
-.genericon-downarrow:before { content: '\f502'; }
-.genericon-leftarrow:before { content: '\f503'; }
+.book-review .genericon-uparrow:before { content: '\f500'; }
+.book-review .genericon-rightarrow:before { content: '\f501'; }
+.book-review .genericon-downarrow:before { content: '\f502'; }
+.book-review .genericon-leftarrow:before { content: '\f503'; }
 
 
 
