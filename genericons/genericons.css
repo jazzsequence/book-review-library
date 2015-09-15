@@ -28,6 +28,7 @@
  * All Genericons
  */
 
+.wp-admin .genericon,
 .book-review .genericon {
 	display: inline-block;
 	width: 16px;
@@ -46,6 +47,7 @@
  * IE7 and IE6 hacks
  */
 
+.wp-admin .genericon,
 .book-review .genericon {
 	*overflow: auto;
 	*zoom: 1;
@@ -57,108 +59,203 @@
  */
 
 /* Post formats */
+.wp-admin .genericon-standard:before,
 .book-review .genericon-standard:before { content: '\f100'; }
+.wp-admin .genericon-aside:before,
 .book-review .genericon-aside:before { content: '\f101'; }
+.wp-admin .genericon-image:before,
 .book-review .genericon-image:before { content: '\f102'; }
+.wp-admin .genericon-gallery:before,
 .book-review .genericon-gallery:before { content: '\f103'; }
+.wp-admin .genericon-video:before,
 .book-review .genericon-video:before { content: '\f104'; }
+.wp-admin .genericon-status:before,
 .book-review .genericon-status:before { content: '\f105'; }
+.wp-admin .genericon-quote:before,
 .book-review .genericon-quote:before { content: '\f106'; }
+.wp-admin .genericon-link:before,
 .book-review .genericon-link:before { content: '\f107'; }
+.wp-admin .genericon-chat:before,
 .book-review .genericon-chat:before { content: '\f108'; }
+.wp-admin .genericon-audio:before,
 .book-review .genericon-audio:before { content: '\f109'; }
 
 /* Social icons */
+.wp-admin .genericon-github:before,
 .book-review .genericon-github:before { content: '\f200'; }
+.wp-admin .genericon-dribbble:before,
 .book-review .genericon-dribbble:before { content: '\f201'; }
+.wp-admin .genericon-twitter:before,
 .book-review .genericon-twitter:before { content: '\f202'; }
+.wp-admin .genericon-facebook:before,
 .book-review .genericon-facebook:before { content: '\f203'; }
+.wp-admin .genericon-facebook-alt:before,
 .book-review .genericon-facebook-alt:before { content: '\f204'; }
+.wp-admin .genericon-wordpress:before,
 .book-review .genericon-wordpress:before { content: '\f205'; }
+.wp-admin .genericon-googleplus:before,
 .book-review .genericon-googleplus:before { content: '\f206'; }
+.wp-admin .genericon-linkedin:before,
 .book-review .genericon-linkedin:before { content: '\f207'; }
+.wp-admin .genericon-linkedin-alt:before,
 .book-review .genericon-linkedin-alt:before { content: '\f208'; }
+.wp-admin .genericon-pinterest:before,
 .book-review .genericon-pinterest:before { content: '\f209'; }
+.wp-admin .genericon-pinterest-alt:before,
 .book-review .genericon-pinterest-alt:before { content: '\f210'; }
+.wp-admin .genericon-flickr:before,
 .book-review .genericon-flickr:before { content: '\f211'; }
+.wp-admin .genericon-vimeo:before,
 .book-review .genericon-vimeo:before { content: '\f212'; }
+.wp-admin .genericon-youtube:before,
 .book-review .genericon-youtube:before { content: '\f213'; }
+.wp-admin .genericon-tumblr:before,
 .book-review .genericon-tumblr:before { content: '\f214'; }
+.wp-admin .genericon-instagram:before,
 .book-review .genericon-instagram:before { content: '\f215'; }
+.wp-admin .genericon-codepen:before,
 .book-review .genericon-codepen:before { content: '\f216'; }
 
 /* Meta icons */
+.wp-admin .genericon-comment:before,
 .book-review .genericon-comment:before { content: '\f300'; }
+.wp-admin .genericon-category:before,
 .book-review .genericon-category:before { content: '\f301'; }
+.wp-admin .genericon-tag:before,
 .book-review .genericon-tag:before { content: '\f302'; }
+.wp-admin .genericon-time:before,
 .book-review .genericon-time:before { content: '\f303'; }
+.wp-admin .genericon-user:before,
 .book-review .genericon-user:before { content: '\f304'; }
+.wp-admin .genericon-day:before,
 .book-review .genericon-day:before { content: '\f305'; }
+.wp-admin .genericon-week:before,
 .book-review .genericon-week:before { content: '\f306'; }
+.wp-admin .genericon-month:before,
 .book-review .genericon-month:before { content: '\f307'; }
+.wp-admin .genericon-pinned:before,
 .book-review .genericon-pinned:before { content: '\f308'; }
 
 /* Other icons */
+.wp-admin .genericon-search:before,
 .book-review .genericon-search:before { content: '\f400'; }
+.wp-admin .genericon-unzoom:before,
 .book-review .genericon-unzoom:before { content: '\f401'; }
+.wp-admin .genericon-zoom:before,
 .book-review .genericon-zoom:before { content: '\f402'; }
+.wp-admin .genericon-show:before,
 .book-review .genericon-show:before { content: '\f403'; }
+.wp-admin .genericon-hide:before,
 .book-review .genericon-hide:before { content: '\f404'; }
+.wp-admin .genericon-close:before,
 .book-review .genericon-close:before { content: '\f405'; }
+.wp-admin .genericon-close-alt:before,
 .book-review .genericon-close-alt:before { content: '\f406'; }
+.wp-admin .genericon-trash:before,
 .book-review .genericon-trash:before { content: '\f407'; }
+.wp-admin .genericon-star:before,
 .book-review .genericon-star:before { content: '\f408'; }
+.wp-admin .genericon-home:before,
 .book-review .genericon-home:before { content: '\f409'; }
+.wp-admin .genericon-mail:before,
 .book-review .genericon-mail:before { content: '\f410'; }
+.wp-admin .genericon-edit:before,
 .book-review .genericon-edit:before { content: '\f411'; }
+.wp-admin .genericon-reply:before,
 .book-review .genericon-reply:before { content: '\f412'; }
+.wp-admin .genericon-feed:before,
 .book-review .genericon-feed:before { content: '\f413'; }
+.wp-admin .genericon-warning:before,
 .book-review .genericon-warning:before { content: '\f414'; }
+.wp-admin .genericon-share:before,
 .book-review .genericon-share:before { content: '\f415'; }
+.wp-admin .genericon-attachment:before,
 .book-review .genericon-attachment:before { content: '\f416'; }
+.wp-admin .genericon-location:before,
 .book-review .genericon-location:before { content: '\f417'; }
+.wp-admin .genericon-checkmark:before,
 .book-review .genericon-checkmark:before { content: '\f418'; }
+.wp-admin .genericon-menu:before,
 .book-review .genericon-menu:before { content: '\f419'; }
+.wp-admin .genericon-top:before,
 .book-review .genericon-top:before { content: '\f420'; }
+.wp-admin .genericon-minimize:before,
 .book-review .genericon-minimize:before { content: '\f421'; }
+.wp-admin .genericon-maximize:before,
 .book-review .genericon-maximize:before { content: '\f422'; }
+.wp-admin .genericon-404:before,
 .book-review .genericon-404:before { content: '\f423'; }
+.wp-admin .genericon-spam:before,
 .book-review .genericon-spam:before { content: '\f424'; }
+.wp-admin .genericon-summary:before,
 .book-review .genericon-summary:before { content: '\f425'; }
+.wp-admin .genericon-cloud:before,
 .book-review .genericon-cloud:before { content: '\f426'; }
+.wp-admin .genericon-key:before,
 .book-review .genericon-key:before { content: '\f427'; }
+.wp-admin .genericon-dot:before,
 .book-review .genericon-dot:before { content: '\f428'; }
+.wp-admin .genericon-next:before,
 .book-review .genericon-next:before { content: '\f429'; }
+.wp-admin .genericon-previous:before,
 .book-review .genericon-previous:before { content: '\f430'; }
+.wp-admin .genericon-expand:before,
 .book-review .genericon-expand:before { content: '\f431'; }
+.wp-admin .genericon-collapse:before,
 .book-review .genericon-collapse:before { content: '\f432'; }
+.wp-admin .genericon-dropdown:before,
 .book-review .genericon-dropdown:before { content: '\f433'; }
+.wp-admin .genericon-dropdown-left:before,
 .book-review .genericon-dropdown-left:before { content: '\f434'; }
+.wp-admin .genericon-top:before,
 .book-review .genericon-top:before { content: '\f435'; }
+.wp-admin .genericon-draggable:before,
 .book-review .genericon-draggable:before { content: '\f436'; }
+.wp-admin .genericon-phone:before,
 .book-review .genericon-phone:before { content: '\f437'; }
+.wp-admin .genericon-send-to-phone:before,
 .book-review .genericon-send-to-phone:before { content: '\f438'; }
+.wp-admin .genericon-plugin:before,
 .book-review .genericon-plugin:before { content: '\f439'; }
+.wp-admin .genericon-cloud-download:before,
 .book-review .genericon-cloud-download:before { content: '\f440'; }
+.wp-admin .genericon-cloud-upload:before,
 .book-review .genericon-cloud-upload:before { content: '\f441'; }
+.wp-admin .genericon-external:before,
 .book-review .genericon-external:before { content: '\f442'; }
+.wp-admin .genericon-document:before,
 .book-review .genericon-document:before { content: '\f443'; }
+.wp-admin .genericon-book:before,
 .book-review .genericon-book:before { content: '\f444'; }
+.wp-admin .genericon-cog:before,
 .book-review .genericon-cog:before { content: '\f445'; }
+.wp-admin .genericon-unapprove:before,
 .book-review .genericon-unapprove:before { content: '\f446'; }
+.wp-admin .genericon-cart:before,
 .book-review .genericon-cart:before { content: '\f447'; }
+.wp-admin .genericon-pause:before,
 .book-review .genericon-pause:before { content: '\f448'; }
+.wp-admin .genericon-stop:before,
 .book-review .genericon-stop:before { content: '\f449'; }
+.wp-admin .genericon-skip-back:before,
 .book-review .genericon-skip-back:before { content: '\f450'; }
+.wp-admin .genericon-skip-ahead:before,
 .book-review .genericon-skip-ahead:before { content: '\f451'; }
+.wp-admin .genericon-play:before,
 .book-review .genericon-play:before { content: '\f452'; }
+.wp-admin .genericon-tablet:before,
 .book-review .genericon-tablet:before { content: '\f453'; }
+.wp-admin .genericon-send-to-tablet:before,
 .book-review .genericon-send-to-tablet:before { content: '\f454'; }
 
 /* Generic shapes */
+.wp-admin .genericon-uparrow:before,
 .book-review .genericon-uparrow:before { content: '\f500'; }
+.wp-admin .genericon-rightarrow:before,
 .book-review .genericon-rightarrow:before { content: '\f501'; }
+.wp-admin .genericon-downarrow:before,
 .book-review .genericon-downarrow:before { content: '\f502'; }
+.wp-admin .genericon-leftarrow:before,
 .book-review .genericon-leftarrow:before { content: '\f503'; }
 
 
