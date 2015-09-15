@@ -20,7 +20,7 @@ class Book_Review_Widget extends WP_Widget {
 
 		$control_options = array( 'id_base' => 'book-review-widget' );
 
-		$this->WP_Widget( 'book-review-widget', 'Similar Books', $widget_options, $control_options );
+		parent::__construct( 'book-review-widget', 'Similar Books', $widget_options, $control_options );
 	}
 
 	public function widget( $args, $instance ) {
@@ -188,7 +188,7 @@ class Book_Review_Recent_Widget extends WP_Widget {
 
 		$control_options = array( 'id_base' => 'recent-book-review-widget' );
 
-		$this->WP_Widget( 'recent-book-review-widget', __('Recent Book Reviews', 'book-review-library'), $widget_options, $control_options );
+		parent::__construct( 'recent-book-review-widget', __('Recent Book Reviews', 'book-review-library'), $widget_options, $control_options );
 	}
 
 	public function widget( $args, $instance ) {
