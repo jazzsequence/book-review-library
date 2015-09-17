@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
 Tested up to: 4.3
-Stable tag: 1.4.13
+Stable tag: 1.4.14
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -150,6 +150,9 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 * 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library
 
 == Changelog ==
+= 1.4.14 =
+* fixes next/previous post author displaying the wrong author. Issue reported [here](https://wordpress.org/support/topic/incorrect-author-in-previous-post-navigation)
+
 = 1.4.13 =
 * fixes WP_Widget issue reported [here](https://wordpress.org/support/topic/wp-43-notice)
 
