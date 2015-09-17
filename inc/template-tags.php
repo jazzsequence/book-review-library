@@ -86,6 +86,7 @@ function get_genres($before = null, $after = ', ', $forced = false) {
  * @param 	$before 	string 		string to display before the author name
  * @param 	$after 		string		string to display after the author name (comma by default)
  * @param 	$forced 	boolean 	by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it 									 will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
+ * @param 	$post_obj   object      An optional post object to pass instead of the current post
  * @return 	$book_author_list		sanitized string of the results
  */
 function get_book_author($before = null, $after = ', ', $forced = false, $post_obj = null) {
