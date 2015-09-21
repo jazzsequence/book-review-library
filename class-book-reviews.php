@@ -921,7 +921,13 @@ class Book_Reviews {
 		}
 
 		if ( !$orderby_author ) { // if we're not ordering by author, do things normally
-			if ( !$author && !$genre ) { // we are not listing books of a specific author or a specific genre
+			if ( $title ) { // we passed a book title
+				$args = array(
+					'post_type' => 'book-review',
+					'name' => $title,
+					'posts_per_page' => 1,
+				);
+			} elseif ( !$author && !$genre ) { // we are not listing books of a specific author or a specific genre
 				$args = array(
 					'post_type' => 'book-review',
 					'posts_per_page' => $count,
