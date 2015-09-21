@@ -858,11 +858,11 @@ class Book_Reviews {
 			'id'       => '',           // a specific post ID
 		), $atts ));
 
-		$covers = null;
+		$covers         = null;
 		$orderby_author = null;
-		$author = null;
-		$genre = null;
-		$title = null;
+		$author         = null;
+		$genre          = null;
+		$title          = null;
 		$post_id        = null;
 
 		if ( isset($atts['count']) ) {
@@ -925,41 +925,41 @@ class Book_Reviews {
 		if ( !$orderby_author ) { // if we're not ordering by author, do things normally
 			if ( $title ) { // we passed a book title
 				$args = array(
-					'post_type' => 'book-review',
-					'name' => $title,
+					'post_type'      => 'book-review',
+					'name'           => $title,
 					'posts_per_page' => 1,
 				);
 			} elseif ( !$author && !$genre ) { // we are not listing books of a specific author or a specific genre
 				$args = array(
-					'post_type' => 'book-review',
+					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
-					'orderby' => $orderby,
-					'order' => $order
+					'orderby'        => $orderby,
+					'order'          => $order
 				);
 			} elseif ( $author && !$genre ) { // we're listing all the books by a specific author, but no specific genre
 				$args = array(
-					'post_type' => 'book-review',
+					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
-					'orderby' => 'title',
-					'order' => 'ASC',
-					'book-author' => $author
+					'orderby'        => 'title',
+					'order'          => 'ASC',
+					'book-author'    => $author
 				);
 			} elseif ( $genre && !$author ) { // we're listing all the books of a specific genre, but not a specific author
 				$args = array(
-					'post_type' => 'book-review',
+					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
-					'orderby' => $orderby,
-					'order' => $order,
-					'genre' => $genre
+					'orderby'        => $orderby,
+					'order'          => $order,
+					'genre'          => $genre
 				);
 			} elseif ( $genre && $author ) { // we're listing all the books by a particular author in a specific genre
 				$args = array(
-					'post_type' => 'book-review',
+					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
-					'orderby' => $orderby,
-					'order' => $order,
-					'genre' => $genre,
-					'book-author' => $author
+					'orderby'        => $orderby,
+					'order'          => $order,
+					'genre'          => $genre,
+					'book-author'    => $author
 				);
 			}
 
