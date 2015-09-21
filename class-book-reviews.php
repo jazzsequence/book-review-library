@@ -854,12 +854,14 @@ class Book_Reviews {
 			'format'   => 'none',       // 0 = none, 1 = excerpt, 2 = full
 			'author'   => '',           // any author
 			'genre'    => '',           // any genre
+			'title'    => '',           // any title
 		), $atts ));
 
 		$covers = null;
 		$orderby_author = null;
 		$author = null;
 		$genre = null;
+		$title = null;
 
 		if ( isset($atts['count']) ) {
 			$count = $atts['count'];
