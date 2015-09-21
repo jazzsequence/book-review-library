@@ -916,6 +916,10 @@ class Book_Reviews {
 			$genre = sanitize_title( $atts['genre'] ); // sanitize the genre in case someone didn't remember to do that
 		}
 
+		if ( isset( $atts['title'] ) ) {
+			$title = sanitize_title( $atts['title'] ); // sanitize the title, it should match a post slug
+		}
+
 		if ( !$orderby_author ) { // if we're not ordering by author, do things normally
 			if ( !$author && !$genre ) { // we are not listing books of a specific author or a specific genre
 				$args = array(
