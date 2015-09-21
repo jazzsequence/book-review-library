@@ -848,12 +848,12 @@ class Book_Reviews {
 		$options = get_option( 'book_reviews_settings', $defaults );
 
 		extract(shortcode_atts( array(
-			'count' => '',
-			'covers' => true,
+			'count'    => '',
+			'covers'   => true,
 			'order_by' => 'date_added', // author, title, date added (default)
-			'format' => 'none', // 0 = none, 1 = excerpt, 2 = full
-			'author' => '', // any author
-			'genre' => '' // any genre
+			'format'   => 'none',       // 0 = none, 1 = excerpt, 2 = full
+			'author'   => '',           // any author
+			'genre'    => '',           // any genre
 		), $atts ));
 
 		$covers = null;
