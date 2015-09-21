@@ -922,11 +922,21 @@ class Book_Reviews {
 			$title = sanitize_title( $atts['title'] ); // sanitize the title, it should match a post slug
 		}
 
+		if ( isset( $atts['id'] ) ) {
+			$post_id = absint( $atts['id'] ); // make sure the id is a positive integer
+		}
+
 		if ( !$orderby_author ) { // if we're not ordering by author, do things normally
 			if ( $title ) { // we passed a book title
 				$args = array(
 					'post_type'      => 'book-review',
 					'name'           => $title,
+					'posts_per_page' => 1,
+				);
+			} elseif ( $post_id ) {
+				$args = array(
+					'post_type'      => 'book-review',
+					'p'              => $post_id,
 					'posts_per_page' => 1,
 				);
 			} elseif ( !$author && !$genre ) { // we are not listing books of a specific author or a specific genre
