@@ -855,6 +855,7 @@ class Book_Reviews {
 			'author'   => '',           // any author
 			'genre'    => '',           // any genre
 			'title'    => '',           // any title
+			'id'       => '',           // a specific post ID
 		), $atts ));
 
 		$covers = null;
@@ -862,6 +863,7 @@ class Book_Reviews {
 		$author = null;
 		$genre = null;
 		$title = null;
+		$post_id        = null;
 
 		if ( isset($atts['count']) ) {
 			$count = $atts['count'];
