@@ -1168,11 +1168,7 @@ class Book_Reviews {
 					endwhile; endif;
 					wp_reset_query();
 					return ob_get_clean();
-				}
-			}
-		}
-	}
-}				} // end foreach
+				} // end foreach
 			} // end empty terms check
 		} // end book author check
 	} // end function
