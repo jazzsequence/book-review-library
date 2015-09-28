@@ -1172,4 +1172,8 @@ class Book_Reviews {
 			}
 		}
 	}
-}
+}				} // end foreach
+			} // end empty terms check
+		} // end book author check
+	} // end function
+} // end class
