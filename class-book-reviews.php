@@ -1059,8 +1059,9 @@ class Book_Reviews {
 					<?php } ?>
 				</div>
 			</div>
-			<?php
-			endwhile; endif;
+				<?php
+			endwhile;
+			endif;
 			wp_reset_query();
 			return ob_get_clean();
 		} else { // we're doing this by book author, time to loop through again....
