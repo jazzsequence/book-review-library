@@ -1100,13 +1100,11 @@ class Book_Reviews {
 								</a>
 							<?php } ?>
 
-							<?php if ( $format ) {
-								if ( $format == 1 ) { ?>
-									<?php the_excerpt(); ?>
-								<?php } elseif ( $format == 2 ) { ?>
-									<?php the_content(); ?>
-								<?php }
-							} ?>
+							<?php if ( $format ) { ?>
+								<?php the_excerpt(); ?>
+							<?php } else { ?>
+								<?php the_content(); ?>
+							<?php } ?>
 						</div>
 
 						<div class="post-meta">
