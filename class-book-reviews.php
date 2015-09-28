@@ -1064,7 +1064,7 @@ class Book_Reviews {
 			endif;
 			wp_reset_query();
 			return ob_get_clean();
-		} else { // we're doing this by book author, time to loop through again....
+		} else { // We're doing this by book author, time to loop through again....
 			if ( !empty($terms) ) {
 				foreach ( $terms as $term ) {
 					$args = array(
