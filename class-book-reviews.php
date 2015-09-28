@@ -827,7 +827,7 @@ class Book_Reviews {
 	 * @since 	1.0.0
 	 */
 	public function create_tiny_thumbs() {
-		if ( function_exists('add_image_size' ) ) {
+		if ( function_exists( 'add_image_size' ) ) {
 			add_image_size( 'tiny', 36, 36, true );
 			add_image_size( 'book-cover', 133, 200, false );
 		}
