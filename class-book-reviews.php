@@ -1165,7 +1165,8 @@ class Book_Reviews {
 						</div>
 					</div>
 					<?php
-					endwhile; endif;
+					endwhile;
+					endif;
 					wp_reset_query();
 					return ob_get_clean();
 				} // end foreach
