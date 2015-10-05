@@ -405,6 +405,20 @@ class Book_Review_Library_Taxonomies {
 	}
 
 	/**
+	 * Removes auto-inserted ratings terms.
+	 * @since  1.6
+	 * @return void
+	 */
+	public function remove_star_ratings() {
+			wp_delete_term( '0', 'rating' );
+			wp_delete_term( '1', 'rating' );
+			wp_delete_term( '2', 'rating' );
+			wp_delete_term( '3', 'rating' );
+			wp_delete_term( '4', 'rating' );
+			wp_delete_term( '5', 'rating' );
+	}
+
+	/**
 	 * Removes rating submenu so rating levels cannot be (easily) changed from the default
 	 *
 	 * @since 	1.0.0
