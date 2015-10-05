@@ -920,6 +920,24 @@ class Book_Reviews {
 	}
 
 	/**
+	 * Return output if there are no books found.
+	 * @param  boolean $echo Whether to echo or return the output.
+	 * @since  1.6
+	 * @return string        The "no books found" markup.
+	 */
+	public function no_books_found( $echo = false ) {
+		$output = '<div class="book-review-library no-posts">';
+		$output .= '<p>' . __( 'No books found.', 'book-review-library' ) . '</p>';
+		$output .= '</div>';
+		if ( ! $echo ) {
+			return $output;
+		}
+
+		echo $output; // WPCS: XSS ok.
+		return;
+	}
+
+	/**
 				<div <?php post_class( 'book-review-sc' ); ?>>
 				</div>
 
