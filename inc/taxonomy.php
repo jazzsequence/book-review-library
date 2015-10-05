@@ -406,7 +406,7 @@ class Book_Review_Library_Taxonomies {
 
 	/**
 	 * Removes auto-inserted ratings terms.
-	 * @since  1.6
+	 * @since  1.5.0
 	 * @return void
 	 */
 	public function remove_star_ratings() {
@@ -420,7 +420,7 @@ class Book_Review_Library_Taxonomies {
 
 	/**
 	 * Removes auto-inserted format terms.
-	 * @since  1.6
+	 * @since  1.5.0
 	 * @return void
 	 */
 	public function remove_formats() {
@@ -436,7 +436,7 @@ class Book_Review_Library_Taxonomies {
 
 	/**
 	 * Removes all auto-inserted taxonomy terms.
-	 * @since  1.6
+	 * @since  1.5.0
 	 * @return void
 	 */
 	public function remove_terms() {

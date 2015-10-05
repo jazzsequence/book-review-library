@@ -922,7 +922,7 @@ class Book_Reviews {
 	/**
 	 * Return output if there are no books found.
 	 * @param  boolean $echo Whether to echo or return the output.
-	 * @since  1.6
+	 * @since  1.5.0
 	 * @return string        The "no books found" markup.
 	 */
 	public function no_books_found( $echo = false ) {
