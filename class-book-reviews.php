@@ -1057,7 +1057,7 @@ class Book_Reviews {
 			$args = $this->books_by( 'genre_and_author', array( 'count' => $count, 'orderby' => $orderby, 'order' => $order, 'genre' => $genre, 'author' => $author ) );
 		}
 
-		// TODO abstract the loop markup to a separate function and only have one for all of it
+		// Check the order_by author value to determine if we need a separate loop for each author.
 		if ( ! $orderby_author ) {
 			$query = new WP_Query( $args );
 			ob_start();
