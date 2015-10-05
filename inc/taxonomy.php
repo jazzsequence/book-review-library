@@ -419,6 +419,22 @@ class Book_Review_Library_Taxonomies {
 	}
 
 	/**
+	 * Removes auto-inserted format terms.
+	 * @since  1.6
+	 * @return void
+	 */
+	public function remove_formats() {
+			wp_delete_term( 'audiobook', 'format' );
+			wp_delete_term( 'book', 'format' );
+			wp_delete_term( 'graphic-novel', 'format' );
+			wp_delete_term( 'ebook', 'format' );
+			wp_delete_term( 'periodical', 'format' );
+			wp_delete_term( 'reference', 'format' );
+			wp_delete_term( 'picture-book', 'format' );
+	}
+
+
+	/**
 	 * Removes rating submenu so rating levels cannot be (easily) changed from the default
 	 *
 	 * @since 	1.0.0
