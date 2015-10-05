@@ -976,7 +976,8 @@ class Book_Reviews {
 				</div>
 
 				<div class="post-meta">
-					<?php if ( has_term( '', 'rating' ) ) {
+					<?php
+					if ( has_term( '', 'rating' ) ) {
 						$this->do_rating();
 					} // End Ratings.
 					if ( has_term( '', 'review-author' ) && is_singular( 'book-review' ) ) {
@@ -987,7 +988,8 @@ class Book_Reviews {
 					} // End Reading Levels.
 					if ( isset( $options['stock'] ) && $options['stock'] ) {
 						$this->do_stock();
-					} // End Stock. ?>
+					} // End Stock.
+					?>
 				</div>
 				<div class="post-data">
 					<?php if ( isset( $options['title-filter'] ) && ! $options['title-filter']  && has_term( '', 'book-author' ) ) { ?>
