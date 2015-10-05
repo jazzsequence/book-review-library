@@ -1017,13 +1017,73 @@ class Book_Reviews {
 	}
 
 	/**
+	 * Creates the shortcode
+	 * @param  array $atts Passed shortcode attributes.
+	 * @since  1.0.0
+	 * @return string      The output of the shortcode.
+	 */
+	public function create_shortcode( $atts ) {
+		global $is_book_review_shortcode;
+		$is_book_review_shortcode = true;
+
+		extract(shortcode_atts( array(
+			'count'    => -1,
+			'covers'   => false,
+			'order_by' => 'date_added', // Author, title, date added (default).
+			'format'   => 0,            // 0 = none, 1 = excerpt, 2 = full
+			'author'   => false,        // any author
+			'genre'    => false,        // any genre
+			'title'    => false,        // any title
+			'id'       => 0,            // A specific post ID.
+		), $atts ));
+
+		extract( $this->get_order_by( $order_by ) );
+
+		$thumbnail = ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) ? 'book-cover' : 'thumbnail';
+
+		if ( $title ) { // We passed a book title.
+			$args = $this->books_by( 'title' );
+		} elseif ( $post_id ) {
+			$args = $this->books_by( 'post_id' );
+		} elseif ( ! $author && ! $genre ) { // We are not listing books of a specific author or a specific genre.
+			$args = $this->books_by( 'default', array( 'count' => $count, 'orderby' => $orderby, 'order' => $order ) );
+		} elseif ( $author && ! $genre ) { // We're listing all the books by a specific author, but no specific genre.
+			$args = $this->books_by( 'author', array( 'count' => $count, 'author' => $author ) );
+		} elseif ( $genre && ! $author ) { // We're listing all the books of a specific genre, but not a specific author.
+			$args = $this->books_by( 'genre', array( 'count' => $count, 'orderby' => $orderby, 'order' => $order, 'genre' => $genre ) );
+		} elseif ( $genre && $author ) { // We're listing all the books by a particular author in a specific genre.
+			$args = $this->books_by( 'genre_and_author', array( 'count' => $count, 'orderby' => $orderby, 'order' => $order, 'genre' => $genre, 'author' => $author ) );
+		}
+
+		// TODO abstract the loop markup to a separate function and only have one for all of it
+		if ( ! $orderby_author ) {
+			$query = new WP_Query( $args );
+			ob_start();
+
+			$this->the_loop( $query, array(
+				'orderby'   => $orderby,
+				'covers'    => $covers,
+				'thumbnail' => $thumbnail,
+				'format'    => $format,
+			) );
+
 			return ob_get_clean();
+		} else {
+			if ( ! empty( $terms ) ) {
 				foreach ( $terms as $term ) {
 					$query = new WP_Query( $args );
 					ob_start();
+
+					$this->the_loop( $query, array(
+						'orderby'   => $orderby,
+						'covers'    => $covers,
+						'thumbnail' => $thumbnail,
+						'format'    => $format,
+					) );
+
 					return ob_get_clean();
-				} // end foreach
-			} // end empty terms check
-		} // end book author check
-	} // end function
-} // end class
+				} // End foreach loop.
+			} // End empty terms check.
+		} // End orderby author check.
+	} // End function.
+} // End class.
