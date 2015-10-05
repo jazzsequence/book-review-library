@@ -831,7 +831,22 @@ class Book_Reviews {
 	}
 
 	/**
+	 * Echoes the review author markup.
+	 * @since  1.5.0
+	 * @return void
+	 */
+	public function do_review_author() {
+		$review_author      = get_term_by( 'name', get_review_author(), 'review-author' );
+		$review_author_slug = $review_author->slug;
+		$author_string      = '<a href="' . home_url() . '/?review-author=' . $review_author_slug . '/">' . get_review_author() . '</a>';
+		$output = '<span class="author">';
+		$output .= sprintf( esc_attr__( 'Review by %s', 'book-review-library' ), $author_string );
+		$output .= '</span><br />';
+		echo esc_attr( $output );
+	}
 
+
+	/**
 				<div <?php post_class( 'book-review-sc' ); ?>>
 				</div>
 
