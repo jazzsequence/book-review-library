@@ -1043,22 +1043,29 @@ class Book_Reviews {
 
 		$thumbnail = ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) ? 'book-cover' : 'thumbnail';
 
-		if ( $title ) { // We passed a book title.
+		// We passed a book title.
+		if ( $title ) {
 			$args = $this->books_by( 'title' );
-		} elseif ( $post_id ) {
+		} // We passed a post ID.
+		elseif ( $post_id ) {
 			$args = $this->books_by( 'post_id' );
-		} elseif ( ! $author && ! $genre ) { // We are not listing books of a specific author or a specific genre.
+		} // We are not listing books of a specific author or a specific genre.
+		elseif ( ! $author && ! $genre ) {
 			$args = $this->books_by( 'default', array( 'count' => $count, 'orderby' => $orderby, 'order' => $order ) );
-		} elseif ( $author && ! $genre ) { // We're listing all the books by a specific author, but no specific genre.
+		} // We're listing all the books by a specific author, but no specific genre.
+		elseif ( $author && ! $genre ) {
 			$args = $this->books_by( 'author', array( 'count' => $count, 'author' => $author ) );
-		} elseif ( $genre && ! $author ) { // We're listing all the books of a specific genre, but not a specific author.
+		} // We're listing all the books of a specific genre, but not a specific author.
+		elseif ( $genre && ! $author ) {
 			$args = $this->books_by( 'genre', array( 'count' => $count, 'orderby' => $orderby, 'order' => $order, 'genre' => $genre ) );
-		} elseif ( $genre && $author ) { // We're listing all the books by a particular author in a specific genre.
+		} // We're listing all the books by a particular author in a specific genre.
+		elseif ( $genre && $author ) {
 			$args = $this->books_by( 'genre_and_author', array( 'count' => $count, 'orderby' => $orderby, 'order' => $order, 'genre' => $genre, 'author' => $author ) );
 		}
 
 		// Check the order_by author value to determine if we need a separate loop for each author.
 		if ( ! $orderby_author ) {
+
 			$query = new WP_Query( $args );
 			ob_start();
 
@@ -1070,9 +1077,12 @@ class Book_Reviews {
 			) );
 
 			return ob_get_clean();
+
 		} else {
+
 			if ( ! empty( $terms ) ) {
 				foreach ( $terms as $term ) {
+
 					$query = new WP_Query( $args );
 					ob_start();
 
@@ -1084,8 +1094,12 @@ class Book_Reviews {
 					) );
 
 					return ob_get_clean();
+
 				} // End foreach loop.
 			} // End empty terms check.
+
 		} // End orderby author check.
+
 	} // End function.
+
 } // End class.
