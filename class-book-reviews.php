@@ -812,6 +812,25 @@ class Book_Reviews {
 	}
 
 	/**
+	 * Echoes the rating markup.
+	 * @since  1.5.0
+	 * @return void
+	 */
+	public function do_rating() {
+		$rating = get_rating();
+		if ( 'zero' == $rating ) {
+			$rating = '0';
+		}
+		$rating_arr = get_term_by( 'name', $rating, 'rating' );
+		$star_slug = $rating_arr->slug;
+		$rating_string = '<a href="' . home_url() . '/?rating=' . $star_slug . '/">' . get_rating_stars() . '</a>';
+		$output = '<span class="rating">';
+		$output .= $rating_string;
+		$output .= '</span><br />';
+		echo esc_attr( $output );
+	}
+
+	/**
 
 				<div <?php post_class( 'book-review-sc' ); ?>>
 				</div>
