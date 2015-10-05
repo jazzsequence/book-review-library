@@ -700,42 +700,118 @@ class Book_Reviews {
 	}
 
 	/**
+	 * Returns a WP_Query arguments array based on a string passed.
+	 * @since  1.5.0
+	 * @param  string $param What type of WP_Query arguments to use.
+	 * @param  array  $args  Some values to pass directly to the WP_Query args.
+	 * @return array         A WP_Query arguments array.
 	 */
+	public function books_by( $param = '', $args = array() ) {
+		if ( ! $param ) {
+			return false;
+		}
 
+		$values = wp_parse_args( $args, array(
+			'title'    => '',
+			'post_id'  => 0,
+			'count'    => -1,
+			'order_by' => 'date_added', // Author, title, date added (default).
+			'order'    => 'DESC',
 			'format'   => 'none',       // 0 = none, 1 = excerpt, 2 = full
 			'author'   => '',           // any author
 			'genre'    => '',           // any genre
+			'terms'    => array(),
+		) );
 
+		$args = array();
 
+		switch ( $param ) {
+			case 'title' :
 				$args = array(
 					'post_type'      => 'book-review',
+					'name'           => $values['title'],
 					'posts_per_page' => 1,
 				);
+				break;
+
+			case 'post_id' :
 				$args = array(
 					'post_type'      => 'book-review',
+					'p'              => $values['post_id'],
 					'posts_per_page' => 1,
 				);
+				break;
+
+			case 'default' :
 				$args = array(
 					'post_type'      => 'book-review',
+					'posts_per_page' => $values['count'],
+					'orderby'        => $values['orderby'],
+					'order'          => $values['order'],
 				);
+				break;
+
+			case 'author' :
 				$args = array(
 					'post_type'      => 'book-review',
+					'posts_per_page' => $values['count'],
 					'orderby'        => 'title',
 					'order'          => 'ASC',
+					'book-author'    => $values['author'],
 				);
-				$args = array(
-					'post_type'      => 'book-review',
-				);
-			} elseif ( $genre && $author ) { // we're listing all the books by a particular author in a specific genre
-				$args = array(
-					'post_type'      => 'book-review',
-					'posts_per_page' => $count,
-					'orderby'        => $orderby,
-					'order'          => $order,
-					'genre'          => $genre,
-					'book-author'    => $author
-				);
+				break;
 
+			case 'genre' :
+				$args = array(
+					'post_type'      => 'book-review',
+					'posts_per_page' => $values['count'],
+					'orderby'        => $values['orderby'],
+					'order'          => $values['order'],
+					'genre'          => $values['genre'],
+				);
+				break;
+
+			case 'genre_and_author' :
+				$args = array(
+					'post_type'      => 'book-review',
+					'posts_per_page' => $values['count'],
+					'orderby'        => $values['orderby'],
+					'order'          => $values['order'],
+					'genre'          => $values['genre'],
+					'book-author'    => $values['author'],
+				);
+				break;
+
+			case 'group_by_author' :
+				$args = array(
+					'post_type' => 'book-review',
+					'posts_per_page' => $values['count'],
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'book-author',
+							'field' => 'slug',
+							'terms' => $values['terms'],
+						),
+					),
+					'orderby' => 'title',
+					'order' => 'ASC',
+				);
+				break;
+
+			default:
+				$args = array(
+					'post_type'      => 'book-review',
+					'posts_per_page' => $values['count'],
+					'orderby'        => $values['orderby'],
+					'order'          => $values['order'],
+				);
+				break;
+		}
+
+		return $args;
+	}
+
+	/**
 
 				<div <?php post_class( 'book-review-sc' ); ?>>
 				</div>
