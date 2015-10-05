@@ -859,6 +859,25 @@ class Book_Reviews {
 	}
 
 	/**
+	 * Echoes the stock markup.
+	 * @since  1.5.0
+	 * @return void
+	 */
+	public function do_stock() {
+		if ( get_post_meta( get_the_ID(), 'book_in_stock', true ) ) {
+			$output = '<span class="in-stock">';
+			$output .= esc_attr__( 'This book is <strong>in stock</strong>', 'book-review-library' );
+			$output .= '</span>';
+		} else {
+			$output = '<span class="out-of-stock">';
+			$output .= esc_attr__( 'This book is <strong>currently checked out</strong>', 'book-review-library' );
+			$output .= '</span>';
+		}
+
+		echo esc_attr( $output );
+	}
+
+	/**
 				<div <?php post_class( 'book-review-sc' ); ?>>
 				</div>
 
