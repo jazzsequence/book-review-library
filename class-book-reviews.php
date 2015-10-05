@@ -878,6 +878,48 @@ class Book_Reviews {
 	}
 
 	/**
+	 * Figure out the orderby parameters
+	 * @since  1.5.0
+	 * @param  string $order_by The sort order passed to the shortcode.
+	 * @return array            Orderby parameters and helper variables for determining output.
+	 */
+	public function get_order_by( $order_by = '' ) {
+
+		$orderby = array(
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'terms'          => array(),
+			'orderby_author' => false,
+			'title'          => '',
+		);
+
+		if ( ! $order_by ) {
+			return $orderby;
+		}
+
+		switch ( $order_by ) {
+			case 'date_added' :
+				return $orderby;
+				break;
+			case 'author' :
+				$orderby['terms']          = get_terms( 'book-author' );
+				$orderby['orderby_author'] = true;
+				$orderby['orderby']        = 'title';
+				$orderby['order']          = 'ASC';
+				break;
+			case 'title' :
+				$orderby['title'] = 'title';
+				$orderby['order'] = 'ASC';
+				break;
+			default :
+				break;
+		}
+
+		return $orderby;
+
+	}
+
+	/**
 				<div <?php post_class( 'book-review-sc' ); ?>>
 				</div>
 
