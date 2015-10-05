@@ -938,14 +938,85 @@ class Book_Reviews {
 	}
 
 	/**
+	 * Method for Book Review Library loops
+	 * @param  boolean $query The WP_Query to run.
+	 * @param  array   $args  Optional. Arguments to determine how the loop outputs.
+	 * @return void
+	 */
+	public function the_loop( $query = false, $args = array() ) {
+
+		if ( ! $query ) {
+			$this->no_books_found( true );
+			return;
+		}
+
+		include_once( BOOK_REVIEWS_TEMPLATE_TAGS );
+		$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
+		$args    = wp_parse_args( $args, array(
+			'orderby'   => '',
+			'covers'    => '',
+			'thumbnail' => '',
+			'format'    => '',
+		) );
+		extract( $args );
+
+		if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+			<div class="book-review-wrapper orderedby-<?php esc_attr_e( $orderby ); ?>" id="book-review-<?php echo absint( get_the_ID() ); ?>">
+				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 				<div <?php post_class( 'book-review-sc' ); ?>>
+					<?php if ( ( $covers ) && has_post_thumbnail() ) { ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail"><?php the_post_thumbnail( $thumbnail ); ?></a>
+					<?php } // End covers. ?>
+
+					<?php if ( $format ) { ?>
+						<?php the_excerpt(); ?>
+					<?php } else { ?>
+						<?php the_content(); ?>
+					<?php } // End Format. ?>
 				</div>
 
 				<div class="post-meta">
+					<?php if ( has_term( '', 'rating' ) ) {
+						$this->do_rating();
+					} // End Ratings.
+					if ( has_term( '', 'review-author' ) && is_singular( 'book-review' ) ) {
+						$this->do_review_author();
+					} // End Review Author.
+					if ( has_term( '', 'reading-level' ) ) {
+						$this->do_reading_level();
+					} // End Reading Levels.
+					if ( isset( $options['stock'] ) && $options['stock'] ) {
+						$this->do_stock();
+					} // End Stock. ?>
 				</div>
 				<div class="post-data">
+					<?php if ( isset( $options['title-filter'] ) && ! $options['title-filter']  && has_term( '', 'book-author' ) ) { ?>
+						<span class="book-author"><?php echo sprintf( __( '<strong>Author:</strong> %s', 'book-review-library' ), get_book_author() ); // WPCS: XSS ok. ?></span><br />
+					<?php } // End Authors. ?>
+					<?php if ( has_term( '', 'genre' ) ) { ?>
+						<span class="genre"><?php echo sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres() );  // WPCS: XSS ok. ?></span><br />
+					<?php } // End Genres. ?>
+					<?php if ( has_term( '', 'series' ) ) { ?>
+						<span class="series"><?php echo sprintf( __( '<strong>Series:</strong> %s | ', 'book-review-library' ), get_book_series() );  // WPCS: XSS ok. ?></span>
+					<?php } // End Series. ?>
+					<?php if ( has_term( '', 'subject' ) ) { ?>
+						<span class="subjects"><?php echo sprintf( __( '<strong>Subjects:</strong> %s', 'book-review-library' ), get_subjects() );  // WPCS: XSS ok. ?></span><br />
+					<?php } // End Subjects. ?>
+					<?php if ( has_term( '', 'illustrator' ) ) { ?>
+						<span class="illustrator"><?php echo sprintf( __( '<strong>Illustrated by</strong> %s', 'book-review-library' ), get_illustrator() );  // WPCS: XSS ok. ?></span>
+					<?php } // End Illustrators. ?>
 				</div>
 			</div>
+			<?php
+		endwhile;
+		else :
+			$this->no_books_found( true );
+		endif;
+		wp_reset_query();
+
+	}
+
+	/**
 			return ob_get_clean();
 				foreach ( $terms as $term ) {
 					$query = new WP_Query( $args );
