@@ -63,11 +63,14 @@ class Book_Reviews {
 	 */
 	private function __construct() {
 
+		require_once( plugin_dir_path( __FILE__ ) . '/inc/roles.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/views/options.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/views/actions.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/inc/cmb.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/inc/cpt.php' );
 		require_once( plugin_dir_path( __FILE__ ) . '/inc/taxonomy.php' );
+
+		$this->roles = new Book_Review_Roles();
 
 	}
 
@@ -106,88 +109,12 @@ class Book_Reviews {
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
 	 */
 	public static function activate( $network_wide ) {
-		$result = add_role( 'librarian', __( 'Librarian', 'book-review-library' ), array(
-			// core WordPress caps
-			'read' => true,
-			'delete_posts' => true,
-			'delete_published_posts' => true,
-			'edit_posts' => true,
-			'edit_published_posts' => true,
-			'publish_posts' => true,
-			'upload_files' => true,
-			'unfiltered_html' => true,
-			'unfiltered_upload' => true,
-			'manage_options' => true, // temporary fix for permissions to save book review options
-			'manage_book_review_options' => true,
-			// Book Review-speicifc caps
-			'publish_book-reviews' => true,
-			'edit_book-reviews' => true,
-			'edit_published_book-reviews' => true,
-			'delete_book-reviews' => true,
-			'delete_published_book-reviews' => true,
-			'read_book-reviews' => true,
-			'edit_others_book-reviews' => true,
-			'delete_others_book-reviews' => true
-		) );
 
-		$result = add_role( 'book-reviewer', __( 'Book Reviewer', 'book-review-library' ), array(
-			// core WordPress caps
-			'read' => true,
-			'delete_posts' => true,
-			'delete_published_posts' => true,
-			'edit_posts' => true,
-			'edit_published_posts' => true,
-			'publish_posts' => true,
-			'upload_files' => true,
-			'unfiltered_html' => true,
-			'unfiltered_upload' => true,
-			// Book Review-specific caps
-			'publish_book-reviews' => true,
-			'edit_book-reviews' => true,
-			'edit_published_book-reviews' => true,
-			'delete_book-reviews' => true,
-			'delete_published_book-reviews' => true,
-			'read_book-reviews' => true
-		) );
+		// Add new roles on activation.
+		$this->roles->add_roles();
 
-		// add book-reviews caps to authors
-		if ( get_role('author') ) {
-			$role = get_role( 'author' );
-			$role->add_cap('add_book-reviews');
-			$role->add_cap('publish_book-reviews');
-			$role->add_cap('edit_book-reviews');
-			$role->add_cap('read_book-reviews');
-			$role->add_cap('edit_published_book-reviews');
-			$role->add_cap('delete_published_book-reviews');
-			$role->add_cap('delete_book-reviews');
-		}
-
-		// add book-reviews caps to editors
-		if ( get_role('editor') ) {
-			$role = get_role( 'editor' );
-			$role->add_cap('add_book-reviews');
-			$role->add_cap('publish_book-reviews');
-			$role->add_cap('edit_book-reviews');
-			$role->add_cap('edit_others_book-reviews');
-			$role->add_cap('read_book-reviews');
-			$role->add_cap('edit_published_book-reviews');
-			$role->add_cap('delete_published_book-reviews');
-			$role->add_cap('delete_book-reviews');
-		}
-
-		// add book-reviews caps to admins
-		if ( get_role('administrator') ) {
-			$role = get_role( 'administrator' );
-			$role->add_cap('add_book-reviews');
-			$role->add_cap('publish_book-reviews');
-			$role->add_cap('edit_book-reviews');
-			$role->add_cap('edit_others_book-reviews');
-			$role->add_cap('read_book-reviews');
-			$role->add_cap('edit_published_book-reviews');
-			$role->add_cap('delete_published_book-reviews');
-			$role->add_cap('delete_book-reviews');
-			$role->add_cap('manage_book_review_options');
-		}
+		// Add new capabilities on activation.
+		$this->roles->add_caps();
 
 	}
 
@@ -199,70 +126,13 @@ class Book_Reviews {
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
 	 */
 	public static function deactivate( $network_wide ) {
-		if ( get_role( 'librarian' ) ) {
-			$role = get_role( 'librarian' );
-			$role->remove_cap( 'delete_published_book-reviews' );
-			$role->remove_cap( 'edit_published_book-reviews' );
-			$role->remove_cap( 'publish_book-reviews' );
-			$role->remove_cap( 'edit_book-reviews' );
-			$role->remove_cap( 'delete_book-reviews' );
-			$role->remove_cap( 'read_book-reviews' );
-			$role->remove_cap( 'edit_others_book-reviews' );
-			$role->remove_cap( 'edit_minute' );
-			$role->remove_cap( 'manage_book_review_options' );
-			$role->remove_cap( 'manage_options' );
-			remove_role( 'librarian' );
-		}
 
-		if ( get_role( 'book-reviewer' ) ) {
-			$role = get_role( 'book-reviewer' );
-			$role->remove_cap( 'add_book-reviews' );
-			$role->remove_cap( 'delete_published_book-reviews' );
-			$role->remove_cap( 'edit_published_book-reviews' );
-			$role->remove_cap( 'publish_book-reviews' );
-			$role->remove_cap( 'edit_book-reviews' );
-			$role->remove_cap( 'delete_book-reviews' );
-			$role->remove_cap( 'read_book-reviews' );
-			remove_role( 'book-reviewer' );
-		}
+		// Remove Book Review Library capabilities from existing user roles.
+		$this->roles->remove_caps();
 
-		if ( get_role( 'author' ) ) {
-			$role = get_role( 'author' );
-			$role->remove_cap('add_agenda');
-			$role->remove_cap('publish_book-reviews');
-			$role->remove_cap('edit_book-reviews');
-			$role->remove_cap('read_book-reviews');
-			$role->remove_cap('edit_published_book-reviews');
-			$role->remove_cap('delete_published_book-reviews');
-			$role->remove_cap('delete_book-reviews');
-		}
+		// Remove Book Review Library user roles and all caps.
+		$this->roles->remove_roles();
 
-		if ( get_role( 'editor' ) ) {
-			$role = get_role( 'editor' );
-			$role->remove_cap('add_agenda');
-			$role->remove_cap('add_book-reviews');
-			$role->remove_cap('publish_book-reviews');
-			$role->remove_cap('edit_book-reviews');
-			$role->remove_cap('edit_others_book-reviews');
-			$role->remove_cap('read_book-reviews');
-			$role->remove_cap('edit_published_book-reviews');
-			$role->remove_cap('delete_published_book-reviews');
-			$role->remove_cap('delete_book-reviews');
-		}
-
-		if ( get_role( 'administrator' ) ) {
-			$role = get_role( 'administrator' );
-			$role->remove_cap('add_agenda');
-			$role->remove_cap('add_book-reviews');
-			$role->remove_cap('publish_book-reviews');
-			$role->remove_cap('edit_book-reviews');
-			$role->remove_cap('edit_others_book-reviews');
-			$role->remove_cap('read_book-reviews');
-			$role->remove_cap('edit_published_book-reviews');
-			$role->remove_cap('delete_published_book-reviews');
-			$role->remove_cap('delete_book-reviews');
-			$role->remove_cap('manage_book_review_options');
-		}
 
 		wp_delete_term( '0', 'rating' );
 		wp_delete_term( '1', 'rating' );
