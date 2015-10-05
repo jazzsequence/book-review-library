@@ -133,13 +133,9 @@ class Book_Reviews {
 		// Remove Book Review Library user roles and all caps.
 		$this->roles->remove_roles();
 
+		// Remove Book Review Library auto-inserted taxonomy terms.
+		Book_Review_Library_Taxonomies::remove_terms();
 
-		wp_delete_term( '0', 'rating' );
-		wp_delete_term( '1', 'rating' );
-		wp_delete_term( '2', 'rating' );
-		wp_delete_term( '3', 'rating' );
-		wp_delete_term( '4', 'rating' );
-		wp_delete_term( '5', 'rating' );
 	}
 
 	/**

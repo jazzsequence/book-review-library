@@ -435,6 +435,16 @@ class Book_Review_Library_Taxonomies {
 
 
 	/**
+	 * Removes all auto-inserted taxonomy terms.
+	 * @since  1.6
+	 * @return void
+	 */
+	public function remove_terms() {
+		$this->remove_star_ratings();
+		$this->remove_formats();
+	}
+
+	/**
 	 * Removes rating submenu so rating levels cannot be (easily) changed from the default
 	 *
 	 * @since 	1.0.0
