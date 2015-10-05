@@ -847,6 +847,18 @@ class Book_Reviews {
 
 
 	/**
+	 * Echoes the reading level markup.
+	 * @since  1.5.0
+	 * @return void
+	 */
+	public function do_reading_level() {
+		$output = '<span class="reading-level">';
+		$output .= sprintf( esc_html__( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
+		$output .= '<span><br />';
+		echo esc_attr( $output );
+	}
+
+	/**
 				<div <?php post_class( 'book-review-sc' ); ?>>
 				</div>
 
