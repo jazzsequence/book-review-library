@@ -3,8 +3,8 @@ Contributors: jazzs3quence
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
-Tested up to: 4.3
-Stable tag: 1.4.14
+Tested up to: 4.4
+Stable tag: 1.4.15
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -30,7 +30,7 @@ This plugin uses the [Genericons icon font](http://genericons.com) in both the d
 
 = Translators! =
 
-Translators can collectively help work on translating this plugin at http://translations.museumthemes.com/projects/book-review-library. If you would like to help the translation process, [let me know](http://museumthemes.com/book-review-library/youve-got-questions-weve-got-answers/) and I'll get you added as a translator.
+The translation site is no longer available. Until I get a new translation site up, please send translations to hello at chrisreynolds dot io.
 
 * **Italian translation** by [tristano-ajmone](http://wordpress.org/support/profile/tristano-ajmone)
 * **Hungarian translation** by [Ignácz József](http://joco1114.dyndns.org/)
@@ -150,6 +150,10 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 * 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library
 
 == Changelog ==
+= 1.4.15 =
+* updated readme.txt note for translators
+* tested on WordPress version 4.4
+
 = 1.4.14 =
 * fixes next/previous post author displaying the wrong author. Issue reported [here](https://wordpress.org/support/topic/incorrect-author-in-previous-post-navigation)
 
