@@ -2,8 +2,8 @@
 Contributors: jazzs3quence
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG
 Tags: book, book review, library, librarian, reading level, custom post type
-Requires at least: 3.8
-Tested up to: 4.3.1
+Requires at least: 3.6
+Tested up to: 4.4
 Stable tag: 1.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -13,8 +13,6 @@ A book cataloguing and review system designed with bookophiles and librarians in
 == Description ==
 
 The Book Review Library plugin allows you to create a library of books, with reviews, that include sortable meta information like author, illustrator, genre, subjects as well as ratings. This enables you to list all the books of a particular type (e.g. all books written by a particular author or with a specific rating). With very little effort, the book review system will be up and running on your site right away, with built in filters to add this extra information to the page without any custom theming.
-
-** 3 new translation strings have been added in 1.4.7. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library Thanks!!**
 
 A configurable shortcode is also built in, to display a book list. `[book-reviews]` will display all books, while `[book-reviews count=3]` will only display 3 books and `[book-reviews count=3 covers=true]` will display those reviews with their covers, if they exist.
 
@@ -32,7 +30,7 @@ This plugin uses the [Genericons icon font](http://genericons.com) in both the d
 
 = Translators! =
 
-Translators can collectively help work on translating this plugin at http://translations.museumthemes.com/projects/book-review-library. If you would like to help the translation process, [let me know](http://museumthemes.com/book-review-library/youve-got-questions-weve-got-answers/) and I'll get you added as a translator.
+The translation site is no longer available. Until I get a new translation site up, please send translations to hello at chrisreynolds dot io.
 
 * **Italian translation** by [tristano-ajmone](http://wordpress.org/support/profile/tristano-ajmone)
 * **Hungarian translation** by [Ignácz József](http://joco1114.dyndns.org/)
@@ -155,6 +153,10 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 
 = 1.5 =
 * added CMB2 library for metaboxes
+
+= 1.4.15 =
+* updated readme.txt note for translators
+* tested on WordPress version 4.4
 
 = 1.4.14 =
 * fixes next/previous post author displaying the wrong author. Issue reported [here](https://wordpress.org/support/topic/incorrect-author-in-previous-post-navigation)
