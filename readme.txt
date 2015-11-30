@@ -1,10 +1,10 @@
 === Book Review Library ===
 Contributors: jazzs3quence
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG
+Donate link: https://www.dwolla.com/hub/jazzsequence
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
 Tested up to: 4.4
-Stable tag: 1.4.15
+Stable tag: 1.4.16
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -30,7 +30,8 @@ This plugin uses the [Genericons icon font](http://genericons.com) in both the d
 
 = Translators! =
 
-The translation site is no longer available. Until I get a new translation site up, please send translations to hello at chrisreynolds dot io.
+New translations site is up at http://translations.jazzsequence.com/book-review-library/
+None of the old accounts work anymore. Please email me at hello at chrisreynolds dot io to be added as a translator.
 
 * **Italian translation** by [tristano-ajmone](http://wordpress.org/support/profile/tristano-ajmone)
 * **Hungarian translation** by [Ignácz József](http://joco1114.dyndns.org/)
@@ -105,7 +106,7 @@ Filters all book reviews by genre. Any existing genre slug is accepted. The abov
 
 == Frequently Asked Questions ==
 
-[Ask some!](http://museumthemes.com/book-review-library/youve-got-questions-weve-got-answers/)
+[Ask some!](https://jazzsequence.com/about/#ninja_forms_form_2_response_msg)
 
 = I have HTML displaying at the top of my page/next to the book cover/somewhere else. How do I get rid of this? =
 This is most likely because your theme is using `the_title` in a link or somewhere else. This plugin adds a filter to `the_title` to display the book's author. To prevent this behavior (and fix your problem), go to the Options page in the Book Reviews menu and disable "Display author with title". The author will no longer display with the book title and will, instead, be displayed with the genre information.
@@ -147,9 +148,13 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 == Upgrade Notice ==
 
 = 1.4.7 =
-* 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.museumthemes.com/projects/book-review-library
+* 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.jazzsequence.com/projects/book-review-library
 
 == Changelog ==
+= 1.4.16 =
+* updated readme, new working links
+* fixed next/previous post link for non-reviews
+
 = 1.4.15 =
 * updated readme.txt note for translators
 * tested on WordPress version 4.4
