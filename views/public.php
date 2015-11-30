@@ -329,7 +329,7 @@ function filter_book_review_title_newline( $title ) {
 
 /**
  * Alter the previous_post output so the correct book author can be displayed.
- * @param  string $return Not used. The original output.
+ * @param  string $return The original output.
  * @since  1.5.0
  * @return string         The new output.
  */
@@ -338,7 +338,7 @@ function filter_book_review_title_previous_post( $return ) {
 	$options       = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 	$author        = get_book_author( null, ', ', false, $previous_post );
 
-	if ( $return && $previous_post->ID !== get_queried_object_id() ) {
+	if ( $return && $previous_post->ID !== get_queried_object_id() && 'book-review' == $previous_post->post_type ) {
 
 		$output = '<a href="' . get_the_permalink( $previous_post->ID ) . '" rel="previous"><span class="meta-nav">' . __( 'Previous Review', 'book-review-library' ) . '</span>' . esc_attr( $previous_post->post_title ) . '</a>';
 
@@ -348,13 +348,15 @@ function filter_book_review_title_previous_post( $return ) {
 
 		return $output;
 
+	} else {
+		return ( $return && $previous_post->ID !== get_queried_object_id() ) ? $return : false;
 	}
 }
-add_filter('previous_post_link', 'filter_book_review_title_previous_post', 1);
+add_filter( 'previous_post_link', 'filter_book_review_title_previous_post', 1 );
 
 /**
  * Alter the previous_post output so the correct book author can be displayed.
- * @param  string $return Not used. The original output.
+ * @param  string $return The original output.
  * @since  1.5.0
  * @return string         The new output.
  */
@@ -363,7 +365,7 @@ function filter_book_review_title_next_post( $return ) {
 	$options   = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 	$author    = get_book_author( null, ', ', false, $next_post );
 
-	if ( $return && $next_post->ID !== get_queried_object_id() ) {
+	if ( $return && $next_post->ID !== get_queried_object_id() && 'book-review' == $next_post->post_type ) {
 
 		$output = '<a href="' . get_the_permalink( $next_post->ID ) . '" rel="next"><span class="meta-nav">' . __( 'Next Review', 'book-review-library' ) . '</span>' . esc_attr( $next_post->post_title ) . '</a>';
 
@@ -373,7 +375,9 @@ function filter_book_review_title_next_post( $return ) {
 
 		return $output;
 
+	} else {
+		return ( $return && $next_post->ID !== get_queried_object_id() ) ? $return : false;
 	}
 
 }
-add_filter('next_post_link', 'filter_book_review_title_next_post', 1);
+add_filter( 'next_post_link', 'filter_book_review_title_next_post', 1 );
