@@ -10,7 +10,7 @@
  * Plugin Name: Book Review Library
  * Plugin URI:  http://museumthemes.com/book-review-library/
  * Description: A book cataloguing and review system designed with bookophiles and librarians in mind.
- * Version:     1.4.16
+ * Version:     1.4.17
  * Author:      Chris Reynolds
  * Author URI:  http://chrisreynolds.io
  * License:     GPL3
