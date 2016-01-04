@@ -338,19 +338,23 @@ function filter_book_review_title_previous_post( $return ) {
 	$options       = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 	$author        = get_book_author( null, ', ', false, $previous_post );
 
-	if ( $return && $previous_post->ID !== get_queried_object_id() && 'book-review' == $previous_post->post_type ) {
+	// Check the post type. Only change the output if we're looking at a book review.
+	if ( $previous_post && 'book-review' == $previous_post->post_type ) {
+		if ( $return && $previous_post->ID !== get_queried_object_id() ) {
 
-		$output = '<a href="' . get_the_permalink( $previous_post->ID ) . '" rel="previous"><span class="meta-nav">' . __( 'Previous Review', 'book-review-library' ) . '</span>' . esc_attr( $previous_post->post_title ) . '</a>';
+			$output = '<a href="' . get_the_permalink( $previous_post->ID ) . '" rel="previous"><span class="meta-nav">' . __( 'Previous Review', 'book-review-library' ) . '</span>' . esc_attr( $previous_post->post_title ) . '</a>';
 
-		if ( isset( $options['title-filter'] ) && 'disabled' !== $options['title-filter'] ) {
-			$output = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $output, $author );
+			if ( isset( $options['title-filter'] ) && 'disabled' !== $options['title-filter'] ) {
+				$output = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $output, $author );
+			}
+
+			return $output;
+
 		}
-
-		return $output;
-
-	} else {
-		return ( $return && $previous_post->ID !== get_queried_object_id() ) ? $return : false;
 	}
+
+	// Only return an output if the previous post isn't the current post.
+	return ( $return && $previous_post->ID !== get_queried_object_id() ) ? $return : false;
 }
 add_filter( 'previous_post_link', 'filter_book_review_title_previous_post', 1 );
 
@@ -365,19 +369,22 @@ function filter_book_review_title_next_post( $return ) {
 	$options   = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 	$author    = get_book_author( null, ', ', false, $next_post );
 
-	if ( $return && $next_post->ID !== get_queried_object_id() && 'book-review' == $next_post->post_type ) {
+	// Check the post type. Only change the output if we're looking at a book review.
+	if ( $next_post && 'book-review' == $next_post->post_type ) {
+		if ( $return && $next_post->ID !== get_queried_object_id() ) {
 
-		$output = '<a href="' . get_the_permalink( $next_post->ID ) . '" rel="next"><span class="meta-nav">' . __( 'Next Review', 'book-review-library' ) . '</span>' . esc_attr( $next_post->post_title ) . '</a>';
+			$output = '<a href="' . get_the_permalink( $next_post->ID ) . '" rel="next"><span class="meta-nav">' . __( 'Next Review', 'book-review-library' ) . '</span>' . esc_attr( $next_post->post_title ) . '</a>';
 
-		if ( isset( $options['title-filter'] ) && 'disabled' !== $options['title-filter'] ) {
-			$output = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $output, $author );
+			if ( isset( $options['title-filter'] ) && 'disabled' !== $options['title-filter'] ) {
+				$output = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $output, $author );
+			}
+
+			return $output;
+
 		}
-
-		return $output;
-
-	} else {
-		return ( $return && $next_post->ID !== get_queried_object_id() ) ? $return : false;
 	}
 
+	// Only return an output if the next post isn't the current post.
+	return ( $return && $next_post->ID !== get_queried_object_id() ) ? $return : false;
 }
 add_filter( 'next_post_link', 'filter_book_review_title_next_post', 1 );
