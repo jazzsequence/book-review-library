@@ -3,7 +3,7 @@ Contributors: jazzs3quence
 Donate link: https://www.dwolla.com/hub/jazzsequence
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
-Tested up to: 4.4
+Tested up to: 4.6
 Stable tag: 1.4.17
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -147,6 +147,9 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 
 == Upgrade Notice ==
 
+= 1.4.17 =
+* This update fixes a bug with WordPress 4.6. All users should upgrade to this version prior to updating WordPress.
+
 = 1.4.7 =
 * 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.jazzsequence.com/projects/book-review-library
 
@@ -154,6 +157,7 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 
 = 1.4.17 =
 * fixed issue where next/previous post link for non-reviews wasn't showing at all after last update.
+* fixed issue where taxonomies that were disabled were throwing an error when we were checking if terms from those taxonomies existed
 
 
 = 1.4.16 =
