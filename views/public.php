@@ -225,7 +225,7 @@ function filter_book_review_excerpt( $content ) {
 	$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 
 	$meta = '<div class="post-meta">';
-	if ( has_term( '','rating' ) ) {
+	if ( $options['rating'] && has_term( '','rating' ) ) {
 		$rating = get_rating();
 		if ( $rating == 'zero' ) {
 			$rating = '0'; }
@@ -236,7 +236,7 @@ function filter_book_review_excerpt( $content ) {
 		$meta .= $rating_string;
 		$meta .= '</span><br />';
 	}
-	if ( has_term( '','review-author' ) && is_singular( 'book-review' ) ) {
+	if ( $options['review-author'] && has_term( '','review-author' ) && is_singular( 'book-review' ) ) {
 		$rev_auth = get_term_by( 'name', get_review_author(), 'review-author' );
 		$rev_auth_slug = $rev_auth->slug;
 		$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
@@ -244,7 +244,7 @@ function filter_book_review_excerpt( $content ) {
 		$meta .= sprintf( __( 'Review by %s', 'book-review-library' ), $author_string );
 		$meta .= '</span><br />';
 	}
-	if ( has_term( '', 'reading-level' ) ) {
+	if ( $options['reading-level'] && has_term( '', 'reading-level' ) ) {
 		$meta .= '<span class="reading-level">';
 		$meta .= sprintf( __( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
 		$meta .= '<span><br />';
@@ -273,13 +273,13 @@ function filter_book_review_excerpt( $content ) {
 	if ( has_term( '','genre' ) ) {
 		$postmeta .= '<span class="genre">' . sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres() ) . '</span><br />';
 	}
-	if ( has_term( '','series' ) ) {
+	if ( $options['series'] && has_term( '','series' ) ) {
 		$postmeta .= '<span class="series">' . sprintf( __( '<strong>Series:</strong> %s | ', 'book-review-library' ), get_book_series() ) . '</span>';
 	}
-	if ( has_term( '','subject' ) ) {
+	if ( $options['subject'] && has_term( '','subject' ) ) {
 		$postmeta .= '<span class="subjects">' . sprintf( __( '<strong>Subjects:</strong> %s', 'book-review-library' ), get_subjects() ) . '</span><br />';
 	}
-	if ( has_term( '','illustrator' ) ) {
+	if ( $options['illustrator'] && has_term( '','illustrator' ) ) {
 		$postmeta .= '<span class="illustrator">' . sprintf( __( '<strong>Illustrated by</strong> %s', 'book-review-library' ), get_illustrator() ) . '</span>';
 	}
 	$postmeta .= '</div>';
