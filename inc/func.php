@@ -490,7 +490,8 @@ function book_reviews_option_defaults() {
 		'stock' => false,
 		'roles' => false,
 		'title-filter' => true,
-		'comments' => false
+		'comments' => false,
+		'thumbnail' => 'thumbnail'
 	);
 	return $defaults;
 }
