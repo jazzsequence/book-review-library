@@ -28,7 +28,7 @@ function book_reviews_review_author() {
 				foreach ( book_reviews_true_false() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[review-author]"><?php _e( 'Enable this if the person adding the book review is not the original author of the review.', 'book-review-library' ); ?></label>
@@ -56,7 +56,7 @@ function book_reviews_reading_level() {
 				foreach ( book_reviews_true_false() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[reading-level]"><?php _e( 'Enable this to display the reading level for the book.', 'book-review-library' ); ?></label>
@@ -84,7 +84,7 @@ function book_reviews_subject() {
 				foreach ( book_reviews_true_false() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[subject]"><?php _e( 'Enable this to tag the book with different subjects (unique from genres).', 'book-review-library' ); ?></label>
@@ -112,7 +112,7 @@ function book_reviews_illustrator() {
 				foreach ( book_reviews_true_false() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[illustrator]"><?php _e( 'Enable this to add illustrators to book reviews.', 'book-review-library' ); ?></label>
@@ -140,7 +140,7 @@ function book_reviews_awards() {
 				foreach ( book_reviews_true_false() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[awards]"><?php _e( 'Enable this to add awards the book has received.', 'book-review-library' ); ?></label>
@@ -168,7 +168,7 @@ function book_reviews_series() {
 				foreach ( book_reviews_true_false() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[series]"><?php _e( 'Enable this to group books by series.', 'book-review-library' ); ?></label>
@@ -196,7 +196,7 @@ function book_reviews_rating() {
 				foreach ( book_reviews_true_false() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[rating]"><?php _e( 'Enable this for star ratings.', 'book-review-library' ); ?></label>
@@ -224,7 +224,7 @@ function book_reviews_stock() {
 				foreach ( book_reviews_true_false() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[stock]"><?php _e( 'Enable this to display "In Stock"/"Out of Stock" information with the book review.', 'book-review-library' ); ?></label>
@@ -252,7 +252,7 @@ function book_reviews_title() {
 				foreach ( book_reviews_title_filter() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[title-filter]"><?php _e( '<strong>With the title</strong> displays the author on the same line as the book title. <strong>On a new line</strong> adds a line break before displaying the author. <strong>Disabled</strong> removes the author from the title entirely.', 'book-review-library' ); ?></label>
@@ -280,7 +280,7 @@ function book_reviews_comments() {
 				foreach ( book_reviews_true_false() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[comments]"><?php _e( 'If enabled, allows visitors to comment on book reviews.', 'book-review-library' ); ?></label>
@@ -308,7 +308,7 @@ function book_reviews_thumbnail() {
 				foreach ( book_reviews_image_size() as $option ) {
 					$label = $option['label'];
 					$value = $option['value'];
-					echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . $label . '</option>';
 				} ?>
 			</select><br />
 			<label class="description" for="book_reviews_settings[thumbnail]"><?php _e( 'If covers are displayed, this controls how they are sized. Either uses the theme setting for thumbnails (which may be controlled by the theme or the Thumbnail setting on the Media Settings page) or a Book Review Library standard book cover size.', 'book-review-library' ); ?></label>
