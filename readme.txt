@@ -50,6 +50,9 @@ Please email me at hello at chrisreynolds dot io if you want to be added as a tr
 
 I sat down with a librarian and a volunteer at the [Open Classroom charter school library](http://ocslc.org/library/) and asked them what they wanted from the website. The result is this plugin. It was built with a real use-case in mind based on specific feedback I received about things they wanted to share with the school and wider community. If you have questions or suggestions, feel free to [let me know](http://jazzsequence.com/about/).
 
+== Note ==
+
+This plugin hasn't been in active development for a while. However a major revision/rewrite has been planned for some time. The plugin is stable and works with all versions of WordPress and I'm happy to review/merge pull requests on the [GitHub repo](https://github.com/jazzsequence/book-review-library) or respond to support queries you may have but no new features are planned until after the rewrite is complete.
 
 == Shortcodes & Shortcode Parameters ==
 
