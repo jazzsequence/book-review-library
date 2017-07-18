@@ -153,9 +153,6 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 = 1.4.19 =
 * This update fixes a bug with WordPress 4.6. All users should upgrade to this version prior to updating WordPress.
 
-= 1.4.7 =
-* 3 new translation strings have been added in this version. Translators, please submit your translations via http://translations.jazzsequence.com/projects/book-review-library
-
 == Changelog ==
 
 = 1.4.19 =
