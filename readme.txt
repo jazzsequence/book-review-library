@@ -48,7 +48,8 @@ Please email me at hello at chrisreynolds dot io if you want to be added as a tr
 
 = About this plugin =
 
-I sat down last year with a librarian and a volunteer at the [Open Classroom charter school library](http://ocslc.org/library/) and asked them what they wanted from the website. The result is this plugin. It was built with a real use-case in mind based on specific feedback I received about things they wanted to share with the school and wider community. If you have questions or suggestions, feel free to [let me know](http://museumthemes.com/book-review-library/youve-got-questions-weve-got-answers/).
+I sat down with a librarian and a volunteer at the [Open Classroom charter school library](http://ocslc.org/library/) and asked them what they wanted from the website. The result is this plugin. It was built with a real use-case in mind based on specific feedback I received about things they wanted to share with the school and wider community. If you have questions or suggestions, feel free to [let me know](http://jazzsequence.com/about/).
+
 
 == Shortcodes & Shortcode Parameters ==
 
