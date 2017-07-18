@@ -30,8 +30,8 @@ This plugin uses the [Genericons icon font](http://genericons.com) in both the d
 
 = Translators! =
 
-New translations site is up at http://translations.jazzsequence.com/book-review-library/
-None of the old accounts work anymore. Please email me at hello at chrisreynolds dot io to be added as a translator.
+New translations site is up at https://chrisreynolds.io/glotpress/projects/book-review-library/
+Please email me at hello at chrisreynolds dot io if you want to be added as a translator.
 
 * **Italian translation** by [tristano-ajmone](http://wordpress.org/support/profile/tristano-ajmone)
 * **Hungarian translation** by [Ignácz József](http://joco1114.dyndns.org/)
