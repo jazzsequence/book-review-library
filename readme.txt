@@ -1,10 +1,10 @@
 === Book Review Library ===
 Contributors: jazzs3quence
-Donate link: https://www.dwolla.com/hub/jazzsequence
+Donate link: https://paypal.me/jazzsequence
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
-Tested up to: 4.6
-Stable tag: 1.4.19
+Tested up to: 4.8
+Stable tag: 1.4.20
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
