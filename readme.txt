@@ -158,6 +158,10 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 
 == Changelog ==
 
+= 1.4.20 =
+* minor bugfixes (props [Ashley Gibson](https://github.com/nosegraze))
+* added dutch and turkish translations
+
 = 1.4.19 =
 * more fixes for same issue.
 
