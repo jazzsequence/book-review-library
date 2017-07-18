@@ -41,7 +41,9 @@ Please email me at hello at chrisreynolds dot io if you want to be added as a tr
 * **Spanish translation** by Tierras del Rincon
 * **Persian (Farsi) translation** by [Masoud Allameh](http://www.masoudallameh.com/)
 * **Polish translation** by Rafał Szampera
-* **Catalan translation** by Jordi Ramirez **New in 1.4.10!**
+* **Catalan translation** by Jordi Ramirez
+* **Turkish translation** by Yardımcı Destek Teknolojileri
+* **Dutch translation** by robin ketelaars
 
 
 = About this plugin =
