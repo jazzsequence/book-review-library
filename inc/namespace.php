@@ -27,7 +27,7 @@ function bootstrap() {
 	// Deactivation hooks.
 	add_action( 'book_review_action_remove_roles',   __NAMESPACE__ . '\\Roles\\remove_roles' );
 	add_action( 'book_review_action_remove_caps',    __NAMESPACE__ . '\\Roles\\remove_caps' );
-	add_action( 'book_review_action_delete_ratings', __NAMESPACE__ . '\\Roles\\delete_ratings' );
+	add_action( 'book_review_action_delete_ratings', __NAMESPACE__ . '\\Taxonomies\\delete_ratings' );
 }
 
 /**
@@ -82,18 +82,4 @@ function deactivate( $network_wide ) {
 	do_action( 'book_review_action_remove_caps' );
 	do_action( 'book_review_action_remove_roles' );
 	do_action( 'book_review_action_delete_ratings' );
-}
-
-/**
- * Delete ratings
- *
- * @since 2.0.0-alpha
- */
-function delete_ratings() {
-	wp_delete_term( '0', 'rating' );
-	wp_delete_term( '1', 'rating' );
-	wp_delete_term( '2', 'rating' );
-	wp_delete_term( '3', 'rating' );
-	wp_delete_term( '4', 'rating' );
-	wp_delete_term( '5', 'rating' );
 }
