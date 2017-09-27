@@ -8,8 +8,8 @@
     "author": "Chris Reynolds",
     "authorurl": "https://chrisreynolds.io",
     "slug": "book-review-library",
-    "project": "BookReview",
-    "namespace": "Library",
+    "project": "",
+    "namespace": "BookReview",
     "year": 2017,
     "currentVersionWP": "4.8.2"
   }
