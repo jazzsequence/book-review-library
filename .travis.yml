@@ -66,7 +66,8 @@ script:
     # -n flag: Do not print warnings. (shortcut for --warning-severity=0)
     # --standard: Use WordPress as the standard.
     # --extensions: Only sniff PHP files.
-    - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n . --standard=vendor/humanmade/coding-standards .; fi
+    - phpunit
+    - vendor/bin/phpcs -p -s -v -n --standard=vendor/humanmade/coding-standards .
     #- if [[ latest == $WP_VERSION ]]; then phpunit --coverage-clover=coverage.clover; else phpunit --exclude-group rest-api --coverage-clover=coverage.clover; fi
 
 # after_script:
