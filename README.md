@@ -1,11 +1,11 @@
 # Book Review Library #
-**Contributors:**      Chris Reynolds
-**Tags:**
-**Requires at least:** 4.4
-**Tested up to:**      4.8.2
-**Stable tag:**        2.0.0-alpha
-**License:**           GPLv2
-**License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
+**Contributors:**      Chris Reynolds  
+**Tags:**  
+**Requires at least:** 4.4  
+**Tested up to:**      4.8.2  
+**Stable tag:**        2.0.0-alpha  
+**License:**           GPLv3  
+**License URI:**       http://www.gnu.org/licenses/gpl-3.0.html  
 
 A book cataloguing and review system designed with book collectors, bookophiles and librarians in mind.
 
