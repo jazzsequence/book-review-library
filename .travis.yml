@@ -67,7 +67,8 @@ script:
     # --standard: Use WordPress as the standard.
     # --extensions: Only sniff PHP files.
     - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/scripts/phpcs -p -s -v -n . --standard=vendor/humanmade/coding-standards .; fi
-    - if [[ latest == $WP_VERSION ]]; then phpunit --coverage-clover=coverage.clover; else phpunit --exclude-group rest-api --coverage-clover=coverage.clover; fi
-after_script:
-- wget https://scrutinizer-ci.com/ocular.phar
-- php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+    #- if [[ latest == $WP_VERSION ]]; then phpunit --coverage-clover=coverage.clover; else phpunit --exclude-group rest-api --coverage-clover=coverage.clover; fi
+    - if [[ latest == $WP_VERSION ]]; then phpunit --standard=vendor/humanmade/coding-standards .; else phpunit --standard=vendor/humanmade/coding-standards --exclude-group rest-api; fi
+# after_script:
+# - wget https://scrutinizer-ci.com/ocular.phar
+# - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
