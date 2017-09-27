@@ -7,6 +7,3 @@
 [submodule "vendor/extended-cpts"]
 	path = vendor/extended-cpts
 	url = git@github.com:johnbillion/extended-cpts.git
-[submodule "vendor/extended-taxos"]
-	path = vendor/extended-taxos
-	url = git@github.com:johnbillion/extended-taxos.git
