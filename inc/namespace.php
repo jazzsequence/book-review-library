@@ -18,7 +18,16 @@ function bootstrap() {
 	spl_autoload_register( __NAMESPACE__ . '\\autoload' );
 
 	// Register Widgets.
-	add_action( 'widgets_init', __NAMESPACE__ . '\\register_widgets' );
+	add_action( 'widgets_init',                      __NAMESPACE__ . '\\register_widgets' );
+
+	// Activation hooks.
+	add_action( 'book_review_action_add_roles',      __NAMESPACE__ . '\\add_roles' );
+	add_action( 'book_review_action_add_caps',       __NAMESPACE__ . '\\add_caps' );
+
+	// Deactivation hooks.
+	add_action( 'book_review_action_remove_roles',   __NAMESPACE__ . '\\remove_roles' );
+	add_action( 'book_review_action_remove_caps',    __NAMESPACE__ . '\\remove_caps' );
+	add_action( 'book_review_action_delete_ratings', __NAMESPACE__ . '\\delete_ratings' );
 }
 
 /**
