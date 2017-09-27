@@ -1,6 +1,10 @@
 <?php
 /**
- * Book Review Library
+ * Book Review Library main plugin namespace.
+ *
+ * @since   2.0.0-alpha
+ *
+ * @package BookReview
  */
 
 namespace BookReview;
