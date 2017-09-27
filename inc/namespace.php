@@ -17,7 +17,8 @@ namespace BookReview;
 function bootstrap() {
 	spl_autoload_register( __NAMESPACE__ . '\\autoload' );
 
-	// Add all your plugin hooks here.
+	// Register Widgets.
+	add_action( 'widgets_init', __NAMESPACE__ . '\\register_widgets' );
 }
 
 /**
@@ -37,4 +38,14 @@ function autoload( $class ) {
 	$path = __DIR__ . '/' . implode( '/', $parts );
 
 	require $path;
+}
+
+/**
+ * Registers the widgets
+ *
+ * @since 	1.0.0
+ */
+function register_widgets() {
+	register_widget( __NAMESPACE__ . '\\Widgets\\Book_Review_Widget' );
+	register_widget( __NAMESPACE__ . '\\Widgets\\Book_Review_Recent_Widget' );
 }
