@@ -52,6 +52,8 @@ before_script:
     - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
     - export PATH="$HOME/.composer/vendor/bin:$PATH"
     - composer global require "phpunit/phpunit=5.6.*"
+    - git clone -b master --recursive https://github.com/CMB2/CMB2.git vendor/cmb2
+    - git clone -b master --recursive https://github.com/johnbillion/extended-cpts.git vendor/extended-cpts
 
 # Run test script commands.
 # Default is specific to project language.
