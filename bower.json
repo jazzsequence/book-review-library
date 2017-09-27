@@ -1,0 +1,18 @@
+{
+  "name": "book-review-library",
+  "description": "A book cataloguing and review system designed with book collectors, bookophiles and librarians in mind.",
+  "license": "GPLv2",
+  "authors": [
+    "Chris Reynolds"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

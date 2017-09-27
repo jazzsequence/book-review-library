@@ -1,0 +1,16 @@
+{
+  "generator-hm-plugin": {
+    "client": "Book Review",
+    "name": "Book Review Library",
+    "homepage": "https://chrisreynolds.io",
+    "description": "A book cataloguing and review system designed with book collectors, bookophiles and librarians in mind.",
+    "version": "2.0.0-alpha",
+    "author": "Chris Reynolds",
+    "authorurl": "https://chrisreynolds.io",
+    "slug": "book-review-library",
+    "project": "BookReview",
+    "namespace": "Library",
+    "year": 2017,
+    "currentVersionWP": "4.8.2"
+  }
+}
