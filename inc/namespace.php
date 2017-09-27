@@ -3,7 +3,7 @@
  * Book Review Library
  */
 
-namespace BookReview\Library;
+namespace BookReview;
 
 /**
  * Bootstrap the plugin.

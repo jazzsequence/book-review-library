@@ -8,7 +8,7 @@
  * License: GPLv2
  */
 
-namespace BR\BookReview;
+namespace BookReview;
 
 require_once __DIR__ . '/inc/namespace.php';
 
