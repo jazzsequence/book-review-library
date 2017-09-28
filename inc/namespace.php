@@ -28,6 +28,9 @@ function bootstrap() {
 	add_action( 'book_review_action_remove_roles',   __NAMESPACE__ . '\\Roles\\remove_roles' );
 	add_action( 'book_review_action_remove_caps',    __NAMESPACE__ . '\\Roles\\remove_caps' );
 	add_action( 'book_review_action_delete_ratings', __NAMESPACE__ . '\\Taxonomies\\delete_ratings' );
+
+	// Initialize the taxonomies.
+	add_action( 'plugins_loaded',                    __NAMESPACE__ . '\\Taxonomies\\bootstrap' );
 }
 
 /**
