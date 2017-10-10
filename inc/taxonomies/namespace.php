@@ -100,6 +100,28 @@ function register_the_taxonomy( $args = [] ) {
 	] );
 }
 
+/**
+ * Return an array of taxonomies that we want to register.
+ *
+ * @since  2.0.0-alpha
+ * @return array Array of taxonomy names.
+ */
+function taxonomies() {
+	return [
+		'genre',
+		'book-author',
+		'review-author',
+		'reading-level',
+		'subject',
+		'illustrator',
+		'awards',
+		'series',
+		'rating',
+		'language',
+		'format',
+		'publisher',
+	];
+}
 
 /**
  * Register the genre taxonomy
