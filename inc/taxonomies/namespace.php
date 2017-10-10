@@ -17,51 +17,27 @@ namespace BookReview\Taxonomies;
  * @since 2.0.0-alpha
  */
 function bootstrap() {
-	// Always-on taxonomies.
-	add_action( 'init',           __NAMESPACE__ . '\\register_taxonomy_genre' );
-	add_action( 'init',           __NAMESPACE__ . '\\register_taxonomy_book_author' );
-
-	if ( book_reviews_is_option_enabled( 'review-author' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_review_author' );
+	// Loop through and register all the taxonomies.
+	foreach ( taxonnomies() as $taxonomy ) {
+		$taxonomy = str_replace( '_', '-', $taxonomy );
+		if ( ! book_reviews_is_option_enabled( $taxonomy ) ) {
+			// Always-on taxonomies.
+			if ( ! in_array( $taxonomy, [ 'genre', 'book-author' ] ) ) {
+				return;
+			}
+			add_action( 'init', __NAMESPACE__ . '\\register_taxonnomy_' . str_replace( '-', '_', $taxonomy ) );
+		}
 	}
 
-	if ( book_reviews_is_option_enabled( 'reading-level' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_reading_level' );
-	}
-
-	if ( book_reviews_is_option_enabled( 'subject' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_subject' );
-	}
-
-	if ( book_reviews_is_option_enabled( 'illustrator' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_illustrator' );
-	}
-
-	if ( book_reviews_is_option_enabled( 'awards' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_awards' );
-	}
-
-	if ( book_reviews_is_option_enabled( 'series' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_series' );
-	}
-
+	// Insert rating values and prevent ratings from being edited.
 	if ( book_reviews_is_option_enabled( 'rating' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_rating' );
 		add_action( 'init',       __NAMESPACE__ . '\\insert_star_ratings' );
 		add_action( 'admin_init', __NAMESPACE__ . '\\remove_rating_submenu' );
 	}
 
-	if ( book_reviews_is_option_enabled( 'languages' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_language' );
-	}
-
+	// Insert formats.
 	if ( book_reviews_is_option_enabled( 'format' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_format' );
 		add_action( 'init',       __NAMESPACE__ . '\\insert_formats' );
-	}
-
-	if ( book_reviews_is_option_enabled( 'publisher' ) ) {
-		add_action( 'init',       __NAMESPACE__ . '\\register_taxonomy_publisher' );
 	}
 }
 
