@@ -31,6 +31,9 @@ function bootstrap() {
 
 	// Initialize the taxonomies.
 	add_action( 'plugins_loaded',                    __NAMESPACE__ . '\\Taxonomies\\bootstrap' );
+
+	// Initialize the post type.
+	add_action( 'plugins_loades',                    __NAMESPACE__ . '\\CPT\\bootstrap' );
 }
 
 /**

@@ -11,6 +11,13 @@
 
 namespace BookReview\CPT;
 
+/**
+ * Initialize the post type.
+ */
+function bootstrap() {
+	add_action( 'init', __NAMESPACE__ . '\\register_book_reviews' );
+}
+
 function register_book_reviews() {
 	$defaults = \book_reviews_option_defaults();
 	$supports = [
