@@ -3,9 +3,12 @@
  * Plugin Name: Book Review Library
  * Plugin URI: https://wordpress.org/plugins/book-review-libarary/
  * Description: A book cataloguing and review system designed with book collectors, bookophiles and librarians in mind.
+ * Version: 2.0
  * Author: Chris Reynolds
  * Author URI: https://chrisreynolds.io
  * License: GPLv2
+ *
+ * @package BookReview
  */
 
 namespace BookReview;
