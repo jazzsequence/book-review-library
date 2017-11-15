@@ -377,29 +377,12 @@ function book_reviews_true_false() {
 
 /**
  * Book Review Title Filter
- * used by the options page
- * this just lists the possible options for the title filter setting
+ * This function is deprecated in 2.0.
  *
  * @since 1.4.7
- *
- * @return $result 		the array of possible values
  */
 function book_reviews_title_filter() {
-	$result = array(
-		'title' => array(
-			'value' => 'title',
-			'label' => __( 'With the title', 'book-review-library' )
-		),
-		'newline' => array(
-			'value' => 'newline',
-			'label' => __( 'On a new line', 'book-review-library' )
-		),
-		'disabled' => array(
-			'value' => 'disabled',
-			'label' => __( 'Disabled', 'book-review-library' )
-		)
-	);
-	return $result;
+	return _deprecated_function( 'book_reviews_title_filter', esc_html__( 'Book Review Library 2.0+', 'book-review-library' ), 'Options\\book_covers' );
 }
 
 /**
