@@ -427,6 +427,5 @@ function book_review_get_option( $key = '' ) {
  * @return 	$defaults 	all the default settings (everything disabled)
  */
 function book_reviews_option_defaults() {
-	$Book_Reviews_Options = new Book_Reviews_Options;
-	return $Book_Reviews_Options->defaults();
+	return Options\defaults();
 }
