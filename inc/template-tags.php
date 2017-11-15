@@ -398,15 +398,12 @@ function book_reviews_image_size() {
 /**
  * Check if a particular option is enabled, wrapper for Book_Reviews::is_option_enabled()
  *
- * @since 1.5.0
- * @param 	string 	The option name to check
- * @return 	bool 	True of the setting is enabled, false if it isn't or no option was
- * 					passed
+ * @since   1.5.0
+ * @param 	string $option_name The option name to check.
+ * @return 	bool 	            True if the setting is enabled, false if it isn't or no option was passed
  */
 function book_reviews_is_option_enabled( $option_name = '' ) {
-	$book_reviews = Book_Reviews::get_instance();
-
-	return $book_reviews->is_option_enabled( $option_name );
+	return Options\is_option_enabled( $option_name );
 }
 
 /**
