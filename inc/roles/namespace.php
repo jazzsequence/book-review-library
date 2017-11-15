@@ -96,6 +96,8 @@ function get_caps_for( $role ) {
  * @since 2.0.0-alpha
  */
 function add_roles() {
+	do_action( 'book_review_action_add_roles' );
+
 	$roles = [
 		'librarian'     => esc_html__( 'Librarian', 'book-review-library' ),
 		'book-reviewer' => esc_html__( 'Book Reviewer', 'book-review-library' ),
@@ -112,6 +114,8 @@ function add_roles() {
  * @since 2.0.0-alpha
  */
 function add_caps() {
+	do_action( 'book_review_action_add_caps' );
+
 	foreach ( [ 'author', 'editor', 'administrator' ] as $role ) {
 		add_new_caps( $role );
 	}
@@ -138,6 +142,8 @@ function remove_new_caps( $role ) {
  * @since 2.0.0-alpha
  */
 function remove_caps() {
+	do_action( 'book_review_action_remove_roles' );
+
 	foreach ( [ 'librarian', 'book-reviewer', 'author', 'editor', 'administrator' ] as $role ) {
 		remove_new_caps( $role );
 	}
@@ -149,6 +155,8 @@ function remove_caps() {
  * @since 2.0.0-alpha
  */
 function remove_roles() {
+	do_action( 'book_review_action_remove_caps' );
+
 	foreach ( [ 'librarian', 'book-reviewer' ] as $role ) {
 		remove_role( $role );
 	}
