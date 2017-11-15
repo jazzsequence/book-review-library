@@ -21,12 +21,12 @@ function bootstrap() {
 	// Loop through and register all the taxonomies.
 	foreach ( taxonomies() as $taxonomy ) {
 		$taxonomy = str_replace( '_', '-', $taxonomy );
-		if ( ! Options\is_option_enabled( $taxonomy ) ) {
-			// Always-on taxonomies.
-			if ( ! in_array( $taxonomy, [ 'genre', 'book-author' ] ) ) {
-				return;
-			}
-			add_action( 'init', __NAMESPACE__ . '\\register_taxonnomy_' . str_replace( '-', '_', $taxonomy ) );
+
+		// Always-on taxonomies don't come up when checking the options.
+		if ( ! Options\is_option_enabled( $taxonomy ) && in_array( $taxonomy, [ 'genre', 'book-author' ] ) ) {
+			add_action( 'init', __NAMESPACE__ . '\\register_taxonomy_' . str_replace( '-', '_', $taxonomy ) );
+		} elseif ( Options\is_option_enabled( $taxonomy ) ) {
+			add_action( 'init', __NAMESPACE__ . '\\register_taxonomy_' . str_replace( '-', '_', $taxonomy ) );
 		}
 	}
 
