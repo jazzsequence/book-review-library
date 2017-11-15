@@ -10,9 +10,10 @@
  */
 
 namespace BookReview\CPT;
+use BookReview\Options as Options;
 
 function register_book_reviews() {
-	$defaults = \book_reviews_option_defaults();
+	$defaults = Options\defaults();
 	$supports = [
 		'title',
 		'editor',
@@ -23,7 +24,7 @@ function register_book_reviews() {
 	];
 
 	// Remove comment support if we aren't enabling comments.
-	if ( ! book_reviews_is_option_enabled( 'comments' ) ) {
+	if ( ! Options\is_option_enabled( 'comments' ) ) {
 		unset( $supports['comments'] );
 	}
 
