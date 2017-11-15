@@ -31,7 +31,7 @@ function register_book_reviews() {
 
 	// Remove comment support if we aren't enabling comments.
 	if ( ! book_reviews_is_option_enabled( 'comments' ) ) {
-		unset( $supports['commetns'] );
+		unset( $supports['comments'] );
 	}
 
 	$capabilities = [
