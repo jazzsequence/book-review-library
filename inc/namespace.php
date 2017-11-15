@@ -8,6 +8,8 @@
  */
 
 namespace BookReview;
+use BookReview\Roles as Roles;
+use BookReview\Taxonomies as Taxonomies;
 
 /**
  * Bootstrap the plugin.
@@ -77,8 +79,8 @@ function register_widgets() {
  * @param    boolean $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
  */
 function activate( $network_wide ) {
-	do_action( 'book_review_action_add_roles' );
-	do_action( 'book_review_action_add_caps' );
+	Roles\add_roles();
+	Roles\add_caps();
 }
 
 /**
@@ -89,7 +91,7 @@ function activate( $network_wide ) {
  * @param    boolean $network_wide    True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
  */
 function deactivate( $network_wide ) {
-	do_action( 'book_review_action_remove_caps' );
-	do_action( 'book_review_action_remove_roles' );
-	do_action( 'book_review_action_delete_ratings' );
+	Roles\remove_caps();
+	Roles\remove_roles();
+	Taxonomies\delete_ratings();
 }
