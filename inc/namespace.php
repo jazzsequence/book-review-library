@@ -52,7 +52,7 @@ function autoload( $class ) {
 
 	$relative = strtolower( substr( $class, strlen( __NAMESPACE__ . '\\' ) ) );
 	$parts = explode( '\\', $relative );
-	$final = array_pop( $parts );
+	$final = str_replace( '_', '-', array_pop( $parts ) );
 	array_push( $parts, 'class-' . $final . '.php' );
 	$path = __DIR__ . '/' . implode( '/', $parts );
 
