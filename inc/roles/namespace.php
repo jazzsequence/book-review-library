@@ -50,15 +50,15 @@ function add_new_caps( $role ) {
 function get_caps_for( $role ) {
 	// Base WP caps for new roles.
 	$base_wp = [
-		'read'                          => true,
-		'delete_posts'                  => true,
-		'delete_published_posts'        => true,
-		'edit_posts'                    => true,
-		'edit_published_posts'          => true,
-		'publish_posts'                 => true,
-		'upload_files'                  => true,
-		'unfiltered_html'               => true,
-		'unfiltered_upload'             => true,
+		'read'                   => true,
+		'delete_posts'           => true,
+		'delete_published_posts' => true,
+		'edit_posts'             => true,
+		'edit_published_posts'   => true,
+		'publish_posts'          => true,
+		'upload_files'           => true,
+		'unfiltered_html'        => true,
+		'unfiltered_upload'      => true,
 	];
 
 	$librarian_base = array_merge( $base_wp, [ 'manage_options' ] ); // TODO: Grant access to save book review options without granting admin manage_options caps.
