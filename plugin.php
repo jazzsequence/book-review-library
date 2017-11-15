@@ -19,6 +19,10 @@ require_once __DIR__ . '/vendor/extended-cpts/extended-cpts.php';
 
 // Load our internal libraries.
 require_once __DIR__ . '/inc/namespace.php';
+require_once __DIR__ . '/inc/cpt/namespace.php';
+require_once __DIR__ . '/inc/roles/namespace.php';
+require_once __DIR__ . '/inc/taxonomies/namespace.php';
+require_once __DIR__ . '/inc/options/namespace.php';
 require_once __DIR__ . '/inc/template-tags.php';
 
 // TODO: Find a better way to solve this problem.
