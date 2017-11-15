@@ -10,6 +10,7 @@
  */
 
 namespace BookReview\Taxonomies;
+use BookReview\Options as Options;
 
 /**
  * Initialize the taxonomies.
@@ -20,7 +21,7 @@ function bootstrap() {
 	// Loop through and register all the taxonomies.
 	foreach ( taxonomies() as $taxonomy ) {
 		$taxonomy = str_replace( '_', '-', $taxonomy );
-		if ( ! book_reviews_is_option_enabled( $taxonomy ) ) {
+		if ( ! Options\is_option_enabled( $taxonomy ) ) {
 			// Always-on taxonomies.
 			if ( ! in_array( $taxonomy, [ 'genre', 'book-author' ] ) ) {
 				return;
@@ -30,13 +31,13 @@ function bootstrap() {
 	}
 
 	// Insert rating values and prevent ratings from being edited.
-	if ( book_reviews_is_option_enabled( 'rating' ) ) {
+	if ( Options\is_option_enabled( 'rating' ) ) {
 		add_action( 'init',       __NAMESPACE__ . '\\insert_star_ratings' );
 		add_action( 'admin_init', __NAMESPACE__ . '\\remove_rating_submenu' );
 	}
 
 	// Insert formats.
-	if ( book_reviews_is_option_enabled( 'format' ) ) {
+	if ( Options\is_option_enabled( 'format' ) ) {
 		add_action( 'init',       __NAMESPACE__ . '\\insert_formats' );
 	}
 }
