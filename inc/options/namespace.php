@@ -303,7 +303,7 @@ function author_title() {
  */
 function get_options() {
 	// Get the options.
-	return get_option( option_key(), book_reviews_option_defaults() );
+	return get_option( option_key(), defaults() );
 }
 
 /**
