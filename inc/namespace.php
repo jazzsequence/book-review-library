@@ -35,7 +35,7 @@ function bootstrap() {
 	add_action( 'init',                              __NAMESPACE__ . '\\Taxonomies\\bootstrap' );
 
 	// Initialize the post type.
-	add_action( 'init',                              __NAMESPACE__ . '\\CPT\\bootstrap' );
+	add_action( 'init',                              __NAMESPACE__ . '\\CPT\\register_book_reviews' );
 
 	// Initialize the options.
 	add_action( 'admin_init',                        __NAMESPACE__ . '\\Options\\init' );
