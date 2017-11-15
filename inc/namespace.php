@@ -32,7 +32,7 @@ function bootstrap() {
 	add_action( 'book_review_action_delete_ratings', __NAMESPACE__ . '\\Taxonomies\\delete_ratings' );
 
 	// Initialize the taxonomies.
-	add_action( 'init',                              __NAMESPACE__ . '\\Taxonomies\\bootstrap' );
+	Taxonomies\bootstrap();
 
 	// Initialize the post type.
 	add_action( 'init',                              __NAMESPACE__ . '\\CPT\\register_book_reviews' );
