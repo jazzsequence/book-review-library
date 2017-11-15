@@ -366,43 +366,6 @@ function get_book_series($before = null, $after = ', ', $forced = false) {
 }
 
 /**
- * Select box
- * returns a select box based on array values passed to it, used by the widget
- *
- * @since 	1.0.0
- *
- * @param 	$name 		string 		select box value name
- * @param 	$values 	array		an array of possible values
- * @param 	$default 	array 		an array of default values
- * @param 	$parameters string 		any additional parameters
- *
- * @return 	$field					the final select box
- */
-if ( !function_exists('the_select_box') ) {
-	function the_select_box($name, $values, $default = '', $parameters = '') {
-		$field = '<select name="' . esc_attr($name) . '"';
-		if ( !is_null($parameters))
-			$field .= ' ' . $parameters;
-		$field .= '>';
-
-		if (empty($default) && isset($GLOBALS[$name]))
-			$default = stripslashes($GLOBALS[$name]);
-
-		for ($i = 0, $n = sizeof($values); $i < $n; $i++) {
-			$field .= '<option value="' . $values[$i]['id'] . '"';
-			if ($default == $values[$i]['id']) {
-				$field .= 'selected = "selected"';
-			}
-
-			$field .= '>' . $values[$i]['text'] . '</option>';
-		}
-		$field .= '</select>';
-
-		return $field;
-	}
-}
-
-/**
  * Enabled/Disabled toggle
  * used by the options page
  *
