@@ -34,6 +34,10 @@ function bootstrap() {
 
 	// Initialize the post type.
 	add_action( 'init',                              __NAMESPACE__ . '\\CPT\\bootstrap' );
+
+	// Initialize the options.
+	add_action( 'admin_init',                        __NAMESPACE__ . '\\Options\\init' );
+	add_action( 'admin_menu',                        __NAMESPACE__ . '\\Options\\add_plugin_admin_menu' );
 }
 
 /**
