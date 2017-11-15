@@ -9,6 +9,8 @@
  * @copyright 2015 Chris Reynolds
  */
 
+namespace BookReview;
+
 /**
  * Get Review Author
  * returns a formatted list of review authors (comma-separated by default)
