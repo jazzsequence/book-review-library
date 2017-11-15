@@ -322,6 +322,7 @@ function insert_star_ratings() {
  * @since 2.0.0-alpha
  */
 function delete_ratings() {
+	do_action( 'book_review_action_delete_ratings' );
 	wp_delete_term( '☆☆☆☆☆', 'rating' );
 	wp_delete_term( '★☆☆☆☆', 'rating' );
 	wp_delete_term( '★★☆☆☆', 'rating' );
