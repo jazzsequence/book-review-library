@@ -18,7 +18,7 @@ namespace BookReview\Taxonomies;
  */
 function bootstrap() {
 	// Loop through and register all the taxonomies.
-	foreach ( taxonnomies() as $taxonomy ) {
+	foreach ( taxonomies() as $taxonomy ) {
 		$taxonomy = str_replace( '_', '-', $taxonomy );
 		if ( ! book_reviews_is_option_enabled( $taxonomy ) ) {
 			// Always-on taxonomies.
