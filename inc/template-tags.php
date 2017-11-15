@@ -367,24 +367,12 @@ function get_book_series($before = null, $after = ', ', $forced = false) {
 
 /**
  * Enabled/Disabled toggle
- * used by the options page
+ * This function is deprecated in 2.0.
  *
  * @since 	1.0.0
- *
- * @return 	$result 	the array of possible values
  */
 function book_reviews_true_false() {
-	$result = array(
-		'true' => array(
-			'value' => true,
-			'label' => __( 'Enabled', 'book-review-library' )
-		),
-		'false' => array(
-			'value' => false,
-			'label' => __( 'Disabled', 'book-review-library' )
-		)
-	);
-	return $result;
+	return _deprecated_function( 'book_reviews_true_false', esc_html__( 'Book Review Library 2.0+', 'book-review-library' ), 'Options\\true_false' );
 }
 
 /**
