@@ -206,7 +206,7 @@ function add_plugin_admin_menu() {
 		esc_html__( 'Options', 'book-review-library' ),                     // Menu title.
 		'manage_book_review_options',                                       // Capability.
 		'book-review-library-options',                                      // Page slug.
-		[ $this, 'admin_page_display' ]                                     // Options page callback.
+		__NAMESPACE__ . '\\admin_page_display'                              // Options page callback.
 	);
 }
 
