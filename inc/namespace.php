@@ -30,10 +30,10 @@ function bootstrap() {
 	add_action( 'book_review_action_delete_ratings', __NAMESPACE__ . '\\Taxonomies\\delete_ratings' );
 
 	// Initialize the taxonomies.
-	add_action( 'plugins_loaded',                    __NAMESPACE__ . '\\Taxonomies\\bootstrap' );
+	add_action( 'init',                              __NAMESPACE__ . '\\Taxonomies\\bootstrap' );
 
 	// Initialize the post type.
-	add_action( 'plugins_loades',                    __NAMESPACE__ . '\\CPT\\bootstrap' );
+	add_action( 'init',                              __NAMESPACE__ . '\\CPT\\bootstrap' );
 }
 
 /**
