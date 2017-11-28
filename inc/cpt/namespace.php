@@ -46,5 +46,6 @@ function register_book_reviews() {
 		'capability_type' => 'book-review',
 		'capabilities'    => $capabilities,
 		'map_meta_cap'    => true,
+		'menu_icon'       => 'dashicons-book-alt',
 	] );
 }
