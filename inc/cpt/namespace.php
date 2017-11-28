@@ -12,6 +12,11 @@
 namespace BookReview\CPT;
 use BookReview\Options as Options;
 
+/**
+ * Register the CPT
+ *
+ * @since 2.0.0-alpha
+ */
 function register_book_reviews() {
 	$defaults = Options\defaults();
 	$supports = [
