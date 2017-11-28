@@ -54,3 +54,13 @@ function register_book_reviews() {
 		'menu_icon'       => 'dashicons-book-alt',
 	] );
 }
+
+/**
+ * Rename the featured image metabox
+ *
+ * @since 2.0.0-alpha
+ */
+function rename_featured_image() {
+	remove_meta_box( 'postimagediv', 'book-review', 'side' );
+	add_meta_box( 'postimagediv', esc_html__( 'Book Cover', 'book-review-library' ), 'post_thumbnail_meta_box', 'book-review', 'side', 'default' );
+}

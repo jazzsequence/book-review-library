@@ -36,6 +36,7 @@ function bootstrap() {
 
 	// Initialize the post type.
 	add_action( 'init',                              __NAMESPACE__ . '\\CPT\\register_book_reviews' );
+	add_action( 'do_meta_boxes',                     __NAMESPACE__ . '\\CPT\\rename_featured_image' );
 
 	// Initialize the options.
 	add_action( 'admin_init',                        __NAMESPACE__ . '\\Options\\init' );
