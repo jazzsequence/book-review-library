@@ -84,19 +84,84 @@ function register_the_taxonomy( $args = [] ) {
  * @return array Array of taxonomy names.
  */
 function taxonomies() {
-	return [
-		'genre',
-		'book-author',
-		'review-author',
-		'reading-level',
-		'subject',
-		'illustrator',
-		'awards',
-		'series',
-		'rating',
-		'language',
-		'format',
-		'publisher',
+	$taxonomies = [
+		'genre' => [
+			'singular'     => esc_html__( 'Genre', 'book-review-library' ),
+			'slug'         => 'genre',
+			'hierarchical' => false,
+		],
+		'book-author' => [
+			'singular' => esc_html__( 'Author', 'book-review-library' ),
+			'plural'   => esc_html__( 'Book Authors', 'book-review-library' ),
+			'slug'     => 'book-author',
+			'context'  => 'advanced',
+		],
+		'review-author' => [
+			'singular'      => esc_html__( 'Review Author', 'book-review-library' ),
+			'slug'          => 'review-author',
+			'show_tagcloud' => false,
+			'priority'      => 'low',
+		],
+		'reading-level' => [
+			'singular'     => esc_html__( 'Reading Level', 'book-review-library' ),
+			'slug'         => 'reading-level',
+			'hierarchical' => false,
+			'type'         => 'taxonomy_radio',
+			'priority'     => 'low',
+		],
+		'subject' => [
+			'singular'     => esc_html__( 'Subject', 'book-review-library' ),
+			'name'         => esc_html__( 'Subjects', 'book-review-library' ),
+			'slug'         => 'subject',
+			'hierarchical' => false,
+		],
+		'illustrator' => [
+			'singular' => esc_html__( 'Illustrator', 'book-review-library' ),
+			'slug'     => 'illustrator',
+			'context'  => 'advanced',
+		],
+		'awards' => [
+			'singular'     => esc_html__( 'Award', 'book-review-library' ),
+			'name'         => esc_html__( 'Awards', 'book-review-library' ),
+			'slug'         => 'awards',
+			'hierarchical' => false,
+			'context'      => 'advanced',
+			'priority'     => 'low',
+		],
+		'series' => [
+			'singular' => esc_html__( 'Series', 'book-review-library' ),
+			'plural'   => esc_html__( 'Series', 'book-review-library' ),
+			'slug'     => 'series',
+			'context'  => 'advanced',
+		],
+		'rating' => [
+			'singular'          => esc_html__( 'Star Rating', 'book-review-library' ),
+			'name'              => esc_html__( 'Rating', 'book-review-library' ),
+			'slug'              => 'rating',
+			'show_in_nav_menus' => false,
+			'show_tagcloud'     => false,
+			'hierarchical'      => false,
+			'type'              => 'taxonomy_select',
+		],
+		'language' => [
+			'singular'     => esc_html__( 'Language', 'book-review-library' ),
+			'slug'         => 'language',
+			'hierarchical' => false,
+			'type'         => 'taxonomy_select',
+			'context'      => 'advanced',
+		],
+		'format' => [
+			'singular'     => esc_html__( 'Format', 'book-review-library' ),
+			'slug'         => 'format',
+			'hierarchical' => false,
+			'type'         => 'taxonomy_radio',
+		],
+		'publisher' => [
+			'singular' => esc_html__( 'Publisher', 'book-review-library' ),
+			'slug'     => 'publisher',
+			'type'     => 'taxonomy_select',
+			'context'  => 'advanced',
+		],
 	];
 }
 
