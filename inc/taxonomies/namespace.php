@@ -171,6 +171,39 @@ function taxonomies( $tax = false ) {
 	return $taxonomies;
 }
 
+function add_cmb2_box( $args = [] ) {
+	// Bail if we weren't passed a taxonomy.
+	if ( empty( $args['slug'] ) ) {
+		return;
+	}
+	$args['priority'] = empty( $args['priority'] ) ? 'default' : $args['priority'];
+	$args['context']  = empty( $args['context'] ) ? 'side' : $args['context'];
+	$args['type']     = empty( $args['type'] ) ? 'taxonomy_multicheck' : $args['type'];
+	// Translators: %s is the plural form of the taxonomy.
+	$args['no_terms'] = empty( $args['no_terms'] ) ? sprintf( __( 'No %s found', 'book-review-library' ), strtolower( $args['singular'] ) ) : $args['no_terms'];
+	$args['name']     = empty( $args['name'] ) ? $args['singular'] : $args['name'];
+
+	$prefix = '_br_' . $args['slug'];
+
+	$cmb = \new_cmb2_box( [
+		'id'           => $prefix . '_metabox',
+		'title'        => $args['name'],
+		'object_types' => [ 'book-review' ],
+		'context'      => $args['context'],
+		'priority'     => $args['priority'],
+	] );
+
+	$cmb->add_field( [
+		'id'                => $prefix . $args['slug'],
+		'type'              => $args['type'],
+		'taxonomy'          => $args['slug'],
+		'select_all_button' => false,
+		'text'              => [
+			'no_terms_text' => $args['no_terms'],
+		],
+	] );
+}
+
 /**
  * Register the genre taxonomy
  *
