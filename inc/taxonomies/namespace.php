@@ -19,14 +19,18 @@ use BookReview\Options as Options;
  */
 function bootstrap() {
 	// Loop through and register all the taxonomies.
-	foreach ( taxonomies() as $taxonomy ) {
+	foreach ( taxonomies() as $taxonomy => $args ) {
 		$taxonomy = str_replace( '_', '-', $taxonomy );
 
 		// Always-on taxonomies don't come up when checking the options.
-		if ( ! Options\is_option_enabled( $taxonomy ) && in_array( $taxonomy, [ 'genre', 'book-author' ] ) ) {
-			add_action( 'init', __NAMESPACE__ . '\\register_taxonomy_' . str_replace( '-', '_', $taxonomy ) );
-		} elseif ( Options\is_option_enabled( $taxonomy ) ) {
-			add_action( 'init', __NAMESPACE__ . '\\register_taxonomy_' . str_replace( '-', '_', $taxonomy ) );
+		if ( ! Options\is_option_enabled( $args['slug'] ) && in_array( $taxonomy, [ 'genre', 'book-author' ] ) ) {
+			$tax = str_replace( '-', '_', $taxonomy );
+			add_action( 'init',      __NAMESPACE__ . '\\register_taxonomy_' . $tax );
+			add_action( 'cmb2_init', __NAMESPACE__ . '\\add_cmb2_box_' . $tax );
+		} elseif ( Options\is_option_enabled( $args['slug'] ) ) {
+			$tax = str_replace( '-', '_', $taxonomy );
+			add_action( 'init',      __NAMESPACE__ . '\\register_taxonomy_' . $tax );
+			add_action( 'cmb2_init', __NAMESPACE__ . '\\add_cmb2_box_' . $tax );
 		}
 	}
 
