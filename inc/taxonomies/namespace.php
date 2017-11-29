@@ -83,7 +83,7 @@ function register_the_taxonomy( $args = [] ) {
  * @since  2.0.0-alpha
  * @return array Array of taxonomy names.
  */
-function taxonomies() {
+function taxonomies( $tax = false ) {
 	$taxonomies = [
 		'genre' => [
 			'singular'     => esc_html__( 'Genre', 'book-review-library' ),
@@ -163,6 +163,12 @@ function taxonomies() {
 			'context'  => 'advanced',
 		],
 	];
+
+	if ( $tax && ! empty( $taxonomies[ $tax ] ) ) {
+		return $taxonomies[ $tax ];
+	}
+
+	return $taxonomies;
 }
 
 /**
