@@ -210,15 +210,19 @@ function add_cmb2_box( $args = [] ) {
  * @since 	1.0.0
  */
 function register_taxonomy_genre() {
-	$args = [
-		'singular'     => esc_html__( 'Genre', 'book-review-library' ),
-		'plural'       => esc_html__( 'Genres', 'book-review-library' ),
-		'slug'         => 'genre',
-		'hierarchical' => false,
-	];
-	register_the_taxonomy( $args );
+	$genre = taxonomies( 'genre' );
+	register_the_taxonomy( $genre );
 }
 
+/**
+ * Add the Genre metabox.
+ *
+ * @since 2.0.0-alpha
+ */
+function add_cmb2_box_genre() {
+	$genre = taxonomies( 'genre' );
+	add_cmb2_box( $genre );
+}
 
 /**
  * Register the review author taxonomy
@@ -226,15 +230,14 @@ function register_taxonomy_genre() {
  * @since 	1.0.0
  */
 function register_taxonomy_review_author() {
-	$args = [
-		'singular'      => esc_html__( 'Review Author', 'book-review-library' ),
-		'plural'        => esc_html__( 'Review Authors', 'book-review-library' ),
-		'slug'          => 'review-author',
-		'show_tagcloud' => false,
-	];
-	register_the_taxonomy( $args );
+	$review_author = taxonomies( 'review-author' );
+	register_the_taxonomy( $review_author );
 }
 
+function add_cmb2_box_review_author() {
+	$review_author = taxonomies( 'review-author' );
+	add_cmb2_box( $review_author );
+}
 
 /**
  * Register the book author taxonomy
@@ -242,12 +245,12 @@ function register_taxonomy_review_author() {
  * @since 	1.0.0
  */
 function register_taxonomy_book_author() {
-	$args = [
-		'singular' => esc_html__( 'Author', 'book-review-library' ),
-		'plural'   => esc_html__( 'Book Authors', 'book-review-library' ),
-		'slug'     => 'book-author',
-	];
-	register_the_taxonomy( $args );
+	$book_author = taxonomies( 'book-author' );
+	register_the_taxonomy( $book_author );
+}
+
+function add_cmb2_box_book_author() {
+	add_cmb2_box( taxonomies( 'book-author' ) );
 }
 
 /**
@@ -256,13 +259,12 @@ function register_taxonomy_book_author() {
  * @since 	1.0.0
  */
 function register_taxonomy_reading_level() {
-	$args = [
-		'singular'     => esc_html__( 'Reading Level', 'book-review-library' ),
-		'plural'       => esc_html__( 'Reading Levels', 'book-review-library' ),
-		'slug'         => 'reading-level',
-		'hierarchical' => false,
-	];
-	register_the_taxonomy( $args );
+	$reading_level = taxonomies( 'reading-level' );
+	register_the_taxonomy( $reading_level );
+}
+
+function add_cmb2_box_reading_level() {
+	add_cmb2_box( taxonomies( 'reading-level' ) );
 }
 
 /**
@@ -271,13 +273,12 @@ function register_taxonomy_reading_level() {
  * @since 	1.0.0
  */
 function register_taxonomy_subject() {
-	$args = [
-		'singular'     => esc_html__( 'Subject', 'book-review-library' ),
-		'plural'       => esc_html__( 'Subjects', 'book-review-library' ),
-		'slug'         => 'subject',
-		'hierarchical' => false,
-	];
-	register_the_taxonomy( $args );
+	$subject = taxonomies( 'subject' );
+	register_the_taxonomy( $subject );
+}
+
+function add_cmb2_box_subject() {
+	add_cmb2_box( taxonomies( 'subject' ) );
 }
 
 /**
@@ -286,12 +287,12 @@ function register_taxonomy_subject() {
  * @since 	1.0.0
  */
 function register_taxonomy_illustrator() {
-	$args = [
-		'singular' => esc_html__( 'Illustrator', 'book-review-library' ),
-		'plural'   => esc_html__( 'Illustrators', 'book-review-library' ),
-		'slug'     => 'illustrator',
-	];
-	register_the_taxonomy( $args );
+	$illustrator = taxonomies( 'illustrator' );
+	register_the_taxonomy( $illustrator );
+}
+
+function add_cmb2_box_illustrator() {
+	add_cmb2_box( taxonomies( 'illustrator' ) );
 }
 
 /**
@@ -300,13 +301,12 @@ function register_taxonomy_illustrator() {
  * @since 	1.0.0
  */
 function register_taxonomy_awards() {
-	$args = [
-		'singular'     => esc_html__( 'Award', 'book-review-library' ),
-		'plural'       => esc_html__( 'Awards', 'book-review-library' ),
-		'slug'         => 'awards',
-		'hierarchical' => false,
-	];
-	register_the_taxonomy( $args );
+	$awards = taxonomies( 'awards' );
+	register_the_taxonomy( $awards );
+}
+
+function add_cmb2_box_awards() {
+	add_cmb2_box( taxonomies( 'awards' ) );
 }
 
 /**
@@ -315,12 +315,12 @@ function register_taxonomy_awards() {
  * @since 	1.0.0
  */
 function register_taxonomy_series() {
-	$args = [
-		'singular' => esc_html__( 'Series', 'book-review-library' ),
-		'plural'   => esc_html__( 'Series', 'book-review-library' ),
-		'slug'     => 'series',
-	];
-	register_the_taxonomy( $args );
+	$series = taxonomies( 'series' );
+	register_the_taxonomy( $series );
+}
+
+function add_cmb2_box_series() {
+	add_cmb2_box( taxonomies( 'series' ) );
 }
 
 /**
@@ -329,15 +329,12 @@ function register_taxonomy_series() {
  * @since 	1.0.0
  */
 function register_taxonomy_rating() {
-	$args = [
-		'singular'          => esc_html__( 'Star Rating', 'book-review-library' ),
-		'plural'            => esc_html__( 'Star Ratings', 'book-review-library' ),
-		'slug'              => 'rating',
-		'show_in_nav_menus' => false,
-		'show_tagcloud'     => false,
-		'hierarchical'      => false,
-	];
-	register_the_taxonomy( $args );
+	$rating = taxonomies( 'rating' );
+	register_the_taxonomy( $rating );
+}
+
+function add_cmb2_box_rating() {
+	add_cmb2_box( taxonomies( 'rating' ) );
 }
 
 /**
@@ -347,13 +344,12 @@ function register_taxonomy_rating() {
  * @todo Add action, add option
  */
 function register_taxonomy_language() {
-	$args = [
-		'singular'     => esc_html__( 'Language', 'book-review-library' ),
-		'plural'       => esc_html__( 'Languages', 'book-review-library' ),
-		'slug'         => 'language',
-		'hierarchical' => false,
-	];
-	register_the_taxonomy( $args );
+	$language = taxonomies( 'language' );
+	register_the_taxonomy( $language );
+}
+
+function add_cmb2_box_language() {
+	add_cmb2_box( taxonomies( 'language' ) );
 }
 
 /**
@@ -363,13 +359,12 @@ function register_taxonomy_language() {
  * @todo add action, option, cmb, default format terms
  */
 function register_taxonomy_format() {
-	$args = [
-		'singular'     => esc_html__( 'Format', 'book-review-library' ),
-		'plural'       => esc_html__( 'Formats', 'book-review-library' ),
-		'slug'         => 'format',
-		'hierarchical' => false,
-	];
-	register_the_taxonomy( $args );
+	$format = taxonomies( 'format' );
+	register_the_taxonomy( $format );
+}
+
+function add_cmb2_box_format() {
+	add_cmb2_box( taxonomies( 'format' ) );
 }
 
 /**
@@ -379,12 +374,12 @@ function register_taxonomy_format() {
  * @todo add action, option, cmb
  */
 function register_taxonomy_publisher() {
-	$args = [
-		'singular' => esc_html__( 'Publisher', 'book-review-library' ),
-		'plural'   => esc_html__( 'Publishers', 'book-review-library' ),
-		'slug'     => 'publisher',
-	];
-	register_the_taxonomy( $args );
+	$publisher = taxonomies( 'publisher' );
+	register_the_taxonomy( $publisher );
+}
+
+function add_cmb2_box_publisher() {
+	add_cmb2_box( taxonomies( 'publisher' ) );
 }
 
 /**
