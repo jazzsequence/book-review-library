@@ -116,7 +116,7 @@ function taxonomies( $tax = false ) {
 		],
 		'subject' => [
 			'singular'     => esc_html__( 'Subject', 'book-review-library' ),
-			'name'         => esc_html__( 'Subjects', 'book-review-library' ),
+			'title'        => esc_html__( 'Subjects', 'book-review-library' ),
 			'slug'         => 'subject',
 			'hierarchical' => false,
 		],
@@ -127,7 +127,7 @@ function taxonomies( $tax = false ) {
 		],
 		'awards' => [
 			'singular'     => esc_html__( 'Award', 'book-review-library' ),
-			'name'         => esc_html__( 'Awards', 'book-review-library' ),
+			'title'        => esc_html__( 'Awards', 'book-review-library' ),
 			'slug'         => 'awards',
 			'hierarchical' => false,
 			'context'      => 'advanced',
@@ -141,7 +141,7 @@ function taxonomies( $tax = false ) {
 		],
 		'rating' => [
 			'singular'          => esc_html__( 'Star Rating', 'book-review-library' ),
-			'name'              => esc_html__( 'Rating', 'book-review-library' ),
+			'title'             => esc_html__( 'Rating', 'book-review-library' ),
 			'slug'              => 'rating',
 			'show_in_nav_menus' => false,
 			'show_tagcloud'     => false,
