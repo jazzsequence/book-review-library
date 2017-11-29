@@ -27,13 +27,13 @@ function bootstrap() {
 		if ( ! Options\is_option_enabled( $args['slug'] ) && in_array( $taxonomy, [ 'genre', 'book-author' ] ) ) {
 			$tax = str_replace( '-', '_', $taxonomy );
 			add_action( 'init',      __NAMESPACE__ . '\\register_taxonomy_' . $tax );
-			add_action( 'cmb2_init', __NAMESPACE__ . '\\add_cmb2_box_' . $tax );
 		} elseif ( Options\is_option_enabled( $args['slug'] ) ) {
 			$tax = str_replace( '-', '_', $taxonomy );
 			add_action( 'init',      __NAMESPACE__ . '\\register_taxonomy_' . $tax );
-			add_action( 'cmb2_init', __NAMESPACE__ . '\\add_cmb2_box_' . $tax );
 		}
 	}
+
+	add_action( 'cmb2_init', __NAMESPACE__ . '\\add_cmb2_box_book_info' );
 
 	// Insert rating values and prevent ratings from being edited.
 	if ( Options\is_option_enabled( 'rating' ) ) {
@@ -276,6 +276,25 @@ function register_taxonomy_format() {
  */
 function register_taxonomy_publisher() {
 	register_the_taxonomy( taxonomies( 'publisher' ) );
+}
+
+function add_cmb2_box_book_info() {
+	CMB2\add_cmb2_box([
+		'metabox_id' => 'book-information',
+		'title'      => esc_html__( 'Book Details', 'book-review-library' ),
+		'context'    => 'normal',
+		'priority'   => 'high',
+		'fields'     => [
+			'illustrator'   => taxonomies( 'illustrator' ),
+			'series'        => taxonomies( 'series' ),
+			'genre'         => taxonomies( 'genre' ),
+			'subject'       => taxonomies( 'subject' ),
+			'reading-level' => taxonomies( 'reading-level' ),
+			'language'      => taxonomies( 'language' ),
+			'format'        => taxonomies( 'format' ),
+			'publisher'     => taxonomies( 'publisher' ),
+		],
+	]);
 }
 
 function add_cmb2_box_review_author() {
