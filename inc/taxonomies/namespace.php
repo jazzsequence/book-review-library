@@ -99,20 +99,17 @@ function taxonomies( $tax = false ) {
 			'singular' => esc_html__( 'Author', 'book-review-library' ),
 			'plural'   => esc_html__( 'Book Authors', 'book-review-library' ),
 			'slug'     => 'book-author',
-			'context'  => 'advanced',
 		],
 		'review-author' => [
 			'singular'      => esc_html__( 'Review Author', 'book-review-library' ),
 			'slug'          => 'review-author',
 			'show_tagcloud' => false,
-			'priority'      => 'low',
 		],
 		'reading-level' => [
 			'singular'     => esc_html__( 'Reading Level', 'book-review-library' ),
 			'slug'         => 'reading-level',
 			'hierarchical' => false,
 			'type'         => 'taxonomy_radio',
-			'priority'     => 'low',
 		],
 		'subject' => [
 			'singular'     => esc_html__( 'Subject', 'book-review-library' ),
@@ -123,21 +120,17 @@ function taxonomies( $tax = false ) {
 		'illustrator' => [
 			'singular' => esc_html__( 'Illustrator', 'book-review-library' ),
 			'slug'     => 'illustrator',
-			'context'  => 'advanced',
 		],
 		'awards' => [
 			'singular'     => esc_html__( 'Award', 'book-review-library' ),
 			'title'        => esc_html__( 'Awards', 'book-review-library' ),
 			'slug'         => 'awards',
 			'hierarchical' => false,
-			'context'      => 'advanced',
-			'priority'     => 'low',
 		],
 		'series' => [
 			'singular' => esc_html__( 'Series', 'book-review-library' ),
 			'plural'   => esc_html__( 'Series', 'book-review-library' ),
 			'slug'     => 'series',
-			'context'  => 'advanced',
 		],
 		'rating' => [
 			'singular'          => esc_html__( 'Star Rating', 'book-review-library' ),
@@ -153,7 +146,6 @@ function taxonomies( $tax = false ) {
 			'slug'         => 'language',
 			'hierarchical' => false,
 			'type'         => 'taxonomy_select',
-			'context'      => 'advanced',
 		],
 		'format' => [
 			'singular'     => esc_html__( 'Format', 'book-review-library' ),
@@ -165,7 +157,6 @@ function taxonomies( $tax = false ) {
 			'singular' => esc_html__( 'Publisher', 'book-review-library' ),
 			'slug'     => 'publisher',
 			'type'     => 'taxonomy_select',
-			'context'  => 'advanced',
 		],
 	];
 
