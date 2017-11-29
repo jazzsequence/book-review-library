@@ -57,14 +57,14 @@ function register_the_taxonomy( $args = [] ) {
 	$singular                  = $args['singular']; // Required.
 	$plural                    = isset( $args['plural'] ) ? $args['plural'] : $singular . 's';
 	$slug                      = isset( $args['slug'] ) ? $args['slug'] : sanitize_title( $args['singular'] );
-	$name                      = isset( $args['name'] ) ? $args['name'] : $slug;
+	$name                      = isset( $args['slug'] ) ? $args['slug'] : $slug;
 	$args['show_ui']           = isset( $args['show_ui'] ) ? $args['show_ui'] : true;
 	$args['show_in_nav_menus'] = isset( $args['show_in_nav_menus'] ) ? $args['show_in_nav_menus'] : true;
 	$args['tagcloud']          = isset( $args['show_tagcloud'] ) ? $args['show_tagcloud'] : true;
 	$args['hierarchical']      = isset( $args['hierarchical'] ) ? $args['hierarchical'] : true;
 	$args['dashboard_glance']  = isset( $args['dashboard_glance'] ) ? $args['dashboard_glance'] : true;
-	$args['meta_box']          = isset( $args['meta_box'] ) ? $args['meta_box'] : false;
 	$args['admin_cols']        = isset( $args['admin_cols'] ) ? $args['admin_cols'] : [];
+	$args['meta_box']          = false; // Leaving here in case extended cpts adds support for customizing positions.
 
 	$args['capabilities']      = [
 		'manage_terms'      => 'edit_book-reviews',
