@@ -11,6 +11,7 @@
 
 namespace BookReview\Taxonomies;
 use BookReview\Options as Options;
+use BookReview\CMB2 as CMB2;
 
 /**
  * Initialize the taxonomies.
@@ -192,7 +193,7 @@ function register_taxonomy_genre() {
  */
 function add_cmb2_box_genre() {
 	$genre = taxonomies( 'genre' );
-	add_cmb2_box( $genre );
+	CMB2\add_cmb2_box( $genre );
 }
 
 /**
@@ -207,7 +208,7 @@ function register_taxonomy_review_author() {
 
 function add_cmb2_box_review_author() {
 	$review_author = taxonomies( 'review-author' );
-	add_cmb2_box( $review_author );
+	CMB2\add_cmb2_box( $review_author );
 }
 
 /**
@@ -221,7 +222,7 @@ function register_taxonomy_book_author() {
 }
 
 function add_cmb2_box_book_author() {
-	add_cmb2_box( taxonomies( 'book-author' ) );
+	CMB2\add_cmb2_box( taxonomies( 'book-author' ) );
 }
 
 /**
@@ -235,7 +236,7 @@ function register_taxonomy_reading_level() {
 }
 
 function add_cmb2_box_reading_level() {
-	add_cmb2_box( taxonomies( 'reading-level' ) );
+	CMB2\add_cmb2_box( taxonomies( 'reading-level' ) );
 }
 
 /**
@@ -249,7 +250,7 @@ function register_taxonomy_subject() {
 }
 
 function add_cmb2_box_subject() {
-	add_cmb2_box( taxonomies( 'subject' ) );
+	CMB2\add_cmb2_box( taxonomies( 'subject' ) );
 }
 
 /**
@@ -263,7 +264,7 @@ function register_taxonomy_illustrator() {
 }
 
 function add_cmb2_box_illustrator() {
-	add_cmb2_box( taxonomies( 'illustrator' ) );
+	CMB2\add_cmb2_box( taxonomies( 'illustrator' ) );
 }
 
 /**
@@ -277,7 +278,7 @@ function register_taxonomy_awards() {
 }
 
 function add_cmb2_box_awards() {
-	add_cmb2_box( taxonomies( 'awards' ) );
+	CMB2\add_cmb2_box( taxonomies( 'awards' ) );
 }
 
 /**
@@ -291,7 +292,7 @@ function register_taxonomy_series() {
 }
 
 function add_cmb2_box_series() {
-	add_cmb2_box( taxonomies( 'series' ) );
+	CMB2\add_cmb2_box( taxonomies( 'series' ) );
 }
 
 /**
@@ -305,7 +306,7 @@ function register_taxonomy_rating() {
 }
 
 function add_cmb2_box_rating() {
-	add_cmb2_box( taxonomies( 'rating' ) );
+	CMB2\add_cmb2_box( taxonomies( 'rating' ) );
 }
 
 /**
@@ -320,7 +321,7 @@ function register_taxonomy_language() {
 }
 
 function add_cmb2_box_language() {
-	add_cmb2_box( taxonomies( 'language' ) );
+	CMB2\add_cmb2_box( taxonomies( 'language' ) );
 }
 
 /**
@@ -335,7 +336,7 @@ function register_taxonomy_format() {
 }
 
 function add_cmb2_box_format() {
-	add_cmb2_box( taxonomies( 'format' ) );
+	CMB2\add_cmb2_box( taxonomies( 'format' ) );
 }
 
 /**
@@ -350,7 +351,7 @@ function register_taxonomy_publisher() {
 }
 
 function add_cmb2_box_publisher() {
-	add_cmb2_box( taxonomies( 'publisher' ) );
+	CMB2\add_cmb2_box( taxonomies( 'publisher' ) );
 }
 
 /**
