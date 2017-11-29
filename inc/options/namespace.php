@@ -115,10 +115,10 @@ function cmb2_fields() {
 			'options' => true_false(),
 			'default' => defaults( 'rating' ),
 		],
-		'languages' => [
+		'language' => [
 			'name'    => esc_html__( 'Languages', 'book-review-library' ),
 			'desc'    => esc_html__( 'When enabled, allow books to be grouped by language.', 'book-review-library' ),
-			'id'      => 'languages',
+			'id'      => 'language',
 			'type'    => 'select',
 			'options' => true_false(),
 			'default' => defaults( 'languages' ),
