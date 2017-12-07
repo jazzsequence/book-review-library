@@ -11,6 +11,7 @@
 
 namespace BookReview\CPT;
 use BookReview\Options as Options;
+use BookReview\CMB2 as CMB2;
 
 /**
  * Register the CPT
@@ -63,4 +64,30 @@ function register_book_reviews() {
 function rename_featured_image() {
 	remove_meta_box( 'postimagediv', 'book-review', 'side' );
 	add_meta_box( 'postimagediv', esc_html__( 'Book Cover', 'book-review-library' ), 'post_thumbnail_meta_box', 'book-review', 'side', 'default' );
+}
+
+function add_book_review_meta() {
+	CMB2\add_cmb2_box([
+		'metabox_id' => 'book-reviews-meta',
+		'title'      => esc_html__( 'Additional Information', 'book-review-library' ),
+		'priority'   => 'low',
+		'fields'     => [
+			'isbn' => [
+				'name' => esc_html__( 'ISBN:', 'book-review-library' ),
+				'id'   => 'isbn',
+				'type' => 'text_medium',
+			],
+			'book_in_stock' => [
+				'name'       => esc_html__( 'In Stock?', 'book-review-library' ),
+				'id'         => 'book_in_stock',
+				'type'       => 'select',
+				'default'    => 1,
+				'options'    => [
+					0 => esc_html__( 'Book is out of stock', 'book-review-library' ),
+					1 => esc_html__( 'Book is in stock', 'book-review-library' ),
+				],
+				'show_on_cb' => Options\is_option_enabled( 'stock' ),
+			],
+		],
+	]);
 }
