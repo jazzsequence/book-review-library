@@ -76,6 +76,9 @@ function cmb2_field( $args = [] ) {
 		];
 		// Translators: 3: Singular taxonomy name.
 		$field_args['after_field']       = sprintf( '<span class="add-new-%1$s"><a href="%2$s">' . __( 'Add a new %3$s', 'book-review-library' ) . '</a></span>', $args['slug'], sprintf( 'edit-tags.php?taxonomy=%s&post_type=book-review', $args['slug'] ), $args['singular'] );
+	} else {
+		// If we're not dealing with a taxonomy metabox, just handle all the CMB2 fields as normal field arguments.
+		$field_args = $args;
 	}
 
 	return $field_args;
