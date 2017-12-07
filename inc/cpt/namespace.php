@@ -67,6 +67,11 @@ function rename_featured_image() {
 	add_meta_box( 'postimagediv', esc_html__( 'Book Cover', 'book-review-library' ), 'post_thumbnail_meta_box', 'book-review', 'side', 'default' );
 }
 
+/**
+ * Add the Additional Information metabox.
+ *
+ * @since 2.0.0-20171207
+ */
 function add_book_review_meta() {
 	CMB2\add_cmb2_box([
 		'metabox_id' => 'book-reviews-meta',
@@ -93,6 +98,11 @@ function add_book_review_meta() {
 	]);
 }
 
+/**
+ * Add the Author Details metabox
+ *
+ * @since 2.0.0-20171207
+ */
 function add_author_info() {
 	CMB2\add_cmb2_box([
 		'metabox_id' => 'author-information',
