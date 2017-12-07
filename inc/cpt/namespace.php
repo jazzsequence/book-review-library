@@ -12,6 +12,7 @@
 namespace BookReview\CPT;
 use BookReview\Options as Options;
 use BookReview\CMB2 as CMB2;
+use BookReview\Taxonomies as Taxonomies;
 
 /**
  * Register the CPT
@@ -87,6 +88,23 @@ function add_book_review_meta() {
 					1 => esc_html__( 'Book is in stock', 'book-review-library' ),
 				],
 				'show_on_cb' => Options\is_option_enabled( 'stock' ),
+			],
+		],
+	]);
+}
+
+function add_author_info() {
+	CMB2\add_cmb2_box([
+		'metabox_id' => 'author-information',
+		'title'      => esc_html__( 'Author Details', 'book-review-library' ),
+		'fields'     => [
+			'author' => Taxonomies\taxonomies( 'book-author' ),
+			'author-image' => [
+				'name'       => esc_html__( 'Author Image', 'book-review-library' ),
+				'id'         => 'author-image',
+				'desc'       => esc_html__( 'Upload or select an image for this book\'s author or enter a URL to an image. No image will display if none is uploaded.', 'book-review-library' ),
+				'type'       => 'file',
+				'show_on_cb' => Options\is_option_enabled( 'author-image' ),
 			],
 		],
 	]);

@@ -38,6 +38,7 @@ function bootstrap() {
 	add_action( 'init',                              __NAMESPACE__ . '\\CPT\\register_book_reviews' );
 	add_action( 'do_meta_boxes',                     __NAMESPACE__ . '\\CPT\\rename_featured_image' );
 	add_action( 'cmb2_init',                         __NAMESPACE__ . '\\CPT\\add_book_review_meta' );
+	add_action( 'cmb2_init',                         __NAMESPACE__ . '\\CPT\\add_author_info' );
 
 	// Initialize the options.
 	add_action( 'admin_init',                        __NAMESPACE__ . '\\Options\\init' );
