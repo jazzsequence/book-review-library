@@ -278,6 +278,11 @@ function register_taxonomy_publisher() {
 	register_the_taxonomy( taxonomies( 'publisher' ) );
 }
 
+/**
+ * Add the Book Info metabox.
+ *
+ * @since 2.0.0-20171129
+ */
 function add_cmb2_box_book_info() {
 	CMB2\add_cmb2_box([
 		'metabox_id' => 'book-information',
