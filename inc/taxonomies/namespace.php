@@ -306,6 +306,8 @@ function add_cmb2_box_book_info() {
 
 /**
  * Add Ratings metabox.
+ *
+ * @since 2.0.0-20171207
  */
 function add_ratings() {
 	CMB2\add_cmb2_box([
