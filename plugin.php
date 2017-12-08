@@ -3,7 +3,7 @@
  * Plugin Name: Book Review Library
  * Plugin URI: https://wordpress.org/plugins/book-review-libarary/
  * Description: A book cataloguing and review system designed with book collectors, bookophiles and librarians in mind.
- * Version: 2.0.0-20171207
+ * Version: 2.0.0-20171208
  * Author: Chris Reynolds
  * Author URI: https://chrisreynolds.io
  * License: GPLv2
@@ -24,6 +24,7 @@ require_once __DIR__ . '/inc/cmb2/namespace.php';
 require_once __DIR__ . '/inc/roles/namespace.php';
 require_once __DIR__ . '/inc/taxonomies/namespace.php';
 require_once __DIR__ . '/inc/options/namespace.php';
+require_once __DIR__ . '/inc/shortcode/namespace.php';
 require_once __DIR__ . '/inc/template-tags.php';
 
 // TODO: Find a better way to solve this problem.
