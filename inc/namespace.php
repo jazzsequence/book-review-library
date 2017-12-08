@@ -19,6 +19,9 @@ use BookReview\Taxonomies as Taxonomies;
 function bootstrap() {
 	spl_autoload_register( __NAMESPACE__ . '\\autoload' );
 
+	// Do i18n.
+	add_action( 'plugins_loaded',                    __NAMESPACE__ . '\\setup_i18n' );
+
 	// Register Widgets.
 	add_action( 'widgets_init',                      __NAMESPACE__ . '\\register_widgets' );
 
@@ -97,4 +100,14 @@ function deactivate( $network_wide ) {
 	Roles\remove_caps();
 	Roles\remove_roles();
 	Taxonomies\delete_ratings();
+}
+
+/**
+ * Do i18n stuff
+ *
+ * @since 1.4
+ * @link http://ottopress.com/2013/language-packs-101-prepwork/
+ */
+function setup_i18n() {
+	load_plugin_textdomain( 'book-review-library', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 }
