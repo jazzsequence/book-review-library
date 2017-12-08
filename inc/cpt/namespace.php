@@ -170,3 +170,30 @@ function change_thumbnail_html() {
 function rename_post_thumbnail( $content ) {
 	return str_replace( __( 'Set featured image' ), esc_html__( 'Select Book Cover', 'book-review-library' ), $content );
 }
+
+/**
+ * Adds a filter on the search to allow searching by ISBN
+ *
+ * @since 1.4
+ * @param string $where The where MySQL query for the search.
+ * @link http://wordpress.org/support/topic/include-custom-field-values-in-search?replies=16#post-1932930
+ * @link http://www.devblog.fr/en/2013/09/05/modifying-wordpress-search-query-to-include-taxonomy-and-meta/
+ */
+function search_by_isbn( $where ) {
+	// Load the meta keys into an array.
+	$keys = [ 'isbn' ]; // Currently we're just using one, but we can expand this later.
+	if ( is_search() && ! is_admin() ) {
+		global $wpdb;
+		$query = get_search_query();
+		$query = esc_like( $query );
+
+		// Include postmeta in search.
+		foreach ( $keys as $key ) {
+			$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->postmeta}.post_id FROM {$wpdb->posts}, {$wpdb->postmeta} WHERE {$wpdb->postmeta}.meta_key = '$key' AND {$wpdb->postmeta}.meta_value LIKE '%$query%' AND {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";
+		}
+		// Include taxonomy in search.
+		$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->posts}.ID FROM {$wpdb->posts},{$wpdb->term_relationships},{$wpdb->terms} WHERE {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id AND {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->terms}.term_id AND {$wpdb->terms}.name LIKE '%$query%')";
+
+	}
+	return $where;
+}

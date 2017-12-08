@@ -49,6 +49,10 @@ function bootstrap() {
 	// Rename "featured image".
 	add_action( 'admin_head-post-new.php',           __NAMESPACE__ . '\\CPT\\change_thumbnail_html' );
 	add_action( 'admin_head-post.php',               __NAMESPACE__ . '\\CPT\\change_thumbnail_html' );
+
+	// Add a custom where parameter to search by ISBN.
+	add_filter( 'posts_where',                       __NAMESPACE__ . '\\CPT\\search_by_isbn' );
+
 	// Initialize the options.
 	add_action( 'admin_init',                        __NAMESPACE__ . '\\Options\\init' );
 	add_action( 'admin_menu',                        __NAMESPACE__ . '\\Options\\add_plugin_admin_menu' );
