@@ -119,3 +119,31 @@ function add_author_info() {
 		],
 	]);
 }
+
+/**
+ * Add Awards metabox
+ *
+ * @since 2.0.0-20171207
+ */
+function add_awards() {
+	// Bail if awards are disabled.
+	if ( ! Options\is_option_enabled( 'awards' ) ) {
+		return;
+	}
+
+	CMB2\add_cmb2_box([
+		'metabox_id' => 'book-awards',
+		'title'      => esc_html__( 'Awards', 'book-review-library' ),
+		'context'    => 'normal',
+		'priority'   => 'low',
+		'fields'     => [
+			'awards'       => Taxonomies\taxonomies( 'awards' ),
+			'award-images' => [
+				'id'          => 'award-images',
+				'name'        => esc_html__( 'Award Images', 'book-review-library' ),
+				'type'        => 'file_list',
+				'desc'        => wp_kses_post( __( 'File name or image title must match the award name.', 'book-review-library' ) ),
+			],
+		],
+	]);
+}
