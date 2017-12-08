@@ -28,6 +28,9 @@ function bootstrap() {
 	// Remove the settings menu for librarians.
 	add_action( 'admin_menu',                        __NAMESPACE__ . '\\remove_menu_for_librarians' );
 
+	// Set new thumbnail sizes.
+	add_action( 'after_setup_theme',                 __NAMESPACE__ . '\\create_tiny_thumbs' );
+
 	// Activation hooks.
 	add_action( 'book_review_action_add_roles',      __NAMESPACE__ . '\\Roles\\add_roles' );
 	add_action( 'book_review_action_add_caps',       __NAMESPACE__ . '\\Roles\\add_caps' );
@@ -131,4 +134,15 @@ function remove_menu_for_librarians() {
 	if ( ! current_user_can( 'manage_book_review_options' ) ) {
 		remove_menu_page( 'options-general.php' );
 	}
+}
+
+/**
+ * Adds a new image size (for the widget)
+ *
+ * @since 1.0.0
+ * @todo  Add option to configure image sizes.
+ */
+function create_tiny_thumbs() {
+	add_image_size( 'tiny', 36, 36, true );
+	add_image_size( 'book-cover', 133, 200, false );
 }
