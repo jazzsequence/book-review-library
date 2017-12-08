@@ -324,14 +324,6 @@ function add_cmb2_box_review_author() {
 	CMB2\add_cmb2_box( $review_author );
 }
 
-function add_cmb2_box_book_author() {
-	CMB2\add_cmb2_box( taxonomies( 'book-author' ) );
-}
-
-
-function add_cmb2_box_awards() {
-	CMB2\add_cmb2_box( taxonomies( 'awards' ) );
-}
 
 function add_cmb2_box_rating() {
 	CMB2\add_cmb2_box( taxonomies( 'rating' ) );
