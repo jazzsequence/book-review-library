@@ -25,6 +25,9 @@ function bootstrap() {
 	// Register Widgets.
 	add_action( 'widgets_init',                      __NAMESPACE__ . '\\register_widgets' );
 
+	// Remove the settings menu for librarians.
+	add_action( 'admin_menu',                        __NAMESPACE__ . '\\remove_menu_for_librarians' );
+
 	// Activation hooks.
 	add_action( 'book_review_action_add_roles',      __NAMESPACE__ . '\\Roles\\add_roles' );
 	add_action( 'book_review_action_add_caps',       __NAMESPACE__ . '\\Roles\\add_caps' );
@@ -110,4 +113,15 @@ function deactivate( $network_wide ) {
  */
 function setup_i18n() {
 	load_plugin_textdomain( 'book-review-library', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+}
+
+/**
+ * Remove the settings menu for librarians
+ *
+ * @since 1.4.6
+ */
+function remove_menu_for_librarians() {
+	if ( ! current_user_can( 'manage_book_review_options' ) ) {
+		remove_menu_page( 'options-general.php' );
+	}
 }
