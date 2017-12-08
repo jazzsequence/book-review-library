@@ -92,7 +92,7 @@ function register_widgets() {
  *
  * @since    1.0.0
  *
- * @param    boolean $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
+ * @param    boolean $network_wide True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
  */
 function activate( $network_wide ) {
 	Roles\add_roles();
@@ -104,7 +104,7 @@ function activate( $network_wide ) {
  *
  * @since    1.0.0
  *
- * @param    boolean $network_wide    True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
+ * @param    boolean $network_wide True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
  */
 function deactivate( $network_wide ) {
 	Roles\remove_caps();
