@@ -39,6 +39,7 @@ function bootstrap() {
 	if ( Options\is_option_enabled( 'rating' ) ) {
 		add_action( 'init',       __NAMESPACE__ . '\\insert_star_ratings' );
 		add_action( 'admin_init', __NAMESPACE__ . '\\remove_rating_submenu' );
+		add_action( 'cmb2_init',  __NAMESPACE__ . '\\add_ratings' );
 	}
 
 	// Insert formats.
@@ -140,6 +141,7 @@ function taxonomies( $tax = false ) {
 			'show_tagcloud'     => false,
 			'hierarchical'      => false,
 			'type'              => 'taxonomy_select',
+			'after_field'       => false,
 		],
 		'language' => [
 			'singular'     => esc_html__( 'Language', 'book-review-library' ),
@@ -298,6 +300,21 @@ function add_cmb2_box_book_info() {
 			'language'      => taxonomies( 'language' ),
 			'format'        => taxonomies( 'format' ),
 			'publisher'     => taxonomies( 'publisher' ),
+		],
+	]);
+}
+
+/**
+ * Add Ratings metabox.
+ */
+function add_ratings() {
+	CMB2\add_cmb2_box([
+		'metabox_id' => 'star-rating',
+		'title'      => esc_html__( 'Star Rating', 'book-review-library' ),
+		'show_names' => false,
+		'priority'   => 'high',
+		'fields'     => [
+			'star-rating' => taxonomies( 'rating' ),
 		],
 	]);
 }
