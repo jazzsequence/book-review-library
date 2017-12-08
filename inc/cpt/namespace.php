@@ -78,6 +78,7 @@ function add_book_review_meta() {
 		'title'      => esc_html__( 'Additional Information', 'book-review-library' ),
 		'priority'   => 'low',
 		'fields'     => [
+			'review-author' => Taxonomies\taxonomies( 'review-author' ),
 			'isbn' => [
 				'name' => esc_html__( 'ISBN:', 'book-review-library' ),
 				'id'   => 'isbn',
