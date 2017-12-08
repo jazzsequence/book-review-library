@@ -321,17 +321,6 @@ function add_ratings() {
 	]);
 }
 
-function add_cmb2_box_review_author() {
-	$review_author = taxonomies( 'review-author' );
-	CMB2\add_cmb2_box( $review_author );
-}
-
-
-function add_cmb2_box_rating() {
-	CMB2\add_cmb2_box( taxonomies( 'rating' ) );
-}
-
-
 /**
  * Inserts the rating levels
  *
