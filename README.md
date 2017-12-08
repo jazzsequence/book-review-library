@@ -5,7 +5,7 @@
 **Tags:**  
 **Requires at least:** 4.4  
 **Tested up to:**      4.8.2  
-**Stable tag:**        2.0.0-alpha  
+**Stable tag:**        2.0.0-20171208  
 **License:**           GPLv3  
 **License URI:**       http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -148,6 +148,11 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 7. Book Reviews admin page
 
 ## Changelog ##
+
+### 2.0.0-20171208 ###
+* removed old CPT class
+* ported over i18n, custom "set featured image" text, search by isbn, limiting options page and new image size functionality
+* created a new namespace for the shortcode stuff
 
 ### 2.0.0-20171207 ###
 * added all post meta and taxonomy metaboxes
