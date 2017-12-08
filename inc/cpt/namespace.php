@@ -148,3 +148,25 @@ function add_awards() {
 		],
 	]);
 }
+
+/**
+ * Filter for the featured image post box
+ *
+ * @since 	1.0.0
+ */
+function change_thumbnail_html() {
+	if ( 'book-review' === \get_post_type() ) {
+		add_filter( 'admin_post_thumbnail_html', __NAMESPACE__ . '\\rename_post_thumbnail' );
+	}
+}
+
+/**
+ * Replaces "Set featured image" with "Select Book Cover"
+ *
+ * @since 	1.0.0
+ * @param   string $content The html content of the featured image metabox.
+ * @return 	string 	        The modified text.
+ */
+function rename_post_thumbnail( $content ) {
+	return str_replace( __( 'Set featured image' ), esc_html__( 'Select Book Cover', 'book-review-library' ), $content );
+}

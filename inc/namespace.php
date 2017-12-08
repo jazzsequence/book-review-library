@@ -46,6 +46,9 @@ function bootstrap() {
 	add_action( 'cmb2_init',                         __NAMESPACE__ . '\\CPT\\add_book_review_meta' );
 	add_action( 'cmb2_init',                         __NAMESPACE__ . '\\CPT\\add_author_info' );
 
+	// Rename "featured image".
+	add_action( 'admin_head-post-new.php',           __NAMESPACE__ . '\\CPT\\change_thumbnail_html' );
+	add_action( 'admin_head-post.php',               __NAMESPACE__ . '\\CPT\\change_thumbnail_html' );
 	// Initialize the options.
 	add_action( 'admin_init',                        __NAMESPACE__ . '\\Options\\init' );
 	add_action( 'admin_menu',                        __NAMESPACE__ . '\\Options\\add_plugin_admin_menu' );
