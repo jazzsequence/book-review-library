@@ -149,6 +149,15 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 
 ## Changelog ##
 
+### 2.0.0-20171207 ###
+* added all post meta and taxonomy metaboxes
+* removed old cmb class
+
+### 2.0.0-20171129 ###
+* created CMB2 namespace for CMB2 helper functions
+* simplified taxonomies array for greater use of CMB2 namespaced helpers
+* added date-based version tag for more granular update tracking
+
 ### 2.0.0-alpha ###
 * First release with entirely new codebase.
 
