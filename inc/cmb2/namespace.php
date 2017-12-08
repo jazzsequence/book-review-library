@@ -67,7 +67,7 @@ function cmb2_field( $args = [] ) {
 			$args['no_terms'] = sprintf( esc_html__( 'No %ss have been added', 'book-review-library' ), strtolower( $args['singular'] ) );
 		}
 
-		$field_args['title']             = empty( $args['title'] ) ? $args['singular'] : $args['title'];
+		$field_args['name']              = empty( $args['title'] ) ? $args['singular'] : $args['title'];
 		$field_args['taxonomy']          = $args['slug'];
 		$field_args['select_all_button'] = false;
 		$field_args['show_on_cb']        = Options\is_option_enabled( $args['slug'] );
