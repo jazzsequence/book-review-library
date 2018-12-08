@@ -3,8 +3,8 @@ Contributors: jazzs3quence
 Donate link: https://paypal.me/jazzsequence
 Tags: book, book review, library, librarian, reading level, custom post type
 Requires at least: 3.6
-Tested up to: 4.8
-Stable tag: 1.4.20
+Tested up to: 5.0
+Stable tag: 1.4.21
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -157,6 +157,9 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 * This update fixes a bug with WordPress 4.6. All users should upgrade to this version prior to updating WordPress.
 
 == Changelog ==
+
+= 1.4.21 =
+* tested up to WordPress 5.0
 
 = 1.4.20 =
 * minor bugfixes (props [Ashley Gibson](https://github.com/nosegraze))
