@@ -1,6 +1,0 @@
-[submodule "vendor/cmb2"]
-	path = vendor/cmb2
-	url = https://github.com/CMB2/CMB2.git
-[submodule "vendor/extended-cpts"]
-	path = vendor/extended-cpts
-	url = https://github.com/johnbillion/extended-cpts.git
