@@ -27,6 +27,10 @@ bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
+bower.json
+
+# Yeoman
+.yo-rc.json
 
 
 ### Node ###
