@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPress\Sniffs\VIP;
+
+use WordPress\Sniff;
+
 /**
  * Flag any usage of super global input var ( _GET / _POST / etc. ).
  *
@@ -15,9 +19,25 @@
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.3.0
- * @since   0.4.0 This class now extends WordPress_Sniff.
+ * @since   0.4.0  This class now extends WordPress_Sniff.
+ * @since   0.13.0 Class name changed: this class is now namespaced.
+ *
+ * @deprecated 1.0.0  This sniff has been deprecated.
+ *                    This file remains for now to prevent BC breaks.
  */
-class WordPress_Sniffs_VIP_SuperGlobalInputUsageSniff extends WordPress_Sniff {
+class SuperGlobalInputUsageSniff extends Sniff {
+
+	/**
+	 * Keep track of whether the warnings have been thrown to prevent
+	 * the messages being thrown for every token triggering the sniff.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var array
+	 */
+	private $thrown = array(
+		'DeprecatedSniff' => false,
+	);
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -26,25 +46,28 @@ class WordPress_Sniffs_VIP_SuperGlobalInputUsageSniff extends WordPress_Sniff {
 	 */
 	public function register() {
 		return array(
-			T_VARIABLE,
+			\T_VARIABLE,
 		);
-
 	}
 
 	/**
-	 * Processes this test, when one of its tokens is encountered.
+	 * Process the token and handle the deprecation notice.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token
-	 *                                        in the stack passed in $tokens.
+	 * @param int $stackPtr The position of the current token in the stack.
 	 *
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
-		$this->init( $phpcsFile );
+	public function process_token( $stackPtr ) {
+		if ( false === $this->thrown['DeprecatedSniff'] ) {
+			$this->thrown['DeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.VIP.SuperGlobalInputUsage" sniff has been deprecated. Please update your custom ruleset.',
+				0,
+				'DeprecatedSniff'
+			);
+		}
 
 		// Check for global input variable.
-		if ( ! in_array( $this->tokens[ $stackPtr ]['content'], self::$input_superglobals, true ) ) {
+		if ( ! \in_array( $this->tokens[ $stackPtr ]['content'], $this->input_superglobals, true ) ) {
 			return;
 		}
 
@@ -57,9 +80,8 @@ class WordPress_Sniffs_VIP_SuperGlobalInputUsageSniff extends WordPress_Sniff {
 
 		// Check for whitelisting comment.
 		if ( ! $this->has_whitelist_comment( 'input var', $stackPtr ) ) {
-			$phpcsFile->addWarning( 'Detected access of super global var %s, probably needs manual inspection.', $stackPtr, 'AccessDetected', array( $varName ) );
+			$this->phpcsFile->addWarning( 'Detected access of super global var %s, probably needs manual inspection.', $stackPtr, 'AccessDetected', array( $varName ) );
 		}
-
 	}
 
-} // End class.
+}

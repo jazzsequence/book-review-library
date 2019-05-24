@@ -1,13 +1,13 @@
 <?php
 namespace HM\Sniffs\Files;
 
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Namespaced things must be in directories matching the namespace.
  */
-class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
+class NamespaceDirectoryNameSniff implements Sniff {
 	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
@@ -20,13 +20,13 @@ class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token in the
-	 *                                        stack passed in $tokens.
+	 * @param File $phpcsFile The file being scanned.
+	 * @param int  $stackPtr  The position of the current token in the
+	 *                        stack passed in $tokens.
 	 *
 	 * @return int
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$namespace = '';
 
@@ -45,18 +45,26 @@ class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
 		$filename = basename( $full );
 		$directory = dirname( $full );
 
+		// Normalize the directory separator across operating systems
+		if ( DIRECTORY_SEPARATOR !== '/' ) {
+			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
+		}
+
 		if ( $filename === 'plugin.php' || $filename === 'functions.php' ) {
 			// Ignore the main file.
 			return;
 		}
 
-		if ( ! preg_match( '#/inc(?:/|$)#', $directory, $matches, PREG_OFFSET_CAPTURE ) ) {
+		if (
+			! preg_match( '#/inc(?:/|$)#', $directory, $matches, PREG_OFFSET_CAPTURE )
+			&& ! preg_match( '#/tests(?:/|$)#', $directory, $test_matches, PREG_OFFSET_CAPTURE )
+		) {
 			$error = 'Namespaced classes and functions should live inside an inc directory.';
 			$phpcsFile->addError( $error, $stackPtr, 'NoIncDirectory' );
 			return;
 		}
 
-		$inc_position = $matches[0][1];
+		$inc_position = $matches[0][1] ?? $test_matches[0][1];
 		$after_inc = substr( $directory, $inc_position + strlen( '/inc' ) );
 		if ( empty( $after_inc ) ) {
 			// Base inc directory, skip checks.
@@ -64,7 +72,7 @@ class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
 		}
 
 		$namespace_parts = explode( '\\', $namespace );
-		$directory_parts = explode( DIRECTORY_SEPARATOR, trim( $after_inc, DIRECTORY_SEPARATOR ) );
+		$directory_parts = explode( '/', trim( $after_inc, '/' ) );
 
 		// Check that the path matches the namespace, allowing parts to be dropped.
 		while ( ! empty( $directory_parts ) ) {

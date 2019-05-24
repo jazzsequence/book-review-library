@@ -1,5 +1,5 @@
 # PSR-2-R Sniffer
-[![Build Status](https://api.travis-ci.org/php-fig-rectified/psr2r-sniffer.svg)](https://travis-ci.org/php-fig-rectified/psr2r-sniffer)
+[![Build Status](https://api.travis-ci.org/php-fig-rectified/psr2r-sniffer.svg?branch=master)](https://travis-ci.org/php-fig-rectified/psr2r-sniffer)
 [![Minimum PHP Version](http://img.shields.io/badge/php-%3E%3D%205.4-8892BF.svg)](https://php.net/)
 [![License](https://poser.pugx.org/fig-r/psr2r-sniffer/license.svg)](https://packagist.org/packages/fig-r/psr2r-sniffer)
 [![Total Downloads](https://poser.pugx.org/fig-r/psr2r-sniffer/d/total.svg)](https://packagist.org/packages/fig-r/psr2r-sniffer)
@@ -69,9 +69,19 @@ For Win OS you should be using `\` as separator:
 vendor\bin\sniff -v
 ```
 
-#### Hook it into your IDE for live-correction
-You can easily make a "watcher" for your IDE, so any file you work on, will be auto-corrected when (auto-)saving.
-For PHPStorm, for example, make sure you switch `Show Console` to `never` to not be disturbed by it all the time.
+#### Include it in your IDE via hotkey
+E.g. for PHPStorm:
+* Open Settings -> Tools -> External Tools
+* Add a new tool named "cs-sniffer" and set Program to `$ProjectFileDir$/vendor/bin/phpcs`, Parameters to `--standard=$ProjectFileDir$/vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml -p $FilePath$` and Working directoy to `$ProjectFileDir$`.
+* Add a new tool named "cs-fixer" and set Program to `$ProjectFileDir$/vendor/bin/phpcbf`, Parameters to `--standard=$ProjectFileDir$/vendor/fig-r/psr2r-sniffer/PSR2R/ruleset.xml -v $FilePath$` and Working directoy to `$ProjectFileDir$`.
+* Optionally uncheck "Open console" if you don't want to see any output here for the fixer.
+* Now set up your hotkeys under Settings -> Keymap (search for cs-sniffer and cs-fixer). E.g. `Control + Comma` for sniffing, and `Control + Dot` for fixing.
+
+##### Hook it into your IDE for live-correction
+You can also easily make a "watcher" for your IDE, so any file you work on, will be auto-corrected when (auto-)saving.
+But here you should better only whitelist certain sniffs that only add things and don't remove anything.
+
+Note: For PHPStorm, for example, make sure you switch `Show Console` to `never` to not be disturbed by it all the time.
 
 ### Writing new sniffs
 You can contribute by adding new sniffs as per PSR-2-R standard.

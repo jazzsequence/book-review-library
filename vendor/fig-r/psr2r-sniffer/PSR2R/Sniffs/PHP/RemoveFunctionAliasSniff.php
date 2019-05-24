@@ -2,7 +2,8 @@
 
 namespace PSR2R\Sniffs\PHP;
 
-use PHP_CodeSniffer_File;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Eliminate alias usage of basic PHP functions.
@@ -10,7 +11,7 @@ use PHP_CodeSniffer_File;
  * @author Mark Scherer
  * @license MIT
  */
-class RemoveFunctionAliasSniff implements \PHP_CodeSniffer_Sniff {
+class RemoveFunctionAliasSniff implements Sniff {
 
 	/**
 	 * @see http://php.net/manual/en/aliases.php
@@ -31,45 +32,44 @@ class RemoveFunctionAliasSniff implements \PHP_CodeSniffer_Sniff {
 		'fputs' => 'fwrite',
 		'die' => 'exit',
 		'chop' => 'rtrim',
-		'print' => 'echo'
 	];
 
 	/**
 	 * @inheritDoc
 	 */
-	public function register() {
-		return [T_STRING];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
+	public function process(File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
 
 		$wrongTokens = [T_FUNCTION, T_OBJECT_OPERATOR, T_NEW, T_DOUBLE_COLON];
 
 		$tokenContent = $tokens[$stackPtr]['content'];
 		$key = strtolower($tokenContent);
-		if (!isset(self::$matching[$key])) {
+		if (!isset(static::$matching[$key])) {
 			return;
 		}
 
-		$previous = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), null, true);
-		if (!$previous || in_array($tokens[$previous]['code'], $wrongTokens)) {
+		$previous = $phpcsFile->findPrevious(T_WHITESPACE, $stackPtr - 1, null, true);
+		if (!$previous || in_array($tokens[$previous]['code'], $wrongTokens, false)) {
 			return;
 		}
 
-		$openingBrace = $phpcsFile->findNext(T_WHITESPACE, ($stackPtr + 1), null, true);
+		$openingBrace = $phpcsFile->findNext(T_WHITESPACE, $stackPtr + 1, null, true);
 		if (!$openingBrace || $tokens[$openingBrace]['type'] !== 'T_OPEN_PARENTHESIS') {
 			return;
 		}
 
-		$error = 'Function name ' . $tokenContent . '() found, should be ' . self::$matching[$key] . '().';
-		$fix = $phpcsFile->addFixableError($error, $stackPtr);
+		$error = 'Function name ' . $tokenContent . '() found, should be ' . static::$matching[$key] . '().';
+		$fix = $phpcsFile->addFixableError($error, $stackPtr, 'FunctionName');
 		if ($fix) {
-			$phpcsFile->fixer->replaceToken($stackPtr, self::$matching[$key]);
+			$phpcsFile->fixer->replaceToken($stackPtr, static::$matching[$key]);
 		}
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function register() {
+		return [T_STRING, T_EXIT];
 	}
 
 }

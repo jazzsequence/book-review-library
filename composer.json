@@ -1,5 +1,13 @@
 {
+	"name": "jazzsequence/book-review-library",
+	"type": "wordpress-plugin",
+	"license": "GPL-3.0-or-later",
     "require": {
-        "humanmade/coding-standards": "^0.2.1"
+        "humanmade/coding-standards": "^0.6.0",
+        "cmb2/cmb2": "^2.6.0",
+        "johnbillion/extended-cpts": "^4.2.0"
+    },
+    "scripts": {
+    	"lint": "vendor/bin/phpcs --standard=vendor/humanmade/coding-standards ."
     }
 }

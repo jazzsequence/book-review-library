@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress VIP Minimum">
+	<description>WordPress VIP Minimum Coding Standards</description>
+
+	<!-- Link references are platform-specific. See
+		https://vip.wordpress.com/documentation/vip-go/understanding-codebase-differences/
+		for the differences between the platforms -->
+
+	<autoload>./PHPCSCompatibility.php</autoload>
+
+	<rule ref="Generic.PHP.Syntax"/>
+
+	<rule ref="WordPressVIPMinimum.TemplatingEngines.UnescapedOutputTwig">
+		<include-pattern>*.twig</include-pattern>
+	</rule>
+
+	<rule ref="WordPress.VIP">
+		<exclude name="WordPress.VIP.ValidatedSanitizedInput.MissingUnslash"/>
+		<exclude name="WordPress.VIP.RestrictedFunctions"/>
+	</rule>
+
+	<rule ref="WordPress.Security.EscapeOutput"/>
+	<rule ref="WordPress.Security.NonceVerification"/>
+	<rule ref="WordPress.WP.EnqueuedResources"/>
+
+	<rule ref="WordPress.DB.PreparedSQL"/>
+	<rule ref="WordPress.WP.GlobalVariablesOverride"/>
+	<rule ref="WordPress.PHP.StrictComparisons"/>
+	<rule ref="WordPress.CodeAnalysis.AssignmentInCondition"/>
+	<rule ref="WordPress.PHP.StrictInArray"/>
+	<rule ref="WordPress.PHP.DontExtract"/>
+
+	<rule ref="Generic.NamingConventions.ConstructorName"/>
+	<rule ref="Generic.PHP.DisallowShortOpenTag"/>
+	<!-- Covers rule: Omitting the closing PHP tag at the end of a file is preferred. -->
+	<rule ref="PSR2.Files.ClosingTag"/>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines"/>
+		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine"/>
+		<include-pattern>*.php</include-pattern>
+		<include-pattern>*.inc</include-pattern>
+		<exclude-pattern>*.js</exclude-pattern>
+		<exclude-pattern>*.css</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.PHP.CommentedOutCode"/>
+
+	<!-- WordPress.com: https://lobby.vip.wordpress.com/wordpress-com-documentation/code-review-what-we-look-for/#eval-create_function -->
+	<!-- VIP-Go: https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#eval-and-create_function -->
+	<rule ref="Squiz.PHP.Eval"/>
+	<rule ref="Squiz.PHP.Eval.Discouraged">
+		<type>error</type>
+		<message>`eval()` is a security risk so not allowed.</message>
+	</rule>
+
+	<!-- WordPress.com: https://lobby.vip.wordpress.com/wordpress-com-documentation/code-review-what-we-look-for/#settings-alteration -->
+	<!-- VIP-Go: https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#settings-alteration -->
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions">
+		<!-- https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/pull/633#issuecomment-266634811 -->
+		<properties>
+			<property name="exclude" value="obfuscation"/>
+		</properties>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_ini_set">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_error_reporting">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_ini_alter">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_ini_restore">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_apache_setenv">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_putenv">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_set_include_path">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_restore_include_path">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_magic_quotes_runtime">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_set_magic_quotes_runtime">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_dl">
+		<type>error</type>
+	</rule>
+
+	<!-- WordPress.com: https://lobby.vip.wordpress.com/wordpress-com-documentation/code-review-what-we-look-for/#commented-out-code-debug-code-or-output -->
+	<!-- VIP-Go: https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#commented-out-code-debug-code-or-output -->
+	<rule ref="WordPress.PHP.DevelopmentFunctions">
+		<!-- This is being covered in terms of WordPress.PHP.DiscouragedPHPFunctions sniff -->
+		<exclude name="WordPress.PHP.DevelopmentFunctions.prevent_path_disclosure_error_reporting"/>
+	</rule>
+	<!-- WordPress.com: https://lobby.vip.wordpress.com/wordpress-com-documentation/code-review-what-we-look-for/#settings-alteration -->
+	<!-- VIP-Go: https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#settings-alteration -->
+	<rule ref="WordPress.PHP.DevelopmentFunctions.prevent_path_disclosure">
+		<type>error</type>
+	</rule>
+	<rule ref="WordPress.PHP.DevelopmentFunctions.error_log_error_log">
+		<type>error</type>
+	</rule>
+
+	<!-- WordPress.com: https://lobby.vip.wordpress.com/wordpress-com-documentation/code-review-what-we-look-for/#wp_json_encode-over-json_encode -->
+	<!-- WordPress.com: https://lobby.vip.wordpress.com/wordpress-com-documentation/code-review-what-we-look-for/#filesystem-writes -->
+	<!-- WordPress.com: https://lobby.vip.wordpress.com/wordpress-com-documentation/code-review-what-we-look-for/#remote-calls -->
+	<!-- VIP-Go: https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#use-wp_json_encode-over-json_encode -->
+	<!-- VIP-Go: https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#filesystem-operations -->
+	<!-- VIP-Go: https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#remote-calls -->
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents"/>
+		<exclude name="WordPress.WP.AlternativeFunctions.strip_tags_strip_tags"/>
+	</rule>
+	<!-- VIP recommends other functions -->
+	<rule ref="WordPress.WP.AlternativeFunctions.curl">
+		<message>Using cURL functions is highly discouraged within VIP context. Check (Fetching Remote Data) on VIP Documentation.</message>
+	</rule>
+	<rule ref="WordPress.WP.AlternativeFunctions.file_get_contents">
+		<message>`%s()` is highly discouraged, please use `vip_safe_wp_remote_get()` instead.</message>
+	</rule>
+
+	<rule ref="WordPressVIPMinimum.VIP.RestrictedFunctions.get_posts_get_children">
+		<type>error</type>
+		<message>`%1$s()` performs a no-LIMIT query by default, make sure to set a reasonable `posts_per_page`. `%1$s()` will do a -1 query by default, a maximum of 100 should be used.</message>
+	</rule>
+
+	<!-- Silence WPCS VIP deprecations, -->
+	<!-- @TODO: Migrate these sniffs so that they're not used -->
+	<!-- see https://github.com/Automattic/VIP-Coding-Standards/issues/187 -->
+	<rule ref="WordPress.VIP.AdminBarRemoval.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.CronInterval.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.DirectDatabaseQuery.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.FileSystemWritesDisallow.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.OrderByRand.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.PluginMenuSlug.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPressVIPMinimum.VIP.RestrictedFunctions.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.RestrictedVariables.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.SessionFunctionsUsage.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.SessionVariableUsage.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.SlowDBQuery.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.SuperGlobalInputUsage.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.TimezoneChange.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="WordPress.VIP.ValidatedSanitizedInput.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+
+	<rule ref="WordPressVIPMinimum.Variables.VariableAnalysis">
+		<properties>
+			<property name="allowUnusedCaughtExceptions" value="1"/>
+		</properties>
+	</rule>
+
+</ruleset>

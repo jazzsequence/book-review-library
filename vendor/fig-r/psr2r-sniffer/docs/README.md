@@ -6,48 +6,15 @@ This uses and extends [squizlabs/PHP_CodeSniffer](https://github.com/squizlabs/P
 
 Runs on all OS, tested on Unix and Windows.
 
-## Sniffers available
+## Included sniffs
 The following sniffers are bundles together with `PSR-2-R` already, but you can
 also use them standalone/separately in any way you like.
 
 **Currently PSR2R ships with over 100 sniffs.**
 
-### PSR-2 Basics
-- Inherited from included sniffer rulesets (> 10).
+[List of included sniffs](sniffs.md)
 
-### PSR-2-R
-- PSR2R.Classes.BraceOnSameLine (Always on the end of the same line)
-- PSR2R.WhiteSpace.TabIndent (Use single tab instead of spaces)
-- PSR2R.WhiteSpace.MethodSpacing (Newlines above and below each function/method)
-- PSR2R.WhiteSpace.EmptyEnclosingLines (Newline at beginning and end of class)
-
-### PSR-2-R Additions
-- PSR2R.Commenting.DocComment
-- PSR2R.Commenting.DocBlockShortType
-- PSR2R.Commenting.DocBlockEnding
-- PSR2R.Commenting.DocBlockPipe
-- PSR2R.Commenting.DocBlockReturnType
-- PSR2R.Commenting.DocBlockReturnSelf
-- PSR2R.Commenting.FullyQualifiedClassNameInDocBlock
-- PSR2R.ControlStructures.NoConditionalAssignment
-- PSR2R.ControlStructures.ConditionalExpressionOrder
-- PSR2R.Methods.MethodArgumentDefaultValue
-- PSR2R.PHP.RemoveFunctionAlias
-- PSR2R.PHP.ShortCast
-- PSR2R.PHP.NoIsNull
-- PSR2R.PHP.PreferCastOverFunction
-- PSR2R.PHP.PhpSapiConstant
-- PSR2R.Whitespace.CastSpacing
-- PSR2R.Whitespace.WhitespaceAfterReturn
-- PSR2R.Whitespace.ConcatenationSpacing
-- PSR2R.Whitespace.CommaSpacing
-- PSR2R.Whitespace.OperatorSpacing
-- PSR2R.Whitespace.ObjectAttributeSpacing
-- PSR2R.Whitespace.LanguageConstructSpacing
-- ...
-- And some more inherited ruleset sniffers (> 20).
-
-Most of the sniffers also provide auto-fixing using `-f` option where it is possible.
+Most of the sniffs also provide auto-fixing using `-f` option where it is possible.
 
 ## Open Tasks
 * It would be nice if some of these sniffers find their way into the contrib section of the original sniffer repo.
@@ -140,15 +107,66 @@ php phpunit.phar tests/Sniffs/FolderName/SnifferNameSniffTest.php
 
 You can also test specific methods per Test file using `--filter=testNameOfMethodTest` etc.
 
+### The Testing Structure
+
+`phpunit.xml.dist` has two sections of test suites.
+
+* Standard PHPUnit-style unit tests are in `tests/Sniffs`. Fixtures for these tests are in
+`tests/files`. These fixtures are currently unused but can be examined as examples.
+* PHP_CodeSniffer-style unit tests are in `tests/PSR2R`. The rest of this section describes
+this structure.
+
+The latter test suite runs via `tests/AllTests.php`. Each unit tests extends
+`tests/PSR2R/Base/AbstractBase.php`. All unit tests reside in
+`tests/PSR2R/Tests`.
+
+#### PHP_CodeSniffer Testing Structure
+
+The PHP_CodeSniffer project intermingles its unit tests and sniffs. Each standards category
+has directories for Docs, Sniffs, Tests. Each of those three directories has folders by
+section. Using the standard `Squiz.Arrays.ArrayBracketSpacing` as an example, we find in
+`PHP_CodeSniffer/src/Standards/Squiz/`:
+
+* `Docs/Arrays/ArrayBracketSpacingStandard.xml` provides documentation on the standard:
+"When referencing arrays you should not put whitespace around the opening bracket or
+before the closing bracket." along with sample valid and invalid usage.
+* `Sniffs/Arrays/ArrayBracketSpacingSniff.php` implements the standard.
+* `Tests/Arrays/ArrayBracketSpacingUnitTest.php` is the unit test. It provides lists of
+line numbers: For each error or warning, the line number and number of errors/warnings
+expected on that line of the test fixture. The test fixture is the same name as the
+unit test with file extension `.inc` rather than `.php`.
+* For errors deemed fixable, there is a second fixture with extension `.inc.fixed`. This
+is what the file should look like after being fixed.
+
+See `Squiz/Tests/Arrays/ArrayDeclarationUnitTest.php` for an example of using multiple
+fixtures. The fixtures are the same name with extensions `.1.inc`, `.1.inc.fixed`,
+`.2.inc`, `.2.inc.fixed`, and so on. The unit test uses a `switch` statement based on
+fixture file name.
+
+#### PSR2R-Sniffer Testing Structure
+
+This project follows the same structure except that the tests are in `tests/` rather
+than being mixed in with the Sniffs.
+
+### Please also add docs.
+
+This coding standard is more useful and more easily adopted if we create the explanation
+for each sniff, like with the `ArrayBracketSpacingStandard.xml` described above.
 
 ### Running own sniffs on this project
 There is a convenience script to run all sniffs for this repository:
 ```
-sh phpcs.sh
+composer cs-check
 ```
 If you want to fix the fixable errors, use
 ```
-sh phpcs.sh -f
+composer cs-fix
 ```
 Make sure the root folder name is the same as the GitHub repository name (psr2r-sniffer) to exclude vendor as expected.
 Once everything is green you can make a PR with your changes.
+
+### Updating docs
+Run
+```
+composer docs
+```

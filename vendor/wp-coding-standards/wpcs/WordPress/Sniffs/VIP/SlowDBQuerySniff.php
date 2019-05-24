@@ -7,83 +7,70 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPress\Sniffs\VIP;
+
+use WordPress\AbstractArrayAssignmentRestrictionsSniff;
+
 /**
  * Flag potentially slow queries.
  *
- * @link    https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/#uncached-pageload
+ * @link https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#uncached-pageload
  *
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.3.0
+ * @since   0.12.0 Introduced new and more intuitively named 'slow query' whitelist
+ *                 comment, replacing the 'tax_query' whitelist comment which is now
+ *                 deprecated.
+ * @since   0.13.0 Class name changed: this class is now namespaced.
+ *
+ * @deprecated 1.0.0  This sniff has been moved to the `DB` category.
+ *                    This file remains for now to prevent BC breaks.
  */
-class WordPress_Sniffs_VIP_SlowDBQuerySniff extends WordPress_AbstractArrayAssignmentRestrictionsSniff {
+class SlowDBQuerySniff extends \WordPress\Sniffs\DB\SlowDBQuerySniff {
 
 	/**
-	 * Groups of variables to restrict.
-	 * This should be overridden in extending classes.
+	 * Keep track of whether the warnings have been thrown to prevent
+	 * the messages being thrown for every token triggering the sniff.
 	 *
-	 * Example: groups => array(
-	 * 	'wpdb' => array(
-	 * 		'type'          => 'error' | 'warning',
-	 * 		'message'       => 'Dont use this one please!',
-	 * 		'variables'     => array( '$val', '$var' ),
-	 * 		'object_vars'   => array( '$foo->bar', .. ),
-	 * 		'array_members' => array( '$foo['bar']', .. ),
-	 * 	)
-	 * )
+	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @var array
 	 */
-	public function getGroups() {
-		return array(
-			'slow_db_query' => array(
-				'type'    => 'warning',
-				'message' => 'Detected usage of %s, possible slow query.',
-				'keys'    => array(
-					'tax_query',
-					'meta_query',
-					'meta_key',
-					'meta_value',
-				),
-			),
-		);
-	}
+	private $thrown = array(
+		'DeprecatedSniff'                 => false,
+		'FoundPropertyForDeprecatedSniff' => false,
+	);
 
 	/**
-	 * Processes this test, when one of its tokens is encountered.
+	 * Don't use.
 	 *
-	 * @since 0.10.0
+	 * @deprecated 1.0.0
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token
-	 *                                        in the stack passed in $tokens.
+	 * @param int $stackPtr The position of the current token in the stack.
 	 *
-	 * @return void
+	 * @return void|int
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
-
-		$this->init( $phpcsFile );
-
-		if ( $this->has_whitelist_comment( 'tax_query', $stackPtr ) ) {
-			return;
+	public function process_token( $stackPtr ) {
+		if ( false === $this->thrown['DeprecatedSniff'] ) {
+			$this->thrown['DeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.VIP.SlowDBQuery" sniff has been renamed to "WordPress.DB.SlowDBQuery". Please update your custom ruleset.',
+				0,
+				'DeprecatedSniff'
+			);
 		}
 
-		parent::process( $phpcsFile, $stackPtr );
+		if ( ! empty( $this->exclude )
+			&& false === $this->thrown['FoundPropertyForDeprecatedSniff']
+		) {
+			$this->thrown['FoundPropertyForDeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.VIP.SlowDBQuery" sniff has been renamed to "WordPress.DB.SlowDBQuery". Please update your custom ruleset.',
+				0,
+				'FoundPropertyForDeprecatedSniff'
+			);
+		}
+
+		return parent::process_token( $stackPtr );
 	}
 
-	/**
-	 * Callback to process each confirmed key, to check value.
-	 * This must be extended to add the logic to check assignment value.
-	 *
-	 * @param  string $key   Array index / key.
-	 * @param  mixed  $val   Assigned value.
-	 * @param  int    $line  Token line.
-	 * @param  array  $group Group definition.
-	 * @return mixed         FALSE if no match, TRUE if matches, STRING if matches
-	 *                       with custom error message passed to ->process().
-	 */
-	public function callback( $key, $val, $line, $group ) {
-		return true;
-	}
-
-} // End class.
+}

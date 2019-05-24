@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPress\Sniffs\CSRF;
+
+use WordPress\Sniff;
+
 /**
  * Checks that nonce verification accompanies form processing.
  *
@@ -15,120 +19,57 @@
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.5.0
+ * @since   0.13.0 Class name changed: this class is now namespaced.
+ *
+ * @deprecated 1.0.0  This sniff has been moved to the `Security` category.
+ *                    This file remains for now to prevent BC breaks.
  */
-class WordPress_Sniffs_CSRF_NonceVerificationSniff extends WordPress_Sniff {
+class NonceVerificationSniff extends \WordPress\Sniffs\Security\NonceVerificationSniff {
 
 	/**
-	 * Superglobals to give an error for when not accompanied by an nonce check.
+	 * Keep track of whether the warnings have been thrown to prevent
+	 * the messages being thrown for every token triggering the sniff.
 	 *
-	 * @since 0.5.0
+	 * @since 1.0.0
 	 *
 	 * @var array
 	 */
-	public $errorForSuperGlobals = array( '$_POST', '$_FILE' );
+	private $thrown = array(
+		'DeprecatedSniff'                 => false,
+		'FoundPropertyForDeprecatedSniff' => false,
+	);
 
 	/**
-	 * Superglobals to give a warning for when not accompanied by an nonce check.
+	 * Don't use.
 	 *
-	 * If the variable is also in the error list, that takes precedence.
+	 * @deprecated 1.0.0
 	 *
-	 * @since 0.5.0
+	 * @param int $stackPtr The position of the current token in the stack.
 	 *
-	 * @var array
+	 * @return void|int
 	 */
-	public $warnForSuperGlobals = array( '$_GET', '$_REQUEST' );
+	public function process_token( $stackPtr ) {
+		if ( false === $this->thrown['DeprecatedSniff'] ) {
+			$this->thrown['DeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.CSRF.NonceVerification" sniff has been renamed to "WordPress.Security.NonceVerification". Please update your custom ruleset.',
+				0,
+				'DeprecatedSniff'
+			);
+		}
 
-	/**
-	 * Custom list of functions which verify nonces.
-	 *
-	 * @since 0.5.0
-	 *
-	 * @var array
-	 */
-	public $customNonceVerificationFunctions = array();
+		if ( false === $this->thrown['FoundPropertyForDeprecatedSniff']
+			&& ( ( array() !== $this->customNonceVerificationFunctions && $this->customNonceVerificationFunctions !== $this->addedCustomFunctions['nonce'] )
+			|| ( array() !== $this->customSanitizingFunctions && $this->customSanitizingFunctions !== $this->addedCustomFunctions['sanitize'] )
+			|| ( array() !== $this->customUnslashingSanitizingFunctions && $this->customUnslashingSanitizingFunctions !== $this->addedCustomFunctions['unslashsanitize'] ) )
+		) {
+			$this->thrown['FoundPropertyForDeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.CSRF.NonceVerification" sniff has been renamed to "WordPress.Security.NonceVerification". Please update your custom ruleset.',
+				0,
+				'FoundPropertyForDeprecatedSniff'
+			);
+		}
 
-	/**
-	 * Whether the custom functions have been added to the default list yet.
-	 *
-	 * @since 0.5.0
-	 *
-	 * @var bool
-	 */
-	public static $addedCustomFunctions = false;
-
-	/**
-	 * Returns an array of tokens this test wants to listen for.
-	 *
-	 * @return array
-	 */
-	public function register() {
-
-		return array(
-			T_VARIABLE,
-		);
+		return parent::process_token( $stackPtr );
 	}
 
-	/**
-	 * Processes this test, when one of its tokens is encountered.
-	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token
-	 *                                        in the stack passed in $tokens.
-	 *
-	 * @return void
-	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
-
-		// Merge any custom functions with the defaults, if we haven't already.
-		if ( ! self::$addedCustomFunctions ) {
-			self::$nonceVerificationFunctions = array_merge(
-				self::$nonceVerificationFunctions
-				, array_flip( $this->customNonceVerificationFunctions )
-			);
-
-			self::$addedCustomFunctions = true;
-		}
-
-		$this->init( $phpcsFile );
-
-		$instance = $this->tokens[ $stackPtr ];
-
-		$superglobals = array_merge(
-			$this->errorForSuperGlobals
-			, $this->warnForSuperGlobals
-		);
-
-		if ( ! in_array( $instance['content'], $superglobals, true ) ) {
-			return;
-		}
-
-		if ( $this->has_whitelist_comment( 'CSRF', $stackPtr ) ) {
-			return;
-		}
-
-		if ( $this->is_assignment( $stackPtr ) ) {
-			return;
-		}
-
-		if ( $this->is_only_sanitized( $stackPtr ) ) {
-			return;
-		}
-
-		if ( $this->has_nonce_check( $stackPtr ) ) {
-			return;
-		}
-
-		// If we're still here, no nonce-verification function was found.
-		$severity = ( in_array( $instance['content'], $this->errorForSuperGlobals, true ) ) ? 0 : 'warning';
-
-		$phpcsFile->addError(
-			'Processing form data without nonce verification.'
-			, $stackPtr
-			, 'NoNonceVerification'
-			, array()
-			, $severity
-		);
-
-	} // end process()
-
-} // End class.
+}

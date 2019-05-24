@@ -7,72 +7,120 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
-if ( ! class_exists( 'Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true ) ) {
-	throw new PHP_CodeSniffer_Exception( 'Class Generic_Sniffs_PHP_ForbiddenFunctionsSniff not found' );
-}
+namespace WordPress\Sniffs\VIP;
+
+use WordPress\AbstractFunctionRestrictionsSniff;
 
 /**
  * Discourages the use of session functions.
  *
- * @link    https://vip.wordpress.com/documentation/vip/code-review-what-we-look-for/#session_start-and-other-session-related-functions
+ * @link https://lobby.vip.wordpress.com/wordpress-com-documentation/code-review-what-we-look-for/#session-start-and-other-session-functions
  *
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.3.0
+ * @since   0.11.0 Extends the WordPress_AbstractFunctionRestrictionsSniff instead of the
+ *                 Generic_Sniffs_PHP_ForbiddenFunctionsSniff.
+ * @since   0.13.0 Class name changed: this class is now namespaced.
+ *
+ * @deprecated 1.0.0  This sniff has been deprecated.
+ *                    This file remains for now to prevent BC breaks.
  */
-class WordPress_Sniffs_VIP_SessionFunctionsUsageSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff {
+class SessionFunctionsUsageSniff extends AbstractFunctionRestrictionsSniff {
 
 	/**
-	 * A list of forbidden functions with their alternatives.
+	 * Keep track of whether the warnings have been thrown to prevent
+	 * the messages being thrown for every token triggering the sniff.
 	 *
-	 * The value is NULL if no alternative exists. I.e. the
-	 * function should just not be used.
+	 * @since 1.0.0
 	 *
-	 * @var array(string => string|null)
+	 * @var array
 	 */
-	public $forbiddenFunctions = array(
-		'session_cache_expire'      => null,
-		'session_cache_limiter'     => null,
-		'session_commit'            => null,
-		'session_decode'            => null,
-		'session_destroy'           => null,
-		'session_encode'            => null,
-		'session_get_cookie_params' => null,
-		'session_id'                => null,
-		'session_is_registered'     => null,
-		'session_module_name'       => null,
-		'session_name'              => null,
-		'session_regenerate_id'     => null,
-		'session_register_shutdown' => null,
-		'session_register'          => null,
-		'session_save_path'         => null,
-		'session_set_cookie_params' => null,
-		'session_set_save_handler'  => null,
-		'session_start'             => null,
-		'session_status'            => null,
-		'session_unregister'        => null,
-		'session_unset'             => null,
-		'session_write_close'       => null,
+	private $thrown = array(
+		'DeprecatedSniff'                 => false,
+		'FoundPropertyForDeprecatedSniff' => false,
 	);
 
 	/**
-	 * Generates the error or warning for this sniff.
+	 * Groups of functions to restrict.
 	 *
-	 * Overloads parent addError method.
+	 * Example: groups => array(
+	 *  'lambda' => array(
+	 *      'type'      => 'error' | 'warning',
+	 *      'message'   => 'Use anonymous functions instead please!',
+	 *      'functions' => array( 'file_get_contents', 'create_function' ),
+	 *  )
+	 * )
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the forbidden function
-	 *                                        in the token array.
-	 * @param string               $function  The name of the forbidden function.
-	 * @param string               $pattern   The pattern used for the match.
-	 *
-	 * @return void
+	 * @return array
 	 */
-	protected function addError( $phpcsFile, $stackPtr, $function, $pattern = null ) {
-		$data  = array( $function );
-		$error = 'The use of PHP session function %s() is prohibited.';
-
-		$phpcsFile->addError( $error, $stackPtr, $function, $data );
+	public function getGroups() {
+		return array(
+			'session' => array(
+				'type'      => 'error',
+				'message'   => 'The use of PHP session function %s() is prohibited.',
+				'functions' => array(
+					'session_abort',
+					'session_cache_expire',
+					'session_cache_limiter',
+					'session_commit',
+					'session_create_id',
+					'session_decode',
+					'session_destroy',
+					'session_encode',
+					'session_gc',
+					'session_get_cookie_params',
+					'session_id',
+					'session_is_registered',
+					'session_module_name',
+					'session_name',
+					'session_regenerate_id',
+					'session_register_shutdown',
+					'session_register',
+					'session_reset',
+					'session_save_path',
+					'session_set_cookie_params',
+					'session_set_save_handler',
+					'session_start',
+					'session_status',
+					'session_unregister',
+					'session_unset',
+					'session_write_close',
+				),
+			),
+		);
 	}
 
-} // End class.
+
+	/**
+	 * Process the token and handle the deprecation notices.
+	 *
+	 * @since 1.0.0 Added to allow for throwing the deprecation notices.
+	 *
+	 * @param int $stackPtr The position of the current token in the stack.
+	 *
+	 * @return void|int
+	 */
+	public function process_token( $stackPtr ) {
+		if ( false === $this->thrown['DeprecatedSniff'] ) {
+			$this->thrown['DeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.VIP.SessionFunctionsUsage" sniff has been deprecated. Please update your custom ruleset.',
+				0,
+				'DeprecatedSniff'
+			);
+		}
+
+		if ( ! empty( $this->exclude )
+			&& false === $this->thrown['FoundPropertyForDeprecatedSniff']
+		) {
+			$this->thrown['FoundPropertyForDeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.VIP.SessionFunctionsUsage" sniff has been deprecated. Please update your custom ruleset.',
+				0,
+				'FoundPropertyForDeprecatedSniff'
+			);
+		}
+
+		return parent::process_token( $stackPtr );
+	}
+
+}

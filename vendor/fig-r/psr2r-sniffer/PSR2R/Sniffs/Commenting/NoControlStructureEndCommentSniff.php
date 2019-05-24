@@ -2,12 +2,13 @@
 
 namespace PSR2R\Sniffs\Commenting;
 
-use PHP_CodeSniffer_File;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Ensures unnecessary comments, especially //end ... ones are removed.
  */
-class NoControlStructureEndCommentSniff implements \PHP_CodeSniffer_Sniff {
+class NoControlStructureEndCommentSniff implements Sniff {
 
 	/**
 	 * @inheritDoc
@@ -19,10 +20,10 @@ class NoControlStructureEndCommentSniff implements \PHP_CodeSniffer_Sniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
+	public function process(File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
 
-		$possibleCurlyBracket = $phpcsFile->findPrevious(T_WHITESPACE, ($stackPtr - 1), 0, true);
+		$possibleCurlyBracket = $phpcsFile->findPrevious(T_WHITESPACE, $stackPtr - 1, 0, true);
 		if ($possibleCurlyBracket === false || $tokens[$possibleCurlyBracket]['type'] !== 'T_CLOSE_CURLY_BRACKET') {
 			return;
 		}
@@ -35,6 +36,7 @@ class NoControlStructureEndCommentSniff implements \PHP_CodeSniffer_Sniff {
 		$error = 'The unnecessary end comment must be removed';
 		$fix = $phpcsFile->addFixableError($error, $stackPtr, 'Unnecessary');
 		if ($fix === true) {
+			/** @noinspection NotOptimalRegularExpressionsInspection */
 			$phpcsFile->fixer->replaceToken($stackPtr, preg_replace('/[^\s]/', '', $content));
 		}
 	}

@@ -7,50 +7,69 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
-if ( ! class_exists( 'Generic_Sniffs_PHP_ForbiddenFunctionsSniff', true ) ) {
-	throw new PHP_CodeSniffer_Exception( 'Class Generic_Sniffs_PHP_ForbiddenFunctionsSniff not found' );
-}
+namespace WordPress\Sniffs\VIP;
+
+use WordPress\AbstractFunctionRestrictionsSniff;
 
 /**
  * Disallow the changing of timezone.
  *
- * @link    http://vip.wordpress.com/documentation/use-current_time-not-date_default_timezone_set/
+ * @link https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#manipulating-the-timezone-server-side
  *
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.3.0
+ * @since   0.11.0 Extends the WordPress_AbstractFunctionRestrictionsSniff instead of the
+ *                 Generic_Sniffs_PHP_ForbiddenFunctionsSniff.
+ * @since   0.13.0 Class name changed: this class is now namespaced.
+ *
+ * @deprecated 1.0.0  This sniff has been moved to the `WP` category.
+ *                    This file remains for now to prevent BC breaks.
  */
-class WordPress_Sniffs_VIP_TimezoneChangeSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff {
+class TimezoneChangeSniff extends \WordPress\Sniffs\WP\TimezoneChangeSniff {
 
 	/**
-	 * A list of forbidden functions with their alternatives.
+	 * Keep track of whether the warnings have been thrown to prevent
+	 * the messages being thrown for every token triggering the sniff.
 	 *
-	 * The value is NULL if no alternative exists. IE, the
-	 * function should just not be used.
+	 * @since 1.0.0
 	 *
-	 * @var array(string => string|null)
+	 * @var array
 	 */
-	public $forbiddenFunctions = array(
-		'date_default_timezone_set' => null,
+	private $thrown = array(
+		'DeprecatedSniff'                 => false,
+		'FoundPropertyForDeprecatedSniff' => false,
 	);
 
 	/**
-	 * Generates the error or warning for this sniff.
+	 * Don't use.
 	 *
-	 * Overloads parent addError method.
+	 * @deprecated 1.0.0
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the forbidden function
-	 *                                        in the token array.
-	 * @param string               $function  The name of the forbidden function.
-	 * @param string               $pattern   The pattern used for the match.
+	 * @param int $stackPtr The position of the current token in the stack.
 	 *
-	 * @return void
+	 * @return void|int
 	 */
-	protected function addError( $phpcsFile, $stackPtr, $function, $pattern = null ) {
-		$error = 'Using date_default_timezone_set() and similar isn\'t allowed, instead use WP internal timezone support.';
-		$phpcsFile->addError( $error, $stackPtr, $function );
+	public function process_token( $stackPtr ) {
+		if ( false === $this->thrown['DeprecatedSniff'] ) {
+			$this->thrown['DeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.VIP.TimezoneChange" sniff has been renamed to "WordPress.WP.TimezoneChange". Please update your custom ruleset.',
+				0,
+				'DeprecatedSniff'
+			);
+		}
 
+		if ( ! empty( $this->exclude )
+			&& false === $this->thrown['FoundPropertyForDeprecatedSniff']
+		) {
+			$this->thrown['FoundPropertyForDeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.VIP.TimezoneChange" sniff has been renamed to "WordPress.WP.TimezoneChange". Please update your custom ruleset.',
+				0,
+				'FoundPropertyForDeprecatedSniff'
+			);
+		}
+
+		return parent::process_token( $stackPtr );
 	}
 
-} // End class.
+}

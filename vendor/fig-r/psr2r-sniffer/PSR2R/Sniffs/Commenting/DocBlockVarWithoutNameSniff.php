@@ -12,12 +12,12 @@
 
 namespace PSR2R\Sniffs\Commenting;
 
-use PHP_CodeSniffer_File;
+use PHP_CodeSniffer\Files\File;
 use PSR2R\Tools\AbstractSniff;
 
 /**
  * Doc blocks for class attributes should not have the variable name duplicated.
- * Type suffices: `@var type`.
+ * Type suffices: `@var <type>`.
  *
  * @author Graham Campbell <graham@mineuk.com>
  * @author Mark Scherer
@@ -35,15 +35,15 @@ class DocBlockVarWithoutNameSniff extends AbstractSniff {
 	/**
 	 * @inheritDoc
 	 */
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
+	public function process(File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
 		$docBlockStartIndex = $stackPtr;
 		$docBlockEndIndex = $tokens[$stackPtr]['comment_closer'];
 
 		$indentationLevel = $this->getIndentationLevel($phpcsFile, $stackPtr);
 
-		// Skip for inline comments
-		if ($indentationLevel > 1) {
+		// Skip for inline comments or other non class constructs.
+		if ($indentationLevel !== 1) {
 			return;
 		}
 
@@ -51,7 +51,7 @@ class DocBlockVarWithoutNameSniff extends AbstractSniff {
 			if ($tokens[$i]['type'] !== 'T_DOC_COMMENT_TAG') {
 				continue;
 			}
-			if (!in_array($tokens[$i]['content'], ['@var'])) {
+			if ($tokens[$i]['content'] !== '@var') {
 				continue;
 			}
 
@@ -64,8 +64,9 @@ class DocBlockVarWithoutNameSniff extends AbstractSniff {
 			$content = $tokens[$nextIndex]['content'];
 			preg_match_all('/ \$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/', $content, $matches);
 
-			if (isset($matches[0][0])) {
-				$fix = $phpcsFile->addFixableError('@var annotations should not contain the variable name.', $i);
+			if (isset($matches[0][0]) && trim($matches[0][0]) !== '$this') {
+				$fix = $phpcsFile->addFixableError('@var annotations should not contain the variable name.', $i,
+					'RemoveVarName');
 				if ($fix) {
 					$phpcsFile->fixer->replaceToken($nextIndex, str_replace($matches[0][0], '', $content));
 				}

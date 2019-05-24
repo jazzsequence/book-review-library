@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPress\Sniffs\Functions;
+
+use WordPress\AbstractFunctionRestrictionsSniff;
+
 /**
  * Restricts the usage of extract().
  *
@@ -15,34 +19,55 @@
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.10.0 Previously this check was contained within WordPress_Sniffs_VIP_RestrictedFunctionsSniff.
+ * @since   0.13.0 Class name changed: this class is now namespaced.
+ *
+ * @deprecated 1.0.0  This sniff has been moved to the `PHP` category.
+ *                    This file remains for now to prevent BC breaks.
  */
-class WordPress_Sniffs_Functions_DontExtractSniff extends WordPress_AbstractFunctionRestrictionsSniff {
+class DontExtractSniff extends \WordPress\Sniffs\PHP\DontExtractSniff {
 
 	/**
-	 * Groups of functions to restrict.
+	 * Keep track of whether the warnings have been thrown to prevent
+	 * the messages being thrown for every token triggering the sniff.
 	 *
-	 * Example: groups => array(
-	 * 	'lambda' => array(
-	 * 		'type'      => 'error' | 'warning',
-	 * 		'message'   => 'Use anonymous functions instead please!',
-	 * 		'functions' => array( 'eval', 'create_function' ),
-	 * 	)
-	 * )
+	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @var array
 	 */
-	public function getGroups() {
-		return array(
+	private $thrown = array(
+		'DeprecatedSniff'                 => false,
+		'FoundPropertyForDeprecatedSniff' => false,
+	);
 
-			'extract' => array(
-				'type'      => 'error',
-				'message'   => '%s() usage is highly discouraged, due to the complexity and unintended issues it might cause.',
-				'functions' => array(
-					'extract',
-				),
-			),
+	/**
+	 * Don't use.
+	 *
+	 * @deprecated 1.0.0
+	 *
+	 * @param int $stackPtr The position of the current token in the stack.
+	 *
+	 * @return void|int
+	 */
+	public function process_token( $stackPtr ) {
+		if ( false === $this->thrown['DeprecatedSniff'] ) {
+			$this->thrown['DeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.Functions.DontExtract" sniff has been renamed to "WordPress.PHP.DontExtract". Please update your custom ruleset.',
+				0,
+				'DeprecatedSniff'
+			);
+		}
 
-		);
-	} // end getGroups()
+		if ( ! empty( $this->exclude )
+			&& false === $this->thrown['FoundPropertyForDeprecatedSniff']
+		) {
+			$this->thrown['FoundPropertyForDeprecatedSniff'] = $this->phpcsFile->addWarning(
+				'The "WordPress.Functions.DontExtract" sniff has been renamed to "WordPress.PHP.DontExtract". Please update your custom ruleset.',
+				0,
+				'FoundPropertyForDeprecatedSniff'
+			);
+		}
 
-} // End class.
+		return parent::process_token( $stackPtr );
+	}
+
+}
