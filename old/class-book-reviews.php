@@ -370,58 +370,58 @@ class Book_Reviews {
 			remove_meta_box( 'tagsdiv-genre', 'book-review', 'side' );
 			remove_meta_box( 'tagsdiv-rating', 'book-review', 'side' );
 			remove_meta_box( 'postimagediv', 'book-review', 'side' );
-	    	add_meta_box('postimagediv', __('Book Cover', 'book-review-library'), 'post_thumbnail_meta_box', 'book-review', 'side', 'default');
-	    }
+			add_meta_box('postimagediv', __('Book Cover', 'book-review-library'), 'post_thumbnail_meta_box', 'book-review', 'side', 'default');
+		}
 	}
 
 
- 	/**
- 	 * Get Book Review Library options helper function
- 	 *
- 	 * @since 	1.5.0
- 	 * @return  array 	The options array for Book Review Library
- 	 */
- 	public function get_options() {
+	/**
+	 * Get Book Review Library options helper function
+	 *
+	 * @since 	1.5.0
+	 * @return  array 	The options array for Book Review Library
+	 */
+	public function get_options() {
 		// include helper functions
 		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
 
 		// get the options
 		return get_option( 'book_reviews_settings', book_reviews_option_defaults() );
- 	}
+	}
 
- 	/**
- 	 * Check if a given option is enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @param 	string 	The option name to check
- 	 * @return 	bool 	True of the setting is enabled, false if it isn't or no option was
- 	 * 					passed
- 	 */
- 	public function is_option_enabled( $option_name = '' ) {
+	/**
+	 * Check if a given option is enabled
+	 *
+	 * @since 	1.5.0
+	 * @param 	string 	The option name to check
+	 * @return 	bool 	True of the setting is enabled, false if it isn't or no option was
+	 * 					passed
+	 */
+	public function is_option_enabled( $option_name = '' ) {
 
- 		// return false if nothing was passed
- 		if ( '' == $option_name )
- 			return false;
+		// return false if nothing was passed
+		if ( '' == $option_name )
+			return false;
 
 		// get the options
 		$options = $this->get_options();
 
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
+		// if the options array isn't an array
+		if ( empty( $options ) )
+			return false;
 
- 		// if the option isn't set
- 		if ( !isset( $options[$option_name] ) )
- 			return false;
+		// if the option isn't set
+		if ( !isset( $options[$option_name] ) )
+			return false;
 
- 		// if the option is true
- 		if ( true == $options[$option_name] )
- 			return true;
+		// if the option is true
+		if ( true == $options[$option_name] )
+			return true;
 
- 		// for anything else
- 		return false;
+		// for anything else
+		return false;
 
- 	}
+	}
 
 	/**
 	 * Registers the options
@@ -438,8 +438,8 @@ class Book_Reviews {
 	 * @since 	1.0.0
 	 */
 	public function change_thumbnail_html( $content ) {
-	    if ('book-review' == $GLOBALS['post_type'])
-	      add_filter('admin_post_thumbnail_html', array($this,'do_thumb'));
+		if ('book-review' == $GLOBALS['post_type'])
+		  add_filter('admin_post_thumbnail_html', array($this,'do_thumb'));
 	}
 
 	/**
@@ -755,21 +755,21 @@ class Book_Reviews {
 	 */
 	public function search_by_isbn( $where ) {
 		// load the meta keys into an array
-        $keys = array( 'isbn' ); // currently we're just using one, but we can expand this later
-        if( is_search() && !is_admin()) {
+		$keys = array( 'isbn' ); // currently we're just using one, but we can expand this later
+		if( is_search() && !is_admin()) {
 			global $wpdb;
 			$query = get_search_query();
 			$query = like_escape( $query );
 
 			// include postmeta in search
 			 foreach ( $keys as $key ) {
-			 	$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->postmeta}.post_id FROM {$wpdb->posts}, {$wpdb->postmeta} WHERE {$wpdb->postmeta}.meta_key = '$key' AND {$wpdb->postmeta}.meta_value LIKE '%$query%' AND {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";
+				$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->postmeta}.post_id FROM {$wpdb->posts}, {$wpdb->postmeta} WHERE {$wpdb->postmeta}.meta_key = '$key' AND {$wpdb->postmeta}.meta_value LIKE '%$query%' AND {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";
 			 }
 			 // include taxonomy in search
 			$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->posts}.ID FROM {$wpdb->posts},{$wpdb->term_relationships},{$wpdb->terms} WHERE {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id AND {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->terms}.term_id AND {$wpdb->terms}.name LIKE '%$query%')";
 
-        }
-        return $where;
+		}
+		return $where;
 	}
 
 	/**
