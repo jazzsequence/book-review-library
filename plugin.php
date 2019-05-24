@@ -34,5 +34,5 @@ $is_book_review_shortcode = false;
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\bootstrap' );
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-register_activation_hook( __FILE__,   __NAMESPACE__ . '\\activate' );
+register_activation_hook( __FILE__, __NAMESPACE__ . '\\activate' );
 register_deactivation_hook( __FILE__, __NAMESPACE__ . '\\deactivate' );
