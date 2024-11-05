@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ruleset name="Book Review Library">
+	<description>Custom ruleset for the Book Review Library project</description>
+	<file>.</file>
+	<exclude-pattern>/vendor/</exclude-pattern>
+	<exclude-pattern>/tests/</exclude-pattern>
+	
+	<!-- Base config -->
+	<arg value="sp"/>
+	<arg name="basepath" value="./"/>
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg name="parallel" value="8"/>
+
+	<!-- PHP Compatibility -->
+	<config name="testVersion" value="8.3-"/>
+	<!-- https://github.com/PHPCompatibility/PHPCompatibilityWP -->
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!-- WordPress Coding Standards -->
+	<config name="minimum_supported_wp_version" value="3.6"/>
+	<rule ref="Pantheon-WP">
+	</rule>
+</ruleset>
