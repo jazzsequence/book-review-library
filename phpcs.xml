@@ -4,6 +4,7 @@
 	<file>.</file>
 	<exclude-pattern>/vendor/</exclude-pattern>
 	<exclude-pattern>/tests/</exclude-pattern>
+	<exclude-pattern>/inc/cmb2/</exclude-pattern>
 	
 	<!-- Base config -->
 	<arg value="sp"/>
@@ -20,5 +21,6 @@
 	<!-- WordPress Coding Standards -->
 	<config name="minimum_supported_wp_version" value="3.6"/>
 	<rule ref="Pantheon-WP">
+		<exclude name="WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant"/>
 	</rule>
 </ruleset>
