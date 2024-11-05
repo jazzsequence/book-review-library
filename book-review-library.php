@@ -4,26 +4,27 @@
  * @author    Chris Reynolds <hello@chrisreynolds.io>
  * @license   GPLv3
  * @link      http://chrisreynolds.io
- * @copyright 2014 Chris Reynolds
+ * @copyright 2024 Chris Reynolds
  *
  * @wordpress-plugin
  * Plugin Name: Book Review Library
- * Plugin URI:  http://museumthemes.com/book-review-library/
+ * Plugin URI:  https://github.com/jazzsequence/book-review-library/
  * Description: A book cataloguing and review system designed with bookophiles and librarians in mind.
- * Version:     1.4.23
+ * Version:     1.5.0
  * Author:      Chris Reynolds
  * Author URI:  http://chrisreynolds.io
  * License:     GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: book-review-library
  * Domain Path: /lang
+ * GitHub Plugin URI: https://github.com/jazzsequence/book-review-library
  */
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-define( 'BOOK_REVIEWS_FUNC', plugin_dir_path( __FILE__ ) . 'inc/func.php' );
+define( 'BOOK_REVIEW_TEMPLATE_TAGS', plugin_dir_path( __FILE__ ) . 'inc/template-tags.php' );
 define( 'BOOK_REVIEWS_WIDGETS', plugin_dir_path( __FILE__ ) . 'inc/widgets.php' );
 
 $is_book_review_shortcode = false;
