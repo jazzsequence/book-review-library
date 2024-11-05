@@ -13,8 +13,8 @@ class Book_Review_Library_CMB {
 
 	private function __construct() {
 		// initialize CMB2
-		if ( file_exists(  __DIR__ . '/cmb/init.php' ) ) {
-			require_once  __DIR__ . '/cmb/init.php';
+		if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
+			require_once  __DIR__ . '/cmb2/init.php';
 		}
 
 		// deal with meta boxes
