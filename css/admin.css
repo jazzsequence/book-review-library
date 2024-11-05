@@ -1,14 +1,12 @@
-#rating-tabs .hide-if-no-js,
-#rating-adder {
-	display: none;
+.cmb2-id-reading-level ul.cmb2-radio-list.cmb2-list li {
+	display: inline;
+	margin-right: 25px;
 }
 
 #book-authordiv .tabs-panel,
 #illustratordiv .tabs-panel,
-#ratingdiv .tabs-panel,
-#tagsdiv-reading-level .tabs-panel,
 #seriesdiv .tabs-panel {
-	padding-bottom: 10px;
+	padding: 0 0 10px;
 }
 
 #book-authordiv .tabs-panel li,
@@ -18,6 +16,10 @@
 #seriesdiv .tabs-panel li {
 	float: left;
 }
+#book-authordiv .tabs-panel li,
+#illustratordiv .tabs-panel li {
+	width: 150px;
+}
 #book-authordiv .tabs-panel li .selectit,
 #illustratordiv .tabs-panel li .selectit,
 #ratingdiv .tabs-panel li .selectit,
@@ -25,6 +27,7 @@
 #seriesdiv .tabs-panel li .selectit {
 	margin-left: 10px;
 }
+
 #ratingdiv {
 	margin-right: 0;
 }
@@ -80,4 +83,8 @@ div#icon-edit.icon32-posts-book-review:after {
 	left: 0;
 	top: 0;
 	text-shadow: none;
+}
+
+.book-review_page_book-review-library-options .cmb2-id-thumbnail .cmb-td {
+	max-width: 80%;
 }
