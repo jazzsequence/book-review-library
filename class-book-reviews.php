@@ -189,6 +189,9 @@ class Book_Reviews {
 			$role->add_cap('manage_book_review_options');
 		}
 
+		// Set up the default options.
+		$options = book_reviews_option_defaults();
+		update_option( 'book_reviews_settings', $options );
 	}
 
 	/**
@@ -270,6 +273,9 @@ class Book_Reviews {
 		wp_delete_term( '3', 'rating' );
 		wp_delete_term( '4', 'rating' );
 		wp_delete_term( '5', 'rating' );
+
+		// Delete the options
+		delete_option( 'book_reviews_settings' );
 	}
 
 	/**
