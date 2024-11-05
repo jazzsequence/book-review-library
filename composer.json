@@ -1,0 +1,32 @@
+{
+    "name": "jazzsequence/book-review-library",
+    "description": "A book cataloguing and review system designed with bookophiles and librarians in mind.",
+    "type": "wordpress-plugin",
+    "require-dev": {
+        "pantheon-systems/pantheon-wp-coding-standards": "^2.0",
+        "pantheon-systems/wpunit-helpers": "^2.0"
+    },
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Chris Reynolds",
+            "email": "chris@jazzsequence.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "config": {
+        "allow-plugins": {
+            "pantheon-systems/wpunit-helpers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "phpunit": "phpunit --do-not-cache-result",
+        "test": "@phpunit",
+        "test:install": "bin/install-local-tests.sh --skip-db=true",
+        "test:install:withdb": "bin/install-local-tests.sh",
+        "phpcs": "vendor/bin/phpcs -s .",
+        "phpcbf": "vendor/bin/phpcbf ."
+    }    
+}
