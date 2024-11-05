@@ -28,10 +28,10 @@ define( 'BOOK_REVIEWS_WIDGETS', plugin_dir_path( __FILE__ ) . 'inc/widgets.php' 
 
 $is_book_review_shortcode = false;
 
-require_once( plugin_dir_path( __FILE__ ) . 'class-book-reviews.php' );
+require_once plugin_dir_path( __FILE__ ) . 'class-book-reviews.php';
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-register_activation_hook( __FILE__, array( 'Book_Reviews', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Book_Reviews', 'deactivate' ) );
+register_activation_hook( __FILE__, [ 'Book_Reviews', 'activate' ] );
+register_deactivation_hook( __FILE__, [ 'Book_Reviews', 'deactivate' ] );
 
 Book_Reviews::get_instance();

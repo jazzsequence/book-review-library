@@ -13,10 +13,11 @@
  */
 ?>
 <?php
-	if ( ! isset( $_REQUEST['settings-updated'] ) )
-		$_REQUEST['settings-updated'] = false;
+if ( ! isset( $_REQUEST['settings-updated'] ) ) {
+	$_REQUEST['settings-updated'] = false;
+}
 
-	require_once( 'setup-options.php' );
+	require_once 'setup-options.php';
 ?>
 <div class="wrap">
 	<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
