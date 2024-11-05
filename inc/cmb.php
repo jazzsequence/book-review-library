@@ -172,6 +172,38 @@ class Book_Review_Library_CMB {
 			)
 		);
 
+		// If none of the book information fields are active, display a message in the meta box that these fields can be activated from the Options page.
+		if ( 
+			! book_reviews_is_option_enabled( 'illustrator' ) &&
+			! book_reviews_is_option_enabled( 'series' ) &&
+			! book_reviews_is_option_enabled( 'genre' ) &&
+			! book_reviews_is_option_enabled( 'subject' ) &&
+			! book_reviews_is_option_enabled( 'reading-level' ) &&
+			! book_reviews_is_option_enabled( 'languages' ) &&
+			! book_reviews_is_option_enabled( 'format' ) &&
+			! book_reviews_is_option_enabled( 'publisher' )
+			) {
+			$meta_boxes['book-information'] = array(
+				'id'           => 'book-information',
+				'title'        => __( 'Book Details', 'book-review-library' ),
+				'object_types' => array( 'book-review' ),
+				'context'      => 'normal',
+				'priority'     => 'high',
+				'show_names'   => true,
+				'fields'       => array(
+					'no_fields' => array(
+						'name' => __( 'No Fields Enabled', 'book-review-library' ),
+						'id'   => 'no_fields',
+						'type' => 'title',
+						'desc' => sprintf( 
+							__( 'No book information fields are currently enabled. You can enable these fields from the <a href="%s">Options page</a>.', 'book-review-library' ), 
+							admin_url( 'admin.php?page=book-review-library-options' ) 
+						)
+					)
+				)
+			);
+		}
+
 		$meta_boxes['book-author-information'] = array(
 			'id'           => 'author-information',
 			'title'        => __( 'Author Details', 'book-review-library' ),
