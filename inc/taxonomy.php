@@ -14,56 +14,63 @@ class Book_Review_Library_Taxonomies {
 	private function __construct() {
 
 		// Review Authors
-		if ( book_reviews_is_option_enabled( 'review-author' ) )
-			add_action( 'init', array( $this, 'register_taxonomy_review_author' ) );
+		if ( book_reviews_is_option_enabled( 'review-author' ) ) {
+			add_action( 'init', [ $this, 'register_taxonomy_review_author' ] );
+		}
 
 		// Reading Level
-		if ( book_reviews_is_option_enabled( 'reading-level' ) )
-			add_action( 'init', array( $this, 'register_taxonomy_reading_level' ) );
+		if ( book_reviews_is_option_enabled( 'reading-level' ) ) {
+			add_action( 'init', [ $this, 'register_taxonomy_reading_level' ] );
+		}
 
 		// Subject
-		if ( book_reviews_is_option_enabled( 'subject' ) )
-			add_action( 'init', array( $this, 'register_taxonomy_subject' ) );
+		if ( book_reviews_is_option_enabled( 'subject' ) ) {
+			add_action( 'init', [ $this, 'register_taxonomy_subject' ] );
+		}
 
 		// Illustrator
-		if ( book_reviews_is_option_enabled( 'illustrator' ) )
-			add_action( 'init', array( $this, 'register_taxonomy_illustrator' ) );
+		if ( book_reviews_is_option_enabled( 'illustrator' ) ) {
+			add_action( 'init', [ $this, 'register_taxonomy_illustrator' ] );
+		}
 
 		// Awards
-		if ( book_reviews_is_option_enabled( 'awards' ) )
-			add_action( 'init', array( $this, 'register_taxonomy_awards' ) );
+		if ( book_reviews_is_option_enabled( 'awards' ) ) {
+			add_action( 'init', [ $this, 'register_taxonomy_awards' ] );
+		}
 
 		// Series
-		if ( book_reviews_is_option_enabled( 'series' ) )
-			add_action( 'init', array( $this, 'register_taxonomy_series' ) );
+		if ( book_reviews_is_option_enabled( 'series' ) ) {
+			add_action( 'init', [ $this, 'register_taxonomy_series' ] );
+		}
 
 		// Star Ratings
 		if ( book_reviews_is_option_enabled( 'rating' ) ) {
-			add_action( 'init', array( $this, 'register_taxonomy_rating' ) );
-			add_action( 'init', array( $this, 'insert_star_ratings' ) );
-			add_action( 'admin_init', array( $this, 'remove_rating_submenu' ) );
+			add_action( 'init', [ $this, 'register_taxonomy_rating' ] );
+			add_action( 'init', [ $this, 'insert_star_ratings' ] );
+			add_action( 'admin_init', [ $this, 'remove_rating_submenu' ] );
 		}
 
 		// Genres (on always)
-		add_action( 'init', array( $this, 'register_taxonomy_genre' ) );
+		add_action( 'init', [ $this, 'register_taxonomy_genre' ] );
 
 		// Book Authors (on always)
-		add_action( 'init', array( $this, 'register_taxonomy_book_author' ) );
+		add_action( 'init', [ $this, 'register_taxonomy_book_author' ] );
 
 		// Languages
-		if ( book_reviews_is_option_enabled( 'languages' ) )
-			add_action( 'init', array( $this, 'register_taxonomy_language' ) );
+		if ( book_reviews_is_option_enabled( 'languages' ) ) {
+			add_action( 'init', [ $this, 'register_taxonomy_language' ] );
+		}
 
 		// Format
 		if ( book_reviews_is_option_enabled( 'format' ) ) {
-			add_action( 'init', array( $this, 'register_taxonomy_format' ) );
-			add_action( 'init', array( $this, 'insert_formats' ) );
+			add_action( 'init', [ $this, 'register_taxonomy_format' ] );
+			add_action( 'init', [ $this, 'insert_formats' ] );
 		}
 
 		// Publisher
-		if ( book_reviews_is_option_enabled( 'publisher' ) )
-			add_action( 'init', array( $this, 'register_taxonomy_publisher' ) );
-
+		if ( book_reviews_is_option_enabled( 'publisher' ) ) {
+			add_action( 'init', [ $this, 'register_taxonomy_publisher' ] );
+		}
 	}
 
 	/**
@@ -77,7 +84,7 @@ class Book_Review_Library_Taxonomies {
 
 		// If the single instance hasn't been set, set it now.
 		if ( null == self::$instance ) {
-			self::$instance = new self;
+			self::$instance = new self();
 		}
 
 		return self::$instance;
@@ -86,14 +93,15 @@ class Book_Review_Library_Taxonomies {
 	/**
 	 * Helper function to register the all the taxonomies
 	 *
-	 * @param array $args 	singular (required), plural (required), slug (required), show_ui, show_in_nav_menus, tagcloud,
-	 * 						hierarchical, use_singular_labels
+	 * @param array $args   singular (required), plural (required), slug (required), show_ui, show_in_nav_menus, tagcloud,
+	 *                      hierarchical, use_singular_labels
 	 *
 	 * @since 1.5.0
 	 */
-	public function register_the_taxonomy( $args = array() ) {
-		if ( empty( $args ) )
+	public function register_the_taxonomy( $args = [] ) {
+		if ( empty( $args ) ) {
 			return;
+		}
 
 		$singular          = $args['singular']; // required
 		$plural            = $args['plural'];   // required
@@ -101,13 +109,13 @@ class Book_Review_Library_Taxonomies {
 		$show_ui           = ( isset( $args['show_ui'] ) ) ? $args['show_ui'] : true;
 		$show_in_nav_menus = ( isset( $args['show_in_nav_menus'] ) ) ? $args['show_in_nav_menus'] : true;
 		$tagcloud          = ( isset( $args['show_tagcloud'] ) ) ? $args['show_tagcloud'] : true;
-		$hierarchical      = ( isset ( $args['hierarchical'] ) ) ? $args['hierarchical'] : true;
+		$hierarchical      = ( isset( $args['hierarchical'] ) ) ? $args['hierarchical'] : true;
 		$name              = ( isset( $args['use_singular_labels'] ) && $args['use_singular_labels'] ) ? $singular : $plural;
 
-		$labels = array(
+		$labels = [
 			'name' => $name,
 			'singular_name' => $singular,
-			'search_items' =>  sprintf( __( 'Search %s', 'book-review-library' ), $plural ),
+			'search_items' => sprintf( __( 'Search %s', 'book-review-library' ), $plural ),
 			'popular_items' => sprintf( __( 'Popular %s', 'book-review-library' ), $plural ),
 			'all_items' => sprintf( __( 'All %s', 'book-review-library' ), $plural ),
 			'parent_item' => sprintf( __( 'Parent %s', 'book-review-library' ), $singular ),
@@ -120,9 +128,9 @@ class Book_Review_Library_Taxonomies {
 			'add_or_remove_items' => sprintf( __( 'Add or remove %s', 'book-review-library' ), $plural ),
 			'choose_from_most_used' => sprintf( __( 'Choose from the most used %s', 'book-review-library' ), $plural ),
 			'menu_name' => $plural,
-		);
+		];
 
-		$taxonomy = array(
+		$taxonomy = [
 			'label' => $name,
 			'labels' => $labels,
 			'public' => true,
@@ -130,37 +138,37 @@ class Book_Review_Library_Taxonomies {
 			'show_ui' => $show_ui,
 			'show_tagcloud' => $tagcloud,
 			'hierarchical' => $hierarchical,
-			'query_var' =>  $slug,
-			'rewrite' => array(
+			'query_var' => $slug,
+			'rewrite' => [
 				'slug' => $slug,
 				'with_front' => true,
 				'hierarchical' => false,
-			),
-			'capabilities' => array(
+			],
+			'capabilities' => [
 				'manage_terms' => 'edit_book-reviews',
 				'edit_terms' => 'edit_book-reviews',
 				'delete_terms' => 'edit_others_book-reviews',
 				'manage_categories' => 'edit_book-reviews',
-				'assign_terms' => 'edit_book-reviews'
-			),
-		);
+				'assign_terms' => 'edit_book-reviews',
+			],
+		];
 
-		register_taxonomy( $slug, array( 'book-review' ), $taxonomy );
+		register_taxonomy( $slug, [ 'book-review' ], $taxonomy );
 	}
 
 	/**
 	 * Register the genre taxonomy
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_taxonomy_genre() {
-		$args = array(
+		$args = [
 			'singular'            => __( 'Genre', 'book-review-library' ),
 			'plural'              => __( 'Genres', 'book-review-library' ),
 			'slug'                => 'genre',
 			'hierarchical'        => false,
-			'use_singular_labels' => true
-		);
+			'use_singular_labels' => true,
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
@@ -168,16 +176,16 @@ class Book_Review_Library_Taxonomies {
 	/**
 	 * Register the review author taxonomy
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_taxonomy_review_author() {
-		$args = array(
+		$args = [
 			'singular'            => __( 'Review Author', 'book-review-library' ),
 			'plural'              => __( 'Review Authors', 'book-review-library' ),
 			'slug'                => 'review-author',
 			'show_tagcloud'       => false,
-			'use_singular_labels' => true
-		);
+			'use_singular_labels' => true,
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
@@ -185,105 +193,105 @@ class Book_Review_Library_Taxonomies {
 	/**
 	 * Register the book author taxonomy
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_taxonomy_book_author() {
-		$args = array(
+		$args = [
 			'singular'          => __( 'Author', 'book-review-library' ),
 			'plural'            => __( 'Book Authors', 'book-review-library' ),
 			'slug'              => 'book-author',
-		);
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
 	/**
 	 * Register the reading level taxonomy
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_taxonomy_reading_level() {
-		$args = array(
-			'singular'            => __('Reading Level', 'book-review-library'),
-			'plural'              => __('Reading Levels', 'book-review-library'),
+		$args = [
+			'singular'            => __( 'Reading Level', 'book-review-library' ),
+			'plural'              => __( 'Reading Levels', 'book-review-library' ),
 			'slug'                => 'reading-level',
 			'hierarchical'        => false,
-			'use_singular_labels' => true
-		);
+			'use_singular_labels' => true,
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
 	/**
 	 * Register the subject taxonomy
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_taxonomy_subject() {
-		$args = array(
+		$args = [
 			'singular'          => __( 'Subject', 'book-review-library' ),
 			'plural'            => __( 'Subjects', 'book-review-library' ),
 			'slug'              => 'subject',
-			'hierarchical'      => false
-		);
+			'hierarchical'      => false,
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
 	/**
 	 * Register the illustrator taxonomy
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_taxonomy_illustrator() {
-		$args = array(
+		$args = [
 			'singular'          => __( 'Illustrator', 'book-review-library' ),
 			'plural'            => __( 'Illustrators', 'book-review-library' ),
 			'slug'              => 'illustrator',
-		);
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
 	/**
 	 * Register the awards taxonomy
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_taxonomy_awards() {
-		$args = array(
+		$args = [
 			'singular'          => __( 'Award', 'book-review-library' ),
 			'plural'            => __( 'Awards', 'book-review-library' ),
 			'slug'              => 'awards',
-			'hierarchical'      => false
-		);
+			'hierarchical'      => false,
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
 	/**
 	 * Register the series taxonomy
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_taxonomy_series() {
-		$args = array(
+		$args = [
 			'singular'          => __( 'Series', 'book-review-library' ),
 			'plural'            => __( 'Series', 'book-review-library' ),
 			'slug'              => 'series',
-		);
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
 	/**
 	 * Register the rating taxonomy
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_taxonomy_rating() {
-		$args = array(
+		$args = [
 			'singular'          => __( 'Star Rating', 'book-review-library' ),
 			'plural'            => __( 'Star Ratings', 'book-review-library' ),
 			'slug'              => 'rating',
 			'show_in_nav_menus' => false,
 			'show_tagcloud'     => false,
-			'hierarchical'      => false
-		);
+			'hierarchical'      => false,
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
@@ -294,12 +302,12 @@ class Book_Review_Library_Taxonomies {
 	 * @todo Add action, add option
 	 */
 	public function register_taxonomy_language() {
-		$args = array(
+		$args = [
 			'singular'            => __( 'Language', 'book-review-library' ),
 			'plural'              => __( 'Languages', 'book-review-library' ),
 			'slug'                => 'language',
 			'hierarchical'        => false,
-		);
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
@@ -310,13 +318,13 @@ class Book_Review_Library_Taxonomies {
 	 * @todo add action, option, cmb, default format terms
 	 */
 	public function register_taxonomy_format() {
-		$args = array(
+		$args = [
 			'singular'            => __( 'Format', 'book-review-library' ),
 			'plural'              => __( 'Formats', 'book-review-library' ),
 			'slug'                => 'format',
 			'hierarchical'        => false,
-			'use_singular_labels' => true
-		);
+			'use_singular_labels' => true,
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
@@ -327,45 +335,44 @@ class Book_Review_Library_Taxonomies {
 	 * @todo add action, option, cmb
 	 */
 	public function register_taxonomy_publisher() {
-		$args = array(
+		$args = [
 			'singular'            => __( 'Publisher', 'book-review-library' ),
 			'plural'              => __( 'Publishers', 'book-review-library' ),
 			'slug'                => 'publisher',
-		);
+		];
 		$this->register_the_taxonomy( $args );
 	}
 
 	/**
 	 * Inserts the rating levels
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function insert_star_ratings() {
-		wp_insert_term( '0', 'rating', array(
+		wp_insert_term( '0', 'rating', [
 			'description' => __( 'Zero stars', 'book-review-library' ),
-			'slug' => 'zero-stars'
-		) );
-		wp_insert_term( '1', 'rating', array(
+			'slug' => 'zero-stars',
+		] );
+		wp_insert_term( '1', 'rating', [
 			'description' => __( 'One star', 'book-review-library' ),
-			'slug' => 'one-star'
-		) );
-		wp_insert_term( '2', 'rating', array(
+			'slug' => 'one-star',
+		] );
+		wp_insert_term( '2', 'rating', [
 			'description' => __( 'Two stars', 'book-review-library' ),
-			'slug' => 'two-stars'
-		) );
-		wp_insert_term( '3', 'rating', array(
+			'slug' => 'two-stars',
+		] );
+		wp_insert_term( '3', 'rating', [
 			'description' => __( 'Three stars', 'book-review-library' ),
-			'slug' => 'three-stars'
-		) );
-		wp_insert_term( '4', 'rating', array(
+			'slug' => 'three-stars',
+		] );
+		wp_insert_term( '4', 'rating', [
 			'description' => __( 'Four stars', 'book-review-library' ),
-			'slug' => 'four-stars'
-		) );
-		wp_insert_term( '5', 'rating', array(
+			'slug' => 'four-stars',
+		] );
+		wp_insert_term( '5', 'rating', [
 			'description' => __( 'Five stars', 'book-review-library' ),
-			'slug' => 'five-stars'
-		) );
-
+			'slug' => 'five-stars',
+		] );
 	}
 
 	/**
@@ -374,45 +381,44 @@ class Book_Review_Library_Taxonomies {
 	 * @since 1.5.0
 	 */
 	public function insert_formats() {
-		wp_insert_term( 'Audiobook', 'format', array(
+		wp_insert_term( 'Audiobook', 'format', [
 			'description' => __( 'Books on tape, CD, Audible and the like', 'book-review-library' ),
-			'slug' => 'audiobook'
-		) );
-		wp_insert_term( 'Book', 'format', array(
+			'slug' => 'audiobook',
+		] );
+		wp_insert_term( 'Book', 'format', [
 			'description' => __( 'The default format for book reviews', 'book-review-library' ),
-			'slug' => 'book'
-		) );
-		wp_insert_term( 'Graphic Novel', 'format', array(
+			'slug' => 'book',
+		] );
+		wp_insert_term( 'Graphic Novel', 'format', [
 			'description' => __( 'Long form comic, manga, or other illustrated story', 'book-review-library' ),
-			'slug' => 'graphic-novel'
-		) );
-		wp_insert_term( 'eBook', 'format', array(
+			'slug' => 'graphic-novel',
+		] );
+		wp_insert_term( 'eBook', 'format', [
 			'description' => __( 'Any book in digital format', 'book-review-library' ),
-			'slug' => 'ebook'
-		) );
-		wp_insert_term( 'Periodical', 'format', array(
+			'slug' => 'ebook',
+		] );
+		wp_insert_term( 'Periodical', 'format', [
 			'description' => __( 'Magazine or newspaper published at regular intervals', 'book-review-library' ),
-			'slug' => 'periodical'
-		) );
-		wp_insert_term( 'Reference' , 'format', array(
+			'slug' => 'periodical',
+		] );
+		wp_insert_term( 'Reference', 'format', [
 			'description' => __( 'Encyclopedia, dictionary or other nonfiction reference material', 'book-review-library' ),
-			'slug' => 'reference'
-		) );
-		wp_insert_term( 'Picture Book', 'format', array(
+			'slug' => 'reference',
+		] );
+		wp_insert_term( 'Picture Book', 'format', [
 			'description' => __( 'Any book -- generally a children\'s book -- in which pictures make up a large portion -- if not most -- of the book\'s content', 'book-review-library' ),
-			'slug' => 'picture-book'
-		) );
+			'slug' => 'picture-book',
+		] );
 	}
 
 	/**
 	 * Removes rating submenu so rating levels cannot be (easily) changed from the default
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function remove_rating_submenu() {
-		remove_submenu_page('edit.php?post_type=book-review','edit-tags.php?taxonomy=rating&amp;post_type=book-review');
+		remove_submenu_page( 'edit.php?post_type=book-review', 'edit-tags.php?taxonomy=rating&amp;post_type=book-review' );
 	}
-
 }
 
 Book_Review_Library_Taxonomies::get_instance();

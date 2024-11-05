@@ -12,30 +12,35 @@
 /**
  * Book Reviews Options class
  * Handles the options and options page markup
+ *
  * @since 1.5.0
  */
 class Book_Reviews_Options {
 
 	/**
 	 * Option key
+	 *
 	 * @var string
 	 */
 	private $key = 'book_reviews_settings';
 
 	/**
 	 * Array of metaboxes/fields
+	 *
 	 * @var string
 	 */
-	protected $option_metabox = array();
+	protected $option_metabox = [];
 
 	/**
 	 * Options Page Title
+	 *
 	 * @var string
 	 */
 	protected $title = '';
 
 	/**
 	 * Options Page hook
+	 *
 	 * @var string
 	 */
 	protected $options_page = '';
@@ -47,129 +52,128 @@ class Book_Reviews_Options {
 		$this->defaults = $this->defaults();
 
 		// set up the CMB2 fields
-		$this->fields = array(
-			'review_authors' => array(
+		$this->fields = [
+			'review_authors' => [
 				'name'    => __( 'Review Authors', 'book-review-library' ),
 				'desc'    => __( 'Enable this if the person adding the book review is not the original author of the review.', 'book-review-library' ),
 				'id'      => 'review-author',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['review-author']
-			),
-			'reading_level' => array(
+				'default' => $this->defaults['review-author'],
+			],
+			'reading_level' => [
 				'name'    => __( 'Reading Level', 'book-review-library' ),
 				'desc'    => __( 'Enable this to display the reading level for the book.', 'book-review-library' ),
 				'id'      => 'reading-level',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['reading-level']
-			),
-			'subject' => array(
+				'default' => $this->defaults['reading-level'],
+			],
+			'subject' => [
 				'name'    => __( 'Subject', 'book-review-library' ),
 				'desc'    => __( 'Enable this to tag the book with different subjects (unique from genres).', 'book-review-library' ),
 				'id'      => 'subject',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['subject']
-			),
-			'illustrator' => array(
+				'default' => $this->defaults['subject'],
+			],
+			'illustrator' => [
 				'name'    => __( 'Illustrator', 'book-review-library' ),
 				'desc'    => __( 'Enable this to add illustrators to book reviews.', 'book-review-library' ),
 				'id'      => 'illustrator',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['illustrator']
-			),
-			'awards' => array(
+				'default' => $this->defaults['illustrator'],
+			],
+			'awards' => [
 				'name'    => __( 'Awards', 'book-review-library' ),
 				'desc'    => __( 'Enable this to add awards the book has received.', 'book-review-library' ),
 				'id'      => 'awards',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['awards']
-			),
-			'series' => array(
+				'default' => $this->defaults['awards'],
+			],
+			'series' => [
 				'name'    => __( 'Series', 'book-review-library' ),
 				'desc'    => __( 'Enable this to group books by series.', 'book-review-library' ),
 				'id'      => 'series',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['series']
-			),
-			'ratings' => array(
+				'default' => $this->defaults['series'],
+			],
+			'ratings' => [
 				'name'    => __( 'Ratings', 'book-review-library' ),
 				'desc'    => __( 'Enable this for star ratings.', 'book-review-library' ),
 				'id'      => 'rating',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['rating']
-			),
-			'languages' => array(
+				'default' => $this->defaults['rating'],
+			],
+			'languages' => [
 				'name'    => __( 'Languages', 'book-review-library' ),
 				'desc'    => __( 'When enabled, allow books to be grouped by language.', 'book-review-library' ),
 				'id'      => 'languages',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['languages']
-			),
-			'format' => array(
+				'default' => $this->defaults['languages'],
+			],
+			'format' => [
 				'name'    => __( 'Format', 'book-review-library' ),
 				'desc'    => __( 'Group books by formats (eBook, audiobook, etc).', 'book-review-library' ),
 				'id'      => 'format',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['format']
-			),
-			'publisher' => array(
+				'default' => $this->defaults['format'],
+			],
+			'publisher' => [
 				'name'    => __( 'Publisher', 'book-review-library' ),
 				'desc'    => __( 'Group books by their publisher.', 'book-review-library' ),
 				'id'      => 'publisher',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['publisher']
-			),
-			'book_cover' => array(
+				'default' => $this->defaults['publisher'],
+			],
+			'book_cover' => [
 				'name'    => __( 'Book cover size', 'book-review-library' ),
 				'desc'    => __( 'If covers are displayed, this controls how they are sized. Either uses the theme setting for thumbnails (which may be controlled by the theme or the Thumbnail setting on the Media Settings page) or a Book Review Library standard book cover size.', 'book-review-library' ),
 				'id'      => 'thumbnail',
 				'type'    => 'select',
 				'options' => $this->book_covers(),
-				'default' => $this->defaults['thumbnail']
-			),
-			'stock' => array(
+				'default' => $this->defaults['thumbnail'],
+			],
+			'stock' => [
 				'name'    => __( 'Stock', 'book-review-library' ),
 				'desc'    => __( 'Enable this to display "In Stock"/"Out of Stock" information with the book review.', 'book-review-library' ),
 				'id'      => 'stock',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['stock']
-			),
-			'author_image' => array(
+				'default' => $this->defaults['stock'],
+			],
+			'author_image' => [
 				'name'    => __( 'Author Image', 'book-review-library' ),
 				'desc'    => __( 'Enable to allow uploads for an author image to display with the book review.', 'book-review-library' ),
 				'id'      => 'author-image',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['author-image']
-			),
-			'author_title' => array(
+				'default' => $this->defaults['author-image'],
+			],
+			'author_title' => [
 				'name'    => __( 'Display author with title', 'book-review-library' ),
 				'desc'    => sprintf( __( '%1$sWith the title%2$s displays the author on the same line as the book title.', 'book-review-library' ) . '<br />' . __( '%1$sWith the title but not hyperlinked%2$s displays the author on the same line as the book title but does not link the author name.', 'book-review-library' ) . '<br />' . __( '%1$sOn a new line%2$s adds a line break before displaying the author.', 'book-review-library' ) . '<br />' . __( '%1$sDisabled%2$s removes the author from the title entirely.', 'book-review-library' ), '<strong>', '</strong>' ),
 				'id'      => 'title-filter',
 				'type'    => 'select',
 				'options' => $this->author_title(),
-				'default' => $this->defaults['title-filter']
-			),
-			'comments' => array(
+				'default' => $this->defaults['title-filter'],
+			],
+			'comments' => [
 				'name'    => __( 'Comments on book reviews', 'book-review-library' ),
 				'desc'    => __( 'If enabled, allows visitors to comment on book reviews.', 'book-review-library' ),
 				'id'      => 'comments',
 				'type'    => 'select',
 				'options' => $this->true_false(),
-				'default' => $this->defaults['comments']
-			)
-		);
-
+				'default' => $this->defaults['comments'],
+			],
+		];
 	}
 
 	/**
@@ -179,8 +183,8 @@ class Book_Reviews_Options {
 	 * @link  https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
 	 */
 	public function hooks() {
-		add_action( 'admin_init', array( $this, 'init' ) );
-		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
+		add_action( 'admin_init', [ $this, 'init' ] );
+		add_action( 'admin_menu', [ $this, 'add_plugin_admin_menu' ] );
 	}
 
 	/**
@@ -206,7 +210,7 @@ class Book_Reviews_Options {
 			__( 'Options', 'book-review-library' ), // menu title
 			'manage_book_review_options',           // capability
 			'book-review-library-options',          // page slug
-			array( $this, 'admin_page_display' )    // options page callback
+			[ $this, 'admin_page_display' ]    // options page callback
 		);
 	}
 
@@ -233,22 +237,25 @@ class Book_Reviews_Options {
 	 * @return array
 	 */
 	public function option_metabox() {
-		return array(
+		return [
 			'id'         => 'option_metabox',
-			'show_on'    => array( 'key' => 'options-page', 'value' => $this->key ),
+			'show_on'    => [
+				'key' => 'options-page',
+				'value' => $this->key,
+			],
 			'show_names' => true,
-			'fields'     => $this->fields
-		);
+			'fields'     => $this->fields,
+		];
 	}
 
 	/**
 	 * Default option settings (moved from book_review_option_defaults)
 	 *
-	 * @since 	1.0.0
-	 * @return 	$defaults 	all the default settings (everything disabled)
+	 * @since   1.0.0
+	 * @return  $defaults   all the default settings (everything disabled)
 	 */
 	public function defaults() {
-		$defaults = array(
+		$defaults = [
 			'review-author' => false,
 			'reading-level' => false,
 			'subject'       => false,
@@ -264,8 +271,8 @@ class Book_Reviews_Options {
 			'languages'     => false,
 			'format'        => false,
 			'publisher'     => false,
-			'thumbnail'     => 'book-cover'
-		);
+			'thumbnail'     => 'book-cover',
+		];
 		return $defaults;
 	}
 
@@ -276,10 +283,10 @@ class Book_Reviews_Options {
 	 * @return array
 	 */
 	public function true_false() {
-		return array(
+		return [
 			true  => __( 'Enabled', 'book-review-library' ),
-			false => __( 'Disabled', 'book-review-library' )
-		);
+			false => __( 'Disabled', 'book-review-library' ),
+		];
 	}
 
 	/**
@@ -289,10 +296,10 @@ class Book_Reviews_Options {
 	 * @return array
 	 */
 	public function book_covers() {
-		return array(
+		return [
 			'thumbnail'  => __( 'Use the post thumbnail size', 'book-review-library' ),
-			'book-cover'  => __( 'Use 6:9 book cover size (133px x 200px)', 'book-review-library' )
-		);
+			'book-cover'  => __( 'Use 6:9 book cover size (133px x 200px)', 'book-review-library' ),
+		];
 	}
 
 	/**
@@ -302,14 +309,13 @@ class Book_Reviews_Options {
 	 * @return array
 	 */
 	public function author_title() {
-		return array(
+		return [
 			'title'        => __( 'With the title', 'book-review-library' ),
 			'title-nolink' => __( 'With the title but not hyperlinked', 'book-review-library' ),
 			'newline'      => __( 'On a new line', 'book-review-library' ),
-			'disabled'     => __( 'Disabled', 'book-review-library' )
-		);
+			'disabled'     => __( 'Disabled', 'book-review-library' ),
+		];
 	}
-
 }
 $Book_Reviews_Options = new Book_Reviews_Options();
 $Book_Reviews_Options->hooks();

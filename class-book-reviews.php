@@ -63,12 +63,11 @@ class Book_Reviews {
 	 */
 	private function __construct() {
 
-		require_once( plugin_dir_path( __FILE__ ) . '/views/options.php' );
-		require_once( plugin_dir_path( __FILE__ ) . '/views/actions.php' );
-		require_once( plugin_dir_path( __FILE__ ) . '/inc/cmb.php' );
-		require_once( plugin_dir_path( __FILE__ ) . '/inc/cpt.php' );
-		require_once( plugin_dir_path( __FILE__ ) . '/inc/taxonomy.php' );
-
+		require_once plugin_dir_path( __FILE__ ) . '/views/options.php';
+		require_once plugin_dir_path( __FILE__ ) . '/views/actions.php';
+		require_once plugin_dir_path( __FILE__ ) . '/inc/cmb.php';
+		require_once plugin_dir_path( __FILE__ ) . '/inc/cpt.php';
+		require_once plugin_dir_path( __FILE__ ) . '/inc/taxonomy.php';
 	}
 
 	/**
@@ -82,7 +81,7 @@ class Book_Reviews {
 
 		// If the single instance hasn't been set, set it now.
 		if ( null == self::$instance ) {
-			self::$instance = new self;
+			self::$instance = new self();
 		}
 
 		return self::$instance;
@@ -106,7 +105,7 @@ class Book_Reviews {
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
 	 */
 	public static function activate( $network_wide ) {
-		$result = add_role( 'librarian', __( 'Librarian', 'book-review-library' ), array(
+		$result = add_role( 'librarian', __( 'Librarian', 'book-review-library' ), [
 			// core WordPress caps
 			'read' => true,
 			'delete_posts' => true,
@@ -127,10 +126,10 @@ class Book_Reviews {
 			'delete_published_book-reviews' => true,
 			'read_book-reviews' => true,
 			'edit_others_book-reviews' => true,
-			'delete_others_book-reviews' => true
-		) );
+			'delete_others_book-reviews' => true,
+		] );
 
-		$result = add_role( 'book-reviewer', __( 'Book Reviewer', 'book-review-library' ), array(
+		$result = add_role( 'book-reviewer', __( 'Book Reviewer', 'book-review-library' ), [
 			// core WordPress caps
 			'read' => true,
 			'delete_posts' => true,
@@ -147,46 +146,46 @@ class Book_Reviews {
 			'edit_published_book-reviews' => true,
 			'delete_book-reviews' => true,
 			'delete_published_book-reviews' => true,
-			'read_book-reviews' => true
-		) );
+			'read_book-reviews' => true,
+		] );
 
 		// add book-reviews caps to authors
-		if ( get_role('author') ) {
+		if ( get_role( 'author' ) ) {
 			$role = get_role( 'author' );
-			$role->add_cap('add_book-reviews');
-			$role->add_cap('publish_book-reviews');
-			$role->add_cap('edit_book-reviews');
-			$role->add_cap('read_book-reviews');
-			$role->add_cap('edit_published_book-reviews');
-			$role->add_cap('delete_published_book-reviews');
-			$role->add_cap('delete_book-reviews');
+			$role->add_cap( 'add_book-reviews' );
+			$role->add_cap( 'publish_book-reviews' );
+			$role->add_cap( 'edit_book-reviews' );
+			$role->add_cap( 'read_book-reviews' );
+			$role->add_cap( 'edit_published_book-reviews' );
+			$role->add_cap( 'delete_published_book-reviews' );
+			$role->add_cap( 'delete_book-reviews' );
 		}
 
 		// add book-reviews caps to editors
-		if ( get_role('editor') ) {
+		if ( get_role( 'editor' ) ) {
 			$role = get_role( 'editor' );
-			$role->add_cap('add_book-reviews');
-			$role->add_cap('publish_book-reviews');
-			$role->add_cap('edit_book-reviews');
-			$role->add_cap('edit_others_book-reviews');
-			$role->add_cap('read_book-reviews');
-			$role->add_cap('edit_published_book-reviews');
-			$role->add_cap('delete_published_book-reviews');
-			$role->add_cap('delete_book-reviews');
+			$role->add_cap( 'add_book-reviews' );
+			$role->add_cap( 'publish_book-reviews' );
+			$role->add_cap( 'edit_book-reviews' );
+			$role->add_cap( 'edit_others_book-reviews' );
+			$role->add_cap( 'read_book-reviews' );
+			$role->add_cap( 'edit_published_book-reviews' );
+			$role->add_cap( 'delete_published_book-reviews' );
+			$role->add_cap( 'delete_book-reviews' );
 		}
 
 		// add book-reviews caps to admins
-		if ( get_role('administrator') ) {
+		if ( get_role( 'administrator' ) ) {
 			$role = get_role( 'administrator' );
-			$role->add_cap('add_book-reviews');
-			$role->add_cap('publish_book-reviews');
-			$role->add_cap('edit_book-reviews');
-			$role->add_cap('edit_others_book-reviews');
-			$role->add_cap('read_book-reviews');
-			$role->add_cap('edit_published_book-reviews');
-			$role->add_cap('delete_published_book-reviews');
-			$role->add_cap('delete_book-reviews');
-			$role->add_cap('manage_book_review_options');
+			$role->add_cap( 'add_book-reviews' );
+			$role->add_cap( 'publish_book-reviews' );
+			$role->add_cap( 'edit_book-reviews' );
+			$role->add_cap( 'edit_others_book-reviews' );
+			$role->add_cap( 'read_book-reviews' );
+			$role->add_cap( 'edit_published_book-reviews' );
+			$role->add_cap( 'delete_published_book-reviews' );
+			$role->add_cap( 'delete_book-reviews' );
+			$role->add_cap( 'manage_book_review_options' );
 		}
 
 		// Set up the default options.
@@ -231,40 +230,40 @@ class Book_Reviews {
 
 		if ( get_role( 'author' ) ) {
 			$role = get_role( 'author' );
-			$role->remove_cap('add_agenda');
-			$role->remove_cap('publish_book-reviews');
-			$role->remove_cap('edit_book-reviews');
-			$role->remove_cap('read_book-reviews');
-			$role->remove_cap('edit_published_book-reviews');
-			$role->remove_cap('delete_published_book-reviews');
-			$role->remove_cap('delete_book-reviews');
+			$role->remove_cap( 'add_agenda' );
+			$role->remove_cap( 'publish_book-reviews' );
+			$role->remove_cap( 'edit_book-reviews' );
+			$role->remove_cap( 'read_book-reviews' );
+			$role->remove_cap( 'edit_published_book-reviews' );
+			$role->remove_cap( 'delete_published_book-reviews' );
+			$role->remove_cap( 'delete_book-reviews' );
 		}
 
 		if ( get_role( 'editor' ) ) {
 			$role = get_role( 'editor' );
-			$role->remove_cap('add_agenda');
-			$role->remove_cap('add_book-reviews');
-			$role->remove_cap('publish_book-reviews');
-			$role->remove_cap('edit_book-reviews');
-			$role->remove_cap('edit_others_book-reviews');
-			$role->remove_cap('read_book-reviews');
-			$role->remove_cap('edit_published_book-reviews');
-			$role->remove_cap('delete_published_book-reviews');
-			$role->remove_cap('delete_book-reviews');
+			$role->remove_cap( 'add_agenda' );
+			$role->remove_cap( 'add_book-reviews' );
+			$role->remove_cap( 'publish_book-reviews' );
+			$role->remove_cap( 'edit_book-reviews' );
+			$role->remove_cap( 'edit_others_book-reviews' );
+			$role->remove_cap( 'read_book-reviews' );
+			$role->remove_cap( 'edit_published_book-reviews' );
+			$role->remove_cap( 'delete_published_book-reviews' );
+			$role->remove_cap( 'delete_book-reviews' );
 		}
 
 		if ( get_role( 'administrator' ) ) {
 			$role = get_role( 'administrator' );
-			$role->remove_cap('add_agenda');
-			$role->remove_cap('add_book-reviews');
-			$role->remove_cap('publish_book-reviews');
-			$role->remove_cap('edit_book-reviews');
-			$role->remove_cap('edit_others_book-reviews');
-			$role->remove_cap('read_book-reviews');
-			$role->remove_cap('edit_published_book-reviews');
-			$role->remove_cap('delete_published_book-reviews');
-			$role->remove_cap('delete_book-reviews');
-			$role->remove_cap('manage_book_review_options');
+			$role->remove_cap( 'add_agenda' );
+			$role->remove_cap( 'add_book-reviews' );
+			$role->remove_cap( 'publish_book-reviews' );
+			$role->remove_cap( 'edit_book-reviews' );
+			$role->remove_cap( 'edit_others_book-reviews' );
+			$role->remove_cap( 'read_book-reviews' );
+			$role->remove_cap( 'edit_published_book-reviews' );
+			$role->remove_cap( 'delete_published_book-reviews' );
+			$role->remove_cap( 'delete_book-reviews' );
+			$role->remove_cap( 'manage_book_review_options' );
 		}
 
 		wp_delete_term( '0', 'rating' );
@@ -302,9 +301,8 @@ class Book_Reviews {
 	 */
 	public function enqueue_admin_styles() {
 
-		wp_enqueue_style( 'genericons', plugins_url( 'genericons/genericons.css', __FILE__ ), array(), $this->version );
-		wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'css/admin.css', __FILE__ ), array(), $this->version );
-
+		wp_enqueue_style( 'genericons', plugins_url( 'genericons/genericons.css', __FILE__ ), [], $this->version );
+		wp_enqueue_style( $this->plugin_slug . '-admin-styles', plugins_url( 'css/admin.css', __FILE__ ), [], $this->version );
 	}
 
 	/**
@@ -317,9 +315,8 @@ class Book_Reviews {
 	public function enqueue_admin_scripts() {
 
 		if ( is_admin() && current_user_can( 'publish_book-reviews' ) ) {
-			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), $this->version );
+			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), [ 'jquery' ], $this->version );
 		}
-
 	}
 
 	/**
@@ -329,9 +326,9 @@ class Book_Reviews {
 	 */
 	public function enqueue_styles() {
 		global $post;
-		if ( !is_admin() && ( 'book-review' == get_post_type() || ( is_page() && has_shortcode( $post->post_content, 'book-reviews' ) ) ) ) {
-			wp_enqueue_style( $this->plugin_slug . '-genericons', plugins_url( 'genericons/genericons.css', __FILE__ ), array(), $this->version );
-			wp_enqueue_style( $this->plugin_slug . '-public', plugins_url( 'css/public.css', __FILE__ ), array(), $this->version );
+		if ( ! is_admin() && ( 'book-review' == get_post_type() || ( is_page() && has_shortcode( $post->post_content, 'book-reviews' ) ) ) ) {
+			wp_enqueue_style( $this->plugin_slug . '-genericons', plugins_url( 'genericons/genericons.css', __FILE__ ), [], $this->version );
+			wp_enqueue_style( $this->plugin_slug . '-public', plugins_url( 'css/public.css', __FILE__ ), [], $this->version );
 		}
 	}
 
@@ -349,7 +346,7 @@ class Book_Reviews {
 	/**
 	 * Moves the taxonomy meta boxes around and modifies the featured image text
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function move_meta_boxes() {
 		global $wp_meta_boxes;
@@ -359,7 +356,7 @@ class Book_Reviews {
 			return;
 		} else {
 
-			include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
+			include_once BOOK_REVIEWS_TEMPLATE_TAGS;
 
 			$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 
@@ -376,63 +373,66 @@ class Book_Reviews {
 			remove_meta_box( 'tagsdiv-genre', 'book-review', 'side' );
 			remove_meta_box( 'tagsdiv-rating', 'book-review', 'side' );
 			remove_meta_box( 'postimagediv', 'book-review', 'side' );
-	    	add_meta_box('postimagediv', __('Book Cover', 'book-review-library'), 'post_thumbnail_meta_box', 'book-review', 'side', 'default');
-	    }
+			add_meta_box( 'postimagediv', __( 'Book Cover', 'book-review-library' ), 'post_thumbnail_meta_box', 'book-review', 'side', 'default' );
+		}
 	}
 
 
- 	/**
- 	 * Get Book Review Library options helper function
- 	 *
- 	 * @since 	1.5.0
- 	 * @return  array 	The options array for Book Review Library
- 	 */
- 	public function get_options() {
+	/**
+	 * Get Book Review Library options helper function
+	 *
+	 * @since   1.5.0
+	 * @return  array   The options array for Book Review Library
+	 */
+	public function get_options() {
 		// include helper functions
-		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
+		include_once BOOK_REVIEWS_TEMPLATE_TAGS;
 
 		// get the options
 		return get_option( 'book_reviews_settings', book_reviews_option_defaults() );
- 	}
+	}
 
- 	/**
- 	 * Check if a given option is enabled
- 	 *
- 	 * @since 	1.5.0
- 	 * @param 	string 	The option name to check
- 	 * @return 	bool 	True of the setting is enabled, false if it isn't or no option was
- 	 * 					passed
- 	 */
- 	public function is_option_enabled( $option_name = '' ) {
+	/**
+	 * Check if a given option is enabled
+	 *
+	 * @since   1.5.0
+	 * @param   string  The option name to check
+	 * @return  bool    True of the setting is enabled, false if it isn't or no option was
+	 *                  passed
+	 */
+	public function is_option_enabled( $option_name = '' ) {
 
- 		// return false if nothing was passed
- 		if ( '' == $option_name )
- 			return false;
+		// return false if nothing was passed
+		if ( '' == $option_name ) {
+			return false;
+		}
 
 		// get the options
 		$options = $this->get_options();
 
- 		// if the options array isn't an array
- 		if ( empty( $options ) )
- 			return false;
+		// if the options array isn't an array
+		if ( empty( $options ) ) {
+			return false;
+		}
 
- 		// if the option isn't set
- 		if ( !isset( $options[$option_name] ) )
- 			return false;
+		// if the option isn't set
+		if ( ! isset( $options[ $option_name ] ) ) {
+			return false;
+		}
 
- 		// if the option is true
- 		if ( true == $options[$option_name] )
- 			return true;
+		// if the option is true
+		if ( true == $options[ $option_name ] ) {
+			return true;
+		}
 
- 		// for anything else
- 		return false;
-
- 	}
+		// for anything else
+		return false;
+	}
 
 	/**
 	 * Registers the options
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function settings_init() {
 		register_setting( 'book_reviews_settings', 'book_reviews_settings' );
@@ -441,63 +441,64 @@ class Book_Reviews {
 	/**
 	 * Filter for the featured image post box
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function change_thumbnail_html( $content ) {
-	    if ('book-review' == $GLOBALS['post_type'])
-	      add_filter('admin_post_thumbnail_html', array($this,'do_thumb'));
+		if ( 'book-review' == $GLOBALS['post_type'] ) {
+			add_filter( 'admin_post_thumbnail_html', [ $this, 'do_thumb' ] );
+		}
 	}
 
 	/**
 	 * Replaces "Set featured image" with "Select Book Cover"
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @return 	string 	returns the modified text
+	 * @return  string  returns the modified text
 	 */
-	public function do_thumb($content){
-		 return str_replace(__('Set featured image'), __('Select Book Cover', 'book-review-library'),$content);
+	public function do_thumb( $content ) {
+		return str_replace( __( 'Set featured image' ), __( 'Select Book Cover', 'book-review-library' ), $content );
 	}
 
 	/**
 	 * Creates new columns for the Book Reviews dashboard page
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 *
-	 * @return 	$columns
+	 * @return  $columns
 	 */
 	public function edit_book_review_columns( $columns ) {
-		$default_columns = array(
+		$default_columns = [
 			'cb' => '<input type="checkbox" />',
 			'title' => __( 'Title', 'book-review-library' ),
 			'book_author' => __( 'Author', 'book-review-library' ),
 			'genre' => __( 'Genre', 'book-review-library' ),
-		);
-		$series_column = array();
+		];
+		$series_column = [];
 		if ( taxonomy_exists( 'series' ) ) {
-			$series_column = array( 'series' => __( 'Series', 'book-review-library' ) );
+			$series_column = [ 'series' => __( 'Series', 'book-review-library' ) ];
 		}
-		$illustrator_column = array();
+		$illustrator_column = [];
 		if ( taxonomy_exists( 'illustrator' ) ) {
-			$illustrator_column = array( 'illustrator' => __( 'Illustrator', 'book-review-library' ) );
+			$illustrator_column = [ 'illustrator' => __( 'Illustrator', 'book-review-library' ) ];
 		}
-		$subject_column = array();
+		$subject_column = [];
 		if ( taxonomy_exists( 'subject' ) ) {
-			$subject_column = array( 'subjects' => __( 'Subjects', 'book-review-library' ) );
+			$subject_column = [ 'subjects' => __( 'Subjects', 'book-review-library' ) ];
 		}
-		$reading_level_column = array();
+		$reading_level_column = [];
 		if ( taxonomy_exists( 'reading-level' ) ) {
-			$reading_level_column = array( 'reading_level' => __( 'Reading Level', 'book-review-library' ) );
+			$reading_level_column = [ 'reading_level' => __( 'Reading Level', 'book-review-library' ) ];
 		}
-		$awards_column = array();
+		$awards_column = [];
 		if ( taxonomy_exists( 'awards' ) ) {
-			$awards_column = array( 'awards' => __( 'Awards', 'book-review-library' ) );
+			$awards_column = [ 'awards' => __( 'Awards', 'book-review-library' ) ];
 		}
-		$rating_column = array();
+		$rating_column = [];
 		if ( taxonomy_exists( 'rating' ) ) {
-			$rating_column = array( 'rating' => __( 'Rating', 'book-review-library' ) );
+			$rating_column = [ 'rating' => __( 'Rating', 'book-review-library' ) ];
 		}
-		$columns = array_merge($default_columns, $series_column, $illustrator_column, $subject_column, $reading_level_column, $awards_column, $rating_column);
+		$columns = array_merge( $default_columns, $series_column, $illustrator_column, $subject_column, $reading_level_column, $awards_column, $rating_column );
 
 		return $columns;
 	}
@@ -505,28 +506,31 @@ class Book_Reviews {
 	/**
 	 * Renders new data for the new columns
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
-	public function manage_book_review_columns( $column, $post_id ){
+	public function manage_book_review_columns( $column, $post_id ) {
 		global $post;
 
-		switch( $column ) {
+		switch ( $column ) {
 
 			// if displaying the book author column
-			case 'book_author' :
+			case 'book_author':
 				// get the author(s) for the book
 				$terms = get_the_terms( $post_id, 'book-author' );
 
 				// if terms were found
-				if ( !empty( $terms ) ) {
+				if ( ! empty( $terms ) ) {
 
-					$out = array();
+					$out = [];
 
 					// loop through each term, linking to the 'edit posts' page for the specific term
-					foreach( $terms as $term ) {
+					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'book-author' => $term->slug ), 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'book-author', 'display' ) )
+							esc_url( add_query_arg( [
+								'post_type' => $post->post_type,
+								'book-author' => $term->slug,
+							], 'edit.php' ) ),
+							esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'book-author', 'display' ) )
 						);
 					}
 
@@ -540,20 +544,23 @@ class Book_Reviews {
 				break;
 
 			// if displaying the genre column
-			case 'genre' :
+			case 'genre':
 				// get the genre(s) for the book
 				$terms = get_the_terms( $post_id, 'genre' );
 
 				// if terms were found
-				if ( !empty( $terms ) ) {
+				if ( ! empty( $terms ) ) {
 
-					$out = array();
+					$out = [];
 
 					// loop through each term, linking to the 'edit posts' page for the specific term
-					foreach( $terms as $term ) {
+					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'genre' => $term->slug ), 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'genre', 'display' ) )
+							esc_url( add_query_arg( [
+								'post_type' => $post->post_type,
+								'genre' => $term->slug,
+							], 'edit.php' ) ),
+							esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'genre', 'display' ) )
 						);
 					}
 
@@ -567,20 +574,23 @@ class Book_Reviews {
 				break;
 
 			// if displaying the series column
-			case 'series' :
+			case 'series':
 				// get the series(s) for the book
 				$terms = get_the_terms( $post_id, 'series' );
 
 				// if terms were found
-				if ( !empty( $terms ) ) {
+				if ( ! empty( $terms ) ) {
 
-					$out = array();
+					$out = [];
 
 					// loop through each term, linking to the 'edit posts' page for the specific term
-					foreach( $terms as $term ) {
+					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'series' => $term->slug ), 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'series', 'display' ) )
+							esc_url( add_query_arg( [
+								'post_type' => $post->post_type,
+								'series' => $term->slug,
+							], 'edit.php' ) ),
+							esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'series', 'display' ) )
 						);
 					}
 
@@ -594,20 +604,23 @@ class Book_Reviews {
 				break;
 
 			// if displaying the illustrator column
-			case 'illustrator' :
+			case 'illustrator':
 				// get the illustrator(s) for the book
 				$terms = get_the_terms( $post_id, 'illustrator' );
 
 				// if terms were found
-				if ( !empty( $terms ) ) {
+				if ( ! empty( $terms ) ) {
 
-					$out = array();
+					$out = [];
 
 					// loop through each term, linking to the 'edit posts' page for the specific term
-					foreach( $terms as $term ) {
+					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'illustrator' => $term->slug ), 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'illustrator', 'display' ) )
+							esc_url( add_query_arg( [
+								'post_type' => $post->post_type,
+								'illustrator' => $term->slug,
+							], 'edit.php' ) ),
+							esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'illustrator', 'display' ) )
 						);
 					}
 
@@ -621,20 +634,23 @@ class Book_Reviews {
 				break;
 
 			// if displaying the subjects column
-			case 'subjects' :
+			case 'subjects':
 				// get the subjects for the book
 				$terms = get_the_terms( $post_id, 'subject' );
 
 				// if terms were found
-				if ( !empty( $terms ) ) {
+				if ( ! empty( $terms ) ) {
 
-					$out = array();
+					$out = [];
 
 					// loop through each term, linking to the 'edit posts' page for the specific term
-					foreach( $terms as $term ) {
+					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'subject' => $term->slug ), 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'subject', 'display' ) )
+							esc_url( add_query_arg( [
+								'post_type' => $post->post_type,
+								'subject' => $term->slug,
+							], 'edit.php' ) ),
+							esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'subject', 'display' ) )
 						);
 					}
 
@@ -648,20 +664,23 @@ class Book_Reviews {
 				break;
 
 			// if displaying the reading level column
-			case 'reading_level' :
+			case 'reading_level':
 				// get the reading level for the book
 				$terms = get_the_terms( $post_id, 'reading-level' );
 
 				// if terms were found
-				if ( !empty( $terms ) ) {
+				if ( ! empty( $terms ) ) {
 
-					$out = array();
+					$out = [];
 
 					// loop through each term, linking to the 'edit posts' page for the specific term
-					foreach( $terms as $term ) {
+					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'reading-level' => $term->slug ), 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'reading-level', 'display' ) )
+							esc_url( add_query_arg( [
+								'post_type' => $post->post_type,
+								'reading-level' => $term->slug,
+							], 'edit.php' ) ),
+							esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'reading-level', 'display' ) )
 						);
 					}
 
@@ -675,20 +694,23 @@ class Book_Reviews {
 				break;
 
 			// if displaying the awards column
-			case 'awards' :
+			case 'awards':
 				// get the awards for the book
 				$terms = get_the_terms( $post_id, 'awards' );
 
 				// if terms were found
-				if ( !empty( $terms ) ) {
+				if ( ! empty( $terms ) ) {
 
-					$out = array();
+					$out = [];
 
 					// loop through each term, linking to the 'edit posts' page for the specific term
-					foreach( $terms as $term ) {
+					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'awards' => $term->slug ), 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'awards', 'display' ) )
+							esc_url( add_query_arg( [
+								'post_type' => $post->post_type,
+								'awards' => $term->slug,
+							], 'edit.php' ) ),
+							esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'awards', 'display' ) )
 						);
 					}
 
@@ -702,38 +724,36 @@ class Book_Reviews {
 				break;
 
 			// if displaying the rating column
-			case 'rating' :
+			case 'rating':
 				// get the book review rating
 				$terms = get_the_terms( $post_id, 'rating' );
 
 				// if terms were found
-				if ( !empty( $terms ) ) {
+				if ( ! empty( $terms ) ) {
 
-					$out = array();
+					$out = [];
 
 					// loop through each term, linking to the 'edit posts' page for the specific term
-					foreach( $terms as $term ) {
+					foreach ( $terms as $term ) {
 						if ( $term->name == '5' ) {
 							$rating = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-						}
-						elseif ( $term->name == '4' ) {
+						} elseif ( $term->name == '4' ) {
 							$rating = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-						}
-						elseif ( $term->name == '3' ) {
+						} elseif ( $term->name == '3' ) {
 							$rating = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-						}
-						elseif ( $term->name == '2' ) {
+						} elseif ( $term->name == '2' ) {
 							$rating = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-						}
-						elseif ( $term->name == '1' ) {
+						} elseif ( $term->name == '1' ) {
 							$rating = '<div class="genericon genericon-star"></div>';
-						}
-						else {
+						} else {
 							$rating = _e( 'No rating found', 'book-review-library' );
 						}
 						$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'rating' => $term->slug ), 'edit.php' ) ),
-						$rating
+							esc_url( add_query_arg( [
+								'post_type' => $post->post_type,
+								'rating' => $term->slug,
+							], 'edit.php' ) ),
+							$rating
 						);
 					}
 
@@ -747,7 +767,7 @@ class Book_Reviews {
 				break;
 
 			// just break out of the switch statement for everything else
-			default :
+			default:
 				break;
 		}
 	}
@@ -761,49 +781,54 @@ class Book_Reviews {
 	 */
 	public function search_by_isbn( $where ) {
 		// load the meta keys into an array
-        $keys = array( 'isbn' ); // currently we're just using one, but we can expand this later
-        if( is_search() && !is_admin()) {
+		$keys = [ 'isbn' ]; // currently we're just using one, but we can expand this later
+		if ( is_search() && ! is_admin() ) {
 			global $wpdb;
 			$query = get_search_query();
 			$query = like_escape( $query );
 
 			// include postmeta in search
-			 foreach ( $keys as $key ) {
-			 	$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->postmeta}.post_id FROM {$wpdb->posts}, {$wpdb->postmeta} WHERE {$wpdb->postmeta}.meta_key = '$key' AND {$wpdb->postmeta}.meta_value LIKE '%$query%' AND {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";
-			 }
-			 // include taxonomy in search
+			foreach ( $keys as $key ) {
+				$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->postmeta}.post_id FROM {$wpdb->posts}, {$wpdb->postmeta} WHERE {$wpdb->postmeta}.meta_key = '$key' AND {$wpdb->postmeta}.meta_value LIKE '%$query%' AND {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";
+			}
+			// include taxonomy in search
 			$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->posts}.ID FROM {$wpdb->posts},{$wpdb->term_relationships},{$wpdb->terms} WHERE {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id AND {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->terms}.term_id AND {$wpdb->terms}.name LIKE '%$query%')";
 
-        }
-        return $where;
+		}
+		return $where;
 	}
 
 	/**
 	 * Saves the book-review post meta data
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
-	public function save_book_review_postdata($post_id, $post) {
+	public function save_book_review_postdata( $post_id, $post ) {
 		$nonce = isset( $_POST['noncename'] ) ? $_POST['noncename'] : 'all the hosts, dream and blue';
-		if ( !wp_verify_nonce( $nonce, plugin_basename(__FILE__) )) {
-		return $post->ID;
+		if ( ! wp_verify_nonce( $nonce, plugin_basename( __FILE__ ) ) ) {
+			return $post->ID;
 		}
 		/* confirm user is allowed to save page/post */
 		if ( 'page' == $_POST['post_type'] ) {
-			if ( !current_user_can( 'edit_page', $post->ID ))
-			return $post->ID;
-		} else {
-			if ( !current_user_can( 'edit_post', $post->ID ))
-			return $post->ID;
+			if ( ! current_user_can( 'edit_page', $post->ID ) ) {
+				return $post->ID;
+			}
+		} elseif ( ! current_user_can( 'edit_post', $post->ID ) ) {
+				return $post->ID;
 		}
 
 		/* ready our data for storage */
-		$meta_keys = array('award_image' => 'text', 'book_in_stock' => 'text', 'isbn' => 'text');
+		$meta_keys = [
+			'award_image' => 'text',
+			'book_in_stock' => 'text',
+			'isbn' => 'text',
+		];
 
 		/* Add values of $mydata as custom fields */
-		foreach ($meta_keys as $meta_key => $type) {
-			if( $post->post_type == 'revision' )
+		foreach ( $meta_keys as $meta_key => $type ) {
+			if ( $post->post_type == 'revision' ) {
 				return;
+			}
 			if ( isset( $_POST[ $meta_key ] ) ) {
 				if ( $type == 'text' ) {
 					$value = wp_kses_post( $_POST[ $meta_key ] );
@@ -819,10 +844,10 @@ class Book_Reviews {
 	/**
 	 * Registers the widget
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_book_review_widget() {
-		include_once(BOOK_REVIEWS_WIDGETS);
+		include_once BOOK_REVIEWS_WIDGETS;
 		register_widget( 'Book_Review_Widget' );
 		register_widget( 'Book_Review_Recent_Widget' );
 	}
@@ -830,10 +855,10 @@ class Book_Reviews {
 	/**
 	 * Adds a new image size (for the widget)
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function create_tiny_thumbs() {
-		if ( function_exists('add_image_size' ) ) {
+		if ( function_exists( 'add_image_size' ) ) {
 			add_image_size( 'tiny', 36, 36, true );
 			add_image_size( 'book-cover', 133, 200, false );
 		}
@@ -842,18 +867,18 @@ class Book_Reviews {
 	/**
 	 * Creates the shortcode
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function create_shortcode( $atts ) {
 		global $is_book_review_shortcode;
 
 		$is_book_review_shortcode = true;
 
-		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
+		include_once BOOK_REVIEWS_TEMPLATE_TAGS;
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 
-		extract(shortcode_atts( array(
+		extract(shortcode_atts( [
 			'count'    => '',
 			'covers'   => true,
 			'order_by' => 'date_added', // author, title, date added (default)
@@ -862,7 +887,7 @@ class Book_Reviews {
 			'genre'    => '',           // any genre
 			'title'    => '',           // any title
 			'id'       => '',           // a specific post ID
-		), $atts ));
+		], $atts ));
 
 		$covers         = null;
 		$orderby_author = null;
@@ -871,12 +896,12 @@ class Book_Reviews {
 		$title          = null;
 		$post_id        = null;
 
-		if ( isset($atts['count']) ) {
+		if ( isset( $atts['count'] ) ) {
 			$count = $atts['count'];
 		} else {
 			$count = -1;
 		}
-		if ( isset($atts['covers']) && 'true' == $atts['covers'] ) {
+		if ( isset( $atts['covers'] ) && 'true' == $atts['covers'] ) {
 			$covers = true;
 		} else {
 			$covers = false;
@@ -884,21 +909,21 @@ class Book_Reviews {
 		if ( isset( $atts['order_by'] ) ) {
 			$order_by = $atts['order_by'];
 			switch ( $order_by ) {
-				case 'date_added' :
+				case 'date_added':
 					$orderby = 'date';
 					$order = 'DESC';
 					break;
-				case 'author' :
+				case 'author':
 					$terms = get_terms( 'book-author' );
 					$orderby_author = true;
 					$orderby = 'title';
 					$order = 'ASC';
 					break;
-				case 'title' :
+				case 'title':
 					$orderby = 'title';
 					$order = 'ASC';
 					break;
-				default :
+				default:
 					$orderby = 'date';
 					$order = 'DESC';
 					break;
@@ -932,249 +957,276 @@ class Book_Reviews {
 			$post_id = absint( $atts['id'] ); // make sure the id is a positive integer
 		}
 
-		if ( !$orderby_author ) { // if we're not ordering by author, do things normally
+		if ( ! $orderby_author ) { // if we're not ordering by author, do things normally
 			if ( $title ) { // we passed a book title
-				$args = array(
+				$args = [
 					'post_type'      => 'book-review',
 					'name'           => $title,
 					'posts_per_page' => 1,
-				);
+				];
 			} elseif ( $post_id ) {
-				$args = array(
+				$args = [
 					'post_type'      => 'book-review',
 					'p'              => $post_id,
 					'posts_per_page' => 1,
-				);
-			} elseif ( !$author && !$genre ) { // we are not listing books of a specific author or a specific genre
-				$args = array(
-					'post_type'      => 'book-review',
-					'posts_per_page' => $count,
-					'orderby'        => $orderby,
-					'order'          => $order
-				);
-			} elseif ( $author && !$genre ) { // we're listing all the books by a specific author, but no specific genre
-				$args = array(
-					'post_type'      => 'book-review',
-					'posts_per_page' => $count,
-					'orderby'        => 'title',
-					'order'          => 'ASC',
-					'book-author'    => $author
-				);
-			} elseif ( $genre && !$author ) { // we're listing all the books of a specific genre, but not a specific author
-				$args = array(
+				];
+			} elseif ( ! $author && ! $genre ) { // we are not listing books of a specific author or a specific genre
+				$args = [
 					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
 					'orderby'        => $orderby,
 					'order'          => $order,
-					'genre'          => $genre
-				);
-			} elseif ( $genre && $author ) { // we're listing all the books by a particular author in a specific genre
-				$args = array(
+				];
+			} elseif ( $author && ! $genre ) { // we're listing all the books by a specific author, but no specific genre
+				$args = [
+					'post_type'      => 'book-review',
+					'posts_per_page' => $count,
+					'orderby'        => 'title',
+					'order'          => 'ASC',
+					'book-author'    => $author,
+				];
+			} elseif ( $genre && ! $author ) { // we're listing all the books of a specific genre, but not a specific author
+				$args = [
 					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
 					'orderby'        => $orderby,
 					'order'          => $order,
 					'genre'          => $genre,
-					'book-author'    => $author
-				);
+				];
+			} elseif ( $genre && $author ) { // we're listing all the books by a particular author in a specific genre
+				$args = [
+					'post_type'      => 'book-review',
+					'posts_per_page' => $count,
+					'orderby'        => $orderby,
+					'order'          => $order,
+					'genre'          => $genre,
+					'book-author'    => $author,
+				];
 			}
 
 			$query = new WP_Query( $args );
 			ob_start();
-			if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+			if ( $query->have_posts() ) :
+				while ( $query->have_posts() ) :
+					$query->the_post(); ?>
 			<div class="book-review-wrapper orderedby-<?php echo esc_attr( $orderby ); ?>" id="book-review-<?php echo get_the_ID(); ?>">
-				<?php if ( has_term('','book-author') && ( isset($options['title-filter']) && $options['title-filter'] ) ) {
-					/* translators: 1: title, 2: author */
-					echo sprintf( __('%1$s'), '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
-				} else {
-					echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
-				} ?>
+					<?php
+					if ( has_term( '', 'book-author' ) && ( isset( $options['title-filter'] ) && $options['title-filter'] ) ) {
+						/* translators: 1: title, 2: author */
+						printf( __( '%1$s' ), '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
+					} else {
+						echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
+					}
+					?>
 
 				<div <?php post_class( 'book-review-sc' ); ?>>
-					<?php if ( ($covers == true) && has_post_thumbnail() ) { ?>
+					<?php if ( ( $covers == true ) && has_post_thumbnail() ) { ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
-							<?php if ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) {
-								the_post_thumbnail('book-cover');
+							<?php
+							if ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) {
+								the_post_thumbnail( 'book-cover' );
 							} else {
 								the_post_thumbnail( 'thumbnail' );
-							} ?>
+							}
+							?>
 						</a>
 					<?php } ?>
 
-					<?php if ( $format ) {
-						if ( $format == 1 ) { ?>
-							<?php the_excerpt(); ?>
+									<?php
+									if ( $format ) {
+										if ( $format == 1 ) {
+											?>
+											<?php the_excerpt(); ?>
 						<?php } elseif ( $format == 2 ) { ?>
-							<?php the_content(); ?>
-						<?php }
-					} ?>
+											<?php the_content(); ?>
+											<?php
+						}
+									}
+									?>
 				</div>
 
 				<div class="post-meta">
-					<?php if ( has_term('','rating') ) {
-						$rating = get_rating();
-						if ( $rating == 'zero' )
-							$rating = '0';
-						$rating_arr = get_term_by( 'name', $rating, 'rating' );
-						$star_slug = $rating_arr->slug;
-						$rating_string = '<a href="' . home_url() . '/?rating=' . $star_slug . '/">' . get_rating_stars() . '</a>';
-						echo '<span class="rating">';
-						echo $rating_string;
-						echo '</span><br />';
-					}
-					if ( has_term('','review-author') && is_singular( 'book-review' ) ) {
-						$rev_auth = get_term_by( 'name', get_review_author(), 'review-author' );
-						$rev_auth_slug = $rev_auth->slug;
-						$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
-						echo '<span class="author">';
-						echo sprintf( __('Review by %s', 'book-review-library'), $author_string );
-						echo '</span><br />';
-					}
-					if ( has_term('', 'reading-level' ) ) {
-						echo '<span class="reading-level">';
-						echo sprintf( __('Reading Level: %s', 'book-review-library'), get_reading_level() );
-						echo '<span><br />';
-					}
-					if ( isset($options['stock']) && $options['stock'] ) {
-						if ( get_post_meta( get_the_ID(), 'book_in_stock', true ) ) {
-							echo '<span class="in-stock">';
-							_e( 'This book is <strong>in stock</strong>', 'book-review-library' );
-							echo '</span>';
-						} else {
-							echo '<span class="out-of-stock">';
-							_e( 'This book is <strong>currently checked out</strong>', 'book-review-library' );
-							echo '</span>';
-						}
-					} ?>
+									<?php
+									if ( has_term( '', 'rating' ) ) {
+										$rating = get_rating();
+										if ( $rating == 'zero' ) {
+											$rating = '0';
+										}
+										$rating_arr = get_term_by( 'name', $rating, 'rating' );
+										$star_slug = $rating_arr->slug;
+										$rating_string = '<a href="' . home_url() . '/?rating=' . $star_slug . '/">' . get_rating_stars() . '</a>';
+										echo '<span class="rating">';
+										echo $rating_string;
+										echo '</span><br />';
+									}
+									if ( has_term( '', 'review-author' ) && is_singular( 'book-review' ) ) {
+										$rev_auth = get_term_by( 'name', get_review_author(), 'review-author' );
+										$rev_auth_slug = $rev_auth->slug;
+										$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
+										echo '<span class="author">';
+										printf( __( 'Review by %s', 'book-review-library' ), $author_string );
+										echo '</span><br />';
+									}
+									if ( has_term( '', 'reading-level' ) ) {
+										echo '<span class="reading-level">';
+										printf( __( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
+										echo '<span><br />';
+									}
+									if ( isset( $options['stock'] ) && $options['stock'] ) {
+										if ( get_post_meta( get_the_ID(), 'book_in_stock', true ) ) {
+											echo '<span class="in-stock">';
+											_e( 'This book is <strong>in stock</strong>', 'book-review-library' );
+											echo '</span>';
+										} else {
+											echo '<span class="out-of-stock">';
+											_e( 'This book is <strong>currently checked out</strong>', 'book-review-library' );
+											echo '</span>';
+										}
+									}
+									?>
 				</div>
 				<div class="post-data">
-					<?php if ( isset($options['title-filter']) && !$options['title-filter']  && has_term('', 'book-author') ) { ?>
-						<span class="book-author"><?php echo sprintf( __( '<strong>Author:</strong> %s', 'book-review-library' ), get_book_author() ); ?></span><br />
+									<?php if ( isset( $options['title-filter'] ) && ! $options['title-filter'] && has_term( '', 'book-author' ) ) { ?>
+						<span class="book-author"><?php printf( __( '<strong>Author:</strong> %s', 'book-review-library' ), get_book_author() ); ?></span><br />
 					<?php } ?>
-					<?php if ( has_term('','genre') ) { ?>
-						<span class="genre"><?php echo sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres()); ?></span><br />
+					<?php if ( has_term( '', 'genre' ) ) { ?>
+						<span class="genre"><?php printf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres() ); ?></span><br />
 					<?php } ?>
-					<?php if ( has_term('','series') ) { ?>
-						<span class="series"><?php echo sprintf(__( '<strong>Series:</strong> %s | ', 'book-review-library' ), get_book_series()); ?></span>
+					<?php if ( has_term( '', 'series' ) ) { ?>
+						<span class="series"><?php printf( __( '<strong>Series:</strong> %s | ', 'book-review-library' ), get_book_series() ); ?></span>
 					<?php } ?>
-					<?php if ( has_term('','subject') ) { ?>
-						<span class="subjects"><?php echo sprintf( __('<strong>Subjects:</strong> %s', 'book-review-library'), get_subjects() ); ?></span><br />
+					<?php if ( has_term( '', 'subject' ) ) { ?>
+						<span class="subjects"><?php printf( __( '<strong>Subjects:</strong> %s', 'book-review-library' ), get_subjects() ); ?></span><br />
 					<?php } ?>
-					<?php if ( has_term('','illustrator') ) { ?>
-						<span class="illustrator"><?php echo sprintf( __('<strong>Illustrated by</strong> %s', 'book-review-library'), get_illustrator() ); ?></span>
+					<?php if ( has_term( '', 'illustrator' ) ) { ?>
+						<span class="illustrator"><?php printf( __( '<strong>Illustrated by</strong> %s', 'book-review-library' ), get_illustrator() ); ?></span>
 					<?php } ?>
 				</div>
 			</div>
-			<?php
-			endwhile; endif;
+					<?php
+			endwhile;
+endif;
 			wp_reset_query();
 			return ob_get_clean();
-		} else { // we're doing this by book author, time to loop through again....
-			if ( !empty($terms) ) {
-				foreach ( $terms as $term ) {
-					$args = array(
-						'post_type' => 'book-review',
-						'posts_per_page' => $count,
-						'tax_query' => array(
-							array(
-								'taxonomy' => 'book-author',
-								'field' => 'slug',
-								'terms' => $term->name
-							)
-						),
-						'orderby' => 'title',
-						'order' => 'ASC'
-					);
-					$query = new WP_Query( $args );
-					ob_start();
-					if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+		} elseif ( ! empty( $terms ) ) { // we're doing this by book author, time to loop through again....
+			foreach ( $terms as $term ) {
+				$args = [
+					'post_type' => 'book-review',
+					'posts_per_page' => $count,
+					'tax_query' => [
+						[
+							'taxonomy' => 'book-author',
+							'field' => 'slug',
+							'terms' => $term->name,
+						],
+					],
+					'orderby' => 'title',
+					'order' => 'ASC',
+				];
+				$query = new WP_Query( $args );
+				ob_start();
+				if ( $query->have_posts() ) :
+					while ( $query->have_posts() ) :
+						$query->the_post();
+						?>
 					<div class="book-review-wrapper orderedby-<?php echo esc_attr( $orderby ); ?>" id="book-review-<?php echo get_the_ID(); ?>">
-						<?php if ( has_term('','book-author') && ( isset($options['title-filter']) && $options['title-filter'] ) ) {
-							echo sprintf( __('%1$s'), '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
-						} else {
-							echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
-						} ?>
+							<?php
+							if ( has_term( '', 'book-author' ) && ( isset( $options['title-filter'] ) && $options['title-filter'] ) ) {
+								printf( __( '%1$s' ), '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
+							} else {
+								echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
+							}
+							?>
 
 						<div <?php post_class( 'book-review-sc' ); ?>>
-							<?php if ( ($covers == true) && has_post_thumbnail() ) { ?>
+							<?php if ( ( $covers == true ) && has_post_thumbnail() ) { ?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
-									<?php if ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) {
-										the_post_thumbnail('book-cover');
+									<?php
+									if ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) {
+										the_post_thumbnail( 'book-cover' );
 									} else {
 										the_post_thumbnail( 'thumbnail' );
-									} ?>
+									}
+									?>
 								</a>
 							<?php } ?>
 
-							<?php if ( $format ) {
-								if ( $format == 1 ) { ?>
-									<?php the_excerpt(); ?>
+												<?php
+												if ( $format ) {
+													if ( $format == 1 ) {
+														?>
+														<?php the_excerpt(); ?>
 								<?php } elseif ( $format == 2 ) { ?>
-									<?php the_content(); ?>
-								<?php }
-							} ?>
+														<?php the_content(); ?>
+														<?php
+								}
+												}
+												?>
 						</div>
 
 						<div class="post-meta">
-							<?php if ( has_term('','rating') ) {
-								$rating = get_rating();
-								if ( $rating == 'zero' )
-									$rating = '0';
-								$rating_arr = get_term_by( 'name', $rating, 'rating' );
-								$star_slug = $rating_arr->slug;
-								$rating_string = '<a href="' . home_url() . '/?rating=' . $star_slug . '/">' . get_rating_stars() . '</a>';
-								echo '<span class="rating">';
-								echo $rating_string;
-								echo '</span><br />';
-							}
-							if ( has_term('','review-author') && is_singular( 'book-review' ) ) {
-								$rev_auth = get_term_by( 'name', get_review_author(), 'review-author' );
-								$rev_auth_slug = $rev_auth->slug;
-								$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
-								echo '<span class="author">';
-								echo sprintf( __('Review by %s', 'book-review-library'), $author_string );
-								echo '</span><br />';
-							}
-							if ( has_term('', 'reading-level' ) ) {
-								echo '<span class="reading-level">';
-								echo sprintf( __('Reading Level: %s', 'book-review-library'), get_reading_level() );
-								echo '<span><br />';
-							}
-							if ( isset($options['stock']) && $options['stock'] ) {
-								if ( get_post_meta( get_the_ID(), 'book_in_stock', true ) ) {
-									echo '<span class="in-stock">';
-									_e( 'This book is <strong>in stock</strong>', 'book-review-library' );
-									echo '</span>';
-								} else {
-									echo '<span class="out-of-stock">';
-									_e( 'This book is <strong>currently checked out</strong>', 'book-review-library' );
-									echo '</span>';
-								}
-							} ?>
+												<?php
+												if ( has_term( '', 'rating' ) ) {
+													$rating = get_rating();
+													if ( $rating == 'zero' ) {
+														$rating = '0';
+													}
+													$rating_arr = get_term_by( 'name', $rating, 'rating' );
+													$star_slug = $rating_arr->slug;
+													$rating_string = '<a href="' . home_url() . '/?rating=' . $star_slug . '/">' . get_rating_stars() . '</a>';
+													echo '<span class="rating">';
+													echo $rating_string;
+													echo '</span><br />';
+												}
+												if ( has_term( '', 'review-author' ) && is_singular( 'book-review' ) ) {
+													$rev_auth = get_term_by( 'name', get_review_author(), 'review-author' );
+													$rev_auth_slug = $rev_auth->slug;
+													$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
+													echo '<span class="author">';
+													printf( __( 'Review by %s', 'book-review-library' ), $author_string );
+													echo '</span><br />';
+												}
+												if ( has_term( '', 'reading-level' ) ) {
+													echo '<span class="reading-level">';
+													printf( __( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
+													echo '<span><br />';
+												}
+												if ( isset( $options['stock'] ) && $options['stock'] ) {
+													if ( get_post_meta( get_the_ID(), 'book_in_stock', true ) ) {
+														echo '<span class="in-stock">';
+														_e( 'This book is <strong>in stock</strong>', 'book-review-library' );
+														echo '</span>';
+													} else {
+														echo '<span class="out-of-stock">';
+														_e( 'This book is <strong>currently checked out</strong>', 'book-review-library' );
+														echo '</span>';
+													}
+												}
+												?>
 						</div>
 						<div class="post-data">
-							<?php if ( isset($options['title-filter']) && !$options['title-filter']  && has_term('', 'book-author') ) { ?>
-								<span class="book-author"><?php echo sprintf( __( '<strong>Author:</strong> %s', 'book-review-library' ), get_book_author() ); ?></span><br />
+												<?php if ( isset( $options['title-filter'] ) && ! $options['title-filter'] && has_term( '', 'book-author' ) ) { ?>
+								<span class="book-author"><?php printf( __( '<strong>Author:</strong> %s', 'book-review-library' ), get_book_author() ); ?></span><br />
 							<?php } ?>
-							<?php if ( has_term('','genre') ) { ?>
-								<span class="genre"><?php echo sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres()); ?></span><br />
+							<?php if ( has_term( '', 'genre' ) ) { ?>
+								<span class="genre"><?php printf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres() ); ?></span><br />
 							<?php } ?>
-							<?php if ( has_term('','series') ) { ?>
-								<span class="series"><?php echo sprintf(__( '<strong>Series:</strong> %s | ', 'book-review-library' ), get_book_series()); ?></span>
+							<?php if ( has_term( '', 'series' ) ) { ?>
+								<span class="series"><?php printf( __( '<strong>Series:</strong> %s | ', 'book-review-library' ), get_book_series() ); ?></span>
 							<?php } ?>
-							<?php if ( has_term('','subject') ) { ?>
-								<span class="subjects"><?php echo sprintf( __('<strong>Subjects:</strong> %s', 'book-review-library'), get_subjects() ); ?></span><br />
+							<?php if ( has_term( '', 'subject' ) ) { ?>
+								<span class="subjects"><?php printf( __( '<strong>Subjects:</strong> %s', 'book-review-library' ), get_subjects() ); ?></span><br />
 							<?php } ?>
-							<?php if ( has_term('','illustrator') ) { ?>
-								<span class="illustrator"><?php echo sprintf( __('<strong>Illustrated by</strong> %s', 'book-review-library'), get_illustrator() ); ?></span>
+							<?php if ( has_term( '', 'illustrator' ) ) { ?>
+								<span class="illustrator"><?php printf( __( '<strong>Illustrated by</strong> %s', 'book-review-library' ), get_illustrator() ); ?></span>
 							<?php } ?>
 						</div>
 					</div>
-					<?php
-					endwhile; endif;
-					wp_reset_query();
-					return ob_get_clean();
-				}
+							<?php
+					endwhile;
+endif;
+				wp_reset_query();
+				return ob_get_clean();
 			}
 		}
 	}

@@ -13,7 +13,7 @@ class Book_Review_Library_CPT {
 
 	private function __construct() {
 		// Register post type
-		add_action( 'init', array( $this, 'register_post_type_book_review' ) );
+		add_action( 'init', [ $this, 'register_post_type_book_review' ] );
 	}
 
 	/**
@@ -27,7 +27,7 @@ class Book_Review_Library_CPT {
 
 		// If the single instance hasn't been set, set it now.
 		if ( null == self::$instance ) {
-			self::$instance = new self;
+			self::$instance = new self();
 		}
 
 		return self::$instance;
@@ -36,44 +36,46 @@ class Book_Review_Library_CPT {
 	/**
 	 * Register the book review post type
 	 *
-	 * @since 	1.0.0
+	 * @since   1.0.0
 	 */
 	public function register_post_type_book_review() {
-		include_once(BOOK_REVIEWS_TEMPLATE_TAGS);
+		include_once BOOK_REVIEWS_TEMPLATE_TAGS;
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 		if ( book_reviews_is_option_enabled( 'comments' ) ) {
-			$supports = array( 'title', 'editor', 'author', 'thumbnail', 'revisions', 'comments' );
+			$supports = [ 'title', 'editor', 'author', 'thumbnail', 'revisions', 'comments' ];
 		} else {
-			$supports = array( 'title', 'editor', 'author', 'thumbnail', 'revisions' );
+			$supports = [ 'title', 'editor', 'author', 'thumbnail', 'revisions' ];
 		}
 
-		$capabilities = array(
+		$capabilities = [
 			'publish_posts' => 'publish_book-reviews',
 			'edit_posts' => 'edit_book-reviews',
 			'edit_others_posts' => 'edit_others_book-reviews',
 			'delete_posts' => 'delete_book-reviews',
 			'edit_post' => 'edit_book-review',
 			'delete_post' => 'delete_book-review',
-			'read_post' => 'read_book-review'
-		);
-		$labels = array(
-   			'name' => __( 'Book Reviews', 'book-review-library' ),
-   			'singular_name' => __( 'Book Review', 'book-review-library' ),
-   			'add_new' => __( 'Add New', 'book-review-library' ),
-   			'add_new_item' => __( 'Add New Book Review', 'book-review-library' ),
-   			'edit_item' => __( 'Edit Review', 'book-review-library' ),
-   			'new_item' => __( 'New Book Review', 'book-review-library' ),
-   			'view_item' => __( 'View Book Review', 'book-review-library' ),
-   			'search_items' => __( 'Search Book Reviews', 'book-review-library' ),
-   			'not_found' => __( 'No book reviews found', 'book-review-library' ),
-   			'not_found_in_trash' => __( 'No book reviews found in Trash', 'book-review-library' ),
-   			'menu_name' => __( 'Book Reviews', 'book-review-library' ),);
-		$args = array('labels' => $labels,
+			'read_post' => 'read_book-review',
+		];
+		$labels = [
+			'name' => __( 'Book Reviews', 'book-review-library' ),
+			'singular_name' => __( 'Book Review', 'book-review-library' ),
+			'add_new' => __( 'Add New', 'book-review-library' ),
+			'add_new_item' => __( 'Add New Book Review', 'book-review-library' ),
+			'edit_item' => __( 'Edit Review', 'book-review-library' ),
+			'new_item' => __( 'New Book Review', 'book-review-library' ),
+			'view_item' => __( 'View Book Review', 'book-review-library' ),
+			'search_items' => __( 'Search Book Reviews', 'book-review-library' ),
+			'not_found' => __( 'No book reviews found', 'book-review-library' ),
+			'not_found_in_trash' => __( 'No book reviews found in Trash', 'book-review-library' ),
+			'menu_name' => __( 'Book Reviews', 'book-review-library' ),
+		];
+		$args = [
+			'labels' => $labels,
 			'hierarchical' => false,
 			'description' => 'Book Review',
 			'supports' => $supports,
-			'taxonomies' => array( 'genre', 'review-author' ),
+			'taxonomies' => [ 'genre', 'review-author' ],
 			'public' => true,
 			'show_ui' => true,
 			'show_in_menu' => true,
@@ -87,12 +89,10 @@ class Book_Review_Library_CPT {
 			'rewrite' => true,
 			'capability_type' => 'book-review',
 			'capabilities' => $capabilities,
-			'map_meta_cap' => true
-		);
+			'map_meta_cap' => true,
+		];
 		register_post_type( 'book-review', $args );
-
 	}
-
 }
 
 Book_Review_Library_CPT::get_instance();
