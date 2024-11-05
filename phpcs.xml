@@ -23,4 +23,13 @@
 	<rule ref="Pantheon-WP">
 		<exclude name="WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant"/>
 	</rule>
+	<rule ref="Squiz.Commenting.FileComment.Missing">
+		<exclude-pattern>*/views/actions.php</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<!-- Value: replace the text domain used. -->
+			<property name="text_domain" type="array" value="book-review-library"/>
+		</properties>
+	</rule>
 </ruleset>

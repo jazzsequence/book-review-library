@@ -1,7 +1,8 @@
 <?php
-
 /**
- * Sets up the actions
+ * Book Review Library Actions
+ * 
+ * Sets up the actions (and filters) for the plugin.
  * 
  * @package   Book_Reviews
  * @author    Chris Reynolds <hello@chrisreynolds.io>
