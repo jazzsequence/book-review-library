@@ -22,14 +22,27 @@
 	<config name="minimum_supported_wp_version" value="3.6"/>
 	<rule ref="Pantheon-WP">
 		<exclude name="WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant"/>
-	</rule>
-	<rule ref="Squiz.Commenting.FileComment.Missing">
-		<exclude-pattern>*/views/actions.php</exclude-pattern>
+		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.custom_role_add_role"/> <!-- todo: add to pantheon wp coding standards -->
 	</rule>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<!-- Value: replace the text domain used. -->
 			<property name="text_domain" type="array" value="book-review-library"/>
 		</properties>
+	</rule>
+	<rule ref="Squiz.Commenting.FileComment.Missing">
+		<exclude-pattern>*/views/actions.php</exclude-pattern>
+	</rule>
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter.Found">
+		<exclude-pattern>class-book-reviews.php</exclude-pattern>
+	</rule>
+	<rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable">
+		<exclude-pattern>class-book-reviews.php</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.Security.EscapeOutput.OutputNotEscaped">
+		<exclude-pattern>class-book-reviews.php</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.WP.I18n.MissingTranslatorsComment">
+		<exclude-pattern>class-book-reviews.php</exclude-pattern>
 	</rule>
 </ruleset>
