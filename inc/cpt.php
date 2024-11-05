@@ -75,6 +75,7 @@ class Book_Review_Library_CPT {
 			'hierarchical' => false,
 			'description' => 'Book Review',
 			'supports' => $supports,
+			'show_in_rest' => true,
 			'taxonomies' => [ 'genre', 'review-author' ],
 			'public' => true,
 			'show_ui' => true,
