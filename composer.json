@@ -14,11 +14,20 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "cmb2/cmb2": "^2.11",
+        "composer/installers": "^2.3"
+    },
+    "extra": {
+        "installer-paths": {
+            "inc/{$name}/": "cmb2/cmb2"
+        }
+    },
     "config": {
         "allow-plugins": {
             "pantheon-systems/wpunit-helpers": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true
         }
     },
     "scripts": {

@@ -1,3 +1,4 @@
+inc/cmb2/
 vendor/
 bin/helpers.sh
 bin/install-local-tests.sh
