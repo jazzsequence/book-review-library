@@ -1098,8 +1098,8 @@ class Book_Reviews {
 			</div>
 					<?php
 			endwhile;
-endif;
-			wp_reset_query();
+			endif;
+			wp_reset_postdata();
 			return ob_get_clean();
 		} elseif ( ! empty( $terms ) ) { // we're doing this by book author, .time to loop through again....
 			foreach ( $terms as $term ) {
@@ -1211,10 +1211,10 @@ endif;
 							<?php } ?>
 						</div>
 					</div>
-							<?php
-					endwhile;
-endif;
-				wp_reset_query();
+						<?php
+					endwhile; 
+				endif;
+				wp_reset_postdata();
 				return ob_get_clean();
 			}
 		}
