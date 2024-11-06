@@ -51,4 +51,7 @@
 	<rule ref="WordPress.WP.Capabilities.Unknown">
 		<exclude-pattern>class-book-reviews.php</exclude-pattern>
 	</rule>
+	<rule ref="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase">
+		<exclude-pattern>inc/template-tags.php</exclude-pattern>
+	</rule>
 </ruleset>

@@ -15,9 +15,9 @@
  *
  * @since   1.0.0
  *
- * @param   $before     string      string to display before the author name
- * @param   $after      string      string to display after the author name (comma by default)
- * @param   $forced     boolean     by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it                                    will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
+ * @param   string $before string to display before the author name
+ * @param   string $after string to display after the author name (comma by default)
+ * @param   bool $forced by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
  * @return  $review_author_list     sanitized string of the results
  */
 function get_review_author( $before = null, $after = ', ', $forced = false ) {
@@ -33,7 +33,7 @@ function get_review_author( $before = null, $after = ', ', $forced = false ) {
 		foreach ( $review_author_out as $out ) {
 			$review_author_list .= $before . $out;
 			++$count;
-			if ( ( count( $review_author_out ) > 1 ) && ( $after == ', ' ) && ( count( $review_author_out ) != $count ) || $forced ) {
+			if ( ( count( $review_author_out ) > 1 && $after === ', ' && count( $review_author_out ) !== $count ) || $forced ) {
 				$review_author_list .= $after;
 			}
 		}
@@ -49,9 +49,9 @@ function get_review_author( $before = null, $after = ', ', $forced = false ) {
  *
  * @since   1.0.0
  *
- * @param   $before     string      string to display before the genre
- * @param   $after      string      string to display after the genre (comma by default)
- * @param   $forced     boolean     by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it                                    will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
+ * @param   string $before string to display before the genre
+ * @param   string $after string to display after the genre (comma by default)
+ * @param   bool $forced by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
  * @return  $genre_list             sanitized string of the results
  */
 function get_genres( $before = null, $after = ', ', $forced = false ) {
@@ -69,7 +69,7 @@ function get_genres( $before = null, $after = ', ', $forced = false ) {
 		foreach ( $genre_out as $out ) {
 			$genre_list .= $before . $out;
 			++$count;
-			if ( ( count( $genre_out ) > 1 ) && ( $after == ', ' ) && ( count( $genre_out ) != $count ) || $forced ) {
+			if ( ( count( $genre_out ) > 1 && $after === ', ' && count( $genre_out ) !== $count ) || $forced ) {
 				$genre_list .= $after;
 			}
 		}
@@ -85,16 +85,16 @@ function get_genres( $before = null, $after = ', ', $forced = false ) {
  *
  * @since   1.0.0
  *
- * @param   $before     string      string to display before the author name
- * @param   $after      string      string to display after the author name (comma by default)
- * @param   $forced     boolean     by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it                                    will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
- * @param   $post_obj   object      An optional post object to pass instead of the current post
+ * @param   string $before string to display before the author name
+ * @param   string $after string to display after the author name (comma by default)
+ * @param   bool $forced by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it                                    will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
+ * @param   object $post_obj An optional post object to pass instead of the current post
  * @return  $book_author_list       sanitized string of the results
  */
 function get_book_author( $before = null, $after = ', ', $forced = false, $post_obj = null ) {
 	global $post;
-	$post = ( $post_obj ) ? $post_obj : $post;
-	$book_authors = get_the_terms( $post->ID, 'book-author' );
+	$book = ( $post_obj ) ? $post_obj : $post;
+	$book_authors = get_the_terms( $book->ID, 'book-author' );
 	$book_author_list = null;
 	if ( $book_authors && ! is_wp_error( $book_authors ) ) {
 		$book_author_out = [];
@@ -107,7 +107,7 @@ function get_book_author( $before = null, $after = ', ', $forced = false, $post_
 		foreach ( $book_author_out as $out ) {
 			$book_author_list .= $before . $out;
 			++$count;
-			if ( ( count( $book_author_out ) > 1 ) && ( $after == ', ' ) && ( count( $book_author_out ) != $count ) || $forced ) {
+			if ( ( count( $book_author_out ) > 1 && $after === ', ' && count( $book_author_out ) !== $count ) || $forced ) {
 				$book_author_list .= $after;
 			}
 		}
@@ -123,9 +123,9 @@ function get_book_author( $before = null, $after = ', ', $forced = false, $post_
  *
  * @since   1.0.0
  *
- * @param   $before     string      string to display before the reading level
- * @param   $after      string      string to display after the reading level (comma by default)
- * @param   $forced     boolean     by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it                                    will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
+ * @param   string $before string to display before the reading level
+ * @param   string $after string to display after the reading level (comma by default)
+ * @param   bool $forced by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
  * @return  $reading_level_list     sanitized string of the results
  */
 function get_reading_level( $before = null, $after = ', ', $forced = false ) {
@@ -143,7 +143,7 @@ function get_reading_level( $before = null, $after = ', ', $forced = false ) {
 		foreach ( $reading_level_out as $out ) {
 			$reading_level_list .= $before . $out;
 			++$count;
-			if ( ( count( $reading_level_out ) > 1 ) && ( $after == ', ' ) && ( count( $reading_level_out ) != $count ) || $forced ) {
+			if ( ( count( $reading_level_out ) > 1 && $after === ', ' && count( $reading_level_out ) !== $count ) || $forced ) {
 				$reading_level_list .= $after;
 			}
 		}
@@ -159,9 +159,9 @@ function get_reading_level( $before = null, $after = ', ', $forced = false ) {
  *
  * @since   1.0.0
  *
- * @param   $before     string      string to display before the subject
- * @param   $after      string      string to display after the subject (comma by default)
- * @param   $forced     boolean     by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it                                    will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
+ * @param   string $before string to display before the subject
+ * @param   string $after string to display after the subject (comma by default)
+ * @param   bool $forced by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
  * @return  $subject_list           sanitized string of the results
  */
 function get_subjects( $before = null, $after = ', ', $forced = false ) {
@@ -179,7 +179,7 @@ function get_subjects( $before = null, $after = ', ', $forced = false ) {
 		foreach ( $subject_out as $out ) {
 			$subject_list .= $before . $out;
 			++$count;
-			if ( ( count( $subject_out ) > 1 ) && ( $after == ', ' ) && ( count( $subject_out ) != $count ) || $forced ) {
+			if ( ( count( $subject_out ) > 1 && $after === ', ' && count( $subject_out ) !== $count ) || $forced ) {
 				$subject_list .= $after;
 			}
 		}
@@ -203,23 +203,17 @@ function get_rating_stars() {
 	if ( $ratings && ! is_wp_error( $ratings ) ) {
 		$rating_out = null;
 		foreach ( $ratings as $rating ) {
-			if ( $rating->name == '5' ) {
-				$stars = $rating->name;
+			if ( $rating->name === '5' ) {
 				$rating_out = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-			} elseif ( $rating->name == '4' ) {
-				$stars = $rating->name;
+			} elseif ( $rating->name === '4' ) {
 				$rating_out = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-			} elseif ( $rating->name == '3' ) {
-				$stars = $rating->name;
+			} elseif ( $rating->name === '3' ) {
 				$rating_out = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-			} elseif ( $rating->name == '2' ) {
-				$stars = $rating->name;
+			} elseif ( $rating->name === '2' ) {
 				$rating_out = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-			} elseif ( $rating->name == '1' ) {
-				$stars = $rating->name;
+			} elseif ( $rating->name === '1' ) {
 				$rating_out = '<div class="genericon genericon-star"></div>';
-			} elseif ( $rating->name == '0' ) {
-				$stars = $rating->name;
+			} elseif ( $rating->name === '0' ) {
 				$rating_out = __( 'Zero stars', 'book-review-library' );
 			}
 		}   
@@ -237,21 +231,23 @@ function get_rating_stars() {
  *
  * @return  $stars              sanitized string of the results
  */
-function get_rating( $before = null, $after = ', ', $forced = false ) {
+function get_rating() {
 	global $post;
 	$ratings = get_the_terms( $post->ID, 'rating' );
 	if ( $ratings && ! is_wp_error( $ratings ) ) {
 		$stars_out = [];
 		foreach ( $ratings as $rating ) {
-			if ( $rating->name == '0' ) {
-				// if rating is 0, get_rating() will return false
-				// returning "zero" means we can do a check on the result, and deal with the result on the display side
+			if ( $rating->name === '0' ) {
+				/**
+				 * If rating is 0, get_rating() will return false.
+				 * returning "zero" means we can do a check on the result, and deal with the result on the display side.
+				 */ 
 				$stars_out[] = 'zero';
 			} else {
 				$stars_out[] = $rating->name;
 			}
 		}
-		$stars = join( ', ', $stars_out ); // join the stars list if for some reason someone has used more than one
+		$stars = join( ', ', $stars_out ); // join the stars list if for some reason someone has used more than one.
 	}
 	if ( $stars ) {
 		return esc_attr( $stars );
@@ -264,9 +260,9 @@ function get_rating( $before = null, $after = ', ', $forced = false ) {
  *
  * @since   1.0.0
  *
- * @param   $before     string      string to display before the illustrator name
- * @param   $after      string      string to display after the illustrator name (comma by default)
- * @param   $forced     boolean     by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it                                    will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
+ * @param   string $before string to display before the illustrator name
+ * @param   string $after string to display after the illustrator name (comma by default)
+ * @param   bool $forced by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
  * @return  $illustrator_list       sanitized string of the results
  */
 function get_illustrator( $before = null, $after = ', ', $forced = false ) {
@@ -285,7 +281,7 @@ function get_illustrator( $before = null, $after = ', ', $forced = false ) {
 		foreach ( $illustrator_out as $out ) {
 			$illustrator_list .= $before . $out;
 			++$count;
-			if ( ( count( $illustrator_out ) > 1 ) && ( $after == ', ' ) && ( count( $illustrator_out ) != $count ) || $forced ) {
+			if ( ( count( $illustrator_out ) > 1 && $after === ', ' && count( $illustrator_out ) !== $count ) || $forced ) {
 				$illustrator_list .= $after;
 			}
 		}
@@ -301,9 +297,9 @@ function get_illustrator( $before = null, $after = ', ', $forced = false ) {
  *
  * @since   1.0.0
  *
- * @param   $before     string      string to display before the award name
- * @param   $after      string      string to display after the award name (comma by default)
- * @param   $forced     boolean     by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it                                    will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
+ * @param   string $before string to display before the award name
+ * @param   string $after string to display after the award name (comma by default)
+ * @param   bool $forced by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
  * @return  $award_list             sanitized string of the results
  */
 function get_awards( $before = null, $after = ', ', $forced = false ) {
@@ -321,7 +317,7 @@ function get_awards( $before = null, $after = ', ', $forced = false ) {
 		foreach ( $award_out as $out ) {
 			$award_list .= $before . $out;
 			++$count;
-			if ( ( count( $award_out ) > 1 ) && ( $after == ', ' ) && ( count( $award_out ) != $count ) || $forced ) {
+			if ( ( count( $award_out ) > 1 && $after === ', ' && count( $award_out ) !== $count ) || $forced ) {
 				$award_list .= $after;
 			}
 		}
@@ -337,9 +333,9 @@ function get_awards( $before = null, $after = ', ', $forced = false ) {
  *
  * @since   1.0.0
  *
- * @param   $before     string      string to display before the series name
- * @param   $after      string      string to display after the series name (comma by default)
- * @param   $forced     boolean     by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it                                    will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
+ * @param   string $before string to display before the series name
+ * @param   string $after string to display after the series name (comma by default)
+ * @param   bool $forced by default, if the item is the last in the list, the $after variable doesn't render. If $forced is set to TRUE it will bypass this and render it anyway (e.g. if passing $before = '<li>' / $after = '</li>')
  * @return  $series_list                sanitized string of the results
  */
 function get_book_series( $before = null, $after = ', ', $forced = false ) {
@@ -347,7 +343,7 @@ function get_book_series( $before = null, $after = ', ', $forced = false ) {
 	$seriess = get_the_terms( $post->ID, 'series' );
 	$series_list = null;
 	if ( $seriess && ! is_wp_error( $seriess ) ) {
-		$illustrator_out = [];
+		$series_out = [];
 		foreach ( $seriess as $series ) {
 			$series_out[] = sprintf( '<a href="%s">%s</a>',
 				home_url() . '/?series=' . $series->slug,
@@ -357,7 +353,7 @@ function get_book_series( $before = null, $after = ', ', $forced = false ) {
 		foreach ( $series_out as $out ) {
 			$series_list .= $before . $out;
 			++$count;
-			if ( ( count( $series_out ) > 1 ) && ( $after == ', ' ) && ( count( $series_out ) != $count ) || $forced ) {
+			if ( ( count( $series_out ) > 1 && $after === ', ' && count( $series_out ) !== $count ) || $forced ) {
 				$series_list .= $after;
 			}
 		}
@@ -367,21 +363,21 @@ function get_book_series( $before = null, $after = ', ', $forced = false ) {
 	}
 }
 
-/**
- * Select box
- * returns a select box based on array values passed to it, used by the widget
- *
- * @since   1.0.0
- *
- * @param   $name       string      select box value name
- * @param   $values     array       an array of possible values
- * @param   $default    array       an array of default values
- * @param   $parameters string      any additional parameters
- *
- * @return  $field                  the final select box
- */
+// Todo: Is this a select2 implementation? Not sure why we're using a global function name that's not scoped to the plugin.
 if ( ! function_exists( 'the_select_box' ) ) {
-	function the_select_box( $name, $values, $default = '', $parameters = '' ) {
+	/**
+	 * Select box
+	 * returns a select box based on array values passed to it, used by the widget
+	 *
+	 * @since   1.0.0
+	 *
+	 * @param   string $name       select box value name
+	 * @param   array $values      an array of possible values
+	 * @param   array $default     an array of default values
+	 * @param   string $parameters any additional parameters
+	 * @return  $field             the final select box
+	 */
+	function the_select_box( $name, $values, $default = '', $parameters = '' ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.defaultFound
 		$field = '<select name="' . esc_attr( $name ) . '"';
 		if ( ! is_null( $parameters ) ) {
 			$field .= ' ' . $parameters;
@@ -392,9 +388,9 @@ if ( ! function_exists( 'the_select_box' ) ) {
 			$default = stripslashes( $GLOBALS[ $name ] );
 		}
 
-		for ( $i = 0, $n = sizeof( $values ); $i < $n; $i++ ) {
+		for ( $i = 0, $n = count( $values ); $i < $n; $i++ ) {
 			$field .= '<option value="' . $values[ $i ]['id'] . '"';
-			if ( $default == $values[ $i ]['id'] ) {
+			if ( $default === $values[ $i ]['id'] ) {
 				$field .= 'selected = "selected"';
 			}
 
@@ -481,9 +477,8 @@ function book_reviews_image_size() {
  * Check if a particular option is enabled, wrapper for Book_Reviews::is_option_enabled()
  *
  * @since 1.5.0
- * @param   string  The option name to check
- * @return  bool    True of the setting is enabled, false if it isn't or no option was
- *                  passed
+ * @param   string  $option_name The option name to check
+ * @return  bool    True of the setting is enabled, false if it isn't or no option was passed
  */
 function book_reviews_is_option_enabled( $option_name = '' ) {
 	$book_reviews = Book_Reviews::get_instance();
