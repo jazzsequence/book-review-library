@@ -992,7 +992,7 @@ class Book_Reviews {
 					<?php
 					if ( has_term( '', 'book-author' ) && ( isset( $options['title-filter'] ) && $options['title-filter'] ) ) {
 						/* translators: 1: title, 2: author */
-						printf( __( '%1$s' ), '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
+						printf( '%1$s', '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
 					} else {
 						echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
 					}
@@ -1107,7 +1107,7 @@ class Book_Reviews {
 					<div class="book-review-wrapper orderedby-<?php echo esc_attr( $orderby ); ?>" id="book-review-<?php echo get_the_ID(); ?>">
 							<?php
 							if ( has_term( '', 'book-author' ) && ( isset( $options['title-filter'] ) && $options['title-filter'] ) ) {
-								printf( __( '%1$s' ), '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
+								printf( '%1$s', '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' );
 							} else {
 								echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
 							}
