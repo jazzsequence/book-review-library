@@ -883,16 +883,9 @@ class Book_Reviews {
 		$title          = null;
 		$post_id        = null;
 
-		if ( isset( $atts['count'] ) ) {
-			$count = $atts['count'];
-		} else {
-			$count = -1;
-		}
-		if ( isset( $atts['covers'] ) && 'true' == $atts['covers'] ) {
-			$covers = true;
-		} else {
-			$covers = false;
-		}
+		$count = isset( $atts['count'] ) ? $atts['count'] : -1;
+		$covers = isset( $atts['covers'] ) && book_reviews_is_option_enabled( 'covers' ) ? $atts['covers'] : false;
+
 		if ( isset( $atts['order_by'] ) ) {
 			$order_by = $atts['order_by'];
 			switch ( $order_by ) {
