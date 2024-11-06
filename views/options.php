@@ -205,9 +205,8 @@ class Book_Reviews_Options {
 	public function hooks() {
 		add_action( 'init', [ $this, 'init' ] );
 		add_action( 'admin_menu', [ $this, 'add_plugin_admin_menu' ] );
-		add_action( 'cmb2_admin_init', [ $this, 'register_options' ] );	
-		add_action( 'current_screen', [ $this, 'maybe_save' ] );
-		add_filter( 'admin_footer', [ $this, 'maybe_hookup_fields' ], 2 );
+		add_action( 'cmb2_admin_init', [ $this, 'register_options' ] );
+		add_action( 'current_screen', [ $this, 'maybe_save_options'] );
 	}
 
 	/**
@@ -218,6 +217,45 @@ class Book_Reviews_Options {
 	 */
 	public function init() {
 		register_setting( $this->key, $this->key );
+	}
+
+	public function maybe_save_options() {
+		$screen = get_current_screen();
+		// Bail if we're not on the right screen.
+		if ( $screen->id !== $this->screen_id ) {
+			return;
+		}
+
+		// Bail if POST is empty.
+		if ( empty( $_POST ) ) {
+			return;
+		}
+
+		// Bail if our nonce is not set.
+		if ( ! isset( $_POST['nonce_CMB2phpoption_metabox'] ) ) {
+			return;
+		}
+
+		// Bail if our nonce is not verified.
+		if ( ! wp_verify_nonce( $_POST['nonce_CMB2phpoption_metabox'], 'nonce_CMB2phpoption_metabox' ) ) {
+			return;
+		}
+
+		// We've validated all the POST data, so now we can save it.
+		$post_data = wp_unslash( $_POST );
+
+		// Drop the 'object_id' and 'nonce_CMB2phpoption_metabox' fields from the array.
+		$post_data = array_diff_key( $post_data, array_flip( [ 'object_id', 'nonce_CMB2phpoption_metabox', 'submit-cmb' ] ) );
+
+		$options = get_option( $this->key, [] );
+		if ( ! empty( $options ) ) {
+			foreach ( $options as $key => $value ) {
+				if ( isset( $post_data[ $key ] ) ) {
+					$updated_options[ $key ] = $value;
+				}
+			}
+		}
+		update_option( $this->key, $updated_options );
 	}
 
 	/**
@@ -243,17 +281,12 @@ class Book_Reviews_Options {
 	 * @since 1.5.0
 	 * @link  https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
 	 */
-	public function admin_page_display() {
+	public function admin_page_display( $hookup ) {
+		CMB2_hookup::enqueue_cmb_css();
 		?>
-		<div id="cmb2-options-page-<?php echo $this->key; ?>" class="wrap cmb2-options-page <?php echo $this->key; ?>" style="display:none">
-			<?php cmb2_get_metabox( $this->metabox_id, $this->key, 'options-page' )->show_form(); ?>
+		<div id="cmb2-options-page-<?php echo $this->key; ?>" class="wrap cmb2-options-page <?php echo $this->key; ?>">
+			<?php cmb2_metabox_form( 'option_metabox', $this->key ); ?>
 		</div>
-		<script type="text/javascript">
-			var cmb2 = document.getElementById( 'cmb2-options-page-<?php echo $this->key; ?>' );
-			var submit = document.getElementById( 'submit' ).parentNode;
-			submit.parentNode.insertBefore( cmb2, submit );
-			cmb2.style.display = '';
-		</script>
 		<?php
 	}
 
@@ -267,52 +300,17 @@ class Book_Reviews_Options {
 	public function register_options() {
 		$cmb = new_cmb2_box( [
 			'id' => 'option_metabox',
-			'hookup' => false,
-			'object_types' => [ 'options-page' ],
+			// 'hookup' => false,
+			'option_key' => $this->key,
+			'show_on' => [
+				'key' => 'options-page',
+				'value' => [ $this->key ],
+			]
 		] );
 
 		foreach ( $this->fields as $field ) {
 			$cmb->add_field( $field );
 		}
-	}
-
-	public function maybe_save() {
-		if ( empty( $_POST ) ) {
-			return;
-		}
-
-		$url = wp_get_referer();
-		if ( false === strpos( $url, $this->key ) ) {
-			wp_die( 'you came from the wrong place', 'wrong place', [ 'url' => $url ] );
-		}
-
-		add_filter( 'whitelist_options', [ $this, 'save_our_options' ] );
-	}
-
-	public function save_our_options( $whitelist_options ) {
-		$cmb = cmb2_get_metabox( 'option_metabox', $this->key );
-		if ( $cmb )  {
-			$hookup = new CMB2_hookup( $cmb );;
-
-			if ( $hookup->can_save( 'options-page' ) ) {
-				$cmb->save_fields( $this->key, 'options-page', $_POST );
-			}
-		}
-
-		remove_filter( 'whitelist_options', [ $this, 'save_our_options' ] );
-		return $whitelist_options;
-	}
-
-	public function maybe_hookup_fields() {
-		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : (object) array( 'id' => null );
-		// var_dump($screen->id);
-		// Only show on our screen.
-		if ( $this->screen_id !== $screen->id ) {
-			return;
-		}
-
-		CMB2_hookup::enqueue_cmb_css();
-		$this->admin_page_display();
 	}
 
 	/**
