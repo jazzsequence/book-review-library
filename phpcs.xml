@@ -22,6 +22,9 @@
 	<config name="minimum_supported_wp_version" value="3.6"/>
 	<rule ref="Pantheon-WP">
 		<exclude name="WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant"/>
+		<exclude name="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase"/>
+		<exclude name="WordPress.WP.Capabilities.Unknown"/>
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
 		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.custom_role_add_role"/> <!-- todo: add to pantheon wp coding standards -->
 		<exclude name="WordPressVIPMinimum.Performance.OrderByRand.orderby_orderby"/> <!-- todo: add to pantheon wp coding standards -->
 	</rule>
@@ -49,16 +52,7 @@
 	<rule ref="WordPressVIPMinimum.Functions.RestrictedFunctions.flush_rewrite_rules_flush_rewrite_rules">
 		<exclude-pattern>class-book-reviews.php</exclude-pattern>
 	</rule>
-	<rule ref="WordPress.WP.Capabilities.Unknown">
-		<exclude-pattern>class-book-reviews.php</exclude-pattern>
-	</rule>
-	<rule ref="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase">
-		<exclude-pattern>inc/template-tags.php</exclude-pattern>
-	</rule>
 	<rule ref="Generic.Files.OneObjectStructurePerFile.MultipleFound">
-		<exclude-pattern>inc/widgets.php</exclude-pattern>
-	</rule>
-	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
 		<exclude-pattern>inc/widgets.php</exclude-pattern>
 	</rule>
 </ruleset>

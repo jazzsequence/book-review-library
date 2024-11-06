@@ -66,120 +66,126 @@ class Book_Reviews_Options {
 	 */
 	protected $options_page = '';
 
+	/**
+	 * Constructor
+	 * 
+	 * Set up some defaults
+	 */
 	public function __construct() {
-		// set up our title
-		$this->title = __( 'Book Review Library Options', 'book-review-library' );
+		// set up our title.
+		$this->title = esc_html__( 'Book Review Library Options', 'book-review-library' );
 		$this->defaults = $this->defaults();
 
-		// set up the CMB2 fields
+		// set up the CMB2 fields.
 		$this->fields = [
 			'review_authors' => [
-				'name'    => __( 'Review Authors', 'book-review-library' ),
-				'desc'    => __( 'Enable this if the person adding the book review is not the original author of the review.', 'book-review-library' ),
+				'name'    => esc_html__( 'Review Authors', 'book-review-library' ),
+				'desc'    => esc_html__( 'Enable this if the person adding the book review is not the original author of the review.', 'book-review-library' ),
 				'id'      => 'review-author',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['review-author'],
 			],
 			'reading_level' => [
-				'name'    => __( 'Reading Level', 'book-review-library' ),
-				'desc'    => __( 'Enable this to display the reading level for the book.', 'book-review-library' ),
+				'name'    => esc_html__( 'Reading Level', 'book-review-library' ),
+				'desc'    => esc_html__( 'Enable this to display the reading level for the book.', 'book-review-library' ),
 				'id'      => 'reading-level',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['reading-level'],
 			],
 			'subject' => [
-				'name'    => __( 'Subject', 'book-review-library' ),
-				'desc'    => __( 'Enable this to tag the book with different subjects (unique from genres).', 'book-review-library' ),
+				'name'    => esc_html__( 'Subject', 'book-review-library' ),
+				'desc'    => esc_html__( 'Enable this to tag the book with different subjects (unique from genres).', 'book-review-library' ),
 				'id'      => 'subject',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['subject'],
 			],
 			'illustrator' => [
-				'name'    => __( 'Illustrator', 'book-review-library' ),
-				'desc'    => __( 'Enable this to add illustrators to book reviews.', 'book-review-library' ),
+				'name'    => esc_html__( 'Illustrator', 'book-review-library' ),
+				'desc'    => esc_html__( 'Enable this to add illustrators to book reviews.', 'book-review-library' ),
 				'id'      => 'illustrator',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['illustrator'],
 			],
 			'awards' => [
-				'name'    => __( 'Awards', 'book-review-library' ),
-				'desc'    => __( 'Enable this to add awards the book has received.', 'book-review-library' ),
+				'name'    => esc_html__( 'Awards', 'book-review-library' ),
+				'desc'    => esc_html__( 'Enable this to add awards the book has received.', 'book-review-library' ),
 				'id'      => 'awards',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['awards'],
 			],
 			'series' => [
-				'name'    => __( 'Series', 'book-review-library' ),
-				'desc'    => __( 'Enable this to group books by series.', 'book-review-library' ),
+				'name'    => esc_html__( 'Series', 'book-review-library' ),
+				'desc'    => esc_html__( 'Enable this to group books by series.', 'book-review-library' ),
 				'id'      => 'series',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['series'],
 			],
 			'ratings' => [
-				'name'    => __( 'Ratings', 'book-review-library' ),
-				'desc'    => __( 'Enable this for star ratings.', 'book-review-library' ),
+				'name'    => esc_html__( 'Ratings', 'book-review-library' ),
+				'desc'    => esc_html__( 'Enable this for star ratings.', 'book-review-library' ),
 				'id'      => 'rating',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['rating'],
 			],
 			'languages' => [
-				'name'    => __( 'Languages', 'book-review-library' ),
-				'desc'    => __( 'When enabled, allow books to be grouped by language.', 'book-review-library' ),
+				'name'    => esc_html__( 'Languages', 'book-review-library' ),
+				'desc'    => esc_html__( 'When enabled, allow books to be grouped by language.', 'book-review-library' ),
 				'id'      => 'languages',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['languages'],
 			],
 			'format' => [
-				'name'    => __( 'Format', 'book-review-library' ),
-				'desc'    => __( 'Group books by formats (eBook, audiobook, etc).', 'book-review-library' ),
+				'name'    => esc_html__( 'Format', 'book-review-library' ),
+				'desc'    => esc_html__( 'Group books by formats (eBook, audiobook, etc).', 'book-review-library' ),
 				'id'      => 'format',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['format'],
 			],
 			'publisher' => [
-				'name'    => __( 'Publisher', 'book-review-library' ),
-				'desc'    => __( 'Group books by their publisher.', 'book-review-library' ),
+				'name'    => esc_html__( 'Publisher', 'book-review-library' ),
+				'desc'    => esc_html__( 'Group books by their publisher.', 'book-review-library' ),
 				'id'      => 'publisher',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['publisher'],
 			],
 			'book_cover' => [
-				'name'    => __( 'Book cover size', 'book-review-library' ),
-				'desc'    => __( 'If covers are displayed, this controls how they are sized. Either uses the theme setting for thumbnails (which may be controlled by the theme or the Thumbnail setting on the Media Settings page) or a Book Review Library standard book cover size.', 'book-review-library' ),
+				'name'    => esc_html__( 'Book cover size', 'book-review-library' ),
+				'desc'    => esc_html__( 'If covers are displayed, this controls how they are sized. Either uses the theme setting for thumbnails (which may be controlled by the theme or the Thumbnail setting on the Media Settings page) or a Book Review Library standard book cover size.', 'book-review-library' ),
 				'id'      => 'thumbnail',
 				'type'    => 'select',
 				'options' => $this->book_covers(),
 				'default' => $this->defaults['thumbnail'],
 			],
 			'stock' => [
-				'name'    => __( 'Stock', 'book-review-library' ),
-				'desc'    => __( 'Enable this to display "In Stock"/"Out of Stock" information with the book review.', 'book-review-library' ),
+				'name'    => esc_html__( 'Stock', 'book-review-library' ),
+				'desc'    => esc_html__( 'Enable this to display "In Stock"/"Out of Stock" information with the book review.', 'book-review-library' ),
 				'id'      => 'stock',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['stock'],
 			],
 			'author_image' => [
-				'name'    => __( 'Author Image', 'book-review-library' ),
-				'desc'    => __( 'Enable to allow uploads for an author image to display with the book review.', 'book-review-library' ),
+				'name'    => esc_html__( 'Author Image', 'book-review-library' ),
+				'desc'    => esc_html__( 'Enable to allow uploads for an author image to display with the book review.', 'book-review-library' ),
 				'id'      => 'author-image',
 				'type'    => 'select',
 				'options' => $this->true_false(),
 				'default' => $this->defaults['author-image'],
 			],
 			'author_title' => [
-				'name'    => __( 'Display author with title', 'book-review-library' ),
-				'desc'    => sprintf( __( '%1$sWith the title%2$s displays the author on the same line as the book title.', 'book-review-library' ) . '<br />' . __( '%1$sWith the title but not hyperlinked%2$s displays the author on the same line as the book title but does not link the author name.', 'book-review-library' ) . '<br />' . __( '%1$sOn a new line%2$s adds a line break before displaying the author.', 'book-review-library' ) . '<br />' . __( '%1$sDisabled%2$s removes the author from the title entirely.', 'book-review-library' ), '<strong>', '</strong>' ),
+				'name'    => esc_html__( 'Display author with title', 'book-review-library' ),
+				// translators: %1$s is an opening strong tag, %2$s is a closing strong tag.
+				'desc'    => sprintf( wp_kses_post( __( '%1$sWith the title%2$s displays the author on the same line as the book title.', 'book-review-library' ) ) . '<br />' . wp_kses_post( __( '%1$sWith the title but not hyperlinked%2$s displays the author on the same line as the book title but does not link the author name.', 'book-review-library' ) ) . '<br />' . wp_kses_post( __( '%1$sOn a new line%2$s adds a line break before displaying the author.', 'book-review-library' ) ) . '<br />' . wp_kses_post( __( '%1$sDisabled%2$s removes the author from the title entirely.', 'book-review-library' ) ), '<strong>', '</strong>' ),
 				'id'      => 'title-filter',
 				'type'    => 'select',
 				'options' => $this->author_title(),
@@ -200,25 +206,28 @@ class Book_Reviews_Options {
 	 * Initiate our hooks
 	 *
 	 * @since 1.5.0
-	 * @link  https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
 	 */
 	public function hooks() {
 		add_action( 'init', [ $this, 'init' ] );
 		add_action( 'admin_menu', [ $this, 'add_plugin_admin_menu' ] );
 		add_action( 'cmb2_admin_init', [ $this, 'register_options' ] );
-		add_action( 'current_screen', [ $this, 'maybe_save_options'] );
+		add_action( 'current_screen', [ $this, 'maybe_save_options' ] );
 	}
 
 	/**
 	 * Register the setting to WP
 	 *
 	 * @since 1.5.0
-	 * @link  https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
 	 */
 	public function init() {
 		register_setting( $this->key, $this->key );
 	}
 
+	/**
+	 * Save the options
+	 *
+	 * @since 1.5.0
+	 */
 	public function maybe_save_options() {
 		$screen = get_current_screen();
 		// Bail if we're not on the right screen.
@@ -237,7 +246,7 @@ class Book_Reviews_Options {
 		}
 
 		// Bail if our nonce is not verified.
-		if ( ! wp_verify_nonce( $_POST['nonce_CMB2phpoption_metabox'], 'nonce_CMB2phpoption_metabox' ) ) {
+		if ( ! wp_verify_nonce( $_POST['nonce_CMB2phpoption_metabox'], 'nonce_CMB2phpoption_metabox' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			return;
 		}
 
@@ -247,6 +256,7 @@ class Book_Reviews_Options {
 		// Drop the 'object_id' and 'nonce_CMB2phpoption_metabox' fields from the array.
 		$post_data = array_diff_key( $post_data, array_flip( [ 'object_id', 'nonce_CMB2phpoption_metabox', 'submit-cmb' ] ) );
 
+		$updated_options = [];
 		$options = get_option( $this->key, [] );
 		if ( ! empty( $options ) ) {
 			foreach ( $options as $key => $value ) {
@@ -266,12 +276,12 @@ class Book_Reviews_Options {
 	 */
 	public function add_plugin_admin_menu() {
 		$this->options_page = add_submenu_page(
-			'edit.php?post_type=book-review',       // parent menu
-			$this->title,                           // page title
-			__( 'Options', 'book-review-library' ), // menu title
-			'manage_book_review_options',           // capability
-			'book-review-library-options',          // page slug
-			[ $this, 'admin_page_display' ]    // options page callback
+			'edit.php?post_type=book-review',       // parent menu.
+			$this->title,                           // page title.
+			__( 'Options', 'book-review-library' ), // menu title.
+			'manage_book_review_options',           // capability.
+			'book-review-library-options',          // page slug.
+			[ $this, 'admin_page_display' ],        // options page callback.
 		);
 	}
 
@@ -279,12 +289,11 @@ class Book_Reviews_Options {
 	 * Admin page markup. Mostly handled by CMB2
 	 *
 	 * @since 1.5.0
-	 * @link  https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
 	 */
-	public function admin_page_display( $hookup ) {
+	public function admin_page_display() {
 		CMB2_hookup::enqueue_cmb_css();
 		?>
-		<div id="cmb2-options-page-<?php echo $this->key; ?>" class="wrap cmb2-options-page <?php echo $this->key; ?>">
+		<div id="cmb2-options-page-<?php echo esc_attr( $this->key ); ?>" class="wrap cmb2-options-page <?php echo esc_attr( $this->key ); ?>">
 			<?php cmb2_metabox_form( 'option_metabox', $this->key ); ?>
 		</div>
 		<?php
@@ -294,18 +303,15 @@ class Book_Reviews_Options {
 	 * Defines the option metabox and field configuration
 	 *
 	 * @since  1.5.0
-	 * @link   https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
-	 * @return array
 	 */
 	public function register_options() {
 		$cmb = new_cmb2_box( [
 			'id' => 'option_metabox',
-			// 'hookup' => false,
 			'option_key' => $this->key,
 			'show_on' => [
 				'key' => 'options-page',
 				'value' => [ $this->key ],
-			]
+			],
 		] );
 
 		foreach ( $this->fields as $field ) {

@@ -1,5 +1,17 @@
 <?php
+/**
+ * Sets up the CMB boxes for the plugin.
+ *
+ * @package   Book_Reviews
+ * @author    Chris Reynolds <hello@chrisreynolds.io>
+ * @license   GPL-3.0
+ * @link      http://chrisreynolds.io
+ * @copyright 2024 Chris Reynolds
+ */
 
+/**
+ * Class Book_Review_Library_CMB
+ */
 class Book_Review_Library_CMB {
 
 	/**
@@ -11,13 +23,16 @@ class Book_Review_Library_CMB {
 	 */
 	protected static $instance = null;
 
+	/**
+	 * Book_Review_Library_CMB constructor.
+	 */
 	private function __construct() {
-		// initialize CMB2
-		if ( file_exists( __DIR__ . '/cmb2/init.php' ) ) {
+		// initialize CMB2.
+		if ( ! function_exists( 'cmb2_bootstrap' ) && file_exists( __DIR__ . '/cmb2/init.php' ) ) {
 			require_once __DIR__ . '/cmb2/init.php';
 		}
 
-		// deal with meta boxes
+		// deal with meta boxes.
 		add_filter( 'cmb2_meta_boxes', [ $this, 'do_cmb_meta_boxes' ] );
 	}
 
@@ -31,7 +46,7 @@ class Book_Review_Library_CMB {
 	public static function get_instance() {
 
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
@@ -41,6 +56,7 @@ class Book_Review_Library_CMB {
 	/**
 	 * Deal with the metaboxes
 	 *
+	 * @param array $meta_boxes Array of meta boxes
 	 * @since   1.5
 	 */
 	public function do_cmb_meta_boxes( array $meta_boxes ) {
@@ -195,7 +211,8 @@ class Book_Review_Library_CMB {
 						'id'   => 'no_fields',
 						'type' => 'title',
 						'desc' => sprintf( 
-							__( 'No book information fields are currently enabled. You can enable these fields from the <a href="%s">Options page</a>.', 'book-review-library' ), 
+							// translators: %s is the URL to the options page.
+							wp_kses_post( __( 'No book information fields are currently enabled. You can enable these fields from the <a href="%s">Options page</a>.', 'book-review-library' ) ), 
 							admin_url( 'admin.php?page=book-review-library-options' ) 
 						),
 					],
@@ -258,7 +275,7 @@ class Book_Review_Library_CMB {
 			];
 		}
 
-		// check if ratings are enabled
+		// check if ratings are enabled.
 		if ( book_reviews_is_option_enabled( 'rating' ) ) {
 			$meta_boxes['star-rating'] = [
 				'id'           => 'star-rating',
