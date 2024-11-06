@@ -420,8 +420,8 @@ class Book_Reviews {
 			return false;
 		}
 
-		// if the option is true
-		if ( true == $options[ $option_name ] ) {
+		// if the option is truthy.
+		if ( in_array( $options[ $option_name ], [ '1', true ], true ) ) {
 			return true;
 		}
 
