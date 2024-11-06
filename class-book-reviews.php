@@ -287,7 +287,7 @@ class Book_Reviews {
 	public function remove_menu_for_librarians() {
 		$user = wp_get_current_user();
 
-		if ( 'librarian' === $user->roles[0] ) { // if the current user is a .librarian
+		if ( 'librarian' === $user->roles[0] ) { // if the current user is a librarian.
 			remove_menu_page( 'options-general.php' );
 		}
 	}
@@ -296,11 +296,8 @@ class Book_Reviews {
 	 * Register and enqueue admin-specific style sheet.
 	 *
 	 * @since     1.0.0
-	 *
-	 * @return    null    Return early if no settings page is registered.
 	 */
 	public function enqueue_admin_styles() {
-
 		wp_enqueue_style( 'genericons', plugins_url( 'genericons/genericons.css', __FILE__ ), [], $this->version );
 		wp_enqueue_style( $this->plugin_slug . '-admin-styles', plugins_url( 'css/admin.css', __FILE__ ), [], $this->version );
 	}
@@ -309,13 +306,10 @@ class Book_Reviews {
 	 * Register and enqueue admin-specific JavaScript.
 	 *
 	 * @since     1.0.0
-	 *
-	 * @return    null    Return early if no settings page is registered.
 	 */
 	public function enqueue_admin_scripts() {
-
 		if ( is_admin() && current_user_can( 'publish_book-reviews' ) ) {
-			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), [ 'jquery' ], $this->version );
+			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), [ 'jquery' ], $this->version, true );
 		}
 	}
 
@@ -352,7 +346,7 @@ class Book_Reviews {
 		global $wp_meta_boxes;
 
 		$screen = get_current_screen();
-		if ( 'book-review' != $screen->post_type ) {
+		if ( 'book-review' !== $screen->post_type ) {
 			return;
 		}
 
@@ -390,9 +384,8 @@ class Book_Reviews {
 	 * Check if a given option is enabled
 	 *
 	 * @since   1.5.0
-	 * @param   string  The option name to check
-	 * @return  bool    True of the setting is enabled, false if it isn't or no option was
-	 *                  passed
+	 * @param   string  $option_name    The name of the option to check
+	 * @return  bool    True of the setting is enabled, false if it isn't or no option was passed
 	 */
 	public function is_option_enabled( $option_name = '' ) {
 
@@ -427,6 +420,7 @@ class Book_Reviews {
 	 * Filter for the featured image post box
 	 *
 	 * @since   1.0.0
+	 * @param   string  $content    The content to modify
 	 */
 	public function change_thumbnail_html( $content ) {
 		if ( 'book-review' === $GLOBALS['post_type'] ) {
@@ -438,19 +432,19 @@ class Book_Reviews {
 	 * Replaces "Set featured image" with "Select Book Cover"
 	 *
 	 * @since   1.0.0
-	 *
+	 * @param   string  $content    The text to modify
 	 * @return  string  returns the modified text
 	 */
 	public function do_thumb( $content ) {
-		return str_replace( __( 'Set featured image' ), __( 'Select Book Cover', 'book-review-library' ), $content );
+		return str_replace( __( 'Set featured image' ), __( 'Select Book Cover', 'book-review-library' ), $content ); // phpcs:ignore WordPress.WP.I18n.MissingArgDomain
 	}
 
 	/**
 	 * Creates new columns for the Book Reviews dashboard page
 	 *
-	 * @since   1.0.0
-	 *
-	 * @return  $columns
+	 * @since  1.0.0
+	 * @param  array   $columns    The existing columns
+	 * @return $columns
 	 */
 	public function edit_book_review_columns( $columns ) {
 		$default_columns = [
@@ -491,6 +485,8 @@ class Book_Reviews {
 	/**
 	 * Renders new data for the new columns
 	 *
+	 * @param string  $column   The column name
+	 * @param int     $post_id  The post ID
 	 * @since   1.0.0
 	 */
 	public function manage_book_review_columns( $column, $post_id ) {
@@ -508,7 +504,7 @@ class Book_Reviews {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page .for the specific term
+					// loop through each term, linking to the 'edit posts' page for the specific term.
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -521,10 +517,9 @@ class Book_Reviews {
 
 					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
-				}
-				// if no terms are found, say something.
-				else {
-					_e( 'No authors found', 'book-review-library' );
+				} else {
+					// if no terms are found, say something.
+					esc_html_e( 'No authors found', 'book-review-library' );
 				}
 				break;
 
@@ -538,7 +533,7 @@ class Book_Reviews {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page .for the specific term
+					// loop through each term, linking to the 'edit posts' page for the specific term.
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -551,10 +546,9 @@ class Book_Reviews {
 
 					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
-				}
-				// if no terms are found, say something.
-				else {
-					_e( 'No genres found', 'book-review-library' );
+				} else {
+					// if no terms are found, say something.
+					esc_html_e( 'No genres found', 'book-review-library' );
 				}
 				break;
 
@@ -568,7 +562,7 @@ class Book_Reviews {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page .for the specific term
+					// loop through each term, linking to the 'edit posts' page for the specific term.
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -581,10 +575,9 @@ class Book_Reviews {
 
 					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
-				}
-				// if no terms are found, say something.
-				else {
-					_e( 'No series found', 'book-review-library' );
+				} else {
+					// if no terms are found, say something.
+					esc_html_e( 'No series found', 'book-review-library' );
 				}
 				break;
 
@@ -598,7 +591,7 @@ class Book_Reviews {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page .for the specific term
+					// loop through each term, linking to the 'edit posts' page for the specific term.
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -611,10 +604,9 @@ class Book_Reviews {
 
 					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
-				}
-				// if no terms are found, say something.
-				else {
-					_e( 'No illustrators found', 'book-review-library' );
+				} else {
+					// if no terms are found, say something.
+					esc_html_e( 'No illustrators found', 'book-review-library' );
 				}
 				break;
 
@@ -628,7 +620,7 @@ class Book_Reviews {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page .for the specific term
+					// loop through each term, linking to the 'edit posts' page for the specific term.
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -641,10 +633,9 @@ class Book_Reviews {
 
 					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
-				}
-				// if no terms are found, say something.
-				else {
-					_e( 'No subjects found', 'book-review-library' );
+				} else {
+					// if no terms are found, say something.
+					esc_html_e( 'No subjects found', 'book-review-library' );
 				}
 				break;
 
@@ -658,7 +649,7 @@ class Book_Reviews {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page .for the specific term
+					// loop through each term, linking to the 'edit posts' page for the specific term.
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -671,10 +662,9 @@ class Book_Reviews {
 
 					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
-				}
-				// if no terms are found, say something.
-				else {
-					_e( 'No reading level found', 'book-review-library' );
+				} else {
+					// if no terms are found, say something.
+					esc_html_e( 'No reading level found', 'book-review-library' );
 				}
 				break;
 
@@ -688,7 +678,7 @@ class Book_Reviews {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page .for the specific term
+					// loop through each term, linking to the 'edit posts' page for the specific term.
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -701,10 +691,9 @@ class Book_Reviews {
 
 					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
-				}
-				// if no terms are found, say something.
-				else {
-					_e( 'No awards found', 'book-review-library' );
+				} else {
+					// if no terms are found, say something.
+					esc_html_e( 'No awards found', 'book-review-library' );
 				}
 				break;
 
@@ -718,7 +707,7 @@ class Book_Reviews {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page .for the specific term
+					// loop through each term, linking to the 'edit posts' page for the specific term.
 					foreach ( $terms as $term ) {
 						if ( $term->name === '5' ) {
 							$rating = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
@@ -731,7 +720,7 @@ class Book_Reviews {
 						} elseif ( $term->name === '1' ) {
 							$rating = '<div class="genericon genericon-star"></div>';
 						} else {
-							$rating = _e( 'No rating found', 'book-review-library' );
+							$rating = esc_html_e( 'No rating found', 'book-review-library' );
 						}
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -744,10 +733,9 @@ class Book_Reviews {
 
 					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
-				}
-				// if no terms are found, say something.
-				else {
-					_e( 'No rating found', 'book-review-library' );
+				} else {
+					// if no terms are found, say something.
+					esc_html_e( 'No rating found', 'book-review-library' );
 				}
 				break;
 
@@ -761,12 +749,13 @@ class Book_Reviews {
 	 * Adds a filter on the search to allow searching by ISBN
 	 *
 	 * @since 1.4
+	 * @param string $where The current WHERE clause for the search query.
 	 * @link http://wordpress.org/support/topic/include-custom-field-values-in-search?replies=16#post-1932930
 	 * @link http://www.devblog.fr/en/2013/09/05/modifying-wordpress-search-query-to-include-taxonomy-and-meta/
 	 */
 	public function search_by_isbn( $where ) {
 		// load the meta keys into an array.
-		$keys = [ 'isbn' ]; // currently we're just using one, but we can .expand this later
+		$keys = [ 'isbn' ]; // currently we're just using one, but we can expand this later.
 		if ( is_search() && ! is_admin() ) {
 			global $wpdb;
 			$query = get_search_query();
