@@ -27,9 +27,6 @@ add_action( 'after_setup_theme', [ $this, 'create_tiny_thumbs' ] );
 // Move metaboxes around.
 add_action( 'add_meta_boxes', [ $this, 'move_meta_boxes' ] );
 
-// Register the options.
-add_action( 'admin_init', [ $this, 'settings_init' ] );
-
 // Rename "featured image".
 add_action( 'admin_head-post-new.php', [ $this, 'change_thumbnail_html' ] );
 add_action( 'admin_head-post.php', [ $this, 'change_thumbnail_html' ] );
