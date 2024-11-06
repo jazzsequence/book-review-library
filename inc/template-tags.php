@@ -363,43 +363,49 @@ function get_book_series( $before = null, $after = ', ', $forced = false ) {
 	}
 }
 
-// Todo: Is this a select2 implementation? Not sure why we're using a global function name that's not scoped to the plugin.
-if ( ! function_exists( 'the_select_box' ) ) {
-	/**
-	 * Select box
-	 * returns a select box based on array values passed to it, used by the widget
-	 *
-	 * @since   1.0.0
-	 *
-	 * @param   string $name       select box value name
-	 * @param   array $values      an array of possible values
-	 * @param   array $default     an array of default values
-	 * @param   string $parameters any additional parameters
-	 * @return  $field             the final select box
-	 */
-	function the_select_box( $name, $values, $default = '', $parameters = '' ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.defaultFound
-		$field = '<select name="' . esc_attr( $name ) . '"';
-		if ( ! is_null( $parameters ) ) {
-			$field .= ' ' . $parameters;
-		}
-		$field .= '>';
-
-		if ( empty( $default ) && isset( $GLOBALS[ $name ] ) ) {
-			$default = stripslashes( $GLOBALS[ $name ] );
-		}
-
-		for ( $i = 0, $n = count( $values ); $i < $n; $i++ ) {
-			$field .= '<option value="' . $values[ $i ]['id'] . '"';
-			if ( $default === $values[ $i ]['id'] ) {
-				$field .= 'selected = "selected"';
-			}
-
-			$field .= '>' . $values[ $i ]['text'] . '</option>';
-		}
-		$field .= '</select>';
-
-		return $field;
+/**
+ * Select box
+ * returns a select box based on array values passed to it, used by the widget
+ *
+ * @since   1.0.0
+ *
+ * @param   string $name       select box value name
+ * @param   array $values      an array of possible values
+ * @param   array $default     an array of default values
+ * @param   string $parameters any additional parameters
+ * @return  $field             the final select box
+ */
+function book_review_select_box( $name, $values, $default = '', $parameters = '' ) { // phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.defaultFound
+	$kses_allowed = [
+		'select' => [
+			'name' => [],
+		],
+		'option' => [
+			'value' => [],
+			'selected' => [],
+		],
+	];
+	$field = '<select name="' . esc_attr( $name ) . '"';
+	if ( ! is_null( $parameters ) ) {
+		$field .= ' ' . $parameters;
 	}
+	$field .= '>';
+
+	if ( empty( $default ) && isset( $GLOBALS[ $name ] ) ) {
+		$default = stripslashes( $GLOBALS[ $name ] );
+	}
+
+	for ( $i = 0, $n = count( $values ); $i < $n; $i++ ) {
+		$field .= '<option value="' . $values[ $i ]['id'] . '"';
+		if ( $default === $values[ $i ]['id'] ) {
+			$field .= 'selected = "selected"';
+		}
+
+		$field .= '>' . $values[ $i ]['text'] . '</option>';
+	}
+	$field .= '</select>';
+
+	return wp_kses( $field, $kses_allowed );
 }
 
 /**
