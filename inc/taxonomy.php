@@ -1,5 +1,17 @@
 <?php
+/**
+ * Sets up the taxonomies for book reviews
+ *
+ * @package   Book_Reviews
+ * @author    Chris Reynolds <hello@chrisreynolds.io>
+ * @license   GPL-3.0
+ * @link      http://chrisreynolds.io
+ * @copyright 2024 Chris Reynolds
+ */
 
+/**
+ * Class Book_Review_Library_Taxonomies
+ */
 class Book_Review_Library_Taxonomies {
 
 	/**
@@ -11,63 +23,65 @@ class Book_Review_Library_Taxonomies {
 	 */
 	protected static $instance = null;
 
+	/**
+	 * Constructor
+	 */
 	private function __construct() {
-
-		// Review Authors
+		// Review Authors.
 		if ( book_reviews_is_option_enabled( 'review-author' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_review_author' ] );
 		}
 
-		// Reading Level
+		// Reading Level.
 		if ( book_reviews_is_option_enabled( 'reading-level' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_reading_level' ] );
 		}
 
-		// Subject
+		// Subject.
 		if ( book_reviews_is_option_enabled( 'subject' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_subject' ] );
 		}
 
-		// Illustrator
+		// Illustrator.
 		if ( book_reviews_is_option_enabled( 'illustrator' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_illustrator' ] );
 		}
 
-		// Awards
+		// Awards.
 		if ( book_reviews_is_option_enabled( 'awards' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_awards' ] );
 		}
 
-		// Series
+		// Series.
 		if ( book_reviews_is_option_enabled( 'series' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_series' ] );
 		}
 
-		// Star Ratings
+		// Star Ratings.
 		if ( book_reviews_is_option_enabled( 'rating' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_rating' ] );
 			add_action( 'init', [ $this, 'insert_star_ratings' ] );
 			add_action( 'admin_init', [ $this, 'remove_rating_submenu' ] );
 		}
 
-		// Genres (on always)
+		// Genres (on always).
 		add_action( 'init', [ $this, 'register_taxonomy_genre' ] );
 
-		// Book Authors (on always)
+		// Book Authors (on always).
 		add_action( 'init', [ $this, 'register_taxonomy_book_author' ] );
 
-		// Languages
+		// Languages.
 		if ( book_reviews_is_option_enabled( 'languages' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_language' ] );
 		}
 
-		// Format
+		// Format.
 		if ( book_reviews_is_option_enabled( 'format' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_format' ] );
 			add_action( 'init', [ $this, 'insert_formats' ] );
 		}
 
-		// Publisher
+		// Publisher.
 		if ( book_reviews_is_option_enabled( 'publisher' ) ) {
 			add_action( 'init', [ $this, 'register_taxonomy_publisher' ] );
 		}
@@ -81,9 +95,8 @@ class Book_Review_Library_Taxonomies {
 	 * @return    object    A single instance of this class.
 	 */
 	public static function get_instance() {
-
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
@@ -103,29 +116,41 @@ class Book_Review_Library_Taxonomies {
 			return;
 		}
 
-		$singular          = $args['singular']; // required
-		$plural            = $args['plural'];   // required
-		$slug              = $args['slug'];     // required
-		$show_ui           = ( isset( $args['show_ui'] ) ) ? $args['show_ui'] : true;
+		$singular = $args['singular']; 
+		$plural = $args['plural'];   
+		$slug = $args['slug'];     
+		$show_ui = ( isset( $args['show_ui'] ) ) ? $args['show_ui'] : true;
 		$show_in_nav_menus = ( isset( $args['show_in_nav_menus'] ) ) ? $args['show_in_nav_menus'] : true;
-		$tagcloud          = ( isset( $args['show_tagcloud'] ) ) ? $args['show_tagcloud'] : true;
-		$hierarchical      = ( isset( $args['hierarchical'] ) ) ? $args['hierarchical'] : true;
-		$name              = ( isset( $args['use_singular_labels'] ) && $args['use_singular_labels'] ) ? $singular : $plural;
+		$tagcloud = ( isset( $args['show_tagcloud'] ) ) ? $args['show_tagcloud'] : true;
+		$hierarchical = ( isset( $args['hierarchical'] ) ) ? $args['hierarchical'] : true;
+		$name = ( isset( $args['use_singular_labels'] ) && $args['use_singular_labels'] ) ? $singular : $plural;
 
 		$labels = [
 			'name' => $name,
 			'singular_name' => $singular,
+			// translators: %s is the singular label for the taxonomy.
 			'search_items' => sprintf( __( 'Search %s', 'book-review-library' ), $plural ),
+			// translators: %s is the plural label for the taxonomy.
 			'popular_items' => sprintf( __( 'Popular %s', 'book-review-library' ), $plural ),
+			// translators: %s is the plural label for the taxonomy.
 			'all_items' => sprintf( __( 'All %s', 'book-review-library' ), $plural ),
+			// translators: %s is the singular label for the taxonomy.
 			'parent_item' => sprintf( __( 'Parent %s', 'book-review-library' ), $singular ),
+			// translators: %s is the singular label for the taxonomy.
 			'parent_item_colon' => sprintf( __( 'Parent %s:', 'book-review-library' ), $singular ),
+			// translators: %s is the singular label for the taxonomy.
 			'edit_item' => sprintf( __( 'Edit %s', 'book-review-library' ), $singular ),
+			// translators: %s is the singular label for the taxonomy.
 			'update_item' => sprintf( __( 'Update %s', 'book-review-library' ), $singular ),
+			// translators: %s is the singular label for the taxonomy.
 			'add_new_item' => sprintf( __( 'Add New %s', 'book-review-library' ), $singular ),
+			// translators: %s is the singular label for the taxonomy.
 			'new_item_name' => sprintf( __( 'New %s Name', 'book-review-library' ), $singular ),
+			// translators: %s is the plural label for the taxonomy.
 			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'book-review-library' ), $plural ),
+			// translators: %s is the plural label for the taxonomy.
 			'add_or_remove_items' => sprintf( __( 'Add or remove %s', 'book-review-library' ), $plural ),
+			// translators: %s is the plural label for the taxonomy.
 			'choose_from_most_used' => sprintf( __( 'Choose from the most used %s', 'book-review-library' ), $plural ),
 			'menu_name' => $plural,
 		];

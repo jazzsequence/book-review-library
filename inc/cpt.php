@@ -1,5 +1,17 @@
 <?php
+/**
+ * Sets up the custom post type for book reviews
+ *
+ * @package   Book_Reviews
+ * @author    Chris Reynolds <hello@chrisreynolds.io>
+ * @license   GPL-3.0
+ * @link      http://chrisreynolds.io
+ * @copyright 2024 Chris Reynolds
+ */
 
+/**
+ * Class Book_Review_Library_CPT
+ */
 class Book_Review_Library_CPT {
 
 	/**
@@ -11,8 +23,11 @@ class Book_Review_Library_CPT {
 	 */
 	protected static $instance = null;
 
+	/**
+	 * Constructor
+	 */
 	private function __construct() {
-		// Register post type
+		// Register post type.
 		add_action( 'init', [ $this, 'register_post_type_book_review' ] );
 	}
 
@@ -26,7 +41,7 @@ class Book_Review_Library_CPT {
 	public static function get_instance() {
 
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
@@ -39,9 +54,6 @@ class Book_Review_Library_CPT {
 	 * @since   1.0.0
 	 */
 	public function register_post_type_book_review() {
-		include_once BOOK_REVIEWS_TEMPLATE_TAGS;
-		$defaults = book_reviews_option_defaults();
-		$options = get_option( 'book_reviews_settings', $defaults );
 		if ( book_reviews_is_option_enabled( 'comments' ) ) {
 			$supports = [ 'title', 'editor', 'author', 'thumbnail', 'revisions', 'comments' ];
 		} else {
