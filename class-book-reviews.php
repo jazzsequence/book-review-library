@@ -79,8 +79,8 @@ class Book_Reviews {
 	 */
 	public static function get_instance() {
 
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		// If the single instance hasn't been set, set it now..
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
@@ -105,8 +105,8 @@ class Book_Reviews {
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
 	 */
 	public static function activate( $network_wide ) {
-		$result = add_role( 'librarian', __( 'Librarian', 'book-review-library' ), [
-			// core WordPress caps
+		add_role( 'librarian', __( 'Librarian', 'book-review-library' ), [
+			// core WordPress caps.
 			'read' => true,
 			'delete_posts' => true,
 			'delete_published_posts' => true,
@@ -116,9 +116,9 @@ class Book_Reviews {
 			'upload_files' => true,
 			'unfiltered_html' => true,
 			'unfiltered_upload' => true,
-			'manage_options' => true, // temporary fix for permissions to save book review options
+			'manage_options' => true, // temporary fix for permissions to save book review options.
 			'manage_book_review_options' => true,
-			// Book Review-speicifc caps
+			// Book Review-speicifc caps.
 			'publish_book-reviews' => true,
 			'edit_book-reviews' => true,
 			'edit_published_book-reviews' => true,
@@ -129,8 +129,8 @@ class Book_Reviews {
 			'delete_others_book-reviews' => true,
 		] );
 
-		$result = add_role( 'book-reviewer', __( 'Book Reviewer', 'book-review-library' ), [
-			// core WordPress caps
+		add_role( 'book-reviewer', __( 'Book Reviewer', 'book-review-library' ), [
+			// core WordPress caps.
 			'read' => true,
 			'delete_posts' => true,
 			'delete_published_posts' => true,
@@ -140,7 +140,7 @@ class Book_Reviews {
 			'upload_files' => true,
 			'unfiltered_html' => true,
 			'unfiltered_upload' => true,
-			// Book Review-specific caps
+			// Book Review-specific caps.
 			'publish_book-reviews' => true,
 			'edit_book-reviews' => true,
 			'edit_published_book-reviews' => true,
@@ -149,7 +149,7 @@ class Book_Reviews {
 			'read_book-reviews' => true,
 		] );
 
-		// add book-reviews caps to authors
+		// add book-reviews caps to authors.
 		if ( get_role( 'author' ) ) {
 			$role = get_role( 'author' );
 			$role->add_cap( 'add_book-reviews' );
@@ -161,7 +161,7 @@ class Book_Reviews {
 			$role->add_cap( 'delete_book-reviews' );
 		}
 
-		// add book-reviews caps to editors
+		// add book-reviews caps to editors.
 		if ( get_role( 'editor' ) ) {
 			$role = get_role( 'editor' );
 			$role->add_cap( 'add_book-reviews' );
@@ -174,7 +174,7 @@ class Book_Reviews {
 			$role->add_cap( 'delete_book-reviews' );
 		}
 
-		// add book-reviews caps to admins
+		// add book-reviews caps to admins.
 		if ( get_role( 'administrator' ) ) {
 			$role = get_role( 'administrator' );
 			$role->add_cap( 'add_book-reviews' );
@@ -188,7 +188,7 @@ class Book_Reviews {
 			$role->add_cap( 'manage_book_review_options' );
 		}
 
-		// Set up the default options.
+		// Set up the default options..
 		$options = book_reviews_option_defaults();
 		update_option( 'book_reviews_settings', $options );
 	}
@@ -273,7 +273,7 @@ class Book_Reviews {
 		wp_delete_term( '4', 'rating' );
 		wp_delete_term( '5', 'rating' );
 
-		// Delete the options
+		// Delete the options.
 		delete_option( 'book_reviews_settings' );
 	}
 
@@ -287,7 +287,7 @@ class Book_Reviews {
 	public function remove_menu_for_librarians() {
 		$user = wp_get_current_user();
 
-		if ( 'librarian' == $user->roles[0] ) { // if the current user is a librarian
+		if ( 'librarian' === $user->roles[0] ) { // if the current user is a .librarian
 			remove_menu_page( 'options-general.php' );
 		}
 	}
@@ -326,7 +326,7 @@ class Book_Reviews {
 	 */
 	public function enqueue_styles() {
 		global $post;
-		if ( ! is_admin() && ( 'book-review' == get_post_type() || ( is_page() && has_shortcode( $post->post_content, 'book-reviews' ) ) ) ) {
+		if ( ! is_admin() && ( 'book-review' === get_post_type() || ( is_page() && has_shortcode( $post->post_content, 'book-reviews' ) ) ) ) {
 			wp_enqueue_style( $this->plugin_slug . '-genericons', plugins_url( 'genericons/genericons.css', __FILE__ ), [], $this->version );
 			wp_enqueue_style( $this->plugin_slug . '-public', plugins_url( 'css/public.css', __FILE__ ), [], $this->version );
 		}
@@ -385,10 +385,10 @@ class Book_Reviews {
 	 * @return  array   The options array for Book Review Library
 	 */
 	public function get_options() {
-		// include helper functions
+		// include helper functions.
 		include_once BOOK_REVIEWS_TEMPLATE_TAGS;
 
-		// get the options
+		// get the options.
 		return get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 	}
 
@@ -402,20 +402,20 @@ class Book_Reviews {
 	 */
 	public function is_option_enabled( $option_name = '' ) {
 
-		// return false if nothing was passed
-		if ( '' == $option_name ) {
+		// return false if nothing was passed.
+		if ( '' === $option_name ) {
 			return false;
 		}
 
-		// get the options
+		// get the options.
 		$options = $this->get_options();
 
-		// if the options array isn't an array
+		// if the options array isn't an array.
 		if ( empty( $options ) ) {
 			return false;
 		}
 
-		// if the option isn't set
+		// if the option isn't set.
 		if ( ! isset( $options[ $option_name ] ) ) {
 			return false;
 		}
@@ -425,7 +425,7 @@ class Book_Reviews {
 			return true;
 		}
 
-		// for anything else
+		// for anything else.
 		return false;
 	}
 
@@ -444,7 +444,7 @@ class Book_Reviews {
 	 * @since   1.0.0
 	 */
 	public function change_thumbnail_html( $content ) {
-		if ( 'book-review' == $GLOBALS['post_type'] ) {
+		if ( 'book-review' === $GLOBALS['post_type'] ) {
 			add_filter( 'admin_post_thumbnail_html', [ $this, 'do_thumb' ] );
 		}
 	}
@@ -513,17 +513,17 @@ class Book_Reviews {
 
 		switch ( $column ) {
 
-			// if displaying the book author column
+			// if displaying the book author column.
 			case 'book_author':
-				// get the author(s) for the book
+				// get the author(s) for the book.
 				$terms = get_the_terms( $post_id, 'book-author' );
 
-				// if terms were found
+				// if terms were found.
 				if ( ! empty( $terms ) ) {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page for the specific term
+					// loop through each term, linking to the 'edit posts' page .for the specific term
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -534,26 +534,26 @@ class Book_Reviews {
 						);
 					}
 
-					// join the terms, separating them with a comma
+					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
 				}
-				// if no terms are found, say something
+				// if no terms are found, say something.
 				else {
 					_e( 'No authors found', 'book-review-library' );
 				}
 				break;
 
-			// if displaying the genre column
+			// if displaying the genre column.
 			case 'genre':
-				// get the genre(s) for the book
+				// get the genre(s) for the book.
 				$terms = get_the_terms( $post_id, 'genre' );
 
-				// if terms were found
+				// if terms were found.
 				if ( ! empty( $terms ) ) {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page for the specific term
+					// loop through each term, linking to the 'edit posts' page .for the specific term
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -564,26 +564,26 @@ class Book_Reviews {
 						);
 					}
 
-					// join the terms, separating them with a comma
+					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
 				}
-				// if no terms are found, say something
+				// if no terms are found, say something.
 				else {
 					_e( 'No genres found', 'book-review-library' );
 				}
 				break;
 
-			// if displaying the series column
+			// if displaying the series column.
 			case 'series':
-				// get the series(s) for the book
+				// get the series(s) for the book.
 				$terms = get_the_terms( $post_id, 'series' );
 
-				// if terms were found
+				// if terms were found.
 				if ( ! empty( $terms ) ) {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page for the specific term
+					// loop through each term, linking to the 'edit posts' page .for the specific term
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -594,26 +594,26 @@ class Book_Reviews {
 						);
 					}
 
-					// join the terms, separating them with a comma
+					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
 				}
-				// if no terms are found, say something
+				// if no terms are found, say something.
 				else {
 					_e( 'No series found', 'book-review-library' );
 				}
 				break;
 
-			// if displaying the illustrator column
+			// if displaying the illustrator column.
 			case 'illustrator':
-				// get the illustrator(s) for the book
+				// get the illustrator(s) for the book.
 				$terms = get_the_terms( $post_id, 'illustrator' );
 
-				// if terms were found
+				// if terms were found.
 				if ( ! empty( $terms ) ) {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page for the specific term
+					// loop through each term, linking to the 'edit posts' page .for the specific term
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -624,26 +624,26 @@ class Book_Reviews {
 						);
 					}
 
-					// join the terms, separating them with a comma
+					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
 				}
-				// if no terms are found, say something
+				// if no terms are found, say something.
 				else {
 					_e( 'No illustrators found', 'book-review-library' );
 				}
 				break;
 
-			// if displaying the subjects column
+			// if displaying the subjects column.
 			case 'subjects':
-				// get the subjects for the book
+				// get the subjects for the book.
 				$terms = get_the_terms( $post_id, 'subject' );
 
-				// if terms were found
+				// if terms were found.
 				if ( ! empty( $terms ) ) {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page for the specific term
+					// loop through each term, linking to the 'edit posts' page .for the specific term
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -654,26 +654,26 @@ class Book_Reviews {
 						);
 					}
 
-					// join the terms, separating them with a comma
+					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
 				}
-				// if no terms are found, say something
+				// if no terms are found, say something.
 				else {
 					_e( 'No subjects found', 'book-review-library' );
 				}
 				break;
 
-			// if displaying the reading level column
+			// if displaying the reading level column.
 			case 'reading_level':
-				// get the reading level for the book
+				// get the reading level for the book.
 				$terms = get_the_terms( $post_id, 'reading-level' );
 
-				// if terms were found
+				// if terms were found.
 				if ( ! empty( $terms ) ) {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page for the specific term
+					// loop through each term, linking to the 'edit posts' page .for the specific term
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -684,26 +684,26 @@ class Book_Reviews {
 						);
 					}
 
-					// join the terms, separating them with a comma
+					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
 				}
-				// if no terms are found, say something
+				// if no terms are found, say something.
 				else {
 					_e( 'No reading level found', 'book-review-library' );
 				}
 				break;
 
-			// if displaying the awards column
+			// if displaying the awards column.
 			case 'awards':
-				// get the awards for the book
+				// get the awards for the book.
 				$terms = get_the_terms( $post_id, 'awards' );
 
-				// if terms were found
+				// if terms were found.
 				if ( ! empty( $terms ) ) {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page for the specific term
+					// loop through each term, linking to the 'edit posts' page .for the specific term
 					foreach ( $terms as $term ) {
 						$out[] = sprintf( '<a href="%s">%s</a>',
 							esc_url( add_query_arg( [
@@ -714,36 +714,36 @@ class Book_Reviews {
 						);
 					}
 
-					// join the terms, separating them with a comma
+					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
 				}
-				// if no terms are found, say something
+				// if no terms are found, say something.
 				else {
 					_e( 'No awards found', 'book-review-library' );
 				}
 				break;
 
-			// if displaying the rating column
+			// if displaying the rating column.
 			case 'rating':
-				// get the book review rating
+				// get the book review rating.
 				$terms = get_the_terms( $post_id, 'rating' );
 
-				// if terms were found
+				// if terms were found.
 				if ( ! empty( $terms ) ) {
 
 					$out = [];
 
-					// loop through each term, linking to the 'edit posts' page for the specific term
+					// loop through each term, linking to the 'edit posts' page .for the specific term
 					foreach ( $terms as $term ) {
-						if ( $term->name == '5' ) {
+						if ( $term->name === '5' ) {
 							$rating = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-						} elseif ( $term->name == '4' ) {
+						} elseif ( $term->name === '4' ) {
 							$rating = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-						} elseif ( $term->name == '3' ) {
+						} elseif ( $term->name === '3' ) {
 							$rating = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-						} elseif ( $term->name == '2' ) {
+						} elseif ( $term->name === '2' ) {
 							$rating = '<div class="genericon genericon-star"></div><div class="genericon genericon-star"></div>';
-						} elseif ( $term->name == '1' ) {
+						} elseif ( $term->name === '1' ) {
 							$rating = '<div class="genericon genericon-star"></div>';
 						} else {
 							$rating = _e( 'No rating found', 'book-review-library' );
@@ -757,16 +757,16 @@ class Book_Reviews {
 						);
 					}
 
-					// join the terms, separating them with a comma
+					// join the terms, separating them with a comma.
 					echo join( ', ', $out );
 				}
-				// if no terms are found, say something
+				// if no terms are found, say something.
 				else {
 					_e( 'No rating found', 'book-review-library' );
 				}
 				break;
 
-			// just break out of the switch statement for everything else
+			// just break out of the switch statement for everything else.
 			default:
 				break;
 		}
@@ -780,18 +780,17 @@ class Book_Reviews {
 	 * @link http://www.devblog.fr/en/2013/09/05/modifying-wordpress-search-query-to-include-taxonomy-and-meta/
 	 */
 	public function search_by_isbn( $where ) {
-		// load the meta keys into an array
-		$keys = [ 'isbn' ]; // currently we're just using one, but we can expand this later
+		// load the meta keys into an array.
+		$keys = [ 'isbn' ]; // currently we're just using one, but we can .expand this later
 		if ( is_search() && ! is_admin() ) {
 			global $wpdb;
 			$query = get_search_query();
-			$query = like_escape( $query );
 
-			// include postmeta in search
+			// include postmeta in search.
 			foreach ( $keys as $key ) {
 				$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->postmeta}.post_id FROM {$wpdb->posts}, {$wpdb->postmeta} WHERE {$wpdb->postmeta}.meta_key = '$key' AND {$wpdb->postmeta}.meta_value LIKE '%$query%' AND {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";
 			}
-			// include taxonomy in search
+			// include taxonomy in search.
 			$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->posts}.ID FROM {$wpdb->posts},{$wpdb->term_relationships},{$wpdb->terms} WHERE {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id AND {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->terms}.term_id AND {$wpdb->terms}.name LIKE '%$query%')";
 
 		}
@@ -800,16 +799,18 @@ class Book_Reviews {
 
 	/**
 	 * Saves the book-review post meta data
-	 *
+	 * 
+	 * @param   int     $post_id     The post ID
+	 * @param   object  $post        The post object
 	 * @since   1.0.0
 	 */
 	public function save_book_review_postdata( $post_id, $post ) {
-		$nonce = isset( $_POST['noncename'] ) ? $_POST['noncename'] : 'all the hosts, dream and blue';
+		$nonce = isset( $_POST['noncename'] ) ? $_POST['noncename'] : 'all the hosts, dream and blue'; // phpcs:ignore 
 		if ( ! wp_verify_nonce( $nonce, plugin_basename( __FILE__ ) ) ) {
 			return $post->ID;
 		}
 		/* confirm user is allowed to save page/post */
-		if ( 'page' == $_POST['post_type'] ) {
+		if ( isset( $_POST['post_type'] ) && ( 'page' === $_POST['post_type'] ) ) {
 			if ( ! current_user_can( 'edit_page', $post->ID ) ) {
 				return $post->ID;
 			}
@@ -826,11 +827,11 @@ class Book_Reviews {
 
 		/* Add values of $mydata as custom fields */
 		foreach ( $meta_keys as $meta_key => $type ) {
-			if ( $post->post_type == 'revision' ) {
+			if ( $post->post_type === 'revision' ) {
 				return;
 			}
 			if ( isset( $_POST[ $meta_key ] ) ) {
-				if ( $type == 'text' ) {
+				if ( $type === 'text' ) {
 					$value = wp_kses_post( $_POST[ $meta_key ] );
 				}
 
@@ -867,6 +868,7 @@ class Book_Reviews {
 	/**
 	 * Creates the shortcode
 	 *
+	 * @param   array   $atts   The shortcode attributes
 	 * @since   1.0.0
 	 */
 	public function create_shortcode( $atts ) {
@@ -878,16 +880,16 @@ class Book_Reviews {
 		$defaults = book_reviews_option_defaults();
 		$options = get_option( 'book_reviews_settings', $defaults );
 
-		extract(shortcode_atts( [
+		extract( shortcode_atts( [ // phpcs:ignore WordPress.PHP.DontExtract.extract_extract
 			'count'    => '',
 			'covers'   => true,
-			'order_by' => 'date_added', // author, title, date added (default)
-			'format'   => 'none',       // 0 = none, 1 = excerpt, 2 = full
-			'author'   => '',           // any author
-			'genre'    => '',           // any genre
-			'title'    => '',           // any title
-			'id'       => '',           // a specific post ID
-		], $atts ));
+			'order_by' => 'date_added', // author, title, date added (default).
+			'format'   => 'none',       // 0 = none, 1 = excerpt, 2 = full.
+			'author'   => '',           // any author.
+			'genre'    => '',           // any genre.
+			'title'    => '',           // any title.
+			'id'       => '',           // a specific post ID.
+		], $atts ) );
 
 		$covers         = null;
 		$orderby_author = null;
@@ -934,31 +936,31 @@ class Book_Reviews {
 		}
 		if ( isset( $atts['format'] ) ) {
 			$format = 0;
-			if ( 'excerpt' == $atts['format'] ) {
+			if ( 'excerpt' === $atts['format'] ) {
 				$format = 1;
 			}
-			if ( 'full' == $atts['format'] ) {
+			if ( 'full' === $atts['format'] ) {
 				$format = 2;
 			}
 		}
 		if ( isset( $atts['author'] ) ) {
-			$author = sanitize_title( $atts['author'] ); // sanitize the title in case someone didn't remember to do that
+			$author = sanitize_title( $atts['author'] ); // sanitize the title in case someone didn't remember to do that.
 		}
 
 		if ( isset( $atts['genre'] ) ) {
-			$genre = sanitize_title( $atts['genre'] ); // sanitize the genre in case someone didn't remember to do that
+			$genre = sanitize_title( $atts['genre'] ); // sanitize the genre in case someone didn't remember to do that.
 		}
 
 		if ( isset( $atts['title'] ) ) {
-			$title = sanitize_title( $atts['title'] ); // sanitize the title, it should match a post slug
+			$title = sanitize_title( $atts['title'] ); // sanitize the title, it should match a post slug.
 		}
 
 		if ( isset( $atts['id'] ) ) {
-			$post_id = absint( $atts['id'] ); // make sure the id is a positive integer
+			$post_id = absint( $atts['id'] ); // make sure the id is a positive integer.
 		}
 
-		if ( ! $orderby_author ) { // if we're not ordering by author, do things normally
-			if ( $title ) { // we passed a book title
+		if ( ! $orderby_author ) { // if we're not ordering by author, do things normally.
+			if ( $title ) { // we passed a book title.
 				$args = [
 					'post_type'      => 'book-review',
 					'name'           => $title,
@@ -970,14 +972,14 @@ class Book_Reviews {
 					'p'              => $post_id,
 					'posts_per_page' => 1,
 				];
-			} elseif ( ! $author && ! $genre ) { // we are not listing books of a specific author or a specific genre
+			} elseif ( ! $author && ! $genre ) { // we are not listing books of a specific author or a specific genre.
 				$args = [
 					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
 					'orderby'        => $orderby,
 					'order'          => $order,
 				];
-			} elseif ( $author && ! $genre ) { // we're listing all the books by a specific author, but no specific genre
+			} elseif ( $author && ! $genre ) { // we're listing all the books by a specific author, but no specific genre.
 				$args = [
 					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
@@ -985,7 +987,7 @@ class Book_Reviews {
 					'order'          => 'ASC',
 					'book-author'    => $author,
 				];
-			} elseif ( $genre && ! $author ) { // we're listing all the books of a specific genre, but not a specific author
+			} elseif ( $genre && ! $author ) { // we're listing all the books of a specific genre, but not a specific author.
 				$args = [
 					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
@@ -993,7 +995,7 @@ class Book_Reviews {
 					'order'          => $order,
 					'genre'          => $genre,
 				];
-			} elseif ( $genre && $author ) { // we're listing all the books by a particular author in a specific genre
+			} elseif ( $genre && $author ) { // we're listing all the books by a particular author in a specific genre.
 				$args = [
 					'post_type'      => 'book-review',
 					'posts_per_page' => $count,
@@ -1020,10 +1022,10 @@ class Book_Reviews {
 					?>
 
 				<div <?php post_class( 'book-review-sc' ); ?>>
-					<?php if ( ( $covers == true ) && has_post_thumbnail() ) { ?>
+					<?php if ( ( $covers === true ) && has_post_thumbnail() ) { ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
 							<?php
-							if ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) {
+							if ( isset( $options['thumbnail'] ) && 'book-cover' === $options['thumbnail'] ) {
 								the_post_thumbnail( 'book-cover' );
 							} else {
 								the_post_thumbnail( 'thumbnail' );
@@ -1108,12 +1110,12 @@ class Book_Reviews {
 endif;
 			wp_reset_query();
 			return ob_get_clean();
-		} elseif ( ! empty( $terms ) ) { // we're doing this by book author, time to loop through again....
+		} elseif ( ! empty( $terms ) ) { // we're doing this by book author, .time to loop through again....
 			foreach ( $terms as $term ) {
 				$args = [
 					'post_type' => 'book-review',
 					'posts_per_page' => $count,
-					'tax_query' => [
+					'tax_query' => [ // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 						[
 							'taxonomy' => 'book-author',
 							'field' => 'slug',
@@ -1139,10 +1141,10 @@ endif;
 							?>
 
 						<div <?php post_class( 'book-review-sc' ); ?>>
-							<?php if ( ( $covers == true ) && has_post_thumbnail() ) { ?>
+							<?php if ( ( $covers === true ) && has_post_thumbnail() ) { ?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="alignleft pull-left thumbnail">
 									<?php
-									if ( isset( $options['thumbnail'] ) && 'book-cover' == $options['thumbnail'] ) {
+									if ( isset( $options['thumbnail'] ) && 'book-cover' === $options['thumbnail'] ) {
 										the_post_thumbnail( 'book-cover' );
 									} else {
 										the_post_thumbnail( 'thumbnail' );
