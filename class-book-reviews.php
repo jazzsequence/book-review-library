@@ -356,21 +356,19 @@ class Book_Reviews {
 			return;
 		}
 
-			unset( $wp_meta_boxes['book-review']['normal']['core']['authordiv'] );
-
-			remove_meta_box( 'publisherdiv', 'book-review', 'side' );
-			remove_meta_box( 'tagsdiv-format', 'book-review', 'side' );
-			remove_meta_box( 'tagsdiv-language', 'book-review', 'side' );
-			remove_meta_box( 'tagsdiv-subject', 'book-review', 'side' );
-			remove_meta_box( 'seriesdiv', 'book-review', 'side' );
-			remove_meta_box( 'book-authordiv', 'book-review', 'side' );
-			remove_meta_box( 'illustratordiv', 'book-review', 'side' );
-			remove_meta_box( 'tagsdiv-reading-level', 'book-review', 'side' );
-			remove_meta_box( 'tagsdiv-genre', 'book-review', 'side' );
-			remove_meta_box( 'tagsdiv-rating', 'book-review', 'side' );
-			remove_meta_box( 'postimagediv', 'book-review', 'side' );
-			add_meta_box( 'postimagediv', __( 'Book Cover', 'book-review-library' ), 'post_thumbnail_meta_box', 'book-review', 'side', 'default' );
-		}
+		unset( $wp_meta_boxes['book-review']['normal']['core']['authordiv'] );
+		remove_meta_box( 'publisherdiv', 'book-review', 'side' );
+		remove_meta_box( 'tagsdiv-format', 'book-review', 'side' );
+		remove_meta_box( 'tagsdiv-language', 'book-review', 'side' );
+		remove_meta_box( 'tagsdiv-subject', 'book-review', 'side' );
+		remove_meta_box( 'seriesdiv', 'book-review', 'side' );
+		remove_meta_box( 'book-authordiv', 'book-review', 'side' );
+		remove_meta_box( 'illustratordiv', 'book-review', 'side' );
+		remove_meta_box( 'tagsdiv-reading-level', 'book-review', 'side' );
+		remove_meta_box( 'tagsdiv-genre', 'book-review', 'side' );
+		remove_meta_box( 'tagsdiv-rating', 'book-review', 'side' );
+		remove_meta_box( 'postimagediv', 'book-review', 'side' );
+		add_meta_box( 'postimagediv', __( 'Book Cover', 'book-review-library' ), 'post_thumbnail_meta_box', 'book-review', 'side', 'default' );
 	}
 
 
@@ -1003,10 +1001,9 @@ class Book_Reviews {
 			}
 
 			$query = new WP_Query( $args );
-			ob_start();
-			if ( $query->have_posts() ) :
-				while ( $query->have_posts() ) :
-					$query->the_post(); ?>
+			if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); // phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace
+					ob_start();
+					?>
 			<div class="book-review-wrapper orderedby-<?php echo esc_attr( $orderby ); ?>" id="book-review-<?php echo get_the_ID(); ?>">
 					<?php
 					if ( has_term( '', 'book-author' ) && ( isset( $options['title-filter'] ) && $options['title-filter'] ) ) {
@@ -1028,63 +1025,61 @@ class Book_Reviews {
 							}
 							?>
 						</a>
-					<?php } ?>
+						<?php 
+					}
 
-									<?php
-									if ( $format ) {
-										if ( $format == 1 ) {
-											?>
-											<?php the_excerpt(); ?>
-						<?php } elseif ( $format == 2 ) { ?>
-											<?php the_content(); ?>
-											<?php
+					if ( $format ) {
+						if ( $format === 1 ) {
+							the_excerpt();
+						} elseif ( $format === 2 ) {
+							the_content(); 
 						}
-									}
-									?>
+					}
+					?>
 				</div>
 
 				<div class="post-meta">
-									<?php
-									if ( has_term( '', 'rating' ) ) {
-										$rating = get_rating();
-										if ( $rating == 'zero' ) {
-											$rating = '0';
-										}
-										$rating_arr = get_term_by( 'name', $rating, 'rating' );
-										$star_slug = $rating_arr->slug;
-										$rating_string = '<a href="' . home_url() . '/?rating=' . $star_slug . '/">' . get_rating_stars() . '</a>';
-										echo '<span class="rating">';
-										echo $rating_string;
-										echo '</span><br />';
-									}
-									if ( has_term( '', 'review-author' ) && is_singular( 'book-review' ) ) {
-										$rev_auth = get_term_by( 'name', get_review_author(), 'review-author' );
-										$rev_auth_slug = $rev_auth->slug;
-										$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
-										echo '<span class="author">';
-										printf( __( 'Review by %s', 'book-review-library' ), $author_string );
-										echo '</span><br />';
-									}
-									if ( has_term( '', 'reading-level' ) ) {
-										echo '<span class="reading-level">';
-										printf( __( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
-										echo '<span><br />';
-									}
-									if ( isset( $options['stock'] ) && $options['stock'] ) {
-										if ( get_post_meta( get_the_ID(), 'book_in_stock', true ) ) {
-											echo '<span class="in-stock">';
-											_e( 'This book is <strong>in stock</strong>', 'book-review-library' );
-											echo '</span>';
-										} else {
-											echo '<span class="out-of-stock">';
-											_e( 'This book is <strong>currently checked out</strong>', 'book-review-library' );
-											echo '</span>';
-										}
-									}
-									?>
+					<?php
+					if ( has_term( '', 'rating' ) ) {
+						$rating = get_rating();
+						if ( $rating === 'zero' ) {
+							$rating = '0';
+						}
+						$rating_arr = get_term_by( 'name', $rating, 'rating' );
+						$star_slug = $rating_arr->slug;
+						$rating_string = '<a href="' . home_url() . '/?rating=' . $star_slug . '/">' . get_rating_stars() . '</a>';
+						echo '<span class="rating">';
+						echo $rating_string;
+						echo '</span><br />';
+					}
+					if ( has_term( '', 'review-author' ) && is_singular( 'book-review' ) ) {
+						$rev_auth = get_term_by( 'name', get_review_author(), 'review-author' );
+						$rev_auth_slug = $rev_auth->slug;
+						$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
+						echo '<span class="author">';
+						printf( __( 'Review by %s', 'book-review-library' ), $author_string );
+						echo '</span><br />';
+					}
+					if ( has_term( '', 'reading-level' ) ) {
+						echo '<span class="reading-level">';
+						printf( __( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
+						echo '<span><br />';
+					}
+					if ( isset( $options['stock'] ) && $options['stock'] ) {
+						if ( get_post_meta( get_the_ID(), 'book_in_stock', true ) ) {
+							echo '<span class="in-stock">';
+							_e( 'This book is <strong>in stock</strong>', 'book-review-library' ); // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+							echo '</span>';
+						} else {
+							echo '<span class="out-of-stock">';
+							_e( 'This book is <strong>currently checked out</strong>', 'book-review-library' ); // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+							echo '</span>';
+						}
+					}
+					?>
 				</div>
 				<div class="post-data">
-									<?php if ( isset( $options['title-filter'] ) && ! $options['title-filter'] && has_term( '', 'book-author' ) ) { ?>
+					<?php if ( isset( $options['title-filter'] ) && ! $options['title-filter'] && has_term( '', 'book-author' ) ) { ?>
 						<span class="book-author"><?php printf( __( '<strong>Author:</strong> %s', 'book-review-library' ), get_book_author() ); ?></span><br />
 					<?php } ?>
 					<?php if ( has_term( '', 'genre' ) ) { ?>
@@ -1123,9 +1118,7 @@ endif;
 				];
 				$query = new WP_Query( $args );
 				ob_start();
-				if ( $query->have_posts() ) :
-					while ( $query->have_posts() ) :
-						$query->the_post();
+				if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); // phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace
 						?>
 					<div class="book-review-wrapper orderedby-<?php echo esc_attr( $orderby ); ?>" id="book-review-<?php echo get_the_ID(); ?>">
 							<?php
@@ -1147,63 +1140,61 @@ endif;
 									}
 									?>
 								</a>
-							<?php } ?>
+								<?php 
+							}
 
-												<?php
-												if ( $format ) {
-													if ( $format == 1 ) {
-														?>
-														<?php the_excerpt(); ?>
-								<?php } elseif ( $format == 2 ) { ?>
-														<?php the_content(); ?>
-														<?php
+							if ( $format ) {
+								if ( $format === 1 ) {
+									the_excerpt();
+								} elseif ( $format === 2 ) {
+									the_content();
 								}
-												}
-												?>
+							}
+							?>
 						</div>
 
 						<div class="post-meta">
-												<?php
-												if ( has_term( '', 'rating' ) ) {
-													$rating = get_rating();
-													if ( $rating == 'zero' ) {
-														$rating = '0';
-													}
-													$rating_arr = get_term_by( 'name', $rating, 'rating' );
-													$star_slug = $rating_arr->slug;
-													$rating_string = '<a href="' . home_url() . '/?rating=' . $star_slug . '/">' . get_rating_stars() . '</a>';
-													echo '<span class="rating">';
-													echo $rating_string;
-													echo '</span><br />';
-												}
-												if ( has_term( '', 'review-author' ) && is_singular( 'book-review' ) ) {
-													$rev_auth = get_term_by( 'name', get_review_author(), 'review-author' );
-													$rev_auth_slug = $rev_auth->slug;
-													$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
-													echo '<span class="author">';
-													printf( __( 'Review by %s', 'book-review-library' ), $author_string );
-													echo '</span><br />';
-												}
-												if ( has_term( '', 'reading-level' ) ) {
-													echo '<span class="reading-level">';
-													printf( __( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
-													echo '<span><br />';
-												}
-												if ( isset( $options['stock'] ) && $options['stock'] ) {
-													if ( get_post_meta( get_the_ID(), 'book_in_stock', true ) ) {
-														echo '<span class="in-stock">';
-														_e( 'This book is <strong>in stock</strong>', 'book-review-library' );
-														echo '</span>';
-													} else {
-														echo '<span class="out-of-stock">';
-														_e( 'This book is <strong>currently checked out</strong>', 'book-review-library' );
-														echo '</span>';
-													}
-												}
-												?>
+							<?php
+							if ( has_term( '', 'rating' ) ) {
+								$rating = get_rating();
+								if ( $rating === 'zero' ) {
+									$rating = '0';
+								}
+								$rating_arr = get_term_by( 'name', $rating, 'rating' );
+								$star_slug = $rating_arr->slug;
+								$rating_string = '<a href="' . home_url() . '/?rating=' . $star_slug . '/">' . get_rating_stars() . '</a>';
+								echo '<span class="rating">';
+								echo $rating_string;
+								echo '</span><br />';
+							}
+							if ( has_term( '', 'review-author' ) && is_singular( 'book-review' ) ) {
+								$rev_auth = get_term_by( 'name', get_review_author(), 'review-author' );
+								$rev_auth_slug = $rev_auth->slug;
+								$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
+								echo '<span class="author">';
+								printf( __( 'Review by %s', 'book-review-library' ), $author_string );
+								echo '</span><br />';
+							}
+							if ( has_term( '', 'reading-level' ) ) {
+								echo '<span class="reading-level">';
+								printf( __( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
+								echo '<span><br />';
+							}
+							if ( isset( $options['stock'] ) && $options['stock'] ) {
+								if ( get_post_meta( get_the_ID(), 'book_in_stock', true ) ) {
+									echo '<span class="in-stock">';
+									_e( 'This book is <strong>in stock</strong>', 'book-review-library' ); // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+									echo '</span>';
+								} else {
+									echo '<span class="out-of-stock">';
+									_e( 'This book is <strong>currently checked out</strong>', 'book-review-library' ); // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+									echo '</span>';
+								}
+							}
+							?>
 						</div>
 						<div class="post-data">
-												<?php if ( isset( $options['title-filter'] ) && ! $options['title-filter'] && has_term( '', 'book-author' ) ) { ?>
+							<?php if ( isset( $options['title-filter'] ) && ! $options['title-filter'] && has_term( '', 'book-author' ) ) { ?>
 								<span class="book-author"><?php printf( __( '<strong>Author:</strong> %s', 'book-review-library' ), get_book_author() ); ?></span><br />
 							<?php } ?>
 							<?php if ( has_term( '', 'genre' ) ) { ?>
