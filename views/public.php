@@ -43,7 +43,7 @@ function book_review_archive_check() {
 			}       
 		}
 
-			add_filter( 'the_content', 'filter_book_review_single', 20 );
+		add_filter( 'the_content', 'filter_book_review_single', 20 );
 		add_filter( 'get_the_excerpt', 'filter_book_review_excerpt', 20 );
 	}
 }
@@ -54,8 +54,6 @@ function book_review_archive_check() {
  * @since   1.0.0
  */
 function book_review_single_check() {
-
-
 	$single = locate_template( 'single-book-review.php' );
 	if ( empty( $single ) ) {
 		include_once BOOK_REVIEWS_TEMPLATE_TAGS;
@@ -88,8 +86,6 @@ function book_review_single_check() {
  * @since   1.0.0
  */
 function book_review_taxonomy_check() {
-
-
 	$taxonomy = locate_template( 'taxonomy.php' );
 	if ( empty( $taxonomy ) ) {
 		include_once BOOK_REVIEWS_TEMPLATE_TAGS;
