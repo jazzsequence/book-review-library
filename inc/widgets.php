@@ -15,6 +15,9 @@
  * @since   1.0.0
  */
 class Book_Review_Widget extends WP_Widget {
+	/**
+	 * Constructor
+	 */
 	public function __construct() {
 		$widget_options = [
 			'classname' => 'book_review_widget',
@@ -26,14 +29,22 @@ class Book_Review_Widget extends WP_Widget {
 		parent::__construct( 'book-review-widget', 'Similar Books', $widget_options, $control_options );
 	}
 
+	/**
+	 * Similar Books Widget display
+	 * 
+	 * @param array $args The widget arguments
+	 * @param array $instance The widget instance
+	 */
 	public function widget( $args, $instance ) {
 		global $wp_query;
 
 		$this_post = $wp_query->post->ID;
 
-		extract( $args );
-		// count is the number of items to show
-		// image toggles whether to display thumbnails
+		extract( $args ); // phpcs:ignore WordPress.PHP.DontExtract.extract_extract
+		/**
+		 * Count is the number of items to show.
+		 * Image toggles whether to display thumbnails.
+		 */
 		if ( isset( $instance['title'] ) ) {
 			$title = apply_filters( 'widget_title', $instance['title'] );
 		} else {
@@ -65,14 +76,14 @@ class Book_Review_Widget extends WP_Widget {
 				}
 
 				$query_args = [
-					'tax_query' => [
+					'tax_query' => [ //phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 						[
 							'taxonomy'  => 'genre',
 							'terms'     => $genre_ids,
 							'operator'  => 'IN',
 						],
 					],
-					'post__not_in'          => [ $this_post ],
+					'post__not_in'          => [ $this_post ], // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in
 					'posts_per_page'        => $count,
 					'ignore_sticky_posts'   => 1,
 					'orderby'               => 'rand',
@@ -80,8 +91,8 @@ class Book_Review_Widget extends WP_Widget {
 				$related_query = new WP_Query( $query_args );
 			}
 
-			echo $args['before_widget'];
-			echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
+			echo wp_kses_post( $args['before_widget'] );
+			echo wp_kses_post( $args['before_title'] ) . esc_html( $title ) . wp_kses_post( $args['after_title'] );
 
 			if ( $related_query->have_posts() ) { ?>
 				<div class="related">
@@ -95,32 +106,38 @@ class Book_Review_Widget extends WP_Widget {
 								<a href="<?php the_permalink(); ?>">
 									<?php the_post_thumbnail( 'tiny', [ 'class' => 'alignleft' ] ); ?>
 								</a>
-								<?php endif; ?>
-								<?php /* translators: 1: title, 2: author */ ?>
-								<?php printf( __( '%1$s by %2$s', 'book-review-library' ), '<a href="' . get_permalink() . '">' . get_the_title() . '</a><br />', get_book_author() ); ?>
+									<?php 
+								endif;
+								printf( 
+									/* translators: 1: title, 2: author */
+									wp_kses_post( __( '%1$s by %2$s', 'book-review-library' ) ), 
+									'<a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . '</a><br />', 
+									get_book_author() // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								); 
+							?>
 							</li>
 						<?php } ?>
 					</ul>
 				</div>
 				<?php
 			} else {
-				_e( 'No similar books were found.', 'book-review-library' );
+				esc_html_e( 'No similar books were found.', 'book-review-library' );
 			}
-			echo $args['after_widget'];
+			echo wp_kses_post( $args['after_widget'] );
 		} elseif ( is_tax() ) {
 			$taxonomy = get_query_var( 'taxonomy' );
 			$term = get_query_var( 'term' );
 			$term_id = get_term_by( 'slug', $term, $taxonomy )->term_id;
 
 			$tax_args = [
-				'tax_query' => [
+				'tax_query' => [ //phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 					[
 						'taxonomy' => $taxonomy,
 						'terms' => [ $term_id ],
 						'operator' => 'IN',
 					],
 				],
-				'post__not_in' => [ $this_post ],
+				'post__not_in' => [ $this_post ], // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in
 				'post_per_page' => $count,
 				'ignore_sticky_posts' => 1,
 				'orderby' => 'rand',
@@ -129,8 +146,8 @@ class Book_Review_Widget extends WP_Widget {
 			$tax_query = new WP_Query( $tax_args );
 
 			if ( $tax_query->have_posts() ) {
-				echo $args['before_widget'];
-				echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
+				echo wp_kses_post( $args['before_widget'] );
+				echo wp_kses_post( $args['before_title'] ) . esc_html( $title ) . wp_kses_post( $args['after_title'] );
 				?>
 				<div class="related">
 					<ul>
@@ -146,10 +163,14 @@ class Book_Review_Widget extends WP_Widget {
 								<?php endif; ?>
 								<?php
 								if ( get_book_author() ) {
-									/* translators:  1: title, 2: author */
-									printf( __( '%1$s by %2$s', 'book-review-library' ), '<a href="' . get_permalink() . '">' . get_the_title() . '</a><br />', get_book_author() );
+									printf( 
+										/* translators:  1: title, 2: author */
+										wp_kses_post( __( '%1$s by %2$s', 'book-review-library' ) ), 
+										'<a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . '</a><br />',
+										get_book_author()  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									);
 								} else {
-									echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+									echo '<a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . '</a>';
 								}
 								?>
 							</li>
@@ -157,11 +178,16 @@ class Book_Review_Widget extends WP_Widget {
 					</ul>
 				</div>
 				<?php
-				echo $args['after_widget'];
+				echo wp_kses_post( $args['after_widget'] );
 			}
 		}
 	}
 
+	/**
+	 * Similar Books Widget form
+	 * 
+	 * @param array $instance The instance
+	 */
 	public function form( $instance ) {
 		$defaults = [
 			'title' => __( 'Similar Books', 'book-review-library' ),
@@ -195,28 +221,36 @@ class Book_Review_Widget extends WP_Widget {
 			$image = $defaults['image']; }
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:', 'book-review-library' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-			<span class="description"><?php _e( 'The title that displays above the widget.', 'book-review-library' ); ?></span>
+			<label for="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'book-review-library' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			<span class="description"><?php esc_html_e( 'The title that displays above the widget.', 'book-review-library' ); ?></span>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_name( 'count' ); ?>"><?php _e( 'Count:', 'book-review-library' ); ?></label>
-			<input id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>" size="3" /><br />
-			<span class="description"><?php _e( 'How many reviews to display.', 'book-review-library' ); ?></span>
+			<label for="<?php echo esc_attr( $this->get_field_name( 'count' ) ); ?>"><?php esc_html_e( 'Count:', 'book-review-library' ); ?></label>
+			<input id="<?php echo esc_attr( $this->get_field_id( 'count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'count' ) ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>" size="3" /><br />
+			<span class="description"><?php esc_html_e( 'How many reviews to display.', 'book-review-library' ); ?></span>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Display Images:', 'book-review-library' ); ?></label>
-			<?php echo the_select_box( $this->get_field_name( 'image' ), $values, $instance['image'] ); ?><br />
-			<span class="description"><?php _e( 'Display thumbnail images next to the titles?', 'book-review-library' ); ?></span>
+			<label for="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>"><?php esc_html_e( 'Display Images:', 'book-review-library' ); ?></label>
+			<?php echo book_review_select_box( $this->get_field_name( 'image' ), $values, $image ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><br />
+			<span class="description"><?php esc_html_e( 'Display thumbnail images next to the titles?', 'book-review-library' ); ?></span>
 		</p>
 		<?php
 	}
 
+	/**
+	 * Update the widget settings.
+	 * 
+	 * @param array $new_instance The new settings
+	 * @param array $old_instance The old settings
+	 * 
+	 * @return array The updated settings
+	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['count'] = ( ! empty( $new_instance['count'] ) ) ? strip_tags( $new_instance['count'] ) : '';
-		$instance['image'] = ( ! empty( $new_instance['image'] ) ) ? strip_tags( $new_instance['image'] ) : '';
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? wp_strip_all_tags( $new_instance['title'] ) : '';
+		$instance['count'] = ( ! empty( $new_instance['count'] ) ) ? wp_strip_all_tags( $new_instance['count'] ) : '';
+		$instance['image'] = ( ! empty( $new_instance['image'] ) ) ? wp_strip_all_tags( $new_instance['image'] ) : '';
 
 		return $instance;
 	}
@@ -228,6 +262,9 @@ class Book_Review_Widget extends WP_Widget {
  * @since   1.0.0
  */
 class Book_Review_Recent_Widget extends WP_Widget {
+	/**
+	 * Constructor
+	 */
 	public function __construct() {
 		$widget_options = [
 			'classname' => 'recent_book_review_widget',
@@ -239,10 +276,18 @@ class Book_Review_Recent_Widget extends WP_Widget {
 		parent::__construct( 'recent-book-review-widget', __( 'Recent Book Reviews', 'book-review-library' ), $widget_options, $control_options );
 	}
 
+	/**
+	 * Widget display
+	 * 
+	 * @param array $args The widget arguments
+	 * @param array $instance The widget instance
+	 */
 	public function widget( $args, $instance ) {
-		extract( $args );
-		// count is the number of items to show
-		// image toggles whether to display thumbnails
+		extract( $args ); // phpcs:ignore WordPress.PHP.DontExtract.extract_extract
+		/**
+		 * Count is the number of items to show.
+		 * Image toggles whether to display thumbnails.
+		 */
 		if ( isset( $instance['title'] ) ) {
 			$title = apply_filters( 'widget_title', $instance['title'] );
 		} else {
@@ -263,8 +308,8 @@ class Book_Review_Recent_Widget extends WP_Widget {
 				];
 				$recent_query = new WP_Query( $query_args );
 
-				echo $args['before_widget'];
-				echo $args['before_title'] . esc_html( $title ) . $args['after_title'];
+				echo wp_kses_post( $args['before_widget'] );
+				echo wp_kses_post( $args['before_title'] ) . esc_html( $title ) . wp_kses_post( $args['after_title'] );
 
 				if ( $recent_query->have_posts() ) {
 					?>
@@ -282,10 +327,14 @@ class Book_Review_Recent_Widget extends WP_Widget {
 								<?php endif; ?>
 								<?php
 								if ( get_book_author() ) {
-									/* translators: 1: title, 2: author */
-									printf( __( '%1$s by %2$s', 'book-review-library' ), '<a href="' . get_permalink() . '">' . get_the_title() . '</a><br />', get_book_author() );
+									printf( 
+										/* translators: 1: title, 2: author */
+										wp_kses_post( __( '%1$s by %2$s', 'book-review-library' ) ), 
+										'<a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . '</a><br />', 
+										get_book_author() // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									);
 								} else {
-									echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+									echo '<a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . '</a>';
 								}
 								?>
 							</li>
@@ -294,11 +343,16 @@ class Book_Review_Recent_Widget extends WP_Widget {
 				</div>
 					<?php
 				} else {
-					_e( 'No books were found.', 'book-review-library' );
+					esc_html_e( 'No books were found.', 'book-review-library' );
 				}
-				echo $args['after_widget'];
+				echo wp_kses_post( $args['after_widget'] );
 	}
 
+	/**
+	 * Recent Book Reviews Widget form
+	 * 
+	 * @param array $instance The instance
+	 */
 	public function form( $instance ) {
 		$defaults = [
 			'title' => __( 'Recent Book Reviews', 'book-review-library' ),
@@ -332,28 +386,36 @@ class Book_Review_Recent_Widget extends WP_Widget {
 			$image = $defaults['image']; }
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:', 'book-review-library' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-			<span class="description"><?php _e( 'The title that displays above the widget.', 'book-review-library' ); ?></span>
+			<label for="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'book-review-library' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			<span class="description"><?php esc_html_e( 'The title that displays above the widget.', 'book-review-library' ); ?></span>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_name( 'count' ); ?>"><?php _e( 'Count:', 'book-review-library' ); ?></label>
-			<input id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>" size="3" /><br />
-			<span class="description"><?php _e( 'How many reviews to display.', 'book-review-library' ); ?></span>
+			<label for="<?php echo esc_attr( $this->get_field_name( 'count' ) ); ?>"><?php esc_html_e( 'Count:', 'book-review-library' ); ?></label>
+			<input id="<?php echo esc_attr( $this->get_field_id( 'count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'count' ) ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>" size="3" /><br />
+			<span class="description"><?php esc_html_e( 'How many reviews to display.', 'book-review-library' ); ?></span>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Display Images:', 'book-review-library' ); ?></label>
-			<?php echo the_select_box( $this->get_field_name( 'image' ), $values, $instance['image'] ); ?><br />
-			<span class="description"><?php _e( 'Display thumbnail images next to the titles?', 'book-review-library' ); ?></span>
+			<label for="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>"><?php esc_html_e( 'Display Images:', 'book-review-library' ); ?></label>
+			<?php echo book_review_select_box( $this->get_field_name( 'image' ), $values, $image ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><br />
+			<span class="description"><?php esc_html_e( 'Display thumbnail images next to the titles?', 'book-review-library' ); ?></span>
 		</p>
 		<?php
 	}
 
+	/**
+	 * Update the widget settings.
+	 * 
+	 * @param array $new_instance The new settings
+	 * @param array $old_instance The old settings
+	 * 
+	 * @return array The updated settings
+	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['count'] = ( ! empty( $new_instance['count'] ) ) ? strip_tags( $new_instance['count'] ) : '';
-		$instance['image'] = ( ! empty( $new_instance['image'] ) ) ? strip_tags( $new_instance['image'] ) : '';
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? wp_strip_all_tags( $new_instance['title'] ) : '';
+		$instance['count'] = ( ! empty( $new_instance['count'] ) ) ? wp_strip_all_tags( $new_instance['count'] ) : '';
+		$instance['image'] = ( ! empty( $new_instance['image'] ) ) ? wp_strip_all_tags( $new_instance['image'] ) : '';
 
 		return $instance;
 	}
