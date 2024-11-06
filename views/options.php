@@ -39,6 +39,27 @@ class Book_Reviews_Options {
 	protected $title = '';
 
 	/**
+	 * Default options
+	 * 
+	 * @var array
+	 */
+	protected $defaults = [];
+
+	/**
+	 * CMB2 fields
+	 * 
+	 * @var array
+	 */
+	protected $fields = [];
+
+	/**
+	 * Screen ID
+	 * 
+	 * @var string
+	 */
+	protected $screen_id = 'book-review_page_book-review-library-options';
+
+	/**
 	 * Options Page hook
 	 *
 	 * @var string
@@ -46,7 +67,6 @@ class Book_Reviews_Options {
 	protected $options_page = '';
 
 	public function __construct() {
-
 		// set up our title
 		$this->title = __( 'Book Review Library Options', 'book-review-library' );
 		$this->defaults = $this->defaults();
@@ -183,8 +203,11 @@ class Book_Reviews_Options {
 	 * @link  https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
 	 */
 	public function hooks() {
-		add_action( 'admin_init', [ $this, 'init' ] );
+		add_action( 'init', [ $this, 'init' ] );
 		add_action( 'admin_menu', [ $this, 'add_plugin_admin_menu' ] );
+		add_action( 'cmb2_admin_init', [ $this, 'register_options' ] );	
+		add_action( 'current_screen', [ $this, 'maybe_save' ] );
+		add_filter( 'admin_footer', [ $this, 'maybe_hookup_fields' ], 2 );
 	}
 
 	/**
@@ -222,10 +245,15 @@ class Book_Reviews_Options {
 	 */
 	public function admin_page_display() {
 		?>
-		<div class="wrap cmb2_options_page <?php echo $this->key; ?>">
-			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-			<?php cmb2_metabox_form( $this->option_metabox(), $this->key ); ?>
+		<div id="cmb2-options-page-<?php echo $this->key; ?>" class="wrap cmb2-options-page <?php echo $this->key; ?>" style="display:none">
+			<?php cmb2_get_metabox( $this->metabox_id, $this->key, 'options-page' )->show_form(); ?>
 		</div>
+		<script type="text/javascript">
+			var cmb2 = document.getElementById( 'cmb2-options-page-<?php echo $this->key; ?>' );
+			var submit = document.getElementById( 'submit' ).parentNode;
+			submit.parentNode.insertBefore( cmb2, submit );
+			cmb2.style.display = '';
+		</script>
 		<?php
 	}
 
@@ -236,16 +264,55 @@ class Book_Reviews_Options {
 	 * @link   https://github.com/WebDevStudios/CMB2/wiki/Using-CMB-to-create-an-Admin-Theme-Options-Page
 	 * @return array
 	 */
-	public function option_metabox() {
-		return [
-			'id'         => 'option_metabox',
-			'show_on'    => [
-				'key' => 'options-page',
-				'value' => $this->key,
-			],
-			'show_names' => true,
-			'fields'     => $this->fields,
-		];
+	public function register_options() {
+		$cmb = new_cmb2_box( [
+			'id' => 'option_metabox',
+			'hookup' => false,
+			'object_types' => [ 'options-page' ],
+		] );
+
+		foreach ( $this->fields as $field ) {
+			$cmb->add_field( $field );
+		}
+	}
+
+	public function maybe_save() {
+		if ( empty( $_POST ) ) {
+			return;
+		}
+
+		$url = wp_get_referer();
+		if ( false === strpos( $url, $this->key ) ) {
+			wp_die( 'you came from the wrong place', 'wrong place', [ 'url' => $url ] );
+		}
+
+		add_filter( 'whitelist_options', [ $this, 'save_our_options' ] );
+	}
+
+	public function save_our_options( $whitelist_options ) {
+		$cmb = cmb2_get_metabox( 'option_metabox', $this->key );
+		if ( $cmb )  {
+			$hookup = new CMB2_hookup( $cmb );;
+
+			if ( $hookup->can_save( 'options-page' ) ) {
+				$cmb->save_fields( $this->key, 'options-page', $_POST );
+			}
+		}
+
+		remove_filter( 'whitelist_options', [ $this, 'save_our_options' ] );
+		return $whitelist_options;
+	}
+
+	public function maybe_hookup_fields() {
+		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : (object) array( 'id' => null );
+		// var_dump($screen->id);
+		// Only show on our screen.
+		if ( $this->screen_id !== $screen->id ) {
+			return;
+		}
+
+		CMB2_hookup::enqueue_cmb_css();
+		$this->admin_page_display();
 	}
 
 	/**
