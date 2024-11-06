@@ -424,15 +424,6 @@ class Book_Reviews {
 	}
 
 	/**
-	 * Registers the options
-	 *
-	 * @since   1.0.0
-	 */
-	public function settings_init() {
-		register_setting( 'book_reviews_settings', 'book_reviews_settings' );
-	}
-
-	/**
 	 * Filter for the featured image post box
 	 *
 	 * @since   1.0.0
