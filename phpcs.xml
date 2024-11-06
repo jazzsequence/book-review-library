@@ -27,6 +27,8 @@
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
 		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.custom_role_add_role"/> <!-- todo: add to pantheon wp coding standards -->
 		<exclude name="WordPressVIPMinimum.Performance.OrderByRand.orderby_orderby"/> <!-- todo: add to pantheon wp coding standards -->
+		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.get_adjacent_post_get_next_post"/> <!-- todo: add to pantheon wp coding standards -->
+		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.get_adjacent_post_get_previous_post"/> <!-- todo: add to pantheon wp coding standards -->
 	</rule>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
@@ -54,5 +56,11 @@
 	</rule>
 	<rule ref="Generic.Files.OneObjectStructurePerFile.MultipleFound">
 		<exclude-pattern>inc/widgets.php</exclude-pattern>
+	</rule>
+	<rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable">
+		<exclude-pattern>book-review-library.php</exclude-pattern>
+	</rule>
+	<rule ref="Universal.NamingConventions.NoReservedKeywordParameterNames.returnFound">
+		<exclude-pattern>views/public.php</exclude-pattern>
 	</rule>
 </ruleset>

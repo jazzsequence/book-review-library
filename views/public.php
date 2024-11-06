@@ -117,6 +117,8 @@ function book_review_taxonomy_check() {
  * filters the_content and adds the book review meta data and taxonomies
  *
  * @since   1.0.0
+ * @param string $content The original content.
+ * @return string         The new content.
  */
 function filter_book_review_single( $content ) {
 	global $post, $is_book_review_shortcode;
@@ -127,7 +129,7 @@ function filter_book_review_single( $content ) {
 	include_once BOOK_REVIEWS_TEMPLATE_TAGS;
 	$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
 
-	// check for awards
+	// check for awards.
 	if ( has_term( '', 'awards' ) ) {
 		$awards = '<div class="awards post-data alignleft">';
 		if ( get_post_meta( $post->ID, 'award_image', true ) ) {
@@ -142,7 +144,7 @@ function filter_book_review_single( $content ) {
 	$meta = '<div class="post-meta">';
 	if ( has_term( '', 'rating' ) ) {
 		$rating = get_rating();
-		if ( $rating == 'zero' ) {
+		if ( $rating === 'zero' ) {
 			$rating = '0';
 		}
 		$rating_arr = get_term_by( 'name', $rating, 'rating' );
@@ -157,11 +159,13 @@ function filter_book_review_single( $content ) {
 		$rev_auth_slug = $rev_auth->slug;
 		$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
 		$meta .= '<span class="author">';
+		// translators: %s is the review author name.
 		$meta .= sprintf( __( 'Review by %s', 'book-review-library' ), $author_string );
 		$meta .= '</span><br />';
 	}
 	if ( has_term( '', 'reading-level' ) ) {
 		$meta .= '<span class="reading-level">';
+		// translators: %s is the reading level.
 		$meta .= sprintf( __( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
 		$meta .= '<span><br />';
 	}
@@ -187,24 +191,29 @@ function filter_book_review_single( $content ) {
 		$postmeta .= '</span><br />';
 	}
 	if ( has_term( '', 'genre' ) ) {
+		// translators: %s is the genre name.
 		$postmeta .= '<span class="genre">' . sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres() ) . '</span><br />';
 	}
 	if ( has_term( '', 'series' ) ) {
+		// translators: %s is the series name.
 		$postmeta .= '<span class="series">' . sprintf( __( '<strong>Series:</strong> %s | ', 'book-review-library' ), get_book_series() ) . '</span>';
 	}
 	if ( has_term( '', 'subject' ) ) {
+		// translators: %s is the subject name.
 		$postmeta .= '<span class="subjects">' . sprintf( __( '<strong>Subjects:</strong> %s', 'book-review-library' ), get_subjects() ) . '</span><br />';
 	}
 	if ( has_term( '', 'illustrator' ) ) {
+		// translators: %s is the illustrator name.
 		$postmeta .= '<span class="illustrator">' . sprintf( __( '<strong>Illustrated by</strong> %s', 'book-review-library' ), get_illustrator() ) . '</span>';
 	}
 	$postmeta .= '</div>';
 
-	if ( ( 'book-review' == get_post_type() ) && in_the_loop() && ! $is_book_review_shortcode && ! is_search() ) : // only do this if we're in the loop
+	// only do this if we're in the loop.
+	if ( ( 'book-review' === get_post_type() ) && in_the_loop() && ! $is_book_review_shortcode && ! is_search() ) {
 		return $awards . $content . $meta . $postmeta;
-	else : // otherwise, don't do anything
-		return $content;
-	endif;
+	}
+
+	return $content;
 }
 
 /**
@@ -212,6 +221,8 @@ function filter_book_review_single( $content ) {
  * filters the_excerpt and adds the book review meta data and taxonomies
  *
  * @since   1.0.0
+ * @param string $content The original content.
+ * @return string         The new content.
  */
 function filter_book_review_excerpt( $content ) {
 	global $post, $is_book_review_shortcode;
@@ -224,7 +235,7 @@ function filter_book_review_excerpt( $content ) {
 	$meta = '<div class="post-meta">';
 	if ( has_term( '', 'rating' ) ) {
 		$rating = get_rating();
-		if ( $rating == 'zero' ) {
+		if ( $rating === 'zero' ) {
 			$rating = '0';
 		}
 		$rating_arr = get_term_by( 'name', $rating, 'rating' );
@@ -239,11 +250,13 @@ function filter_book_review_excerpt( $content ) {
 		$rev_auth_slug = $rev_auth->slug;
 		$author_string = '<a href="' . home_url() . '/?review-author=' . $rev_auth_slug . '/">' . get_review_author() . '</a>';
 		$meta .= '<span class="author">';
+		// translators: %s is the review author name.
 		$meta .= sprintf( __( 'Review by %s', 'book-review-library' ), $author_string );
 		$meta .= '</span><br />';
 	}
 	if ( has_term( '', 'reading-level' ) ) {
 		$meta .= '<span class="reading-level">';
+		// translators: %s is the reading level.
 		$meta .= sprintf( __( 'Reading Level: %s', 'book-review-library' ), get_reading_level() );
 		$meta .= '<span><br />';
 	}
@@ -269,59 +282,66 @@ function filter_book_review_excerpt( $content ) {
 		$postmeta .= '</span><br />';
 	}
 	if ( has_term( '', 'genre' ) ) {
+		// translators: %s is the genre name.
 		$postmeta .= '<span class="genre">' . sprintf( __( '<strong>Genre:</strong> %s', 'book-review-library' ), get_genres() ) . '</span><br />';
 	}
 	if ( has_term( '', 'series' ) ) {
+		// translators: %s is the series name.
 		$postmeta .= '<span class="series">' . sprintf( __( '<strong>Series:</strong> %s | ', 'book-review-library' ), get_book_series() ) . '</span>';
 	}
 	if ( has_term( '', 'subject' ) ) {
+		// translators: %s is the subject name.
 		$postmeta .= '<span class="subjects">' . sprintf( __( '<strong>Subjects:</strong> %s', 'book-review-library' ), get_subjects() ) . '</span><br />';
 	}
 	if ( has_term( '', 'illustrator' ) ) {
+		// translators: %s is the illustrator name.
 		$postmeta .= '<span class="illustrator">' . sprintf( __( '<strong>Illustrated by</strong> %s', 'book-review-library' ), get_illustrator() ) . '</span>';
 	}
 	$postmeta .= '</div>';
-
-	if ( ( 'book-review' == get_post_type() ) && in_the_loop() && ! $is_book_review_shortcode && ! is_search() ) : // only do this if we're in the loop
+	 
+	// only do this if we're in the loop.
+	if ( ( 'book-review' === get_post_type() ) && in_the_loop() && ! $is_book_review_shortcode && ! is_search() ) {
 		return $content . $meta . $postmeta;
-	else : // otherwise, don't do anything
-		return $content;
-	endif;
+	}
+	// otherwise, don't do anything.
+	return $content;
 }
 
 /**
  * Book review title filter
- * filters the_title and adds the book author
+ * Filters the_title and adds the book author
  *
  * @since   1.0.0
+ * @param string $title The original title.
+ * @return string       The new title.
  */
 function filter_book_review_title( $title ) {
-	global $post;
-
-
-	if ( has_term( '', 'book-author' ) && 'book-review' == get_post_type() && in_the_loop() ) {
+	if ( has_term( '', 'book-author' ) && 'book-review' === get_post_type() && in_the_loop() ) {
+		// translators: %1$s is the post title, %2$s is the author name.
 		$new_title = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $title . '</a>', get_book_author() );
 		return $new_title;
-	} else {
-		return $title;
 	}
+	
+	return $title;
 }
 
 /**
  * Book review newline title filter
- * filters the_title and adds the book author on a new line
+ * 
+ * Filters the_title and adds the book author on a new line
  *
  * @since   1.4.7
+ * @param string $title The original title.
+ * @return string       The new title.
  */
 function filter_book_review_title_newline( $title ) {
-	global $post;
-
-	if ( has_term( '', 'book-author' ) && 'book-review' == get_post_type() && in_the_loop() ) {
+	if ( has_term( '', 'book-author' ) && 'book-review' === get_post_type() && in_the_loop() ) {
+		// translators: %1$s is the post title, %2$s is the author name.
 		$new_title = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $title . '</a><br /><div class="book-author">', get_book_author() . '</div>' );
 		return $new_title;
-	} else {
-		return $title;
-	}
+	} 
+	
+	return $title;
 }
 
 
@@ -338,12 +358,13 @@ function filter_book_review_title_previous_post( $return ) {
 	$author        = get_book_author( null, ', ', false, $previous_post );
 
 	// Check the post type. Only change the output if we're looking at a book review.
-	if ( $previous_post && 'book-review' == $previous_post->post_type ) {
+	if ( $previous_post && 'book-review' === $previous_post->post_type ) {
 		if ( $return && $previous_post->ID !== get_queried_object_id() ) {
 
-			$output = '<a href="' . get_the_permalink( $previous_post->ID ) . '" rel="previous"><span class="meta-nav">' . __( 'Previous Review', 'book-review-library' ) . '</span>' . esc_attr( $previous_post->post_title ) . '</a>';
+			$output = '<a href="' . get_the_permalink( $previous_post->ID ) . '" rel="previous"><span class="meta-nav">' . __( 'Previous Review', 'book-review-library' ) . '</span>' . esc_html( $previous_post->post_title ) . '</a>';
 
 			if ( isset( $options['title-filter'] ) && 'disabled' !== $options['title-filter'] ) {
+				// translators: %1$s is the post title, %2$s is the author name.
 				$output = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $output, $author );
 			}
 
@@ -360,8 +381,8 @@ add_filter( 'previous_post_link', 'filter_book_review_title_previous_post', 1 );
 /**
  * Alter the previous_post output so the correct book author can be displayed.
  *
- * @param  string $return The original output.
  * @since  1.5.0
+ * @param  string $return The original output.
  * @return string         The new output.
  */
 function filter_book_review_title_next_post( $return ) {
@@ -370,12 +391,13 @@ function filter_book_review_title_next_post( $return ) {
 	$author    = get_book_author( null, ', ', false, $next_post );
 
 	// Check the post type. Only change the output if we're looking at a book review.
-	if ( $next_post && 'book-review' == $next_post->post_type ) {
+	if ( $next_post && 'book-review' === $next_post->post_type ) {
 		if ( $return && $next_post->ID !== get_queried_object_id() ) {
 
-			$output = '<a href="' . get_the_permalink( $next_post->ID ) . '" rel="next"><span class="meta-nav">' . __( 'Next Review', 'book-review-library' ) . '</span>' . esc_attr( $next_post->post_title ) . '</a>';
+			$output = '<a href="' . get_the_permalink( $next_post->ID ) . '" rel="next"><span class="meta-nav">' . __( 'Next Review', 'book-review-library' ) . '</span>' . esc_html( $next_post->post_title ) . '</a>';
 
 			if ( isset( $options['title-filter'] ) && 'disabled' !== $options['title-filter'] ) {
+				// translators: %1$s is the post title, %2$s is the author name.
 				$output = sprintf( __( '%1$s by %2$s', 'book-review-library' ), $output, $author );
 			}
 

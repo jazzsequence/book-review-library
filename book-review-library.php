@@ -1,12 +1,13 @@
 <?php
 /**
+ * Book Review Library
+ * 
  * @package   Book_Reviews
  * @author    Chris Reynolds <hello@chrisreynolds.io>
  * @license   GPLv3
  * @link      http://chrisreynolds.io
  * @copyright 2024 Chris Reynolds
  *
- * @wordpress-plugin
  * Plugin Name: Book Review Library
  * Plugin URI:  https://github.com/jazzsequence/book-review-library/
  * Description: A book cataloguing and review system designed with bookophiles and librarians in mind.
