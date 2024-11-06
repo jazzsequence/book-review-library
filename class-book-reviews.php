@@ -354,11 +354,7 @@ class Book_Reviews {
 		$screen = get_current_screen();
 		if ( 'book-review' != $screen->post_type ) {
 			return;
-		} else {
-
-			include_once BOOK_REVIEWS_TEMPLATE_TAGS;
-
-			$options = get_option( 'book_reviews_settings', book_reviews_option_defaults() );
+		}
 
 			unset( $wp_meta_boxes['book-review']['normal']['core']['authordiv'] );
 
