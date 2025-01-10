@@ -1,0 +1,14 @@
+{
+    "name": "jazzsequence/book-review-library",
+    "description": "A book cataloguing and review system designed with bookophiles and librarians in mind.",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Chris Reynolds",
+            "email": "chris@jazzsequence.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
