@@ -29,6 +29,31 @@ Additionally, there are a number of template tags that can be used in your theme
 
 This plugin uses the [Genericons icon font](http://genericons.com) in both the dashboard and the front end to display the book icons and star ratings.
 
+### Installation
+
+#### Via Composer
+
+Book Review Library can be installed on Composer-based WordPress sites by using the following command:
+
+```bash
+composer require jazzsequence/book-review-library
+```
+
+#### Via Git Updater
+
+Book Review Library supports [Andy Fragen's Git Updater](https://git-updater.com) method of managing plugins. 
+
+1. Download and install [Git Updater](https://git-updater.com/git-updater/) on your WordPress site.
+1. From the Git Updater admin pages, navigate to **Install Plugin** and use the following values:
+
+**Plugin URI:** `jazzsequence/book-review-library`  
+**Repository Branch:** `main`  
+**Remote Repository Host:** `GitHub`  
+**GitHub Access Token:** (optional, leave blank)
+
+#### Via WordPress Plugin Repository
+The plugin can be installed via the WordPress plugin repository, however, the version in the repository may not be the most current version. Use the standard methods of searching for and installing the plugin from the Plugins page in your WordPress dashboard.
+
 ### Translators!
 
 New translations site is up at https://chrisreynolds.io/glotpress/projects/book-review-library/
