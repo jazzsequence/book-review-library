@@ -1,0 +1,27 @@
+version: 2
+
+updates:
+  # GitHub Actions. Note that Dependabot only tracks pinned versions — it will
+  # not update a branch ref such as @main or @stable, so keep actions pinned to
+  # tags or SHAs for this to be any use.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "ci"
+
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      composer:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "deps"
