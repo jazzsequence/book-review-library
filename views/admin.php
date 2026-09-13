@@ -22,7 +22,6 @@
 	<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
 		<div class="updated fade"><p><strong><?php _e( 'Book Review options saved', 'book-review-library' ); ?></strong></p></div>
 	<?php endif; ?>
-	<?php screen_icon(); ?>
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 	<div id="poststuff" class="metabox-holder">
 		<div id="post-body" class="metabox-holder columns-1">

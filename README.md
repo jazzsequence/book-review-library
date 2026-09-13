@@ -3,9 +3,10 @@
 Contributors: [jazzsequence](https://github.com/jazzsequence)  
 Donate link: https://paypal.me/jazzsequence  
 Tags: book, book review, library, librarian, reading level, custom post type  
-Requires at least: 3.6  
-Tested up to: 6.1  
-Stable tag: 1.4.24  
+Requires at least: 4.0  
+Tested up to: 7.1  
+Requires PHP: 7.0  
+Stable tag: 1.4.25  
 License: GPLv3  
 License URI: http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -164,8 +165,17 @@ Workaround: If you must have books sorted by author *last name*, you can add the
 
 ## Changelog
 
+### 1.4.25
+* Hardened the ISBN search filter: the query now uses `$wpdb->prepare()` with `$wpdb->esc_like()` instead of deprecated escaping.
+* Removed a call to `screen_icon()`, which has done nothing since WordPress 3.8.
+* Added the missing `Requires at least` and `Requires PHP` plugin headers, and declared the real minimums: WordPress 4.0 (`$wpdb->esc_like()`) and PHP 7.0.
+* Tested up to WordPress 7.1.
+
 ### 1.4.24
-* Made plugin installable via Composer
+* Added a composer.json so the plugin can be installed with Composer.
+* Added Git Updater headers so the plugin can be updated from GitHub.
+* Added a README.md for GitHub and documented the installation methods.
+* Removed a duplicate copy of the license.
 
 ### 1.4.23 
 * updates tested up to

@@ -3,3 +3,7 @@
 .distignore
 .github
 .git
+README.md
+composer.json
+composer.lock
+vendor
