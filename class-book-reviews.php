@@ -1307,16 +1307,23 @@ class Book_Reviews {
 		$keys = array( 'isbn' ); // currently we're just using one, but we can expand this later
 		if ( is_search() && ! is_admin() ) {
 			global $wpdb;
-			$query = get_search_query();
-			$query = like_escape( $query );
+
+			// Use the raw term; prepare() below handles escaping.
+			$like = '%' . $wpdb->esc_like( get_search_query( false ) ) . '%';
 
 			// include postmeta in search
 			foreach ( $keys as $key ) {
-			 	$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->postmeta}.post_id FROM {$wpdb->posts}, {$wpdb->postmeta} WHERE {$wpdb->postmeta}.meta_key = '$key' AND {$wpdb->postmeta}.meta_value LIKE '%$query%' AND {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)";
+				$where .= $wpdb->prepare(
+					" OR {$wpdb->posts}.ID IN (SELECT {$wpdb->postmeta}.post_id FROM {$wpdb->posts}, {$wpdb->postmeta} WHERE {$wpdb->postmeta}.meta_key = %s AND {$wpdb->postmeta}.meta_value LIKE %s AND {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id)",
+					$key,
+					$like
+				);
 			}
-			 // include taxonomy in search
-			$where .= " OR {$wpdb->posts}.ID IN (SELECT {$wpdb->posts}.ID FROM {$wpdb->posts},{$wpdb->term_relationships},{$wpdb->terms} WHERE {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id AND {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->terms}.term_id AND {$wpdb->terms}.name LIKE '%$query%')";
-
+			// include taxonomy in search
+			$where .= $wpdb->prepare(
+				" OR {$wpdb->posts}.ID IN (SELECT {$wpdb->posts}.ID FROM {$wpdb->posts},{$wpdb->term_relationships},{$wpdb->terms} WHERE {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id AND {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->terms}.term_id AND {$wpdb->terms}.name LIKE %s)",
+				$like
+			);
 		}
 		return $where;
 	}
